@@ -2,35 +2,33 @@
 #define JUGADOR
 
 #include <string>
+#include "Usuario.h"
 
 class Partida;
 class PartidaMultijugador;
 
-using std::string;
+using namespace std;
 
-class Jugador
+class Jugador : public Usuario
 {
   private:
-    std::string nickname;
-    std::string contrasena;
+    string nickname;
     int edad;
     Partida** iniciada;
     PartidaMultijugador** unen;
 
   public:
-    Jugador(string, string, int, Partida** , PartidaMultijugador** );
+    Jugador(string, string, string, int, Partida** , PartidaMultijugador** );
     ~Jugador();
 
     // Getters
-    std::string getNickname();
-    std::string getContrasena();
+    string getNickname();
     int getEdad();
     Partida** getPartidasIniciadas();
     PartidaMultijugador** getPartidasMultijugador();
 
     // Setters
     void setNickname(string nickname);
-    void setContrasena(string contrasena);
     void setEdad(int edad);
     void setPartidasIniciadas(Partida** iniciadas);
     void setPartidasMultijugador(PartidaMultijugador** partidasMultijugador);
