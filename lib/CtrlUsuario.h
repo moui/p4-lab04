@@ -17,8 +17,12 @@ class CtrlUsuario : public IUsuario
         static CtrlUsuario * instancia;
         CtrlUsuario();
 
+        Usuario * sesionActiva;
+
     public:
         ~CtrlUsuario();
+
+        Usuario getSesionActiva();
 
         void confirmaAltaJugador();
         void cancelaAltaJugador();

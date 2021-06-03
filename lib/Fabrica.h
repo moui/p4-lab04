@@ -1,5 +1,5 @@
-#ifndef _FABRICA
-#define _FABRICA
+#ifndef FABRICA
+#define FABRICA
 
 #include "IUsuario.h"
 #include "CtrlUsuario.h"
