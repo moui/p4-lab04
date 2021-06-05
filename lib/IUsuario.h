@@ -16,15 +16,16 @@ class IUsuario
 
         virtual void confirmaAltaJugador();
         virtual void cancelaAltaJugador();
-        virtual void ingresaNicknameJugador(string nickname);
-        virtual void ingresaDatosUauario(string mail, string contrasena);
-        virtual void ingresaNombreEmpresa(string nombre);
+        virtual void ingresaDatosJugador(string nickname, string descripcion);
+        virtual void ingresaDatosUsuario(string mail, string contrasena);
+        virtual void ingresaDatosDesarrollador(string empresa);
         virtual void confirmaAltaDesarrollador();
         virtual void cancelaAltaDesarrollador();
         virtual set<string> listarVideojuegosPublicados();
         virtual void suscribirse(string nombre);
         virtual void cancelarOperacion();
-        virtual void altaSuscripcion();        
+        virtual void altaSuscripcion();       
+        virtual bool 
 };
 
 #endif

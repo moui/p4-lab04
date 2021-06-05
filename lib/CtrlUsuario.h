@@ -27,15 +27,17 @@ class CtrlUsuario : public IUsuario
 
         void confirmaAltaJugador();
         void cancelaAltaJugador();
-        void ingresaNicknameJugador(string nickname);
-        void ingresaDatosUauario(string mail, string contrasena);
-        void ingresaNombreEmpresa(string nombre);
+        void ingresaDatosJugador(string nickname, string descripcion);
+        void ingresaDatosUsuario(string mail, string contrasena);
+        void ingresaDatosDesarrollador(string empresa);
         void confirmaAltaDesarrollador();
         void cancelaAltaDesarrollador();
         set<string> listarVideojuegosPublicados();
         void suscribirse(string nombre);
         void cancelarOperacion();
         void altaSuscripcion();
+
+        bool existeNickname(string nickname);
 };
 
 #endif
