@@ -12,7 +12,7 @@ class Partida
     float identificador;
     DtFechaHora fecha;
     float duracion;
-    std::string iniciadaPor;
+    Jugador* iniciada_por;
     Videojuego* tiene;
     bool finalizada;
 
