@@ -7,9 +7,8 @@
 class PartidaMultijugador : public Partida
 {
   private:
-    std::string* nicknameJ;
     bool transmitidaEnVivo;
-    Jugador **unen;
+    InfoPartiddaJugador **unen;
     int unidos;
   public:
 
