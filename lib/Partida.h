@@ -9,16 +9,19 @@ class Videojuego;
 class Partida
 {
   private:
+    float identificador;
     DtFechaHora fecha;
     float duracion;
-    Jugador* iniciada;
+    std::string iniciadaPor;
     Videojuego* tiene;
+    bool finalizada;
 
   public:
     Partida(DtFechaHora, float, Jugador*, Videojuego*);
     virtual float darTotalHorasParticipantes() = 0; // class Partida sera una clase abstracta
     virtual ~Partida();
-
+    bool estaFinalizada();
+  
     // Setters
     void setFecha(DtFechaHora);
     void setDuracion(float);
