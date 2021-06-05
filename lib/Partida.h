@@ -11,7 +11,7 @@ class Partida
   private:
     DtFechaHora fecha;
     float duracion;
-    Jugador* iniciada;
+    Jugador* iniciada_por;
     Videojuego* tiene;
 
   public:
