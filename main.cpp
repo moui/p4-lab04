@@ -1,4 +1,6 @@
 #include "lib/Sistema.h"
+#include "lib/IUsuario.h"
+#include "lib/Fabrica.h"
 
 #include <iostream>
 #include <string>
@@ -7,6 +9,9 @@ using std::string;
 
 int main(void)
 {
+
+  IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
+
   int op;
 
   cout << "menu principal" << endl;
@@ -31,6 +36,7 @@ int main(void)
         cin >> mail;
         cout << "Ingrese contrasena: ";
         cin >> contrasena;
+        
         cout << "El usuario es Desarrollador o Jugador (d/j):";
         flag = false;
         while (flag==false) {
@@ -126,6 +132,8 @@ int main(void)
                 cout << *partida << endl;
             }
             delete ArregloP[i];
+          };
+          cout << "\n";P[i];
           };
           cout << "\n";
         }

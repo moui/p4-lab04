@@ -23,11 +23,12 @@ class CtrlUsuario : public IUsuario
         ~CtrlUsuario();
 
         Usuario getSesionActiva();
+        static CtrlUsuario * getCtrlUsuario();
 
         void confirmaAltaJugador();
         void cancelaAltaJugador();
         void ingresaNicknameJugador(string nickname);
-        void ingresaDatosUauario(string email, string contrasena);
+        void ingresaDatosUauario(string mail, string contrasena);
         void ingresaNombreEmpresa(string nombre);
         void confirmaAltaDesarrollador();
         void cancelaAltaDesarrollador();
