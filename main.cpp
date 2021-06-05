@@ -9,39 +9,60 @@ int main(void)
 {
   int op;
 
-  cout << "Menu principal" << endl;
-  cout << "1) agregar Jugador" << endl;
-  cout << "2) agregar Videojuego" << endl;
-  cout << "3) obtener Jugadores" << endl;
-  cout << "4) obtener Partidas" << endl;
-  cout << "5) obtener Videojuegos" << endl;
-  cout << "6) iniciar Partida" << endl;
-  cout << "0) Salir" << endl;
+  cout << "menu principal" << endl;
+  cout << "1 alta de usuario" << endl;
+  cout << "2 iniciar sesion" << endl;
+  cout << "3 modificar fecha del sistema" << endl;
+  cout << "4 cargar datos de prueba" << endl;
+  cout << "5 salir" << endl;
   cin >> op;
 
   Sistema* sistema = new Sistema();
 
-  while (op != 0)
+  while (op != 5)
   {
     switch(op)
     {
       case 1 :
       {
-        string nickname, contrasena;
-        int edad;
-
-        cout << "Ingrese nickname: ";
-        cin >> nickname;
+        string mail, contrasena, tipo, empresa, nickname, descripcion;
+        bool flag;
+        cout << "Ingrese mail: ";
+        cin >> mail;
         cout << "Ingrese contrasena: ";
         cin >> contrasena;
-        cout << "Ingrese edad del jugador: ";
-        cin >> edad;
+        cout << "El usuario es Desarrollador o Jugador (d/j):";
+        flag = false;
+        while (flag==false) {
+          cin >> tipo;
+          if (tipo=="j") {
+            cout << "Ingrese nickname:";
+            cin >> nickname;
+            cout << "Ingrese descripcion:";
+            cin >> descripcion;
+            //alta jugador  
+            try {
+              // sistema->agregarJugador(nickname, edad, contrasena);
+            }
+            catch (const std::invalid_argument& err) {
+	            std::cerr << "Error: " << err.what() << '\n';
+            }
+          }
+          else if (tipo=="d") {
+            cout << "Ingrese empresa:";
+            cin >> empresa;
 
-        try {
-          sistema->agregarJugador(nickname, edad, contrasena);
-        }
-        catch (const std::invalid_argument& err) {
-	        std::cerr << "Error: " << err.what() << '\n';
+            //alta desarrollador
+            try {
+             // sistema->agregarJugador(nickname, edad, contrasena);
+            }
+            catch (const std::invalid_argument& err) {
+	            std::cerr << "Error: " << err.what() << '\n';
+            }
+          }
+          else {
+            cout << "Seleccione un tipo valido. (d/j)" << endl;
+          }
         }
         break;
       }
@@ -113,83 +134,6 @@ int main(void)
         }
         break;
         }
-
-      case 5 :
-    {
-        int cantvj=0;
-
-        DtVideojuego** ArregloVJ = sistema->obtenerVideojuegos(cantvj);
-
-        cout << "Cantidad de Videojuegos: " << cantvj << ".\n";
-        for (int i=0; i<cantvj; i++){
-            cout << "Videojuego: " << ArregloVJ[i]->getn()<<", Genero: " << ArregloVJ[i]->getg()<< ", Total horas de juego: " << ArregloVJ[i]->getthj() << ".\n";
-        };
-        cout << "\n";
-
-        break;
-    }
-
-     case 6 :
-       {
-        string nickname, videojuego, multi;
-
-        cout << "Ingrese nombre Jugador: ";
-        cin >> nickname;
-        cout << "Ingrese nombre del videojuego: ";
-        cin >> videojuego;
-
-        cout <<"Partida Multijugador? S/N: ";
-        cin >> multi;
-
-        if (multi=="S") {
-            string transmite;
-            cout<< "Transmite en vivo? S/N: ";
-            cin>> transmite;
-            bool envivo = ((transmite=="S") ? true : false);
-            int unidos;
-            string nicknames;
-            float duracion;
-            cout<< "Ingrese Duracion: ";
-            cin>> duracion;
-
-            DtFechaHora f= DtFechaHora(0,0,0,0,0);
-
-
-
-            cout<<"Ingrese Cantidad de Jugadores unidos: ";
-            cin>>unidos;
-            string *ArregloNicknames=new string [unidos];
-
-            for (int j=0; j<unidos; j++){
-            cout<< "Ingrese Nickname de Jugador unido: ";
-            cin >> nicknames;
-            ArregloNicknames[j]=nicknames;
-            }
-            DtPartida * datos= new DtPartidaMultijugador(f,duracion*unidos, envivo, ArregloNicknames, unidos);
-
-            sistema->iniciarPartida(nickname, videojuego, datos);
-
-
-
-        } else if (multi=="N"){
-            string continua;
-            cout<< "Continua Partida? S/N: ";
-            cin>> continua;
-            bool continuacion = ((continua=="S") ? true : false);
-
-            float duracion;
-            DtFechaHora f= DtFechaHora(0,0,0,0,0);
-
-            cout<< "Ingrese Duracion: ";
-            cin>> duracion;
-            DtPartida *datos= new DtPartidaIndividual(f,duracion, continuacion);
-            sistema->iniciarPartida(nickname, videojuego, datos);
-        } else{
-            cout<< "No ingreso S o N.";
-        }
-        break;
-      }
-
       default :
         cout << "Selecciono una opcion no valida." << endl;
     }
