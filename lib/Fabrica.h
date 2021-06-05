@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// se implementa como un singleton
+
 class Fabrica
 {
     private:

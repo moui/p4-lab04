@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// se implementa como un singleton, alternativa 1 del teorico
+
 Fabrica * Fabrica::instancia = NULL;
 
 Fabrica::Fabrica() {}
