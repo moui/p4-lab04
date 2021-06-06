@@ -15,6 +15,8 @@ class Jugador : public Usuario
     string nickname;
     set<Partida*> iniciadas;
     set<InfoPartidaJugador*> unen;
+    set<Suscripcion*> suscripto;
+    set<Jugador*> sigue;
 
   public:
     Jugador(string, string, string, int, Partida** , PartidaMultijugador** );
@@ -24,11 +26,16 @@ class Jugador : public Usuario
     string getNickname();
     set<Partida*> getPartidasIniciadas();
     set<InfoPartidaJugador*> getPartidasMultijugador();
+    set<DtJugadores*> getSeguidos;
+    set<Suscripciones*> getSusAdquiridas;
 
     // Setters
     void setNickname(string nickname);
     void setPartidasIniciadas(Partida** iniciadas);
     void setPartidasMultijugador(PartidaMultijugador** partidasMultijugador);
+    void setSuscripcion(Suscripcion*);
+    void seguir(Jugador*);
+
 };
 
 #endif
