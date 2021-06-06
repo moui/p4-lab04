@@ -27,12 +27,15 @@ class Partida
     void setDuracion(float);
     void setJugador(Jugador*);
     void setVideojuego(Videojuego*);
+    void cambiarEstado();
 
     // Getters
     DtFechaHora getFecha();
     float getDuracion();
     Jugador* getJugador();
     Videojuego* getVideojuego();
+    float getIdentificador();
+    
 };
 
 #endif
