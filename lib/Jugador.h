@@ -13,9 +13,8 @@ class Jugador : public Usuario
 {
   private:
     string nickname;
-    int edad;
-    Partida** iniciada;
-    PartidaMultijugador** unen;
+    set<Partida*> iniciadas;
+    set<InfoPartidaJugador*> unen;
 
   public:
     Jugador(string, string, string, int, Partida** , PartidaMultijugador** );
@@ -23,13 +22,11 @@ class Jugador : public Usuario
 
     // Getters
     string getNickname();
-    int getEdad();
-    Partida** getPartidasIniciadas();
-    PartidaMultijugador** getPartidasMultijugador();
+    set<Partida*> getPartidasIniciadas();
+    set<InfoPartidaJugador*> getPartidasMultijugador();
 
     // Setters
     void setNickname(string nickname);
-    void setEdad(int edad);
     void setPartidasIniciadas(Partida** iniciadas);
     void setPartidasMultijugador(PartidaMultijugador** partidasMultijugador);
 };
