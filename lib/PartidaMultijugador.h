@@ -24,7 +24,7 @@ class PartidaMultijugador : public Partida
     int getUnidos();
     std::string* getNicknames();
     DtFechaHora* getHoraAbandono();
-    set<Comentario*> getComentarios();
+    set<DtComentario*> getComentarios();
 
 
 //setters
