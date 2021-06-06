@@ -8,23 +8,23 @@ class PartidaMultijugador : public Partida
 {
   private:
     bool transmitidaEnVivo;
-    set <InfoPartiddaJugador*> unen;
+    set<InfoPartiddaJugador*> unen;
     int unidos;
-    set <Comentario*> chat;
+    set<Comentario*> chat;
     
   public:
 
-    PartidaMultijugador(DtFechaHora , float, bool, Jugador *, Videojuego *, Jugador **, std::string*, int);
+    PartidaMultijugador(bool, bool, Jugador *, Videojuego *, Jugador **, int);
     //~PartidaMultijugador();
 
     float darTotalHorasParticipantes();
 //getters
-    Jugador** getUnen();
+    set<infoPartidaJugador> getUnen();
     bool getEnVivo();
     int getUnidos();
     std::string* getNicknames();
     DtFechaHora* getHoraAbandono();
-    Comentario* getComentario();
+    set<Comentario*> getComentarios();
 
 
 //setters
@@ -32,7 +32,7 @@ class PartidaMultijugador : public Partida
     void setUnidos(int);
     void setNicknames(Jugadores*);
     void setHoraAbandono();
-    void comentar();
+    void comentar(std::string);
 
 };
 #endif
