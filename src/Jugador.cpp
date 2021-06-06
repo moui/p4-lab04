@@ -1,13 +1,19 @@
 #include "../lib/Jugador.h"
 
-Jugador::Jugador(string nickname, string contrasena, int edad, Partida** iniciada, PartidaMultijugador** unen)
+// Constructor y destructor
+
+Jugador::Jugador(string email, string contrasena, string nickname, string descripcion, map<int, Partida> inicio)
+  : Usuario(email, contrasena)
 {
   this->nickname = nickname;
-  this->contrasena = contrasena;
-  this->edad = edad;
-  this->iniciada = iniciada;
-  this->unen = unen;
+  this->descripcion = descripcion;
+  this->inicio = inicio;
   return;
+}
+
+Jugador::~Jugador()
+{
+  // Determinar como se va a destruir el map<int, Partida>
 }
 
 // Getters
@@ -16,24 +22,14 @@ string Jugador::getNickname()
   return this->nickname;
 }
 
-string Jugador::getContrasena()
+string Jugador::getDescripcion()
 {
-  return this->contrasena;
+  return this->getDescripcion;
 }
 
-int Jugador::getEdad()
+map<int, Partida> getInicioPartidas()
 {
-  return this->edad;
-}
-
-Partida** Jugador::getPartidasIniciadas()
-{
-  return this->iniciada;
-}
-
-PartidaMultijugador** Jugador::getPartidasMultijugador()
-{
-  return this->unen;
+  return this->inicio;
 }
 
 // Setters
@@ -42,28 +38,12 @@ void Jugador::setNickname(string nickname)
   this->nickname = nickname;
 }
 
-void Jugador::setContrasena(string contrasena)
+void Jugador::setDescripcion(string descripcion)
 {
-  this->contrasena = contrasena;
+  this->descripcion = descripcion;
 }
 
-void Jugador::setEdad(int edad)
+void Jugador::setPartidasIniciadas(map<int,Partida> inicio)
 {
-  this->edad = edad;
-}
-
-void Jugador::setPartidasIniciadas(Partida** iniciadas)
-{
-  this->iniciada = iniciadas;
-}
-
-void Jugador::setPartidasMultijugador(PartidaMultijugador** partidasMultijugador)
-{
-  this->unen = partidasMultijugador;
-}
-
-Jugador::~Jugador()
-{
-  delete[] this->iniciada;
-  delete[] this->unen;
+  this->inicio = inicio;
 }

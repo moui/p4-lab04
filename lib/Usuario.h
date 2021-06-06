@@ -12,9 +12,10 @@ class Usuario
     string contrasena;
 
   public:
-    Usuario(string, string);
+    Usuario(string email, string contrasena);
     virtual ~Usuario();
-
+    virtual void funVirtualPura() = 0; // Usuario es clase abstracta
+    
     // Getters
     string getMail();
     string getContrasena();

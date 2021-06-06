@@ -2,10 +2,12 @@
 #define JUGADOR
 
 #include <string>
+#include <map>
 #include "Usuario.h"
+#include "InfoPartidaMulti.h"
 
 class Partida;
-class PartidaMultijugador;
+class InfoPartidaMulti;
 
 using namespace std;
 
@@ -13,25 +15,23 @@ class Jugador : public Usuario
 {
   private:
     string nickname;
-    int edad;
-    Partida** iniciada;
-    PartidaMultijugador** unen;
+    string descripcion;
+    map<int,Partida> inicio;
 
   public:
-    Jugador(string, string, string, int, Partida** , PartidaMultijugador** );
+    // Constructor y destructor
+    Jugador(string email, string contrasena, string nickname, string descripcion, map<int,Partida> inicio);
     ~Jugador();
 
     // Getters
     string getNickname();
-    int getEdad();
-    Partida** getPartidasIniciadas();
-    PartidaMultijugador** getPartidasMultijugador();
+    string getDescripcion();
+    map<int, Partida> getInicioPartidas();
 
     // Setters
     void setNickname(string nickname);
-    void setEdad(int edad);
-    void setPartidasIniciadas(Partida** iniciadas);
-    void setPartidasMultijugador(PartidaMultijugador** partidasMultijugador);
+    void setDescripcion(string descripcion);
+    void setInicioPartidas(map<int,Partida> inicio);
 };
 
 #endif
