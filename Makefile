@@ -1,8 +1,8 @@
 OPTIONS = -Wall -Werror -g
 CC = g++
 
-CLASSES = Partida PartidaIndividual PartidaMultijugador Videojuego Jugador Sistema
-DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora TipoJuego
+CLASSES = CtrlUsuario Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrolador
+DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora TipoCat
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
 DATATYPES_OBJ = $(DATATYPES:%=obj/datatypes/%.o)
@@ -17,6 +17,12 @@ obj/main.o: main.cpp
 	$(CC) $(OPTIONS) -c $< -o $@
 
 # CLASSES
+obj/CtrlUsuario.o: lib/CtrlUsuario.h src/CtrlUsuario.cpp
+	$(CC) $(OPTIONS) -c src/CtrlUsuario.cpp -o obj/CtrlUsuario.o
+
+obj/Fabrica.o: lib/Fabrica.h src/Fabrica.cpp
+	$(CC) $(OPTIONS) -c src/Fabrica.cpp -o obj/Fabrica.o
+
 obj/Partida.o: lib/Partida.h src/Partida.cpp obj/Jugador.o obj/Videojuego.o
 	$(CC) $(OPTIONS) -c src/Partida.cpp -o obj/Partida.o
 
@@ -29,11 +35,14 @@ obj/PartidaMultijugador.o: lib/PartidaMultijugador.h src/PartidaMultijugador.cpp
 obj/Videojuego.o: lib/Videojuego.h src/Videojuego.cpp
 	$(CC) $(OPTIONS) -c src/Videojuego.cpp -o obj/Videojuego.o
 
+obj/Usuario.o: lib/Usuario.h src/Usuario.cpp
+	$(CC) $(OPTIONS) -c src/Usuario.cpp -o obj/Usuario.o
+
+obj/Desarrolador.o: lib/Desarrolador.h src/Desarrolador.cpp
+	$(CC) $(OPTIONS) -c src/Desarrolador.cpp -o obj/Desarrolador.o
+
 obj/Jugador.o: lib/Jugador.h src/Jugador.cpp
 	$(CC) $(OPTIONS) -c src/Jugador.cpp -o obj/Jugador.o
-
-obj/Sistema.o: lib/Sistema.h src/Sistema.cpp
-	$(CC) $(OPTIONS) -c src/Sistema.cpp -o obj/Sistema.o
 
 # DATATYPES
 obj/datatypes/DtPartida.o: lib/datatypes/DtPartida.h src/datatypes/DtPartida.cpp
@@ -54,8 +63,8 @@ obj/datatypes/DtJugador.o: lib/datatypes/DtJugador.h src/datatypes/DtJugador.cpp
 obj/datatypes/DtFechaHora.o: lib/datatypes/DtFechaHora.h src/datatypes/DtFechaHora.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtFechaHora.cpp -o obj/datatypes/DtFechaHora.o
 
-obj/datatypes/TipoJuego.o: lib/datatypes/TipoJuego.h src/datatypes/TipoJuego.cpp
-	$(CC) $(OPTIONS) -c src/datatypes/TipoJuego.cpp -o obj/datatypes/TipoJuego.o
+obj/datatypes/TipoCat.o: lib/datatypes/TipoCat.h src/datatypes/TipoCat.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoCat.cpp -o obj/datatypes/TipoCat.o
 
 # PHONY TARGETS
 clean:

@@ -1,4 +1,4 @@
-#include "lib/Fabrica.h"
+#include "../lib/Fabrica.h"
 
 using namespace std;
 

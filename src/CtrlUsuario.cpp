@@ -1,4 +1,4 @@
-#include "lib/CtrlUsuario.h"
+#include "../lib/CtrlUsuario.h"
 
 using namespace std;
 

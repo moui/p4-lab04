@@ -1,6 +1,11 @@
 #ifndef IUSUARIO
 #define IUSUARIO
 
+#include <string>
+#include <set>
+
+using namespace std;
+
 class IUsuario
 {
     public:

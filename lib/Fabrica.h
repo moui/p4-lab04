@@ -1,7 +1,7 @@
 #ifndef FABRICA
 #define FABRICA
 
-#include "IUsuario.h"
+#include "interfaces/IUsuario.h"
 #include "CtrlUsuario.h"
 
 using namespace std;
