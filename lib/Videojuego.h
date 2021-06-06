@@ -13,11 +13,13 @@ class Videojuego
 {
   private:
     std::string nombre;
-    TipoJuego genero;
-    Partida **tiene;
+    std::string descripcion;
+    set<Categoria*> categorias;
+    set<Partida*> tiene;
+    set<Puntaje*> Puntuaciones;
 
   public:
-    Videojuego(std::string, TipoJuego, Partida **);
+    Videojuego(std::string, Partida **, set<Categoria*>);
     ~Videojuego();
     
 
@@ -25,16 +27,18 @@ class Videojuego
 
     std::string getNombreVJ();
     TipoJuego getGenero();
-    Partida ** getTienePartida();
+    set<Partida*> getTienePartida();
+    set<DtCategoria*> getCategorias();
+    Puntaje* getPuntaje();
 
     //setters
 
     void setNombreVJ(string);
     void setGenero(TipoJuego);
     void setTienePartida(Partida **);
-
-
-
+    void setPuntaje(TipoPuntaje);
+    void setPartida(Partida*);
+    void setCategoria(Categoria*)
 };
 
 #endif
