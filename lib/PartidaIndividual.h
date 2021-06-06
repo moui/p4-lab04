@@ -3,8 +3,6 @@
 
 #include "Partida.h"
 
-
-
 class PartidaIndividual : public Partida
 {
   private:

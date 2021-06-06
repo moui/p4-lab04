@@ -4,9 +4,9 @@ const string Constantes::MenuPrincipal =
     "\n"
     "--------------------------------------------------------------------------\n"
     "                              MENU PRINCIPAL                              \n"
-    "                  Programacion 4 - Laboratorio Implementacion             \n"
+    "           Programacion 4 - Laboratorio Implementacion - 2021             \n"
     "--------------------------------------------------------------------------\n"
-    "         Codigo        |                    Operacion                     \n"
+    "        Codigo         |                    Operacion                     \n"
     "--------------------------------------------------------------------------\n"
     "           1           |                   ALTA USUARIO                   \n"
     "           2           |                  INICIAR SESION                  \n"
@@ -15,6 +15,9 @@ const string Constantes::MenuPrincipal =
     "           0           |                      SALIR                       \n"
     "--------------------------------------------------------------------------\n"
     "\n";
+
+const string Constantes::PresentacionFechaActual =
+    "Fecha actual del sistema: ";
 
 const string Constantes::MenuDesarrollador = 
     "Desarrollador";

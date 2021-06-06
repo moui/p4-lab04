@@ -1,42 +1,58 @@
 #include "../../lib/datatypes/DtPartidaMultijugador.h"
 #include "../../lib/datatypes/DtFechaHora.h"
 
-DtPartidaMultijugador::DtPartidaMultijugador(DtFechaHora fecha, float duracion, bool transmitida, std::string* jugadores, int cantJugadores):
-    DtPartida(fecha, duracion)
+// Constructor.
+DtPartidaMultijugador::DtPartidaMultijugador(float id, float duracion, DtFechaHora fecha, 
+    bool enVivo, string* jugadoresUnidos, int cantidadUnidos)
+        : DtPartida::DtPartida(id, duracion, fecha)
 {
-
-  this->transmitidaEnVivo = transmitida;
-  this->nicknameJugadoresUnidos = jugadores;
-  this->cantidadJugadoresUnidos = cantJugadores;
+    transmitidaEnVivo = enVivo;
+    nicknameJugadoresUnidos = jugadoresUnidos;
+    cantidadJugadoresUnidos = cantidadUnidos;
 }
+
+// Destructor
+DtPartidaMultijugador::~DtPartidaMultijugador()
+{
+    delete[] nicknameJugadoresUnidos;
+}
+
+// Implementacion funcion pura de DtPartida
+void DtPartidaMultijugador::abstracta() {}
 
 // Getters
 bool DtPartidaMultijugador::getTransmitidaEnVivo()
 {
-  return this->transmitidaEnVivo;
+    return transmitidaEnVivo;
 }
 
-std::string* DtPartidaMultijugador::getNicknameJugadoresUnidos()
+string* DtPartidaMultijugador::getNicknameJugadoresUnidos()
 {
-  return this->nicknameJugadoresUnidos;
+    return nicknameJugadoresUnidos;
 }
 
 int DtPartidaMultijugador::getCantidadJugadoresUnidos()
 {
-  return this->cantidadJugadoresUnidos;
+    return cantidadJugadoresUnidos;
 }
 
-std::ostream& operator<<(std::ostream& out, const DtPartidaMultijugador& dt){
-
-    out << "Tipo de partida: Multijugador.\n";
-    out << "Fecha partida: " << dt.getFecha().getd()<< "/" << dt.getFecha().getmes()<<"/"<< dt.getFecha().geta()<<"\n";
-    out << dt.getDuracion() << "\n";
-    out << "Transmitida en vivo: "<< ((dt.transmitidaEnVivo) ? "Si.\n" : "No.\n");
-    out << "Cantidad de jugadores unidos a la partida: " << dt.cantidadJugadoresUnidos << ".\n";
-    out << "Jugadores unidos a la partida: ";
-    for (int i = 0; i < dt.cantidadJugadoresUnidos; i++) {
-      out << dt.nicknameJugadoresUnidos[i] << " ";
+// Sobrecarga del operador de insercion <<
+std::ostream& operator<<(std::ostream& os, const DtPartidaMultijugador& dtPartidaMulti)
+{
+    os << "Tipo partida: Multijugador" << endl;
+    os << "ID partida: " << static_cast<float>(dtPartidaMulti.identificador) << endl;
+    os << "Fecha partida: " << dtPartidaMulti.fecha << endl;
+    os << "Duracion partida: " << static_cast<int>(dtPartidaMulti.duracion) << " hs" << endl;
+    if (dtPartidaMulti.transmitidaEnVivo)
+        os << "Transmitida en vivo: Si" << endl;
+    else
+        os << "Transmitida en vivo: No" << endl;
+    os << "Cantidad de jugadores unidos a la partida: " << dtPartidaMulti.cantidadJugadoresUnidos << endl;
+    os << "Jugadores unidos a la partida: ";
+    for (int i = 0; i < dtPartidaMulti.cantidadJugadoresUnidos; i++)
+    {
+        os << dtPartidaMulti.nicknameJugadoresUnidos[i] << " ";
     }
-    out << std::endl;
-    return out;
-    }
+    os << endl;
+    return os;
+}

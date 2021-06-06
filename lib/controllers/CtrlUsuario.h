@@ -23,10 +23,11 @@ class CtrlUsuario : public IUsuario
         static CtrlUsuario* getInstancia();
         // Destructor
         ~CtrlUsuario();
-        // Getters
+
+        // Getters y Setters
         Usuario* getSesionActiva();
-        // Setters
         void setSesionActiva(Usuario* usuario);
+        
         // Implementacion IUsuario
         void altaUsuario();
         void iniciarSesion();

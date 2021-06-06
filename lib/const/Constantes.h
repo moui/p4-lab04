@@ -11,6 +11,7 @@ class Constantes
         static const string MenuPrincipal;
         static const string MenuDesarrollador;
         static const string MenuJugador;
+        static const string PresentacionFechaActual;
 };
 
 #endif

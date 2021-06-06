@@ -12,6 +12,7 @@ int main()
     int operacion = 1;
 
     cout << Constantes::MenuPrincipal;
+    cout << Constantes::PresentacionFechaActual << *(Sistema->getFecha());
     while (operacion != 0)
     {
         cout << "Ingrese codigo de operacion: ";
