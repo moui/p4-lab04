@@ -10,7 +10,7 @@ class PartidaMultijugador : public Partida
     bool transmitidaEnVivo;
     InfoPartiddaJugador **unen;
     int unidos;
-    Comentario* chat;
+    Comentario **chat;
     
   public:
 
