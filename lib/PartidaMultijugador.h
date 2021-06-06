@@ -30,7 +30,7 @@ class PartidaMultijugador : public Partida
 //setters
     void setEnVivo(bool);
     void setUnidos(int);
-    void setNicknames(std::string*);
+    void setNicknames(Jugadores*);
     void setHoraAbandono();
     void comentar();
 
