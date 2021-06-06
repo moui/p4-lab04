@@ -33,7 +33,7 @@ class CtrlPartida : public IPartida
         set<DtPartidaIndividual> listaPartidasIndTer();
         void enVivo(bool enVivo);
         void cancelarIniciarPartida();
-        set<DtPartidas> listaPartidasIniciadas(string nickname);
+        set<DtPartida> listaPartidasIniciadas(string nickname);
         void finalizarPartida(float id);
         void cancelarFinalizarPartida();
 
