@@ -21,6 +21,14 @@ class Jugador : public Usuario
   public:
     Jugador(string, string, string, int, Partida** , PartidaMultijugador** );
     ~Jugador();
+    void finPartida(float);
+    set<DtPartidas*> partidasInSF();
+    void iniciadaP(Partida);
+    bool estaSuscritoA(std::string);
+    set<DtPartidasIndividuales*> partidasIndF();
+    set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
+    void AltaSuscripcion();
+    void CancelarSuscripcion(std::string);
 
     // Getters
     string getNickname();
