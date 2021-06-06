@@ -14,7 +14,7 @@ class PartidaMultijugador : public Partida
     
   public:
 
-    PartidaMultijugador(bool, bool, Jugador *, Videojuego *, Jugador **, int);
+    PartidaMultijugador(DtFechaHora, bool, bool, Jugador *, Videojuego *, Jugador **, int);
     //~PartidaMultijugador();
 
     float darTotalHorasParticipantes();
