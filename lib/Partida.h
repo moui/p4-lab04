@@ -17,7 +17,7 @@ class Partida
     bool finalizada;
 
   public:
-    Partida(DtFechaHora, float, Jugador*, Videojuego*);
+    Partida(DtFechaHora, Jugador*, Videojuego*, bool);
     virtual float darTotalHorasParticipantes() = 0; // class Partida sera una clase abstracta
     virtual ~Partida();
     bool estaFinalizada();
