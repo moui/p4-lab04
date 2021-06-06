@@ -8,21 +8,19 @@
 class PartidaIndividual : public Partida
 {
   private:
-
-    bool continuaPartidaAnterior;
+    PartidaIndividual* continuacion;
 
   public:
-
-    PartidaIndividual(DtFechaHora, float, bool, Jugador *, Videojuego *);
-    //~PartidaIndividual();
+    PartidaIndividual(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego, PartidaIndividual* continuacion);
+    ~PartidaIndividual();
 
     float darTotalHorasParticipantes();
-    //getters
+    
+    // Getters
+    bool getContinuacion();
 
-    bool getcontinuaPartidaAnterior();
-
-    //setters
-    void setcontinuaPartidaAnterior(bool);
+    // Setters
+    void setContinuacion(PartidaIndividual* partida);
 
 
 };

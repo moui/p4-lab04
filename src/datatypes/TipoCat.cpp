@@ -1,4 +1,4 @@
-#include "lib/datatypes/TipoCat.h"
+#include "../../lib/datatypes/TipoCat.h"
 #include <iostream>
 
 inline std::istream& operator>> ( std::istream& in, TipoCat& t ){

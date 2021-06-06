@@ -8,7 +8,7 @@ using namespace std;
 class Usuario
 {
   private:
-    string mail;
+    string email;
     string contrasena;
 
   public:
@@ -21,7 +21,7 @@ class Usuario
     string getContrasena();
   
     // Setters
-    void setMail(string mail);
+    void setMail(string email);
     void setContrasena(string contrasena);
 };
 

@@ -1,24 +1,32 @@
 #include "../lib/Fabrica.h"
 
-using namespace std;
-
 // se implementa como un singleton, alternativa 1 del teorico
 
-Fabrica * Fabrica::instancia = NULL;
+// Singleton
+Fabrica* Fabrica::instancia = NULL;
 
-Fabrica::Fabrica() {}
-
-Fabrica * Fabrica::getInstancia(){
-	if (instancia == NULL) {
-            instancia = new Fabrica();
-	}
-	return instancia;
+// Constructor
+Fabrica::Fabrica() 
+{
 }
 
-Fabrica::~Fabrica(){
-
+//Destructor
+Fabrica::~Fabrica()
+{
 }
 
-IUsuario *Fabrica::getIUsuario(){
-    return CtrlUsuario::getCtrlUsuario();
+// GetInstance
+Fabrica * Fabrica::getInstancia()
+{
+    if (instancia == NULL)
+    {
+        instancia = new Fabrica();
+    }
+    return instancia;
+}
+
+// GetInterfaces
+IUsuario *Fabrica::getIUsuario()
+{
+    return CtrlUsuario::getInstancia();
 }

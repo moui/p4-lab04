@@ -12,7 +12,7 @@ class Desarrollador : public Usuario
     string empresa;
 
   public:
-    Desarrollador(string, string, string);
+    Desarrollador(string email, string contrasena, string empresa);
     ~Desarrollador();
 
     // Getters

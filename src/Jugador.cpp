@@ -2,7 +2,7 @@
 
 // Constructor y destructor
 
-Jugador::Jugador(string email, string contrasena, string nickname, string descripcion, map<int, Partida> inicio)
+Jugador::Jugador(string email, string contrasena, string nickname, string descripcion, map<int, Partida*> inicio)
   : Usuario(email, contrasena)
 {
   this->nickname = nickname;
@@ -24,10 +24,10 @@ string Jugador::getNickname()
 
 string Jugador::getDescripcion()
 {
-  return this->getDescripcion;
+  return this->descripcion;
 }
 
-map<int, Partida> getInicioPartidas()
+map<int, Partida*> Jugador::getInicioPartidas()
 {
   return this->inicio;
 }
@@ -43,7 +43,7 @@ void Jugador::setDescripcion(string descripcion)
   this->descripcion = descripcion;
 }
 
-void Jugador::setPartidasIniciadas(map<int,Partida> inicio)
+void Jugador::setInicioPartidas(map<int,Partida*> inicio)
 {
   this->inicio = inicio;
 }

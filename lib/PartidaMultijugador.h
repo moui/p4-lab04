@@ -2,31 +2,35 @@
 #define PARTIDAMULTIJUGADOR
 
 #include "Partida.h"
+#include "InfoPartidaMulti.h"
+
 #include <string>
+#include <map>
+
+using namespace std;
 
 class PartidaMultijugador : public Partida
 {
-  private:
-    bool transmitidaEnVivo;
-    InfoPartiddaJugador **unen;
-    int unidos;
-  public:
+    private:
+        bool transmitidaEnVivo;
+        map<string, InfoPartidaMulti> participan;
 
-    PartidaMultijugador(DtFechaHora , float, bool, Jugador *, Videojuego *, Jugador **, std::string*, int);
-    //~PartidaMultijugador();
+    public:
+        // Constructores y destructores
+        PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego,
+            bool enVivo, map<string, InfoPartidaMulti> mapInfoPM);
 
-    float darTotalHorasParticipantes();
-//getters
-    Jugador** getUnen();
-    bool getEnVivo();
-    int getUnidos();
-    std::string* getNicknames();
+        ~PartidaMultijugador();
+        
+        // Getters
+        bool getTransmitidaEnVivo();
+        map<string, InfoPartidaMulti> getParticipan();
 
+        // Setters
+        void setTransmitidaEnVivo(bool enVivo);
+        void setParticipan(map<string, InfoPartidaMulti> mapInfoPM);
 
-//setters
-    void setEnVivo(bool);
-    void setUnidos(int);
-    void setNicknames(std::string*);
-
+        // Operaciones
+        float darTotalHorasParticipantes();        
 };
 #endif

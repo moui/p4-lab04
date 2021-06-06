@@ -14,23 +14,23 @@ Usuario::~Usuario()
 }
 
 // Getters
-string getMail()
+string Usuario::getMail()
 {
     return this->email;
 }
 
-string getContrasena()
+string Usuario::getContrasena()
 {
     return this->contrasena;
 }
 
 // Setters
-void setMail(string mail)
+void Usuario::setMail(string mail)
 {
-    this->mail = mail;
+    this->email = mail;
 }
 
-void setContrasena(string contrasena)
+void Usuario::setContrasena(string contrasena)
 {
     this->contrasena = contrasena;
 }

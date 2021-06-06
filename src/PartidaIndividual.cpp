@@ -1,25 +1,30 @@
 #include "../lib/PartidaIndividual.h"
 
-PartidaIndividual::PartidaIndividual(DtFechaHora fecha, float duracion, bool continuaP, Jugador *inicia, Videojuego *videojuego)
-    :Partida(fecha, duracion, inicia, videojuego)
+// Constructor y destructor 
+PartidaIndividual::PartidaIndividual(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego, PartidaIndividual* continuacion)
+    : Partida(id, duracion, finalizada, fecha, videojuego)
 {
-    this->continuaPartidaAnterior=continuaP;
-
+    this->continuacion = continuacion;
 }
-// PartidaIndividual::~PartidaIndividual(){} 
 
+PartidaIndividual::~PartidaIndividual()
+{
+}
 
-////usar el datatype correspondiente
+// Getters
+bool PartidaIndividual::getContinuacion()
+{
+    return this->continuacion;
+}
+
+// Setters
+void PartidaIndividual::setContinuacion(PartidaIndividual* partida)
+{
+    this->continuacion = partida;
+}
+
+// Metodos
 float PartidaIndividual::darTotalHorasParticipantes()
 {
-  return getDuracion();
-}
-
-bool PartidaIndividual::getcontinuaPartidaAnterior(){
-    return this->continuaPartidaAnterior;}
-
-
-
-void PartidaIndividual::setcontinuaPartidaAnterior(bool continua){
-    this->continuaPartidaAnterior=continua;
+    return getDuracion();
 }

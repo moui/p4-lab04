@@ -1,24 +1,30 @@
 OPTIONS = -Wall -Werror -g
 CC = g++
 
-CLASSES = CtrlUsuario Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrolador
+CLASSES = Sistema Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti
+CONST = Constantes
 DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora TipoCat
+INTERFACES = IUsuario
+CONTROLLERS = CtrlUsuario
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
+CONST_OBJ = $(CONST:%=obj/const/%.o)
 DATATYPES_OBJ = $(DATATYPES:%=obj/datatypes/%.o)
+INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
+CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
 
 .PHONY: clean lab
 
 # MAIN
-main: obj/main.o $(CLASSES_OBJ) $(DATATYPES_OBJ)
+main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ)
 	$(CC) $(OPTIONS) $^ -o $@
 
 obj/main.o: main.cpp
 	$(CC) $(OPTIONS) -c $< -o $@
 
 # CLASSES
-obj/CtrlUsuario.o: lib/CtrlUsuario.h src/CtrlUsuario.cpp
-	$(CC) $(OPTIONS) -c src/CtrlUsuario.cpp -o obj/CtrlUsuario.o
+obj/Sistema.o: lib/Sistema.h src/Sistema.cpp
+	$(CC) $(OPTIONS) -c src/Sistema.cpp -o obj/Sistema.o
 
 obj/Fabrica.o: lib/Fabrica.h src/Fabrica.cpp
 	$(CC) $(OPTIONS) -c src/Fabrica.cpp -o obj/Fabrica.o
@@ -38,11 +44,18 @@ obj/Videojuego.o: lib/Videojuego.h src/Videojuego.cpp
 obj/Usuario.o: lib/Usuario.h src/Usuario.cpp
 	$(CC) $(OPTIONS) -c src/Usuario.cpp -o obj/Usuario.o
 
-obj/Desarrolador.o: lib/Desarrolador.h src/Desarrolador.cpp
-	$(CC) $(OPTIONS) -c src/Desarrolador.cpp -o obj/Desarrolador.o
+obj/Desarrollador.o: lib/Desarrollador.h src/Desarrollador.cpp
+	$(CC) $(OPTIONS) -c src/Desarrollador.cpp -o obj/Desarrollador.o
 
 obj/Jugador.o: lib/Jugador.h src/Jugador.cpp
 	$(CC) $(OPTIONS) -c src/Jugador.cpp -o obj/Jugador.o
+
+obj/InfoPartidaMulti.o: lib/InfoPartidaMulti.h src/InfoPartidaMulti.cpp
+	$(CC) $(OPTIONS) -c src/InfoPartidaMulti.cpp -o obj/InfoPartidaMulti.o
+
+# CONST
+obj/const/Constantes.o: lib/const/Constantes.h src/const/Constantes.cpp
+	$(CC) $(OPTIONS) -c src/const/Constantes.cpp -o obj/const/Constantes.o
 
 # DATATYPES
 obj/datatypes/DtPartida.o: lib/datatypes/DtPartida.h src/datatypes/DtPartida.cpp
@@ -66,8 +79,16 @@ obj/datatypes/DtFechaHora.o: lib/datatypes/DtFechaHora.h src/datatypes/DtFechaHo
 obj/datatypes/TipoCat.o: lib/datatypes/TipoCat.h src/datatypes/TipoCat.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoCat.cpp -o obj/datatypes/TipoCat.o
 
+# INTERFACES
+obj/interfaces/IUsuario.o: lib/interfaces/IUsuario.h src/interfaces/IUsuario.cpp
+	$(CC) $(OPTIONS) -c src/interfaces/IUsuario.cpp -o obj/interfaces/IUsuario.o
+
+# CONTROLLERS
+obj/controllers/CtrlUsuario.o: lib/controllers/CtrlUsuario.h src/controllers/CtrlUsuario.cpp
+	$(CC) $(OPTIONS) -c src/controllers/CtrlUsuario.cpp -o obj/controllers/CtrlUsuario.o
+
 # PHONY TARGETS
 clean:
-	@rm -f main obj/main.o $(CLASSES_OBJ) $(DATATYPES_OBJ)
+	@rm -f main obj/main.o $(CLASSES_OBJ) $(DATATYPES_OBJ) $(CONST_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) 
 
 lab:
