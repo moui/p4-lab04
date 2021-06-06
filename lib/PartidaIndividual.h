@@ -25,6 +25,7 @@ class PartidaIndividual : public Partida
 
     //setters
     void setcontinuaPartidaAnterior(bool);
+    void setpartidaACont();
 
 
 };
