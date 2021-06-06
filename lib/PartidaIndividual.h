@@ -10,6 +10,7 @@ class PartidaIndividual : public Partida
   private:
 
     bool continuaPartidaAnterior;
+    PartidaIndividual* continuada;
 
   public:
 
@@ -20,6 +21,7 @@ class PartidaIndividual : public Partida
     //getters
 
     bool getcontinuaPartidaAnterior();
+    DtPartidaIndividual getPartidaCont();
 
     //setters
     void setcontinuaPartidaAnterior(bool);
