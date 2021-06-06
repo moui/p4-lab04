@@ -8,9 +8,9 @@ class PartidaMultijugador : public Partida
 {
   private:
     bool transmitidaEnVivo;
-    InfoPartiddaJugador **unen;
+    set <InfoPartiddaJugador*> unen;
     int unidos;
-    Comentario **chat;
+    set <Comentario*> chat;
     
   public:
 
