@@ -14,7 +14,7 @@ class PartidaIndividual : public Partida
 
   public:
 
-    PartidaIndividual(DtFechaHora, float, bool, Jugador *, Videojuego *);
+    PartidaIndividual(DtFechaHora, bool, Jugador *, Videojuego *, PartidaIndividual *, bool);
     //~PartidaIndividual();
 
     float darTotalHorasParticipantes();
@@ -25,7 +25,7 @@ class PartidaIndividual : public Partida
 
     //setters
     void setcontinuaPartidaAnterior(bool);
-    void setpartidaACont();
+    void setpartidaACont(Partida p);
 
 
 };
