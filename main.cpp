@@ -33,7 +33,12 @@ int main(void)
         cin >> mail;
         cout << "Ingrese contrasena: ";
         cin >> contrasena;
-        
+        try {
+          IUsr->ingresaDatosUsuario(mail, contrasena);
+        }
+        catch (const std::invalid_argument& err) {
+	        cerr << "Error: " << err.what() << '\n';
+        }
         cout << "El usuario es Desarrollador o Jugador (d/j):";
         flag = false;
         while (flag==false) {
@@ -43,24 +48,22 @@ int main(void)
             cin >> nickname;
             cout << "Ingrese descripcion:";
             cin >> descripcion;
-            //alta jugador  
             try {
-              // sistema->agregarJugador(nickname, edad, contrasena);
+              IUsr->ingresaDatosJugador(nickname, descripcion);
             }
             catch (const std::invalid_argument& err) {
-	            std::cerr << "Error: " << err.what() << '\n';
+	            cerr << "Error: " << err.what() << '\n';
             }
           }
           else if (tipo=="d") {
             cout << "Ingrese empresa:";
             cin >> empresa;
-
             //alta desarrollador
             try {
-             // sistema->agregarJugador(nickname, edad, contrasena);
+              IUsr->ingresaDatosDesarrollador(empresa);
             }
             catch (const std::invalid_argument& err) {
-	            std::cerr << "Error: " << err.what() << '\n';
+	            cerr << "Error: " << err.what() << '\n';
             }
           }
           else {
@@ -88,6 +91,5 @@ int main(void)
   }
 
   return 0;
-
 }
 
