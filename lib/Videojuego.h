@@ -4,6 +4,7 @@
 #include "datatypes/TipoJuego.h"
 #include "Partida.h"
 #include <string>
+#include <set>
 
 using std::string;
 
