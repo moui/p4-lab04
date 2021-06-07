@@ -2,6 +2,7 @@
 #define PARTIDA
 
 #include "datatypes/DtFechaHora.h"
+#include <set>
 
 class Jugador;
 class Videojuego;
