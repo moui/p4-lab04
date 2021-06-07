@@ -2,6 +2,7 @@
 #define USUARIO
 
 #include <string>
+#include <set>
 
 using namespace std;
 
