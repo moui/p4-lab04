@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Recibe y parsea string a DtFechaHora. Si el formato ingresado es invalido devuelve NULL.
 static DtFechaHora* ValidarFechaSistema();
 
 int main()

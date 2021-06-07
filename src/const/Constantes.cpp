@@ -14,18 +14,19 @@ const string Constantes::MenuPrincipal =
     "           4           |            MODIFICAR FECHA DEL SISTEMA           \n"
     "           5           |               CARGAR DATOS DE PRUEBA             \n"
     "           0           |                      SALIR                       \n"
-    "--------------------------------------------------------------------------\n"
-    "\n";
+    "--------------------------------------------------------------------------\n";
 
 const string Constantes::PresentacionFechaActual =
     "Fecha actual del sistema: ";
 
 const string Constantes::PresentacionModificarFecha_Inicio =
-    "--------------------------------------------------------------------------\n"
-    "                      MODIFICAR FECHA DEL SISTEMA                         \n"
-    "--------------------------------------------------------------------------\n"
-    "**Formato esperado: DD-MM-AAAA@HH-mm                                      \n"
-    "**Ejemplo: 24-11-2021@19-36                                               \n"
+    "                                                                          \n"
+    "                       MODIFICAR FECHA DEL SISTEMA                        \n"
+    "                                                                          \n"  
+    "              ---------------------------------------------               \n"
+    "              | ** Formato esperado: DD-MM-AAAA@HH-mm **  |               \n"
+    "              |     ** Ejemplo: 24-11-2021@19-36 **       |               \n"
+    "              ---------------------------------------------               \n"
     "                                                                          \n"
     "Ingrese la nueva fecha del sistema: ";
 
