@@ -2,6 +2,7 @@
 #define DT_FECHAHORA
 
 #include <ostream>
+#include <iomanip>
 
 class DtFechaHora
 {

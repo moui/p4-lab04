@@ -61,6 +61,10 @@ int DtFechaHora::getMinuto()
 // Sobrecarga del operador de insercion <<
 std::ostream& operator<<(std::ostream& os, const DtFechaHora& dtFecha)
 {
-  os << dtFecha.dia << "/" << dtFecha.mes << "/" << dtFecha.ano << " @ " << dtFecha.hora << ":" << dtFecha.minuto << std::endl;
+  os  << std::setfill('0') << std::setw(2) << dtFecha.dia << "/" 
+      << std::setfill('0') << std::setw(2) << dtFecha.mes << "/" 
+      << dtFecha.ano << " @ " 
+      << std::setfill('0') << std::setw(2) << dtFecha.hora << ":" 
+      << std::setfill('0') << std::setw(2) << dtFecha.minuto << std::endl;
   return os;
 }
