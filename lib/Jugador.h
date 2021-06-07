@@ -2,6 +2,7 @@
 #define JUGADOR
 
 #include <string>
+#include <set>
 #include "Usuario.h"
 
 class Partida;
