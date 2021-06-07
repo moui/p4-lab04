@@ -6,17 +6,19 @@ CONST = Constantes
 DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora TipoCat
 INTERFACES = IUsuario
 CONTROLLERS = CtrlUsuario
+HELPERS = FechaSistema
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
 CONST_OBJ = $(CONST:%=obj/const/%.o)
 DATATYPES_OBJ = $(DATATYPES:%=obj/datatypes/%.o)
 INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
 CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
+HELPERS_OBJ = $(HELPERS:%=obj/helpers/%.o)
 
 .PHONY: clean lab
 
 # MAIN
-main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ)
+main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) $(HELPERS_OBJ)
 	$(CC) $(OPTIONS) $^ -o $@
 
 obj/main.o: main.cpp
@@ -87,8 +89,12 @@ obj/interfaces/IUsuario.o: lib/interfaces/IUsuario.h src/interfaces/IUsuario.cpp
 obj/controllers/CtrlUsuario.o: lib/controllers/CtrlUsuario.h src/controllers/CtrlUsuario.cpp
 	$(CC) $(OPTIONS) -c src/controllers/CtrlUsuario.cpp -o obj/controllers/CtrlUsuario.o
 
+# HELPERS
+obj/helpers/FechaSistema.o: lib/helpers/FechaSistema.h src/helpers/FechaSistema.cpp
+	$(CC) $(OPTIONS) -c src/helpers/FechaSistema.cpp -o obj/helpers/FechaSistema.o
+
 # PHONY TARGETS
 clean:
-	@rm -f main obj/main.o $(CLASSES_OBJ) $(DATATYPES_OBJ) $(CONST_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) 
+	@rm -f main obj/main.o $(CLASSES_OBJ) $(DATATYPES_OBJ) $(CONST_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) $(HELPERS_OBJ)
 
 lab:

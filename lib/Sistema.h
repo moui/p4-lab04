@@ -1,15 +1,10 @@
 #ifndef SISTEMA
 #define SISTEMA
 
+#include "helpers/FechaSistema.h"
 #include "datatypes/DtFechaHora.h"
 #include "interfaces/IUsuario.h"
 #include "Fabrica.h"
-
-#include <chrono>
-#include <ctime>
-
-using std::chrono::system_clock;
-using std::time_t;
 
 // Clase sistema. Singleton.
 class Sistema
@@ -19,7 +14,8 @@ class Sistema
 	    Sistema(); // Constructor
         
         // Members
-        DtFechaHora* fecha;
+        FechaSistema* fechaSistema;
+        
     public:
         ~Sistema(); // Destructor
 	    static Sistema* getInstancia(); // GetInstance
@@ -27,10 +23,6 @@ class Sistema
         // Getters y Setters
         DtFechaHora* getFecha();
         void setFecha(DtFechaHora* fechaSistema);
-
-        // Operaciones
-        // Retorna instancia de DtFechaHora representando la fecha actual.
-        DtFechaHora* ahora(); 
 };
 
 
