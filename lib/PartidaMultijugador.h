@@ -3,6 +3,7 @@
 
 #include "Partida.h"
 #include <string>
+#include <set>
 
 class PartidaMultijugador : public Partida
 {
