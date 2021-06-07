@@ -2,6 +2,7 @@
 #define PARTIDAINDIVIDUAL
 
 #include "Partida.h"
+#include <set>
 
 
 
