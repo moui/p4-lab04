@@ -64,9 +64,9 @@ void seguir(Jugador* j){
 }
 
 set<DtPartidas*> partidasInSF(){
-   map<float, Partida*>::iterator i = iniciadas->begin();
+   map<float, Partida*>::iterator i = inicio->begin();
    set<DtPartida*> isf;
-   while(i != iniciadas->end()){
+   while(i != inicio->end()){
       if(!estaFinalizada(**i)){
         if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
          DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getContinuacion());
@@ -89,6 +89,7 @@ set<DtPartidas*> partidasInSF(){
 }
 
 void iniciadaP(Partida p){
+  this->inicio[p->getId()] = p;
 }
 
 bool estaSuscritoA(std::string NombreVJ){
