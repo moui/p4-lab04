@@ -16,7 +16,7 @@ using namespace std;
 class Suscripcion{
   private:
     string nombreVJ;
-    TipoFecha fecha;
+    DtFechaHora fecha;
     float costo;
     TipoPago pago;
     TipoEstado estado;

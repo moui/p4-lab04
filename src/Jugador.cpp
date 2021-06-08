@@ -109,6 +109,4 @@ void CancelarSuscripcion(std::string NombreVJ){
 
 Jugador::~Jugador()
 {
-  delete[] this->iniciada;
-  delete[] this->unen;
 }

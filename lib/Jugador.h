@@ -9,7 +9,9 @@
 #include "Partida.h"
 #include "Suscripcion.h"
 #include "datatypes/TipoPeriodo.h"
-
+#include "datatypes/DtPartida.h"
+#include "datatypes/DtSuscripcion.h"
+#include "datatypes/DtJugador.h"
 
 using namespace std;
 
@@ -30,10 +32,10 @@ class Jugador : public Usuario
 
     ~Jugador();
     void finPartida(float id);
-    set<DtPartidas*> partidasInSF();
+    set<DtPartida*> partidasInSF();
     void iniciadaP(Partida p);
     bool estaSuscritoA(std::string NombreVJ);
-    set<DtPartidasIndividuales*> partidasIndF();
+    set<DtPartidaIndividual*> partidasIndF();
     set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
     void AltaSuscripcion();
     void CancelarSuscripcion(std::string NombreVJ);
@@ -43,8 +45,8 @@ class Jugador : public Usuario
     string getDescripcion();
     map<int, Partida*> getInicioPartidas();
     map<float, InfoPartidaMulti*> getPartidasMultijugador();
-    set<DtJugadores*> getSeguidos;
-    set<Suscripciones*> getSusAdquiridas;
+    set<DtJugador*> getSeguidos;
+    set<DtSuscripcion*> getSusAdquiridas;
 
 
     // Setters
@@ -53,7 +55,7 @@ class Jugador : public Usuario
 
     void setInicioPartidas(map<int,Partida*> inicio);
 
-    void setPartidaMultijugador(InfoPartidaJugador partidasMultijugador);
+    void setPartidaMultijugador(InfoPartidaMulti partidasMultijugador);
     void setSuscripcion(Suscripcion* s);
     void seguir(Jugador* j);
 
