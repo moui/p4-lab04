@@ -12,6 +12,8 @@
 #include "datatypes/DtPartida.h"
 #include "datatypes/DtSuscripcion.h"
 #include "datatypes/DtJugador.h"
+#include "datatypes/DtPartidaIndividual.h"
+#include "datatypes/DtVideojuegoSuscripcion.h"
 
 using namespace std;
 
@@ -33,7 +35,7 @@ class Jugador : public Usuario
     ~Jugador();
     void finPartida(float id);
     set<DtPartida*> partidasInSF();
-    void iniciadaP(Partida p);
+    void iniciadaP(Partida* p);
     bool estaSuscritoA(std::string NombreVJ);
     set<DtPartidaIndividual*> partidasIndF();
     set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();

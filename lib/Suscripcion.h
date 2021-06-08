@@ -1,7 +1,6 @@
 #ifndef SUSCRIPCION
 #define SUSCRIPCION
 
-#include <string>
 #include "DescripcionSuscripcion.h"
 #include "datatypes/TipoEstado.h"
 #include "datatypes/TipoPago.h"
