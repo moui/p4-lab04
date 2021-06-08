@@ -1,8 +1,9 @@
 #ifndef SUSCRIPCION
 #define SUSCRIPCION
 
-#include <string>
 #include "DescripcionSuscripcion.h"
+#include "datatypes/TipoEstado.h"
+
 #include <string>
 #include <map>
 //#include "Jugador.h"

@@ -11,8 +11,8 @@ class Desarrollador : public Usuario
 {
   private:
     string empresa;
-    set<Videojuegos*> publicados;
-    set<Estadisticas*> seleccionadas;
+    set<Videojuego*> publicados;
+    set<IEstadistica*> seleccionadas;
 
   public:
     Desarrollador(string email, string contrasena, string empresa);

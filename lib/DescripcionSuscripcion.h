@@ -5,6 +5,7 @@
 #include "DescripcionSuscripcion.h"
 #include "Suscripcion.h"
 #include "datatypes/TipoPeriodo.h"
+#include "datatypes/TipoPago.h"
 
 #include <string>
 #include <map>
