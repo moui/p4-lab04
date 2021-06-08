@@ -2,6 +2,8 @@
 #define VIDEOJUEGO
 
 #include "Partida.h"
+#include "datatypes/TipoPuntaje.h"
+#include "Categoria.h"
 #include <string>
 #include <set>
 
@@ -34,7 +36,7 @@ class Videojuego
     void setTienePartida(Partida **);
     void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);
-    void setCategoria(Categoria*)
+    void setCategoria(Categoria*);
 };
 
 #endif
