@@ -15,8 +15,8 @@ class Jugador : public Usuario
   private:
     string nickname;
     string descripcion;
-    set<Partida*> iniciadas;
-    set<InfoPartidaJugador*> unen;
+    map<float, Partida*> iniciadas;
+    map<float, InfoPartidaJugador*> unen;
     set<Suscripcion*> suscripto;
     set<Jugador*> sigue;
 
@@ -35,16 +35,15 @@ class Jugador : public Usuario
     // Getters
     string getNickname();
     string getDescripciondescripcion();
-    set<Partida*> getPartidasIniciadas();
-    set<InfoPartidaJugador*> getPartidasMultijugador();
+    map<float, Partida*> getPartidasIniciadas();
+    map<float, InfoPartidaJugador*> getPartidasMultijugador();
     set<DtJugadores*> getSeguidos;
     set<Suscripciones*> getSusAdquiridas;
 
     // Setters
     void setNickname(string nickname);
     void setDescripcion(string descripcion);
-    void setPartidasIniciadas(set<Partida*> iniciadas);
-    void setPartidaIniciada(Partida* iniciada);
+    void setPartidasIniciadas(map<float, Partida*> iniciadas);
     void setPartidaMultijugador(InfoPartidaJugador partidasMultijugador);
     void setSuscripcion(Suscripcion*);
     void seguir(Jugador*);
