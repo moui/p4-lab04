@@ -1,4 +1,3 @@
-#include "lib/Sistema.h"
 #include "lib/datatypes/DtFechaHora.h"
 #include "lib/const/Constantes.h"
 
@@ -6,10 +5,10 @@
 #include <limits>
 #include <string>
 
-#include "helpers/FechaSistema.h"
-#include "datatypes/DtFechaHora.h"
-#include "interfaces/IUsuario.h"
-#include "Fabrica.h"
+#include "lib/helpers/FechaSistema.h"
+#include "lib/datatypes/DtFechaHora.h"
+#include "lib/interfaces/IUsuario.h"
+#include "lib/Fabrica.h"
 
 using namespace std;
 

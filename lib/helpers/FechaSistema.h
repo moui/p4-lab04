@@ -3,10 +3,6 @@
 
 #include "../datatypes/DtFechaHora.h"
 
-#include <ctime>
-
-using std::time_t;
-
 class FechaSistema
 {
     private:
