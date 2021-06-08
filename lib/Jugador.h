@@ -34,6 +34,7 @@ class Jugador : public Usuario
 
     // Getters
     string getNickname();
+    string getDescripciondescripcion();
     set<Partida*> getPartidasIniciadas();
     set<InfoPartidaJugador*> getPartidasMultijugador();
     set<DtJugadores*> getSeguidos;
@@ -41,6 +42,7 @@ class Jugador : public Usuario
 
     // Setters
     void setNickname(string nickname);
+    void setDescripcion(string descripcion);
     void setPartidasIniciadas(set<Partida*> iniciadas);
     void setPartidaIniciada(Partida* iniciada);
     void setPartidaMultijugador(InfoPartidaJugador partidasMultijugador);
