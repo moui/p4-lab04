@@ -53,10 +53,12 @@ void finPartida(float id){
 }
 
 void seguir(Jugador* j){
-  sigue->insert(j);
+  /* sigue->insert(j); */
 }
 
-set<DtPartidas*> partidasInSF(){
+set<DtPartida*> partidasInSF()
+{
+   set<DtPartida*> foo;
    /*map<float, Partida*>::iterator i = inicio->begin();
    set<DtPartida*> isf;
    while(i != inicio->end()){
@@ -79,28 +81,34 @@ set<DtPartidas*> partidasInSF(){
       ++i;
    }
    return isf; */
-   return NULL;
+   return foo;
 }
 
-void iniciadaP(Partida p){
-  this->inicio[p->getId()] = p;
+void iniciadaP(Partida* p){
+  /* this->inicio[p->getId()] = p; */
 }
 
-bool estaSuscritoA(std::string NombreVJ){
+bool estaSuscritoA(std::string NombreVJ)
+{
+  return false;
 }
 
-set<DtPartidasIndividuales*> partidasIndF(){
+set<DtPartidaIndividual*> partidasIndF()
+{
+  set<DtPartidaIndividual*> foo;
+  return foo;
 }
 
-set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(){
+set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()
+{
+  set<DtVideojuegoSuscripcion*> foo;
+  return foo;
 }
 
-void AltaSuscripcion(){
+void AltaSuscripcion()
+{
 }
 
-void CancelarSuscripcion(std::string NombreVJ){
-}
-
-Jugador::~Jugador()
+void CancelarSuscripcion(string NombreVJ)
 {
 }
