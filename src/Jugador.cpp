@@ -68,7 +68,20 @@ set<DtPartidas*> partidasInSF(){
    set<DtPartida*> isf;
    while(i != iniciadas->end()){
       if(!estaFinalizada(**i)){
-        
+        if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
+         DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getContinuacion());
+         isf->insert(p);
+        } else {
+        map<string, InfoPartidaMulti> part = *i->getParticipan();
+        map<string, InfoPartidaMulti>::iterator it = part->begin();
+        set<string> s;
+        while (*it != part->end()){
+          s->insert(*it->getNickname);
+          ++it;
+        }
+        DtPartidaMultijugador* p = dynamic_cast<DtPartidaMultijugador*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getTrasmitidaEnVivo(), s, s->size());
+        isf->insert(p);
+        }
       }
       ++i;
    }
