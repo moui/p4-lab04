@@ -3,6 +3,8 @@
 
 #include "Jugador.h"
 
+class Jugador;
+
 class InfoPartidaMulti
 {
     private:

@@ -1,9 +1,9 @@
 #ifndef CTRLVIDEOJUEGO
 #define CTRLVIDEOJUEGO
 
-#include "interfaces/IVideojuego.h"
-#include "Videojuego.h"
-#include "Desarrollador.h"
+#include "../interfaces/IVideojuego.h"
+#include "../Videojuego.h"
+#include "../Desarrollador.h"
 #include <set>
 
 using namespace std;

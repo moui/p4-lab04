@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 
+#include "InfoPartidaMulti.h"
 #include "Usuario.h"
 #include "Partida.h"
 
@@ -20,7 +21,7 @@ class Jugador : public Usuario
     // Constructor y destructor
     Jugador(string email, string contrasena, string nickname, string descripcion, map<int,Partida*> inicio);
 
-    map<float, InfoPartidaJugador*> unen;
+    map<float, InfoPartidaMulti*> unen;
     set<Suscripcion*> suscripto;
     set<Jugador*> sigue;
 
@@ -38,7 +39,7 @@ class Jugador : public Usuario
     string getNickname();
     string getDescripcion();
     map<int, Partida*> getInicioPartidas();
-    map<float, InfoPartidaJugador*> getPartidasMultijugador();
+    map<float, InfoPartidaMulti*> getPartidasMultijugador();
     set<DtJugadores*> getSeguidos;
     set<Suscripciones*> getSusAdquiridas;
 
