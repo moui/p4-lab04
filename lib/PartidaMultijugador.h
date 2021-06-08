@@ -20,6 +20,7 @@ class PartidaMultijugador : public Partida
         PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego,
             bool enVivo, map<string, InfoPartidaMulti> mapInfoPM);
 
+
         ~PartidaMultijugador();
         
         // Getters
@@ -29,6 +30,7 @@ class PartidaMultijugador : public Partida
         // Setters
         void setTransmitidaEnVivo(bool enVivo);
         void setParticipan(map<string, InfoPartidaMulti> mapInfoPM);
+
 
         // Operaciones
         float darTotalHorasParticipantes();        

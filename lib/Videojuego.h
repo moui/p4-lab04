@@ -3,6 +3,7 @@
 
 #include "Partida.h"
 #include <string>
+#include <set>
 
 using std::string;
 
@@ -12,6 +13,7 @@ class Videojuego
 {
   private:
     std::string nombre;
+
     Partida **tiene;
 
   public:
@@ -22,15 +24,17 @@ class Videojuego
     //getters
 
     std::string getNombreVJ();
+
     Partida ** getTienePartida();
+
 
     //setters
 
     void setNombreVJ(string);
     void setTienePartida(Partida **);
-
-
-
+    void setPuntaje(TipoPuntaje);
+    void setPartida(Partida*);
+    void setCategoria(Categoria*)
 };
 
 #endif

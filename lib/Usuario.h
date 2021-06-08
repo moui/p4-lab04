@@ -2,6 +2,7 @@
 #define USUARIO
 
 #include <string>
+#include <set>
 
 using namespace std;
 
@@ -21,8 +22,10 @@ class Usuario
     string getContrasena();
   
     // Setters
+
     void setMail(string email);
     void setContrasena(string contrasena);
+
 };
 
 #endif

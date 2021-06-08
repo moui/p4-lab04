@@ -2,10 +2,12 @@
 #define PARTIDAINDIVIDUAL
 
 #include "Partida.h"
+#include <set>
 
 class PartidaIndividual : public Partida
 {
   private:
+
     PartidaIndividual* continuacion;
 
   public:
@@ -19,6 +21,7 @@ class PartidaIndividual : public Partida
 
     // Setters
     void setContinuacion(PartidaIndividual* partida);
+
 
 
 };

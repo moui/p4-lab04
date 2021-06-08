@@ -2,6 +2,7 @@
 #define PARTIDA
 
 #include "datatypes/DtFechaHora.h"
+#include <set>
 
 class Jugador;
 class Videojuego;
@@ -17,6 +18,7 @@ class Partida
 
   public:
     Partida(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego);
+
     virtual ~Partida();
     virtual float darTotalHorasParticipantes() = 0; // Partida es una clase abstracta
   
@@ -26,6 +28,8 @@ class Partida
     void setFinalizada(bool finalizada);
     void setFecha(DtFechaHora fecha);
     void setVideojuego(Videojuego* videojuego);
+    void cambiarEstado();
+
 
     // Getters
     float getId();
@@ -33,6 +37,8 @@ class Partida
     bool getFinalizada();
     DtFechaHora getFecha();
     Videojuego* getVideojuego();
+    float getIdentificador();
+    
 };
 
 #endif
