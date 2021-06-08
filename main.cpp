@@ -6,6 +6,11 @@
 #include <limits>
 #include <string>
 
+#include "helpers/FechaSistema.h"
+#include "datatypes/DtFechaHora.h"
+#include "interfaces/IUsuario.h"
+#include "Fabrica.h"
+
 using namespace std;
 
 // Recibe y parsea string a DtFechaHora. Si el formato ingresado es invalido devuelve NULL.
@@ -13,7 +18,7 @@ static DtFechaHora* ValidarFechaSistema();
 
 int main()
 {
-    Sistema* Sistema = Sistema::getInstancia();
+    FechaSistema* fechaSistema = new FechaSistema();
     int operacion = 1;
 
     cout << Constantes::MenuPrincipal;
@@ -32,7 +37,7 @@ int main()
             break;
         case 3:
             // MOSTRAR FECHA DEL SISTEMA
-            cout << Constantes::PresentacionFechaActual << *(Sistema->getFecha()) << Constantes::Separador;
+            cout << Constantes::PresentacionFechaActual << *(fechaSistema->getFecha()) << Constantes::Separador;
             break;
         case 4:
         {
@@ -44,7 +49,7 @@ int main()
                 cout << Constantes::MsjeErrorIngresoFecha;
                 nuevaFecha = ValidarFechaSistema();
             }
-            Sistema->setFecha(nuevaFecha);
+            fechaSistema->setFecha(nuevaFecha);
             cout << Constantes::PresentacionModificarFecha_Fin;
             break;
         }

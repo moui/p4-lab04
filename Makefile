@@ -1,7 +1,7 @@
 OPTIONS = -Wall -Werror -g
 CC = g++
 
-CLASSES = Sistema Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti Suscripcion DescripcionSuscripcion Categoria
+CLASSES = Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti Suscripcion DescripcionSuscripcion Categoria
 CONST = Constantes
 DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtSuscripcion TipoCat TipoPeriodo
 INTERFACES = IPartida IUsuario IVideojuego
@@ -25,8 +25,6 @@ obj/main.o: main.cpp
 	$(CC) $(OPTIONS) -c $< -o $@
 
 # CLASSES
-obj/Sistema.o: lib/Sistema.h src/Sistema.cpp
-	$(CC) $(OPTIONS) -c src/Sistema.cpp -o obj/Sistema.o
 
 obj/Fabrica.o: lib/Fabrica.h src/Fabrica.cpp
 	$(CC) $(OPTIONS) -c src/Fabrica.cpp -o obj/Fabrica.o
