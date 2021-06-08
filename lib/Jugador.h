@@ -14,13 +14,14 @@ class Jugador : public Usuario
 {
   private:
     string nickname;
+    string descripcion;
     set<Partida*> iniciadas;
     set<InfoPartidaJugador*> unen;
     set<Suscripcion*> suscripto;
     set<Jugador*> sigue;
 
   public:
-    Jugador(string, string, string, int, Partida** , PartidaMultijugador** );
+    Jugador(string, string, string);
     ~Jugador();
     void finPartida(float);
     set<DtPartidas*> partidasInSF();
