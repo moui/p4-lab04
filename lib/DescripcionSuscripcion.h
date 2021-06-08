@@ -3,9 +3,15 @@
 
 #include <string>
 #include "DescripcionSuscripcion.h"
+#include "Suscripcion.h"
+#include "datatypes/TipoPeriodo.h"
+
+#include <string>
+#include <map>
 
 using namespace std;
 
+class Suscripcion;
 
 class DescripcionSuscripcion{
   private:
@@ -16,6 +22,7 @@ class DescripcionSuscripcion{
     set<Suscripcion*> suscripciones;
 
   public:
+
     DescripcionSuscripcion(string nom, float costo, TipoPeriodo p);
     ~DescripcionSuscripcion();
 
