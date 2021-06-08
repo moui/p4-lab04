@@ -45,8 +45,8 @@ class Jugador : public Usuario
     void setDescripcion(string descripcion);
     void setPartidasIniciadas(map<float, Partida*> iniciadas);
     void setPartidaMultijugador(InfoPartidaJugador partidasMultijugador);
-    void setSuscripcion(Suscripcion*);
-    void seguir(Jugador*);
+    void setSuscripcion(Suscripcion* s);
+    void seguir(Jugador* j);
 
 };
 
