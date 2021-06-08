@@ -37,7 +37,6 @@ class Partida
     bool getFinalizada();
     DtFechaHora getFecha();
     Videojuego* getVideojuego();
-    float getIdentificador();
     
 };
 
