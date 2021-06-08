@@ -4,7 +4,7 @@
 #include <string>
 #include "TipoPago.h"
 #include "TipoEstado.h"
-#include "DtFechahora.h"
+#include "DtFechaHora.h"
 
 using namespace std;
 
@@ -12,17 +12,17 @@ using namespace std;
 class DtSuscripcion{
   private:
     string nombreVJ;
-    TipoFecha fecha;
+    DtFechaHora fecha;
     float costo;
     TipoPago pago;
     TipoEstado estado;
   public:
-    DtSuscripcion(string nomVJ, TipoFecha f, float costo, TipoPago p, TipoEstado e);
+    DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e);
     ~DtSuscripcion();
 
 //Getters
   string getnombreVJ();
-  TipoFecha getFecha();
+  DtFechaHora getFecha();
   float getCosto();
   TipoPago getTipoPago();
   TipoEstado getEstado();

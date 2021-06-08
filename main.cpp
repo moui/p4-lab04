@@ -25,7 +25,7 @@ int main()
     {
         cout << "Ingrese codigo de operacion: ";
         cin >> operacion;
-        
+
         switch (operacion)
         {
         case 1:
@@ -71,8 +71,8 @@ int main()
 static DtFechaHora* ValidarFechaSistema()
 {
     int DD, MM, AAAA, HH, mm;
-    
-    cin.ignore(numeric_limits<streamsize>::max(),'\n'); 
+
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
     cin.clear();
 
     cin >> DD;
@@ -80,13 +80,13 @@ static DtFechaHora* ValidarFechaSistema()
     {
         cin.clear();
         return NULL;
-    } 
+    }
     if (cin.get() != '-')
     {
         cin.clear();
         return NULL;
     }
-        
+
     cin >> MM;
     if (!cin || MM < 1 || MM > 12)
     {
@@ -122,7 +122,7 @@ static DtFechaHora* ValidarFechaSistema()
         cin.clear();
         return NULL;
     }
-    
+
     cin >> mm;
     if (!cin || mm < 0 || mm > 59)
     {
