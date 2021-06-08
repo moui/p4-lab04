@@ -21,16 +21,16 @@ class Jugador : public Usuario
     set<Jugador*> sigue;
 
   public:
-    Jugador(string, string, string);
+    Jugador(string nickname, string descripcion);
     ~Jugador();
-    void finPartida(float);
+    void finPartida(float id);
     set<DtPartidas*> partidasInSF();
-    void iniciadaP(Partida);
-    bool estaSuscritoA(std::string);
+    void iniciadaP(Partida p);
+    bool estaSuscritoA(std::string NombreVJ);
     set<DtPartidasIndividuales*> partidasIndF();
     set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
     void AltaSuscripcion();
-    void CancelarSuscripcion(std::string);
+    void CancelarSuscripcion(std::string NombreVJ);
 
     // Getters
     string getNickname();
@@ -41,8 +41,9 @@ class Jugador : public Usuario
 
     // Setters
     void setNickname(string nickname);
-    void setPartidasIniciadas(Partida** iniciadas);
-    void setPartidasMultijugador(PartidaMultijugador** partidasMultijugador);
+    void setPartidasIniciadas(set<Partida*> iniciadas);
+    void setPartidaIniciada(Partida* iniciada);
+    void setPartidaMultijugador(InfoPartidaJugador partidasMultijugador);
     void setSuscripcion(Suscripcion*);
     void seguir(Jugador*);
 
