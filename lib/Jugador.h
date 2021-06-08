@@ -7,6 +7,9 @@
 #include "InfoPartidaMulti.h"
 #include "Usuario.h"
 #include "Partida.h"
+#include "Suscripcion.h"
+#include "datatypes/TipoPeriodo.h"
+
 
 using namespace std;
 

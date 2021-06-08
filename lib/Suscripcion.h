@@ -3,6 +3,8 @@
 
 #include <string>
 #include "DescripcionSuscripcion.h"
+#include <string>
+#include <map>
 //#include "Jugador.h"
 
 class DescripcionSuscripcion;
