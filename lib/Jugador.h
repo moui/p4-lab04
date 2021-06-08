@@ -21,7 +21,7 @@ class Jugador : public Usuario
     set<Jugador*> sigue;
 
   public:
-    Jugador(string nickname, string descripcion);
+    Jugador(string nickname, string descripcion, map<float, Partida*> iniciadas, map<float, InfoPartidaJugador*> unen, set<Suscripcion*> suscripto, set<Jugador*> sigue);
     ~Jugador();
     void finPartida(float id);
     set<DtPartidas*> partidasInSF();
