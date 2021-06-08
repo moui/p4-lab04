@@ -21,8 +21,8 @@ class Usuario
     string getContrasena();
   
     // Setters
-    void setMail(string mail);
-    void setContrasena(string contrasena);
+    virtual void setMail(string mail);
+    virtual void setContrasena(string contrasena);
 };
 
 #endif
