@@ -69,7 +69,13 @@ set<DtPartidas*> partidasInSF(){
    set<DtPartida*> isf;
    while(i != iniciadas->end()){
       if(!estaFinalizada(**i)){
-        
+        if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
+         DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(,,,,,);
+         isf->insert(p);
+        } else {
+        DtPartidaMultijugador* p = dynamic_cast<DtPartidaMultijugador*>(,,,,,);
+        isf->insert(p);
+        }
       }
       ++i;
    }
@@ -77,7 +83,7 @@ set<DtPartidas*> partidasInSF(){
 }
 
 void iniciadaP(Partida p){
-
+   map[p->getId()] = p;
 }
 
 bool estaSuscritoA(std::string NombreVJ){
@@ -85,7 +91,18 @@ bool estaSuscritoA(std::string NombreVJ){
 }
 
 set<DtPartidasIndividuales*> partidasIndF(){
-
+   map<float, Partida*>::iterator i = iniciadas->begin();
+   set<DtPartida*> indf;
+   while(i != iniciadas->end()){
+      if(estaFinalizada(**i)){
+        if(dynamic_cast<PartidaIndividual*>(*i) != NULL) {
+          DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(,,,,,);
+          indf->insert(p);
+        }
+      } 
+      ++i;
+   }
+   return indf;
 }
 
 set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(){
@@ -93,7 +110,7 @@ set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(){
 }
 
 void AltaSuscripcion(){
-
+  
 }
 
 void CancelarSuscripcion(std::string NombreVJ){
