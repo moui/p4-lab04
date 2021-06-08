@@ -2,6 +2,7 @@
 #define DESCRIPCIONSUSCRIPCION
 
 #include <string>
+#include "datatypes/TipoPago.h"
 #include "DescripcionSuscripcion.h"
 #include "Suscripcion.h"
 #include "datatypes/TipoPeriodo.h"

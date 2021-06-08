@@ -3,7 +3,7 @@
 
 #include "DescripcionSuscripcion.h"
 #include "datatypes/TipoEstado.h"
-
+#include "datatypes/TipoPago.h"
 #include <string>
 #include <map>
 //#include "Jugador.h"
