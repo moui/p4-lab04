@@ -1,5 +1,4 @@
 #include "../../lib/datatypes/DtFechaHora.h"
-#include <stdexcept>
 
 DtFechaHora::DtFechaHora()
 {
@@ -8,48 +7,64 @@ DtFechaHora::DtFechaHora()
   return;
 }
 
+DtFechaHora::DtFechaHora(int dia, int mes, int ano)
+{
+    this->dia = dia;
+    this->mes = mes;
+    this->ano = ano;
+    this->hora = 0;
+    this->minuto = 0;
+    return;
+}
+
 DtFechaHora::DtFechaHora(int dia, int mes, int ano, int hora, int minuto)
 {
-  try
-  {
-    if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900)
-      throw std::invalid_argument("Parametros invalidos.");
     this->dia = dia;
     this->mes = mes;
     this->ano = ano;
     this->hora = hora;
     this->minuto = minuto;
     return;
-  }
-  catch (const std::exception& e)
-  {
-    this->dia = this->mes = this->ano = 0;
-    this->hora = this->minuto = 0;
-    return;
-  }
 }
 
-int DtFechaHora::getd()
+DtFechaHora::~DtFechaHora()
 {
-  return this->dia;
+  
 }
 
-int DtFechaHora::getmes()
+// Getters
+int DtFechaHora::getDia()
 {
-  return this->mes;
+  return dia;
 }
 
-int DtFechaHora::geta()
+int DtFechaHora::getMes()
 {
-  return this->ano;
+  return mes;
 }
 
-int DtFechaHora::geth()
+int DtFechaHora::getAno()
 {
-  return this->hora;
+  return ano;
 }
 
-int DtFechaHora::getm()
+int DtFechaHora::getHora()
 {
-  return this->minuto;
+  return hora;
+}
+
+int DtFechaHora::getMinuto()
+{
+  return minuto;
+}
+
+// Sobrecarga del operador de insercion <<
+std::ostream& operator<<(std::ostream& os, const DtFechaHora& dtFecha)
+{
+  os  << std::setfill('0') << std::setw(2) << dtFecha.dia << "/" 
+      << std::setfill('0') << std::setw(2) << dtFecha.mes << "/" 
+      << dtFecha.ano << " @ " 
+      << std::setfill('0') << std::setw(2) << dtFecha.hora << ":" 
+      << std::setfill('0') << std::setw(2) << dtFecha.minuto << std::endl;
+  return os;
 }

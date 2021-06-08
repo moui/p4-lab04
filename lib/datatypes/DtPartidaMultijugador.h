@@ -5,22 +5,32 @@
 #include <string>
 #include <iostream>
 
+using std::string;
+using std::ostream;
+using std::endl;
+
 class DtPartidaMultijugador : public DtPartida
 {
-  private:
-    bool transmitidaEnVivo;
-    std::string* nicknameJugadoresUnidos;
-    int cantidadJugadoresUnidos;
+    private:
+        bool transmitidaEnVivo;
+        string* nicknameJugadoresUnidos;
+        int cantidadJugadoresUnidos;
 
-  public:
-    DtPartidaMultijugador(DtFechaHora ,float ,bool ,std::string* ,int );
-    // Getters
-    bool getTransmitidaEnVivo();
-    std::string* getNicknameJugadoresUnidos();
-    int getCantidadJugadoresUnidos();
+    public:
+        // Constructor
+        DtPartidaMultijugador(float id, float duracion, DtFechaHora fecha,
+            bool enVivo, string* jugadoresUnidos, int cantidadUnidos);
+        // Destructor
+        ~DtPartidaMultijugador();
+        // Funcion pura de DtPartida
+        void abstracta();
 
-    friend std::ostream& operator<<(std::ostream& out, const DtPartidaMultijugador& dt);
+        // Getters
+        bool getTransmitidaEnVivo();
+        string* getNicknameJugadoresUnidos();
+        int getCantidadJugadoresUnidos();
 
+        // Sobrecarga del operador de insercion <<
+        friend ostream& operator<<(ostream& os, const DtPartidaMultijugador& dtPartidaMulti);
 };
-
 #endif

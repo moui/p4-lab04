@@ -1,37 +1,26 @@
 #include "../lib/Partida.h"
-#include <cstdlib>
 
-Partida::Partida(DtFechaHora fecha, float duracion, Jugador* jugador, Videojuego* videojuego)
+// Constructor y destructor
+Partida::Partida(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego)
 {
+  this->identificador = id;
   this->fecha = fecha;
+  this->finalizada = finalizada;
   this->duracion = duracion;
   this->tiene = videojuego;
-  this->iniciada = jugador;
   return;
 }
 
-// Setters
-void Partida::setFecha(DtFechaHora fecha)
+Partida::~Partida()
 {
-  this->fecha = fecha;
-}
-
-void Partida::setDuracion(float duracion)
-{
-  this->duracion = duracion;
-}
-
-void Partida::setJugador(Jugador *jugador)
-{
-  this->iniciada = jugador;
-}
-
-void Partida::setVideojuego(Videojuego *videojuego)
-{
-  this->tiene = videojuego;
 }
 
 // Getters
+float Partida::getId()
+{
+  return this->identificador;
+}
+
 float Partida::getDuracion()
 {
   return this->duracion;
@@ -42,9 +31,9 @@ DtFechaHora Partida::getFecha()
   return this->fecha;
 }
 
-Jugador* Partida::getJugador()
+bool Partida::getFinalizada()
 {
-  return this->iniciada;
+  return this->finalizada;
 }
 
 Videojuego* Partida::getVideojuego()
@@ -52,6 +41,28 @@ Videojuego* Partida::getVideojuego()
   return this->tiene;
 }
 
-Partida::~Partida()
+// Setters
+void Partida::setId(float id)
 {
+  this->identificador = id;
+}
+
+void Partida::setFecha(DtFechaHora fecha)
+{
+  this->fecha = fecha;
+}
+
+void Partida::setDuracion(float duracion)
+{
+  this->duracion = duracion;
+}
+
+void Partida::setFinalizada(bool finalizada)
+{
+  this->finalizada = finalizada;
+}
+
+void Partida::setVideojuego(Videojuego *videojuego)
+{
+  this->tiene = videojuego;
 }

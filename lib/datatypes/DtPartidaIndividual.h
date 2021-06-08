@@ -4,18 +4,24 @@
 #include "DtPartida.h"
 #include <iostream>
 
+using std::ostream;
+using std::endl;
+
 class DtPartidaIndividual : public DtPartida
 {
-  private:
-    bool continuaPartidaAnterior;
+    private:
+        float* continuacion;
 
-  public:
-    DtPartidaIndividual(DtFechaHora ,float ,bool );
-    // Getters
-    bool getContinuaPartidaAnterior();
-
-
-    friend  std::ostream& operator<<(std::ostream& out, const DtPartidaIndividual& dt);
+    public:
+        // Contructor y destructor
+        DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, float* continuacion);
+        ~DtPartidaIndividual();
+        // Declaracion de funcion pura de DtPartida
+        void abstracta(); 
+        // Getters
+        float* getContinuacion();
+        // Sobrecarga del operador de insercion <<
+        friend  ostream& operator<<(ostream& os, const DtPartidaIndividual& dtPartidaInd);
 };
 
 #endif

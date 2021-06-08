@@ -1,25 +1,36 @@
-#include "../lib/Ususario.h"
+#include "../lib/Usuario.h"
 
-Usuario(string mail, string contrasena) {
-    this->mail = mail;
+// Constructor y destructor
+Usuario::Usuario(string email, string contrasena)
+{
+    this->email = email;
     this->contrasena = contrasena;
- }
- 
-virtual ~Usuario(){
+    return;
 }
 
-string getMail(){
-  return this->mail;
+Usuario::~Usuario()
+{
+    return;
 }
 
-string getContrasena(){
-  return this->contrasena;
-}
-  
-virtual void setMail(string mail){
-  this->mail = mail;
+// Getters
+string Usuario::getMail()
+{
+    return this->email;
 }
 
-virtual void setContrasena(string contrasena){
-  this->contrasena = contraena;
+string Usuario::getContrasena()
+{
+    return this->contrasena;
+}
+
+// Setters
+void Usuario::setMail(string mail)
+{
+    this->email = mail;
+}
+
+void Usuario::setContrasena(string contrasena)
+{
+    this->contrasena = contrasena;
 }

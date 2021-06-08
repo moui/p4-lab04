@@ -1,7 +1,6 @@
 #ifndef VIDEOJUEGO
 #define VIDEOJUEGO
 
-#include "datatypes/TipoJuego.h"
 #include "Partida.h"
 #include <string>
 #include <set>
@@ -14,28 +13,24 @@ class Videojuego
 {
   private:
     std::string nombre;
-    std::string descripcion;
-    set<Categoria*> categorias;
-    set<Partida*> tiene;
-    set<Puntaje*> Puntuaciones;
+
+    Partida **tiene;
 
   public:
-    Videojuego(std::string, Partida **, set<Categoria*>);
+    Videojuego(std::string, Partida **);
     ~Videojuego();
     
 
     //getters
 
     std::string getNombreVJ();
-    TipoJuego getGenero();
-    set<Partida*> getTienePartida();
-    set<DtCategoria*> getCategorias();
-    Puntaje* getPuntaje();
+
+    Partida ** getTienePartida();
+
 
     //setters
 
     void setNombreVJ(string);
-    void setGenero(TipoJuego);
     void setTienePartida(Partida **);
     void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);

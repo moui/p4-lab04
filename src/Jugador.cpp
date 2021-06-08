@@ -1,14 +1,25 @@
 i#include "../lib/Jugador.h"
 
-Jugador::Jugador(string nickname, string descripcion, map<float, Partida*> iniciadas, map<float, InfoPartidaJugador*> unen, set<Suscripcion> suscripto, set<Jugador*> sigue)
+// Constructor y destructor
+
+Jugador::Jugador(string email, string contrasena, string nickname, string descripcion, map<int, Partida*> inicio)
+  : Usuario(email, contrasena)
 {
   this->nickname = nickname;
   this->descripcion = descripcion;
-  map<float, Partida*> iniciadas = iniciadas;
-  map<float, InfoPartidaJugador*> unen = unen;
-  set<Suscripcion> suscripto = suscripto;
-  set<Jugador*> sigue = sigue;
+  this->inicio = inicio;
   return;
+}
+
+Jugador::~Jugador()
+{
+  // Determinar como se va a destruir el map<int, Partida>
+}
+
+// Getters
+string Jugador::getNickname()
+{
+  return this->nickname;
 }
 
 // Getters
@@ -23,14 +34,9 @@ string Jugador::getDescripcion()
 }
 
 
-set<Partida*> Jugador::getPartidasIniciadas()
+map<int, Partida*> Jugador::getInicioPartidas()
 {
-  return this->iniciada;
-}
-
-set<InfoPartidaJugador*> Jugador::getPartidasMultijugador()
-{
-  return this->unen;
+  return this->inicio;
 }
 
 // Setters
@@ -39,25 +45,18 @@ void Jugador::setNickname(string nickname)
   this->nickname = nickname;
 }
 
-void Jugador::setDescripcion(string Descripcion)
+void Jugador::setDescripcion(string descripcion)
 {
   this->descripcion = Descripcion;
 }
 
-
-void Jugador::setPartidasIniciadas(set<Partida*> iniciadas)
+void Jugador::setInicioPartidas(map<int,Partida*> inicio)
 {
-  this->iniciada = iniciadas;
-}
-
-void Jugador::setPartidasMultijugador(set<PartidaMultijugador*> partidasMultijugador)
-{
-  this->unen = partidasMultijugador;
+  this->inicio = inicio;
 }
 
 void finPartida(float id){
   this->iniciadas[id]->filaizada = true;
-
 }
 
 void seguir(Jugador* j){
@@ -77,27 +76,21 @@ set<DtPartidas*> partidasInSF(){
 }
 
 void iniciadaP(Partida p){
-
 }
 
 bool estaSuscritoA(std::string NombreVJ){
-
 }
 
 set<DtPartidasIndividuales*> partidasIndF(){
-
 }
 
 set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(){
-
 }
 
 void AltaSuscripcion(){
-
 }
 
 void CancelarSuscripcion(std::string NombreVJ){
-
 }
 
 Jugador::~Jugador()

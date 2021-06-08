@@ -1,9 +1,8 @@
 #include "../lib/Videojuego.h"
 
-Videojuego::Videojuego(std::string nombre, TipoJuego genero, Partida **partidas)
+Videojuego::Videojuego(std::string nombre, Partida **partidas)
 {
   this->nombre = nombre;
-  this->genero = genero;
   this->tiene = partidas;
   return;
 }
@@ -15,11 +14,6 @@ Videojuego::Videojuego(std::string nombre, TipoJuego genero, Partida **partidas)
         return this->nombre;
         }
 
-
-    TipoJuego Videojuego::getGenero(){
-        return this->genero;
-    }
-
     Partida ** Videojuego::getTienePartida(){
         return this->tiene;
     }
@@ -29,11 +23,6 @@ Videojuego::Videojuego(std::string nombre, TipoJuego genero, Partida **partidas)
     void Videojuego::setNombreVJ(string nombreVJ){
         this->nombre=nombreVJ;
     }
-
-    void Videojuego::setGenero(TipoJuego t){
-        this->genero=t;
-    }
-
 
     void Videojuego::setTienePartida(Partida ** p){
         this->tiene=p;

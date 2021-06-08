@@ -1,49 +1,42 @@
 #include "../lib/PartidaMultijugador.h"
 
-PartidaMultijugador::PartidaMultijugador(
-  DtFechaHora fecha, float duracion, bool transmitidaEnVivo, Jugador *inicia, Videojuego *videojuego, Jugador **jugadores,std::string * nickname, int unidos)
-  :Partida(fecha, duracion, inicia, videojuego)
-
+// Constructor y destructor
+PartidaMultijugador::PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego,
+    bool enVivo, map<string, InfoPartidaMulti> mapInfoPM) : Partida(id, duracion, finalizada, fecha, videojuego)
 {
-  this->unidos=unidos;
-  this->unen = jugadores;
-  this->transmitidaEnVivo = transmitidaEnVivo;
-  this->nicknameJ=nickname;
-
+    this->transmitidaEnVivo = enVivo;
+    this->participan = mapInfoPM;
 }
 
-// PartidaMultijugador::~PartidaMultijugador(){
-// };
+PartidaMultijugador::~PartidaMultijugador()
+{
+};
 
-//getters
-bool PartidaMultijugador::getEnVivo(){
+// Getters
+bool PartidaMultijugador::getTransmitidaEnVivo()
+{
     return this->transmitidaEnVivo;
 }
 
-Jugador** PartidaMultijugador::getUnen(){
-   return this->unen;
-   }
-std::string* PartidaMultijugador::getNicknames(){
-    return this->nicknameJ;
-}
-int PartidaMultijugador::getUnidos(){
-    return this->unidos;
+map<string, InfoPartidaMulti> PartidaMultijugador::getParticipan()
+{
+   return this->participan;
 }
 
-//setters
-void PartidaMultijugador::setEnVivo (bool envivo){
-    this->transmitidaEnVivo=envivo;
-}
-void PartidaMultijugador::setUnidos(int unidos){
-    this->unidos=unidos;
+// Setters
+void PartidaMultijugador::setTransmitidaEnVivo (bool enVivo)
+{
+    this->transmitidaEnVivo = enVivo;
 }
 
-void PartidaMultijugador::setNicknames(std::string* nicknamej){
-    this->nicknameJ=nicknamej;
+void PartidaMultijugador::setParticipan(map<string, InfoPartidaMulti> mapInfoPM)
+{
+    this->participan = mapInfoPM;
 }
 
+// Operaciones
 float PartidaMultijugador::darTotalHorasParticipantes()
 {
-    return (getUnidos() + 1)*getDuracion();
+    return 0;
 }
 

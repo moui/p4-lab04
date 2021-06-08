@@ -9,20 +9,23 @@ using namespace std;
 class Usuario
 {
   private:
-    string mail;
+    string email;
     string contrasena;
 
   public:
-    Usuario(string, string);
+    Usuario(string email, string contrasena);
     virtual ~Usuario();
-
+    virtual void funVirtualPura() = 0; // Usuario es clase abstracta
+    
     // Getters
     string getMail();
     string getContrasena();
   
     // Setters
-    virtual void setMail(string mail);
-    virtual void setContrasena(string contrasena);
+
+    void setMail(string email);
+    void setContrasena(string contrasena);
+
 };
 
 #endif

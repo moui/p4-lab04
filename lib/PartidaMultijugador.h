@@ -2,38 +2,37 @@
 #define PARTIDAMULTIJUGADOR
 
 #include "Partida.h"
+#include "InfoPartidaMulti.h"
+
 #include <string>
-#include <set>
+#include <map>
+
+using namespace std;
 
 class PartidaMultijugador : public Partida
 {
-  private:
-    bool transmitidaEnVivo;
-    set<InfoPartiddaJugador*> unen;
-    int unidos;
-    set<Comentario*> chat;
-    
-  public:
+    private:
+        bool transmitidaEnVivo;
+        map<string, InfoPartidaMulti> participan;
 
-    PartidaMultijugador(DtFechaHora, bool, bool, Jugador *, Videojuego *, Jugador **, int);
-    //~PartidaMultijugador();
-
-    float darTotalHorasParticipantes();
-//getters
-    set<infoPartidaJugador> getUnen();
-    bool getEnVivo();
-    int getUnidos();
-    std::string* getNicknames();
-    DtFechaHora* getHoraAbandono();
-    set<DtComentario*> getComentarios();
+    public:
+        // Constructores y destructores
+        PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego,
+            bool enVivo, map<string, InfoPartidaMulti> mapInfoPM);
 
 
-//setters
-    void setEnVivo(bool);
-    void setUnidos(int);
-    void setNicknames(Jugadores*);
-    void setHoraAbandono();
-    void comentar(std::string);
+        ~PartidaMultijugador();
+        
+        // Getters
+        bool getTransmitidaEnVivo();
+        map<string, InfoPartidaMulti> getParticipan();
 
+        // Setters
+        void setTransmitidaEnVivo(bool enVivo);
+        void setParticipan(map<string, InfoPartidaMulti> mapInfoPM);
+
+
+        // Operaciones
+        float darTotalHorasParticipantes();        
 };
 #endif

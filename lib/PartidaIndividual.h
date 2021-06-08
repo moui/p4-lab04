@@ -4,29 +4,24 @@
 #include "Partida.h"
 #include <set>
 
-
-
 class PartidaIndividual : public Partida
 {
   private:
 
-    bool continuaPartidaAnterior;
-    PartidaIndividual* continuada;
+    PartidaIndividual* continuacion;
 
   public:
-
-    PartidaIndividual(DtFechaHora, bool, Jugador *, Videojuego *, PartidaIndividual *, bool);
-    //~PartidaIndividual();
+    PartidaIndividual(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego, PartidaIndividual* continuacion);
+    ~PartidaIndividual();
 
     float darTotalHorasParticipantes();
-    //getters
+    
+    // Getters
+    bool getContinuacion();
 
-    bool getcontinuaPartidaAnterior();
-    DtPartidaIndividual getPartidaCont();
+    // Setters
+    void setContinuacion(PartidaIndividual* partida);
 
-    //setters
-    void setcontinuaPartidaAnterior(bool);
-    void setpartidaACont(Partida p);
 
 
 };

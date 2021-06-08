@@ -15,7 +15,7 @@ class Desarrollador : public Usuario
     set<Estadisticas*> seleccionadas;
 
   public:
-    Desarrollador(string, string, string);
+    Desarrollador(string email, string contrasena, string empresa);
     ~Desarrollador();
 
     // Getters

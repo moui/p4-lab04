@@ -1,23 +1,29 @@
 #include "../../lib/datatypes/DtPartida.h"
 
-DtPartida::DtPartida(DtFechaHora fecha, float duracion)
+DtPartida::DtPartida(float id, float duracion, DtFechaHora fecha)
 {
+  this->identificador = id;
   this->fecha = fecha;
   this->duracion = duracion;
+  return;
 }
-
-// Getters
-DtFechaHora DtPartida::getFecha () const
-{
-  return this->fecha;
-}
-
-float DtPartida::getDuracion() const
-{
-  return this->duracion;
-}
-
 
 DtPartida::~DtPartida()
 {
+}
+
+// Getters
+float DtPartida::getId()
+{
+  return identificador;
+}
+
+float DtPartida::getDuracion()
+{
+  return duracion;
+}
+
+DtFechaHora DtPartida::getFecha()
+{
+  return fecha;
 }

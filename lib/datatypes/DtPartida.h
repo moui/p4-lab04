@@ -2,28 +2,24 @@
 #define DT_PARTIDA
 
 #include "DtFechaHora.h"
-#include <iostream>
 
 class DtPartida
 {
-  private:
+    protected:
+        float identificador;
+        float duracion;
+        DtFechaHora fecha;
 
-    DtFechaHora fecha;
-    float duracion;
+    public:
+        // Constructor y destructor
+        DtPartida(float id, float duracion, DtFechaHora fecha);
+        virtual ~DtPartida();
 
-  public:
-
-    DtPartida();
-    virtual ~DtPartida();
-    DtPartida(DtFechaHora fecha, float duracion);
-
-    // Getters
-
-    DtFechaHora getFecha () const;
-    virtual float getDuracion() const;
-
-
-
+        virtual void abstracta() = 0; // Funcion virtual pura => DtPartida es abstracta
+        // Getters
+        float getId();
+        float getDuracion();
+        DtFechaHora getFecha();
 };
 
 #endif
