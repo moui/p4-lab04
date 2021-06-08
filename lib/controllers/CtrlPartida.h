@@ -1,11 +1,11 @@
 #ifndef CTRLPARTIDA
 #define CTRLPARTIDA
 
-#include "interfaces/IPartida.h"
-#include "datatypes/DtPartidaIndividual.h"
-#include "datatypes/DtPartida.h"
-#include "PartidaIndividual.h"
-#include "PartidaMultijugador.h"
+#include "../interfaces/IPartida.h"
+#include "../datatypes/DtPartidaIndividual.h"
+#include "../datatypes/DtPartida.h"
+#include "../PartidaIndividual.h"
+#include "../PartidaMultijugador.h"
 #include <set>
 
 using namespace std;
