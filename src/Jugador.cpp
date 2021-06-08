@@ -1,4 +1,4 @@
-i#include "../lib/Jugador.h"
+#include "../lib/Jugador.h"
 
 // Constructor y destructor
 
@@ -22,17 +22,10 @@ string Jugador::getNickname()
   return this->nickname;
 }
 
-// Getters
-string Jugador::getNickname()
-{
-  return this->nickname;
-}
-
 string Jugador::getDescripcion()
 {
   return this->descripcion;
 }
-
 
 map<int, Partida*> Jugador::getInicioPartidas()
 {
@@ -47,7 +40,7 @@ void Jugador::setNickname(string nickname)
 
 void Jugador::setDescripcion(string descripcion)
 {
-  this->descripcion = Descripcion;
+  this->descripcion = descripcion;
 }
 
 void Jugador::setInicioPartidas(map<int,Partida*> inicio)
@@ -56,7 +49,7 @@ void Jugador::setInicioPartidas(map<int,Partida*> inicio)
 }
 
 void finPartida(float id){
-  this->iniciadas[id]->filaizada = true;
+  /* this->iniciadas[id]->filaizada = true; */
 }
 
 void seguir(Jugador* j){
@@ -64,7 +57,7 @@ void seguir(Jugador* j){
 }
 
 set<DtPartidas*> partidasInSF(){
-   map<float, Partida*>::iterator i = inicio->begin();
+   /*map<float, Partida*>::iterator i = inicio->begin();
    set<DtPartida*> isf;
    while(i != inicio->end()){
       if(!estaFinalizada(**i)){
@@ -85,7 +78,8 @@ set<DtPartidas*> partidasInSF(){
       }
       ++i;
    }
-   return isf;
+   return isf; */
+   return NULL;
 }
 
 void iniciadaP(Partida p){

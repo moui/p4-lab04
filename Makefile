@@ -3,8 +3,8 @@ CC = g++
 
 CLASSES = Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti Suscripcion DescripcionSuscripcion Categoria
 CONST = Constantes
-DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtSuscripcion TipoCat TipoPeriodo
-INTERFACES = IPartida IUsuario IVideojuego
+DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtEstadistica DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado
+INTERFACES = IEstadistica IPartida IUsuario IVideojuego
 CONTROLLERS = CtrlUsuario CtrlPartida CtrlVidejuego
 HELPERS = FechaSistema
 
@@ -25,7 +25,6 @@ obj/main.o: main.cpp
 	$(CC) $(OPTIONS) -c $< -o $@
 
 # CLASSES
-
 obj/Fabrica.o: lib/Fabrica.h src/Fabrica.cpp
 	$(CC) $(OPTIONS) -c src/Fabrica.cpp -o obj/Fabrica.o
 
@@ -83,13 +82,31 @@ obj/datatypes/DtVideojuego.o: lib/datatypes/DtVideojuego.h src/datatypes/DtVideo
 obj/datatypes/DtJugador.o: lib/datatypes/DtJugador.h src/datatypes/DtJugador.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtJugador.cpp -o obj/datatypes/DtJugador.o
 
+obj/datatypes/DtEstadistica.o: lib/datatypes/DtEstadistica.h src/datatypes/DtEstadistica.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtEstadistica.cpp -o obj/datatypes/DtEstadistica.o
+
 obj/datatypes/DtFechaHora.o: lib/datatypes/DtFechaHora.h src/datatypes/DtFechaHora.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtFechaHora.cpp -o obj/datatypes/DtFechaHora.o
+
+obj/datatypes/DtVideojuegoSuscripcion.o: lib/datatypes/DtVideojuegoSuscripcion.h src/datatypes/DtVideojuegoSuscripcion.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtVideojuegoSuscripcion.cpp -o obj/datatypes/DtVideojuegoSuscripcion.o
+
+obj/datatypes/TipoEstado.o: lib/datatypes/TipoEstado.h src/datatypes/TipoEstado.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoEstado.cpp -o obj/datatypes/TipoEstado.o
+
+obj/datatypes/TipoPago.o: lib/datatypes/TipoPago.h src/datatypes/TipoPago.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoPago.cpp -o obj/datatypes/TipoPago.o
+
+obj/datatypes/TipoPeriodo.o: lib/datatypes/TipoPeriodo.h src/datatypes/TipoPeriodo.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoPeriodo.cpp -o obj/datatypes/TipoPeriodo.o
 
 obj/datatypes/TipoCat.o: lib/datatypes/TipoCat.h src/datatypes/TipoCat.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoCat.cpp -o obj/datatypes/TipoCat.o
 
 # INTERFACES
+obj/interfaces/IEstadistica.o: lib/interfaces/IEstadistica.h src/interfaces/IEstadistica.cpp
+	$(CC) $(OPTIONS) -c src/interfaces/IEstadistica.cpp -o obj/interfaces/IEstadistica.o
+
 obj/interfaces/IUsuario.o: lib/interfaces/IUsuario.h src/interfaces/IUsuario.cpp
 	$(CC) $(OPTIONS) -c src/interfaces/IUsuario.cpp -o obj/interfaces/IUsuario.o
 

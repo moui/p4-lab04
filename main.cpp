@@ -64,7 +64,7 @@ int main()
         }
     }
 
-    delete Sistema;
+    delete fechaSistema;
     return 0;
 }
 
