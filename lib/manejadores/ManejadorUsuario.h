@@ -18,7 +18,9 @@ class ManejadorUsuario {
         ManejadorUsuario();
         // Member
         map<string, Desarrollador> desarrolladores;
+        map<string, Desarrollador>::iterator itd;
         map<string, Jugador> jugadores;
+        map<string, Jugador>::iterator itj;
 
 
     public:
@@ -30,6 +32,7 @@ class ManejadorUsuario {
         // Getters y Setters
         Usuario* buscarUsuario(string clave);
         void agregarUsuario(Usuario* usuario);
+        void borrarUsuario(string clave);
 
 };
 

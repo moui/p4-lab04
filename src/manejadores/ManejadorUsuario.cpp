@@ -21,4 +21,6 @@ Usuario* ManejadorUsuario::buscarUsuario(string clave){
 
 }
 
-void agregarUsuario(Usuario* usuario){}
+void ManejadorUsuario::agregarUsuario(Usuario* usuario){}
+
+void ManejadorUsuario::borrarUsuario(string clave){}
