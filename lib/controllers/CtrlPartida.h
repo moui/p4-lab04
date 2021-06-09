@@ -21,7 +21,7 @@ class CtrlPartida : public IPartida
 
 
     public:
-        ~CtrlUsuario();
+        ~CtrlPartida();
 
         static CtrlPartida * getCtrlPartida();
 

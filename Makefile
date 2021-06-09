@@ -5,7 +5,7 @@ CLASSES = Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuar
 CONST = Constantes
 DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtEstadistica DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado TipoPuntaje
 INTERFACES = IEstadistica IPartida IUsuario IVideojuego
-CONTROLLERS = CtrlUsuario CtrlPartida CtrlVidejuego
+CONTROLLERS = CtrlUsuario CtrlPartida CtrlVideojuego
 HELPERS = FechaSistema
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
@@ -133,8 +133,8 @@ obj/controllers/CtrlUsuario.o: lib/controllers/CtrlUsuario.h src/controllers/Ctr
 obj/controllers/CtrlPartida.o: lib/controllers/CtrlPartida.h src/controllers/CtrlPartida.cpp
 	$(CC) $(OPTIONS) -c src/controllers/CtrlPartida.cpp -o obj/controllers/CtrlPartida.o
 
-obj/controllers/CtrlVidejuego.o: lib/controllers/CtrlVidejuego.h src/controllers/CtrlVidejuego.cpp
-	$(CC) $(OPTIONS) -c src/controllers/CtrlVidejuego.cpp -o obj/controllers/CtrlVidejuego.o
+obj/controllers/CtrlVideojuego.o: lib/controllers/CtrlVideojuego.h src/controllers/CtrlVideojuego.cpp
+	$(CC) $(OPTIONS) -c src/controllers/CtrlVideojuego.cpp -o obj/controllers/CtrlVideojuego.o
 
 # HELPERS
 obj/helpers/FechaSistema.o: lib/helpers/FechaSistema.h src/helpers/FechaSistema.cpp
