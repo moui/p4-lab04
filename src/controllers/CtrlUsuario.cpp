@@ -40,3 +40,30 @@ void CtrlUsuario::iniciarSesion()
 {
 
 }
+
+// Implementacion de caso de uso Alta Usuario
+void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){
+    this->mail = nmail;
+    this->contrasena = ncontrasena;
+}
+
+void CtrlUsuario::ingresaDatosJugador(string nnickname, string ndescripcion){
+    this->nickname = nnickname;
+    this->descripcion = ndescripcion;
+}
+
+void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){
+    this->empresa = nempresa;
+}
+
+void CtrlUsuario::confirmaAltaDesarrollador(){
+
+}
+
+void CtrlUsuario::confirmaAltaJugador(){
+
+}
+
+void CtrlUsuario::cancelaAlta(){
+
+}
