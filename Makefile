@@ -15,6 +15,10 @@ INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
 CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
 HELPERS_OBJ = $(HELPERS:%=obj/helpers/%.o)
 
+DIRS=obj obj/const obj/datatypes
+
+$(shell mkdir -p $(DIRS))
+
 .PHONY: clean lab
 
 # MAIN
