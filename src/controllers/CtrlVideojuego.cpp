@@ -2,10 +2,10 @@
 
 using namespace std;
  //*
-CtrlVideojuego * getCtrlVideojuego::instancia = NULL;
+CtrlVideojuego* CtrlVideojuego::instancia = NULL;
 
-CtrlVideojuego::~CtrlVideojuego(){
-
+CtrlVideojuego::~CtrlVideojuego()
+{
 }
 
 CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
