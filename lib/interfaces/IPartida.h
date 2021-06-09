@@ -4,8 +4,8 @@
 #include <string>
 #include <set>
 
-#include "datatypes/DtPartidaIndividual.h"
-#include "datatypes/DtPartida.h"
+#include "../datatypes/DtPartidaIndividual.h"
+#include "../datatypes/DtPartida.h"
 
 using namespace std;
 

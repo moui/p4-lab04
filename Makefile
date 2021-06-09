@@ -107,6 +107,9 @@ obj/datatypes/TipoPago.o: lib/datatypes/TipoPago.h src/datatypes/TipoPago.cpp
 obj/datatypes/TipoPeriodo.o: lib/datatypes/TipoPeriodo.h src/datatypes/TipoPeriodo.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoPeriodo.cpp -o obj/datatypes/TipoPeriodo.o
 
+obj/datatypes/TipoPuntaje.o: lib/datatypes/TipoPuntaje.h src/datatypes/TipoPuntaje.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoPuntaje.cpp -o obj/datatypes/TipoPuntaje.o
+
 obj/datatypes/TipoCat.o: lib/datatypes/TipoCat.h src/datatypes/TipoCat.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoCat.cpp -o obj/datatypes/TipoCat.o
 

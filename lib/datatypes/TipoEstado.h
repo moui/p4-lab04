@@ -5,7 +5,6 @@
 
 enum class TipoEstado
     {
-
     activa = 0,
     cancelada = 1,
     expirada = 2,

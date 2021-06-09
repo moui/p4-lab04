@@ -1,4 +1,4 @@
-#include "lib/datatypes/TipoEstado.h"
+#include "../../lib/datatypes/TipoEstado.h"
 #include <iostream>
 
 inline std::istream& operator>> ( std::istream& in, TipoEstado& t ){

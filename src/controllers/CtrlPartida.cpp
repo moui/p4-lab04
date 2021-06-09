@@ -1,4 +1,4 @@
-#include "../lib/CtrlPartida.h"
+#include "../../lib/controllers/CtrlPartida.h"
 
 using namespace std;
 

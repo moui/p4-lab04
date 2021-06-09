@@ -1,7 +1,7 @@
-#include "lib/datatypes/TipoPuntaje.h"
+#include "../../lib/datatypes/TipoPuntaje.h"
 #include <iostream>
 
-inline std::istream& operator>> ( std::istream& in, TipoPeriodo& t ){
+/*inline std::istream& operator>> ( std::istream& in, TipoPeriodo& t ){
     int valor;
 
     if ( in  >> valor ) {
@@ -12,11 +12,11 @@ inline std::istream& operator>> ( std::istream& in, TipoPeriodo& t ){
                 throw std::out_of_range ( "Por favor, escriba uno de los tipos detallados.\n" );
         }
     }
-    return in;
-}
+    return in; 
+} */
 
 
-inline std::ostream& operator<<(std::ostream& out, const TipoPuntaje& t){
+/* inline std::ostream& operator<<(std::ostream& out, const TipoPuntaje& t){
     switch (t) {
         case TipoPuntaje::uno:
             out << "Uno";
@@ -35,4 +35,4 @@ inline std::ostream& operator<<(std::ostream& out, const TipoPuntaje& t){
             break;
     }
     return out;
-}
+} */
