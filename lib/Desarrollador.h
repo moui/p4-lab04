@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Usuario.h"
+#include "Videojuego.h"
 #include "interfaces/IEstadistica.h"
 #include "datatypes/DtVideojuego.h"
 #include "datatypes/DtEstadistica.h"

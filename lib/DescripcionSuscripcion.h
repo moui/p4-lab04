@@ -2,13 +2,14 @@
 #define DESCRIPCIONSUSCRIPCION
 
 #include <string>
-#include "datatypes/TipoPago.h"
+#include "datatypes/DtFechaHora.h"
 #include "DescripcionSuscripcion.h"
 #include "Suscripcion.h"
 #include "datatypes/TipoPeriodo.h"
 #include "datatypes/TipoPago.h"
 
 #include <string>
+#include <set>
 #include <map>
 
 using namespace std;
@@ -31,7 +32,7 @@ class DescripcionSuscripcion{
 //Getters
   string getNombre();
   float getCosto();
-  TipoPago getPeriodo();
+  TipoPeriodo getPeriodo();
   set<Suscripcion*> getSuscripciones();
 
 //Setters

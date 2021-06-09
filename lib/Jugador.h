@@ -17,6 +17,8 @@
 
 using namespace std;
 
+class InfoPartidaMulti;
+
 class Jugador : public Usuario
 {
   private:
