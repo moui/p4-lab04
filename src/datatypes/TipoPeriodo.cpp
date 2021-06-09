@@ -1,4 +1,4 @@
-#include "lib/datatypes/TipoPeriodo.h"
+#include "../../lib/datatypes/TipoPeriodo.h"
 #include <iostream>
 
 inline std::istream& operator>> ( std::istream& in, TipoPeriodo& t ){

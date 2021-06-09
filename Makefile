@@ -91,6 +91,9 @@ obj/datatypes/DtFechaHora.o: lib/datatypes/DtFechaHora.h src/datatypes/DtFechaHo
 obj/datatypes/DtVideojuegoSuscripcion.o: lib/datatypes/DtVideojuegoSuscripcion.h src/datatypes/DtVideojuegoSuscripcion.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtVideojuegoSuscripcion.cpp -o obj/datatypes/DtVideojuegoSuscripcion.o
 
+obj/datatypes/DtSuscripcion.o: lib/datatypes/DtSuscripcion.h src/datatypes/DtSuscripcion.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtSuscripcion.cpp -o obj/datatypes/DtSuscripcion.o
+
 obj/datatypes/TipoEstado.o: lib/datatypes/TipoEstado.h src/datatypes/TipoEstado.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoEstado.cpp -o obj/datatypes/TipoEstado.o
 

@@ -1,4 +1,4 @@
-#include "lib/datatypes/TipoPago.h"
+#include "../../lib/datatypes/TipoPago.h"
 #include <iostream>
 
 inline std::istream& operator>> ( std::istream& in, TipoPago& t ){
@@ -18,8 +18,8 @@ inline std::istream& operator>> ( std::istream& in, TipoPago& t ){
 
 inline std::ostream& operator<<(std::ostream& out, const TipoPago& t){
     switch (t) {
-        case TipoPago::mensual:
-            out << "Mensual";
+        case TipoPago::paypal :
+            out << "Paypal";
             break;
         case TipoPago::tarjeta:
             out << "Tarjeta";
