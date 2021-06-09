@@ -8,6 +8,10 @@ CtrlVideojuego::~CtrlVideojuego()
 {
 }
 
+CtrlVideojuego::CtrlVideojuego()
+{
+}
+
 CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
     if (instancia == NULL){
         instancia = new CtrlVideojuego();

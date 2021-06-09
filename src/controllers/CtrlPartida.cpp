@@ -7,6 +7,10 @@ CtrlPartida * CtrlPartida::instancia = NULL;
 CtrlPartida::~CtrlPartida(){
 
 }
+
+CtrlPartida::CtrlPartida(){
+
+}
     
 CtrlPartida * CtrlPartida::getCtrlPartida(){
     if (instancia == NULL){

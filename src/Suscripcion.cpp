@@ -10,6 +10,9 @@ Suscripcion::Suscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, T
   return;
 }
 
+Suscripcion::~Suscripcion()
+{
+}
 
     //getters
 

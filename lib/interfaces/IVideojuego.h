@@ -17,12 +17,12 @@ class IVideojuego
         IVideojuego();
         virtual ~IVideojuego();
 
-        virtual set<string>listarVideoJuegosDesarrollador()=0;
+       /* virtual set<string>listarVideoJuegosDesarrollador()=0;
         virtual void videojuegoAEliminar(string nombre);
         virtual void cancelarEliminarVideoJuego();
         virtual void confirmarEliminarVideoJuego();
         virtual void ingresarDatosVideojuego(DtVideojuego datos);
-        /*virtual set<DtCategoria>listarCategorias(); */
+        virtual set<DtCategoria>listarCategorias(); 
         virtual void seleccionarCategoria(string nombre);
         virtual DtVideojuego mostrarVideojuego();
         virtual void cancelaPublicarVideojuego();
@@ -32,7 +32,7 @@ class IVideojuego
         virtual void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
         virtual void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
         virtual void AltaSuscripcion(); //faltan parametros
-        virtual DtVideojuego verInfoVideojuego(string nombre);
+        virtual DtVideojuego verInfoVideojuego(string nombre); */
 };
 
 #endif

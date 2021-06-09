@@ -15,7 +15,7 @@ class IPartida //aca
         IPartida();
         virtual ~IPartida();
 
-        virtual void iniciarPartida();
+       /* virtual void iniciarPartida();
         virtual void abandonarPartidaMultijugador();
         virtual void FinalizarPartida();
         virtual void RealizarComentario();
@@ -30,7 +30,7 @@ class IPartida //aca
         virtual void cancelarIniciarPartida();
         virtual set<DtPartida> listaPartidasIniciadas(string nickname);
         virtual void finalizarPartida(float id);
-        virtual void cancelarFinalizarPartida();
+        virtual void cancelarFinalizarPartida(); */
 };
 
 #endif

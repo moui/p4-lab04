@@ -40,7 +40,7 @@ class CtrlVideojuego : public IVideojuego
         void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
         void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
         void AltaSuscripcion(); //faltan parametros
-        DtVideojuego verInfoVideojuego(string nombre);
+        DtVideojuego verInfoVideojuego(string nombre); 
 };
 
 #endif

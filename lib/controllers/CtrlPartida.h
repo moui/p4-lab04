@@ -35,7 +35,7 @@ class CtrlPartida : public IPartida
         void cancelarIniciarPartida();
         set<DtPartida> listaPartidasIniciadas(string nickname);
         void finalizarPartida(float id);
-        void cancelarFinalizarPartida();
+        void cancelarFinalizarPartida(); 
 
 };
 

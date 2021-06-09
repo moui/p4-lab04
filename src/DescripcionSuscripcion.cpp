@@ -8,6 +8,10 @@ DescripcionSuscripcion::DescripcionSuscripcion(string nom, float costo, TipoPeri
   return;
 }
 
+DescripcionSuscripcion::~DescripcionSuscripcion()
+{
+}
+
 
     //getters
 
