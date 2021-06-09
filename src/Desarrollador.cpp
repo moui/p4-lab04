@@ -2,8 +2,7 @@
 
 // Constructor y destructor
 
-Desarrollador::Desarrollador(string email, string contrasena, string empresa)
-  : Usuario(email, contrasena)
+Desarrollador::Desarrollador(string email, string contrasena, string empresa): Usuario(email, contrasena)
 {
   this->empresa = empresa;
   return;

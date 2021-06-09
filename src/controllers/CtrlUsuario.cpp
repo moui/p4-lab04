@@ -57,7 +57,7 @@ void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){
 }
 
 void CtrlUsuario::confirmaAltaDesarrollador(){
-
+    
 }
 
 void CtrlUsuario::confirmaAltaJugador(){
