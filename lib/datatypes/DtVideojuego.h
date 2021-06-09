@@ -10,6 +10,7 @@ class DtVideojuego
     float totalHorasDeJuego;
 
   public:
+    DtVideojuego();
     DtVideojuego(std::string, float);
     std::string getn();
     float getthj();

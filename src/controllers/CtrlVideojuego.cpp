@@ -17,8 +17,9 @@ CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
 
 
 
-set<string>listarVideoJuegosDesarrollador(){
-  return "\n"
+set<string> listarVideoJuegosDesarrollador(){
+  set<string> a;
+  return a;
 }
 
 void CtrlVideojuego::videojuegoAEliminar(string nombre){
@@ -38,7 +39,8 @@ void CtrlVideojuego::ingresarDatosVideojuego(DtVideojuego datos){
 }
 
 set<DtCategoria>CtrlVideojuego::listarCategorias(){
-  return NULL;
+  set<DtCategoria> a;
+  return a;
 }
 
 
@@ -47,7 +49,8 @@ void CtrlVideojuego::seleccionarCategoria(string nombre){
 }
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
-  return NULL;
+  DtVideojuego b;
+  return b;
 }
 
 void CtrlVideojuego::cancelaPublicarVideojuego(){
@@ -60,7 +63,8 @@ void CtrlVideojuego::confirmaPublicarVideojuego(Videojuego * v){
 }
 
 set<DtVideojuegoSuscripcion> CtrlVideojuego::ObtenerCatalogo(){
-  return NULL;
+  set<DtVideojuegoSuscripcion> a;
+  return a;
 }
 
 void CtrlVideojuego::SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo){
@@ -69,4 +73,4 @@ void CtrlVideojuego::SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo){
 void CtrlVideojuego::AgregarSuscripcion(Suscripcion *s){
 }
 
-void CtrlVideojuego::AltaSuscripcion(){  *//
+void CtrlVideojuego::AltaSuscripcion(){}
