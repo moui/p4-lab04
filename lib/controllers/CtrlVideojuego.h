@@ -4,6 +4,8 @@
 #include "../interfaces/IVideojuego.h"
 #include "../Videojuego.h"
 #include "../Desarrollador.h"
+#include "../datatypes/DtVideojuegoSuscripcion.h"
+#include "../datatypes/DtCategoria.h"
 #include <set>
 
 using namespace std;
@@ -18,28 +20,25 @@ class CtrlVideojuego : public IVideojuego
         static CtrlVideojuego * instancia;
         CtrlVideojuego();
 
-        //Usuario * sesionActiva;
-
     public:
         ~CtrlVideojuego();
 
-        //Usuario getSesionActiva();
         static CtrlVideojuego * getCtrlVideojuego();
 
         set<string>listarVideoJuegosDesarrollador();
-        void videojuegoAEliminar(nombre: string);
+        void videojuegoAEliminar(string nombre);
         void cancelarEliminarVideoJuego();
         void confirmarEliminarVideoJuego();
-        void ingresarDatosVideojuego(datos: DtVideojuego);
-        set<Dtcategoria>listarCategorias();
-        void seleccionarCategoria(nombre: String);
+        void ingresarDatosVideojuego(DtVideojuego datos);
+        set<DtCategoria>listarCategorias();
+        void seleccionarCategoria(string nombre);
         DtVideojuego mostrarVideojuego();
         void cancelaPublicarVideojuego();
         void confirmaPublicarVideojuego();
         void confirmaPublicarVideojuego(Videojuego * v); // no se si es correcto, pero lo podemos cambiar, esta en el diagrama
-        set<DtVideojuegosuscripcion> ObtenerCatalogo();
+        set<DtVideojuegoSuscripcion> ObtenerCatalogo();
         void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
-        void AgregarSuscripcion(suscripcion *s); //para agregar en descSuscripcion
+        void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
         void AltaSuscripcion(); //faltan parametros
         DtVideojuego verInfoVideojuego(string nombre);
 };
