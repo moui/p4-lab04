@@ -18,7 +18,7 @@ ManejadorUsuario::ManejadorUsuario(){}
 ManejadorUsuario::~ManejadorUsuario(){}
 
 Usuario* ManejadorUsuario::buscarUsuario(string clave){
-
+    return NULL;
 }
 
 void ManejadorUsuario::agregarUsuario(Usuario* usuario){}

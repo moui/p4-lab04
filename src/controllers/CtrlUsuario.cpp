@@ -57,7 +57,9 @@ void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){
 }
 
 void CtrlUsuario::confirmaAltaDesarrollador(){
-    
+    Desarrollador des(mail, contrasena, empresa);
+    ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
+    manusr->agregarUsuario(&des);
 }
 
 void CtrlUsuario::confirmaAltaJugador(){

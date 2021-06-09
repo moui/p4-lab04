@@ -24,3 +24,5 @@ void Desarrollador::setEmpresa(string empresa)
 {
   this->empresa = empresa;
 }
+
+void Desarrollador::mostrarUsuario(){ cout << "des"; }

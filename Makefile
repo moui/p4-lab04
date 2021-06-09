@@ -6,6 +6,7 @@ CONST = Constantes
 DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtEstadistica DtCategoria DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado TipoPuntaje
 INTERFACES = IEstadistica IPartida IUsuario IVideojuego
 CONTROLLERS = CtrlUsuario CtrlPartida CtrlVideojuego
+MANEJADORES = ManejadorUsuario
 HELPERS = FechaSistema
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
@@ -13,16 +14,17 @@ CONST_OBJ = $(CONST:%=obj/const/%.o)
 DATATYPES_OBJ = $(DATATYPES:%=obj/datatypes/%.o)
 INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
 CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
+MANEJADORES_OBJ = $(MANEJADORES:%=obj/manejadores/%.o)
 HELPERS_OBJ = $(HELPERS:%=obj/helpers/%.o)
 
-DIRS=obj obj/const obj/datatypes obj/controllers obj/helpers obj/interfaces
+DIRS=obj obj/const obj/datatypes obj/controllers obj/helpers obj/interfaces obj/manejadores
 
 $(shell mkdir -p $(DIRS))
 
 .PHONY: clean lab
 
 # MAIN
-main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) $(HELPERS_OBJ)
+main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) $(MANEJADORES_OBJ) $(HELPERS_OBJ)
 	$(CC) $(OPTIONS) $^ -o $@
 
 obj/main.o: main.cpp
@@ -138,6 +140,10 @@ obj/controllers/CtrlPartida.o: lib/controllers/CtrlPartida.h src/controllers/Ctr
 
 obj/controllers/CtrlVideojuego.o: lib/controllers/CtrlVideojuego.h src/controllers/CtrlVideojuego.cpp
 	$(CC) $(OPTIONS) -c src/controllers/CtrlVideojuego.cpp -o obj/controllers/CtrlVideojuego.o
+
+# MANEJADORES
+obj/manejadores/ManejadorUsuario.o: lib/manejadores/ManejadorUsuario.h src/manejadores/ManejadorUsuario.cpp
+	$(CC) $(OPTIONS) -c src/manejadores/ManejadorUsuario.cpp -o obj/manejadores/ManejadorUsuario.o
 
 # HELPERS
 obj/helpers/FechaSistema.o: lib/helpers/FechaSistema.h src/helpers/FechaSistema.cpp

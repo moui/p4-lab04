@@ -18,7 +18,7 @@ static DtFechaHora* ValidarFechaSistema();
 int main()
 {
     FechaSistema* fechaSistema = new FechaSistema();
-    IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
+    IUsuario* IUsr = Fabrica::getInstancia()->getIUsuario();
     int operacion = 1;
     string mail, contrasena, tipo, empresa, nickname, descripcion, confirma;
     cout << Constantes::MenuPrincipal;
@@ -54,6 +54,7 @@ int main()
                 cin >> descripcion;
                 try {
                     IUsr->ingresaDatosJugador(nickname, descripcion);
+                    flag = true;
                 }
                 catch (const std::invalid_argument& err) {
                     cerr << "Error: " << err.what() << '\n';
@@ -65,6 +66,7 @@ int main()
                 //alta desarrollador
                 try {
                     IUsr->ingresaDatosDesarrollador(empresa);
+                    flag = true;
                 }
                 catch (const std::invalid_argument& err) {
                     cerr << "Error: " << err.what() << '\n';
@@ -82,6 +84,7 @@ int main()
                 if (tipo=="j") {
                     try {
                         IUsr->confirmaAltaJugador();
+                        flag = true;
                     }
                     catch (const std::invalid_argument& err) {
                         cerr << "Error: " << err.what() << '\n';
@@ -90,6 +93,7 @@ int main()
                 else if (tipo=="d") {
                     try {
                         IUsr->confirmaAltaDesarrollador();
+                        flag = true;
                     }
                     catch (const std::invalid_argument& err) {
                         cerr << "Error: " << err.what() << '\n';
@@ -99,6 +103,7 @@ int main()
             else if (confirma=="n") {
                 try {
                     IUsr->cancelaAlta();
+                    flag = true;
                 }
                 catch (const std::invalid_argument& err) {
                     cerr << "Error: " << err.what() << '\n';

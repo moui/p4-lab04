@@ -112,3 +112,5 @@ void AltaSuscripcion()
 void CancelarSuscripcion(string NombreVJ)
 {
 }
+
+void Jugador::mostrarUsuario(){ cout << "jug"; }

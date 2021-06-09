@@ -63,6 +63,7 @@ class Jugador : public Usuario
     void setSuscripcion(Suscripcion* s);
     void seguir(Jugador* j);
 
+    void mostrarUsuario();
 };
 
 #endif

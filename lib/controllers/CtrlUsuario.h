@@ -4,6 +4,7 @@
 #include "../interfaces/IUsuario.h"
 #include "../Jugador.h"
 #include "../Desarrollador.h"
+#include "../manejadores/ManejadorUsuario.h"
 
 #include <string>
 
