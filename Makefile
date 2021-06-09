@@ -15,7 +15,7 @@ INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
 CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
 HELPERS_OBJ = $(HELPERS:%=obj/helpers/%.o)
 
-DIRS=obj obj/const obj/datatypes
+DIRS=obj obj/const obj/datatypes obj/controllers obj/helpers obj/interfaces
 
 $(shell mkdir -p $(DIRS))
 
