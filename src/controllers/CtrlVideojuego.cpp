@@ -1,14 +1,18 @@
-#include "../lib/CtrlVideojuego.h"
+#include "../../lib/controllers/CtrlVideojuego.h"
 
 using namespace std;
+ //*
+CtrlVideojuego* CtrlVideojuego::instancia = NULL;
 
-CtrlVideojuego * getCtrlVideojuego::instancia = NULL;
-
-CtrlVideojuego::~CtrlVideojuego(){
-
+CtrlVideojuego::~CtrlVideojuego()
+{
 }
 
-CtrlUsuario * CtrlVideojuego::getCtrlVideojuego(){
+CtrlVideojuego::CtrlVideojuego()
+{
+}
+
+CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
     if (instancia == NULL){
         instancia = new CtrlVideojuego();
     }
@@ -17,11 +21,12 @@ CtrlUsuario * CtrlVideojuego::getCtrlVideojuego(){
 
 
 
-set<string>listarVideoJuegosDesarrollador(){
-  return "\n"
+set<string> listarVideoJuegosDesarrollador(){
+  set<string> a;
+  return a;
 }
 
-void CtrlVideojuego::videojuegoAEliminar(nombre: string){
+void CtrlVideojuego::videojuegoAEliminar(string nombre){
 
 }
 
@@ -33,21 +38,23 @@ void CtrlVideojuego::confirmarEliminarVideoJuego(){
 
 }
 
-void CtrlVideojuego::ingresarDatosVideojuego(datos: DtVideojuego){
+void CtrlVideojuego::ingresarDatosVideojuego(DtVideojuego datos){
 
 }
 
-set<Dtcategoria>CtrlVideojuego::listarCategorias(){
-  return NULL;
+set<DtCategoria>CtrlVideojuego::listarCategorias(){
+  set<DtCategoria> a;
+  return a;
 }
 
 
-void CtrlVideojuego::seleccionarCategoria(nombre: String){
+void CtrlVideojuego::seleccionarCategoria(string nombre){
 
 }
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
-  return NULL;
+  DtVideojuego b;
+  return b;
 }
 
 void CtrlVideojuego::cancelaPublicarVideojuego(){
@@ -59,15 +66,15 @@ void CtrlVideojuego::confirmaPublicarVideojuego(){
 void CtrlVideojuego::confirmaPublicarVideojuego(Videojuego * v){
 }
 
-set<DtVideojuegosuscripcion> CtrlVideojuego::ObtenerCatalogo(){
-  return NULL;
+set<DtVideojuegoSuscripcion> CtrlVideojuego::ObtenerCatalogo(){
+  set<DtVideojuegoSuscripcion> a;
+  return a;
 }
 
 void CtrlVideojuego::SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo){
 }
 
-void CtrlVideojuego::AgregarSuscripcion(suscripcion *s){
+void CtrlVideojuego::AgregarSuscripcion(Suscripcion *s){
 }
 
-void CtrlVideojuego::AltaSuscripcion(){   //faltan parametros
-}
+void CtrlVideojuego::AltaSuscripcion(){}

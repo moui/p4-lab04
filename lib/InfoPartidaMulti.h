@@ -1,6 +1,7 @@
 #ifndef INFO_PARTIDA_MULTI
 #define INFO_PARTIDA_MULTI
 
+#include "datatypes/DtFechaHora.h"
 #include "Jugador.h"
 
 class Jugador;

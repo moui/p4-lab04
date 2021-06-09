@@ -1,10 +1,14 @@
-#include "lib/Sistema.h"
 #include "lib/datatypes/DtFechaHora.h"
 #include "lib/const/Constantes.h"
 
 #include <iostream>
 #include <limits>
 #include <string>
+
+#include "lib/helpers/FechaSistema.h"
+#include "lib/datatypes/DtFechaHora.h"
+#include "lib/interfaces/IUsuario.h"
+#include "lib/Fabrica.h"
 
 using namespace std;
 
@@ -13,7 +17,7 @@ static DtFechaHora* ValidarFechaSistema();
 
 int main()
 {
-    Sistema* Sistema = Sistema::getInstancia();
+    FechaSistema* fechaSistema = new FechaSistema();
     int operacion = 1;
 
     cout << Constantes::MenuPrincipal;
@@ -21,7 +25,7 @@ int main()
     {
         cout << "Ingrese codigo de operacion: ";
         cin >> operacion;
-        
+
         switch (operacion)
         {
         case 1:
@@ -32,7 +36,7 @@ int main()
             break;
         case 3:
             // MOSTRAR FECHA DEL SISTEMA
-            cout << Constantes::PresentacionFechaActual << *(Sistema->getFecha()) << Constantes::Separador;
+            cout << Constantes::PresentacionFechaActual << *(fechaSistema->getFecha()) << Constantes::Separador;
             break;
         case 4:
         {
@@ -44,7 +48,7 @@ int main()
                 cout << Constantes::MsjeErrorIngresoFecha;
                 nuevaFecha = ValidarFechaSistema();
             }
-            Sistema->setFecha(nuevaFecha);
+            fechaSistema->setFecha(nuevaFecha);
             cout << Constantes::PresentacionModificarFecha_Fin;
             break;
         }
@@ -60,15 +64,15 @@ int main()
         }
     }
 
-    delete Sistema;
+    delete fechaSistema;
     return 0;
 }
 
 static DtFechaHora* ValidarFechaSistema()
 {
     int DD, MM, AAAA, HH, mm;
-    
-    cin.ignore(numeric_limits<streamsize>::max(),'\n'); 
+
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
     cin.clear();
 
     cin >> DD;
@@ -76,13 +80,13 @@ static DtFechaHora* ValidarFechaSistema()
     {
         cin.clear();
         return NULL;
-    } 
+    }
     if (cin.get() != '-')
     {
         cin.clear();
         return NULL;
     }
-        
+
     cin >> MM;
     if (!cin || MM < 1 || MM > 12)
     {
@@ -118,7 +122,7 @@ static DtFechaHora* ValidarFechaSistema()
         cin.clear();
         return NULL;
     }
-    
+
     cin >> mm;
     if (!cin || mm < 0 || mm > 59)
     {

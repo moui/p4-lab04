@@ -1,4 +1,4 @@
-i#include "../lib/Jugador.h"
+#include "../lib/Jugador.h"
 
 // Constructor y destructor
 
@@ -22,17 +22,10 @@ string Jugador::getNickname()
   return this->nickname;
 }
 
-// Getters
-string Jugador::getNickname()
-{
-  return this->nickname;
-}
-
 string Jugador::getDescripcion()
 {
   return this->descripcion;
 }
-
 
 map<int, Partida*> Jugador::getInicioPartidas()
 {
@@ -47,7 +40,7 @@ void Jugador::setNickname(string nickname)
 
 void Jugador::setDescripcion(string descripcion)
 {
-  this->descripcion = Descripcion;
+  this->descripcion = descripcion;
 }
 
 void Jugador::setInicioPartidas(map<int,Partida*> inicio)
@@ -56,45 +49,66 @@ void Jugador::setInicioPartidas(map<int,Partida*> inicio)
 }
 
 void finPartida(float id){
-  this->iniciadas[id]->filaizada = true;
+  /* this->iniciadas[id]->filaizada = true; */
 }
 
 void seguir(Jugador* j){
-  sigue->insert(j);
+  /* sigue->insert(j); */
 }
 
-set<DtPartidas*> partidasInSF(){
-   map<float, Partida*>::iterator i = iniciadas->begin();
+set<DtPartida*> partidasInSF()
+{
+   set<DtPartida*> foo;
+   /*map<float, Partida*>::iterator i = inicio->begin();
    set<DtPartida*> isf;
-   while(i != iniciadas->end()){
+   while(i != inicio->end()){
       if(!estaFinalizada(**i)){
-        
+        if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
+         DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getContinuacion());
+         isf->insert(p);
+        } else {
+        map<string, InfoPartidaMulti> part = *i->getParticipan();
+        map<string, InfoPartidaMulti>::iterator it = part->begin();
+        set<string> s;
+        while (*it != part->end()){
+          s->insert(*it->getNickname);
+          ++it;
+        }
+        DtPartidaMultijugador* p = dynamic_cast<DtPartidaMultijugador*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getTrasmitidaEnVivo(), s, s->size());
+        isf->insert(p);
+        }
       }
       ++i;
    }
-   return isf;
+   return isf; */
+   return foo;
 }
 
-void iniciadaP(Partida p){
+void iniciadaP(Partida* p){
+  /* this->inicio[p->getId()] = p; */
 }
 
-bool estaSuscritoA(std::string NombreVJ){
-}
-
-set<DtPartidasIndividuales*> partidasIndF(){
-}
-
-set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(){
-}
-
-void AltaSuscripcion(){
-}
-
-void CancelarSuscripcion(std::string NombreVJ){
-}
-
-Jugador::~Jugador()
+bool estaSuscritoA(std::string NombreVJ)
 {
-  delete[] this->iniciada;
-  delete[] this->unen;
+  return false;
+}
+
+set<DtPartidaIndividual*> partidasIndF()
+{
+  set<DtPartidaIndividual*> foo;
+  return foo;
+}
+
+set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()
+{
+  set<DtVideojuegoSuscripcion*> foo;
+  return foo;
+}
+
+void AltaSuscripcion()
+{
+}
+
+void CancelarSuscripcion(string NombreVJ)
+{
 }

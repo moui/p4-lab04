@@ -1,4 +1,4 @@
-#include "../lib/CtrlPartida.h"
+#include "../../lib/controllers/CtrlPartida.h"
 
 using namespace std;
 
@@ -7,10 +7,14 @@ CtrlPartida * CtrlPartida::instancia = NULL;
 CtrlPartida::~CtrlPartida(){
 
 }
+
+CtrlPartida::CtrlPartida(){
+
+}
     
-CtrlPartida * CtrlPartida::getCtrPartida(){
+CtrlPartida * CtrlPartida::getCtrlPartida(){
     if (instancia == NULL){
-        instancia = new CtrlCtrlPartida();
+        instancia = new CtrlPartida();
     }
     return instancia;
 }
@@ -25,14 +29,18 @@ void partidaAContinuar(float id){
 void listaJugUnidos(set<string> nicknames){
 
 }
-set<string> listaJugSuscriptos(){
 
+set<string> listaJugSuscriptos(){
+    set<string> a;
+    return a;
 }
+
 void confirmarIniciarPartida(){
 
 }
 set<DtPartidaIndividual> listaPartidasIndTer(){
-
+    set<DtPartidaIndividual> a;
+    return a;
 }
 void enVivo(bool enVivo){
 
@@ -40,8 +48,9 @@ void enVivo(bool enVivo){
 void cancelarIniciarPartida(){
 
 }
-set<DtPartida> listaPartidasIniciadas(string nickname){
-
+set<DtPartidaIndividual> listaPartidasIniciadas(string nickname){
+    set<DtPartidaIndividual> a;
+    return a;
 }
 void finalizarPartida(float id){
 

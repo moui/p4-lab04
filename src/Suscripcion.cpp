@@ -4,12 +4,15 @@ Suscripcion::Suscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, T
 {
   this->nombreVJ = nomVJ;
   this->fecha = f;
-  this->costo = c;
+  this->costo = costo;
   this->pago = p;
   this->estado = e;
   return;
 }
 
+Suscripcion::~Suscripcion()
+{
+}
 
     //getters
 

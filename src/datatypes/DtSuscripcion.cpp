@@ -3,32 +3,35 @@
 
 
 
-DtSuscripcion(string nomVJ, TipoFecha f, float costo, TipoPago p, TipoEstado e){
+DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e){
   this->nombreVJ = nomVJ;
   this->fecha = f;
-  this->costo = c;
+  this->costo = costo;
   this->pago = p;
   this->estado = e;
   return;
 }
-~DtSuscripcion();
+DtSuscripcion::~DtSuscripcion()
+{
+  
+}
 
-string Suscripcion::getnombreVJ(){
+string DtSuscripcion::getnombreVJ(){
   return this->nombreVJ;
 }
 
-DtFechaHora Suscripcion::getFecha(){
+DtFechaHora DtSuscripcion::getFecha(){
   return this->fecha;
 }
 
-float Suscripcion::getCosto(){
+float DtSuscripcion::getCosto(){
   return this->costo;
 }
 
-TipoPago Suscripcion::getTipoPago(){
+TipoPago DtSuscripcion::getTipoPago(){
   return this->pago;
 }
 
-TipoEstado Suscripcion::getEstado(){
+TipoEstado DtSuscripcion::getEstado(){
   return this->estado;
 }

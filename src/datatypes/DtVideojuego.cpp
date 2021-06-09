@@ -7,6 +7,11 @@ DtVideojuego::DtVideojuego(std::string nombre, float totalHoras)
   return;
 }
 
+DtVideojuego::DtVideojuego()
+{
+ 
+}
+
 std::string DtVideojuego::getn()
 {
   return this->nombre;

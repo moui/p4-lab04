@@ -1,8 +1,11 @@
 #ifndef SUSCRIPCION
 #define SUSCRIPCION
 
-#include <string>
 #include "DescripcionSuscripcion.h"
+#include "datatypes/TipoEstado.h"
+#include "datatypes/TipoPago.h"
+#include <string>
+#include <map>
 //#include "Jugador.h"
 
 class DescripcionSuscripcion;
@@ -14,7 +17,7 @@ using namespace std;
 class Suscripcion{
   private:
     string nombreVJ;
-    TipoFecha fecha;
+    DtFechaHora fecha;
     float costo;
     TipoPago pago;
     TipoEstado estado;

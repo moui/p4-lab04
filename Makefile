@@ -1,11 +1,11 @@
 OPTIONS = -Wall -Werror -g
 CC = g++
 
-CLASSES = Sistema Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti Suscripcion DescripcionSuscripcion Categoria
+CLASSES = Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti Suscripcion DescripcionSuscripcion Categoria
 CONST = Constantes
-DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtSuscripcion TipoCat TipoPeriodo
-INTERFACES = IPartida IUsuario IVideojuego
-CONTROLLERS = CtrlUsuario CtrlPartida CtrlVidejuego
+DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtEstadistica DtCategoria DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado TipoPuntaje
+INTERFACES = IEstadistica IPartida IUsuario IVideojuego
+CONTROLLERS = CtrlUsuario CtrlPartida CtrlVideojuego
 HELPERS = FechaSistema
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
@@ -14,6 +14,10 @@ DATATYPES_OBJ = $(DATATYPES:%=obj/datatypes/%.o)
 INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
 CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
 HELPERS_OBJ = $(HELPERS:%=obj/helpers/%.o)
+
+DIRS=obj obj/const obj/datatypes obj/controllers obj/helpers obj/interfaces
+
+$(shell mkdir -p $(DIRS))
 
 .PHONY: clean lab
 
@@ -25,9 +29,6 @@ obj/main.o: main.cpp
 	$(CC) $(OPTIONS) -c $< -o $@
 
 # CLASSES
-obj/Sistema.o: lib/Sistema.h src/Sistema.cpp
-	$(CC) $(OPTIONS) -c src/Sistema.cpp -o obj/Sistema.o
-
 obj/Fabrica.o: lib/Fabrica.h src/Fabrica.cpp
 	$(CC) $(OPTIONS) -c src/Fabrica.cpp -o obj/Fabrica.o
 
@@ -85,13 +86,40 @@ obj/datatypes/DtVideojuego.o: lib/datatypes/DtVideojuego.h src/datatypes/DtVideo
 obj/datatypes/DtJugador.o: lib/datatypes/DtJugador.h src/datatypes/DtJugador.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtJugador.cpp -o obj/datatypes/DtJugador.o
 
+obj/datatypes/DtEstadistica.o: lib/datatypes/DtEstadistica.h src/datatypes/DtEstadistica.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtEstadistica.cpp -o obj/datatypes/DtEstadistica.o
+
 obj/datatypes/DtFechaHora.o: lib/datatypes/DtFechaHora.h src/datatypes/DtFechaHora.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtFechaHora.cpp -o obj/datatypes/DtFechaHora.o
+
+obj/datatypes/DtVideojuegoSuscripcion.o: lib/datatypes/DtVideojuegoSuscripcion.h src/datatypes/DtVideojuegoSuscripcion.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtVideojuegoSuscripcion.cpp -o obj/datatypes/DtVideojuegoSuscripcion.o
+
+obj/datatypes/DtSuscripcion.o: lib/datatypes/DtSuscripcion.h src/datatypes/DtSuscripcion.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtSuscripcion.cpp -o obj/datatypes/DtSuscripcion.o
+
+obj/datatypes/DtCategoria.o: lib/datatypes/DtCategoria.h src/datatypes/DtCategoria.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtCategoria.cpp -o obj/datatypes/DtCategoria.o
+
+obj/datatypes/TipoEstado.o: lib/datatypes/TipoEstado.h src/datatypes/TipoEstado.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoEstado.cpp -o obj/datatypes/TipoEstado.o
+
+obj/datatypes/TipoPago.o: lib/datatypes/TipoPago.h src/datatypes/TipoPago.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoPago.cpp -o obj/datatypes/TipoPago.o
+
+obj/datatypes/TipoPeriodo.o: lib/datatypes/TipoPeriodo.h src/datatypes/TipoPeriodo.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoPeriodo.cpp -o obj/datatypes/TipoPeriodo.o
+
+obj/datatypes/TipoPuntaje.o: lib/datatypes/TipoPuntaje.h src/datatypes/TipoPuntaje.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/TipoPuntaje.cpp -o obj/datatypes/TipoPuntaje.o
 
 obj/datatypes/TipoCat.o: lib/datatypes/TipoCat.h src/datatypes/TipoCat.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoCat.cpp -o obj/datatypes/TipoCat.o
 
 # INTERFACES
+obj/interfaces/IEstadistica.o: lib/interfaces/IEstadistica.h src/interfaces/IEstadistica.cpp
+	$(CC) $(OPTIONS) -c src/interfaces/IEstadistica.cpp -o obj/interfaces/IEstadistica.o
+
 obj/interfaces/IUsuario.o: lib/interfaces/IUsuario.h src/interfaces/IUsuario.cpp
 	$(CC) $(OPTIONS) -c src/interfaces/IUsuario.cpp -o obj/interfaces/IUsuario.o
 
@@ -108,8 +136,8 @@ obj/controllers/CtrlUsuario.o: lib/controllers/CtrlUsuario.h src/controllers/Ctr
 obj/controllers/CtrlPartida.o: lib/controllers/CtrlPartida.h src/controllers/CtrlPartida.cpp
 	$(CC) $(OPTIONS) -c src/controllers/CtrlPartida.cpp -o obj/controllers/CtrlPartida.o
 
-obj/controllers/CtrlVidejuego.o: lib/controllers/CtrlVidejuego.h src/controllers/CtrlVidejuego.cpp
-	$(CC) $(OPTIONS) -c src/controllers/CtrlVidejuego.cpp -o obj/controllers/CtrlVidejuego.o
+obj/controllers/CtrlVideojuego.o: lib/controllers/CtrlVideojuego.h src/controllers/CtrlVideojuego.cpp
+	$(CC) $(OPTIONS) -c src/controllers/CtrlVideojuego.cpp -o obj/controllers/CtrlVideojuego.o
 
 # HELPERS
 obj/helpers/FechaSistema.o: lib/helpers/FechaSistema.h src/helpers/FechaSistema.cpp

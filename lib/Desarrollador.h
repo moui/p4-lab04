@@ -3,6 +3,10 @@
 
 #include <string>
 #include "Usuario.h"
+#include "Videojuego.h"
+#include "interfaces/IEstadistica.h"
+#include "datatypes/DtVideojuego.h"
+#include "datatypes/DtEstadistica.h"
 #include <set>
 
 using namespace std;
@@ -11,8 +15,8 @@ class Desarrollador : public Usuario
 {
   private:
     string empresa;
-    set<Videojuegos*> publicados;
-    set<Estadisticas*> seleccionadas;
+    set<Videojuego*> publicados;
+    set<IEstadistica*> seleccionadas;
 
   public:
     Desarrollador(string email, string contrasena, string empresa);
@@ -22,12 +26,12 @@ class Desarrollador : public Usuario
     string getEmpresa();
     set<DtVideojuego*> getVJPub();
     set<string*> ListarVideojuegosPublicados();
-    set<DtEstadisticas*> CalEst(idVJ:string);
+    set<DtEstadistica*> CalEst(string idVj);
  
     // Setters
     void setEmpresa(string empresa);
     void publicarVJ(Videojuego vj);
-    void setEstadistica(Estadistica e);
+    void setEstadistica(IEstadistica e);
 };
 
 #endif
