@@ -56,36 +56,39 @@ void seguir(Jugador* j){
   /* sigue->insert(j); */
 }
 
-set<DtPartida*> partidasInSF()
+set<DtPartida*> Jugador::partidasInSF()
 {
-   set<DtPartida*> foo;
-   /*map<float, Partida*>::iterator i = inicio->begin();
+   map<int, Partida*>::iterator i = this->inicio.begin();
    set<DtPartida*> isf;
-   while(i != inicio->end()){
-      if(!estaFinalizada(**i)){
-        if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
-         DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getContinuacion());
-         isf->insert(p);
+   while(i != this->inicio.end()){
+      if(!i->second->getFinalizada()){	
+        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
+	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
+         DtPartidaIndividual* p = DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), pi->getContinuada());
+         DtPartida* p2 = dynamic_cast<DtPartida*>(p);
+         isf.insert(p2);
+	 isf.insert(p);
         } else {
-        map<string, InfoPartidaMulti> part = *i->getParticipan();
-        map<string, InfoPartidaMulti>::iterator it = part->begin();
+	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
+        map<string, InfoPartidaMulti> part = pm->getParticipan();
+        map<string, InfoPartidaMulti>::iterator it = part.begin();
         set<string> s;
-        while (*it != part->end()){
-          s->insert(*it->getNickname);
+        while (it != part.end()){
+          s.insert(it->second.getParticipa()->getNickname());
           ++it;
         }
-        DtPartidaMultijugador* p = dynamic_cast<DtPartidaMultijugador*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getTrasmitidaEnVivo(), s, s->size());
-        isf->insert(p);
+        DtPartidaMultijugador* p = DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
+	DtPartida* p2 = dynamic_cast<DtPartida*>(p);
+        isf.insert(p2);
         }
       }
       ++i;
    }
-   return isf; */
-   return foo;
+   return isf; 
 }
 
-void iniciadaP(Partida* p){
-  /* this->inicio[p->getId()] = p; */
+void Jugador::iniciadaP(Partida* p){
+   this->inicio[p->getId()] = p; 
 }
 
 bool estaSuscritoA(std::string NombreVJ)
