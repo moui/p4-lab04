@@ -10,11 +10,11 @@ using std::endl;
 class DtPartidaIndividual : public DtPartida
 {
     private:
-        float* continuacion;
+        PartidaIndividual* continuacion;
 
     public:
         // Contructor y destructor
-        DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, float* continuacion);
+        DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, PartidaIndividual* continuacion);
         ~DtPartidaIndividual();
         // Declaracion de funcion pura de DtPartida
         void abstracta(); 
@@ -25,3 +25,4 @@ class DtPartidaIndividual : public DtPartida
 };
 
 #endif
+
