@@ -3,7 +3,7 @@
 
 // Constructor.
 DtPartidaMultijugador::DtPartidaMultijugador(float id, float duracion, DtFechaHora fecha, 
-    bool enVivo, string* jugadoresUnidos, int cantidadUnidos)
+    bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos)
         : DtPartida::DtPartida(id, duracion, fecha)
 {
     transmitidaEnVivo = enVivo;
@@ -26,7 +26,7 @@ bool DtPartidaMultijugador::getTransmitidaEnVivo()
     return transmitidaEnVivo;
 }
 
-string* DtPartidaMultijugador::getNicknameJugadoresUnidos()
+ser<string> DtPartidaMultijugador::getNicknameJugadoresUnidos()
 {
     return nicknameJugadoresUnidos;
 }

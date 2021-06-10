@@ -54,36 +54,42 @@ void seguir(Jugador* j){
   /* sigue->insert(j); */
 }
 
-set<DtPartida*> partidasInSF()
+set<DtPartida*> Jugador::partidasInSF()
 {
-   set<DtPartida*> foo;
-   /*map<float, Partida*>::iterator i = inicio->begin();
+   map<int, Partida*>::iterator i = this->inicio.begin();
    set<DtPartida*> isf;
-   while(i != inicio->end()){
-      if(!estaFinalizada(**i)){
-        if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
-         DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getContinuacion());
-         isf->insert(p);
+   while(i != this->inicio.end()){
+      if(!i->second->getFinalizada()){	
+        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
+	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
+	 float* f = new float (pi->getContinuada()->getId());
+         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
+         DtPartida* p2 = dynamic_cast<DtPartida*>(p);
+         isf.insert(p2);
+	 isf.insert(p);
         } else {
-        map<string, InfoPartidaMulti> part = *i->getParticipan();
-        map<string, InfoPartidaMulti>::iterator it = part->begin();
-        set<string> s;
-        while (*it != part->end()){
-          s->insert(*it->getNickname);
+	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
+        map<string, InfoPartidaMulti> part = pm->getParticipan();
+        map<string, InfoPartidaMulti>::iterator it = part.begin();
+        string* s = new string[100];
+	int c = 0;
+        while (it != part.end()){
+          s[c] = it->second.getParticipa()->getNickname();
+	  c++;
           ++it;
         }
-        DtPartidaMultijugador* p = dynamic_cast<DtPartidaMultijugador*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getTrasmitidaEnVivo(), s, s->size());
-        isf->insert(p);
+        DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, c);
+	DtPartida* p2 = dynamic_cast<DtPartida*>(p);
+        isf.insert(p2);
         }
       }
       ++i;
    }
-   return isf; */
-   return foo;
+   return isf; 
 }
 
-void iniciadaP(Partida* p){
-  /* this->inicio[p->getId()] = p; */
+void Jugador::iniciadaP(Partida* p){
+   this->inicio[p->getId()] = p; 
 }
 
 bool estaSuscritoA(std::string NombreVJ)
@@ -93,8 +99,20 @@ bool estaSuscritoA(std::string NombreVJ)
 
 set<DtPartidaIndividual*> partidasIndF()
 {
-  set<DtPartidaIndividual*> foo;
-  return foo;
+   map<int, Partida*>::iterator i = this->inicio.begin();
+   set<DtPartidaIndividual*> isf;
+   while(i != this->inicio.end()){
+      if(i->second->getFinalizada()){	
+        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
+	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
+	 float* f = new float (pi->getContinuada()->getId());
+         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
+	 isf.insert(p);
+	}
+      }
+    ++i;
+    }
+    return isf;
 }
 
 set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()
