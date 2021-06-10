@@ -3,16 +3,20 @@
 
 #include <string>
 #include <map>
+#include <set>
 
 #include "InfoPartidaMulti.h"
 #include "Usuario.h"
 #include "Partida.h"
+#include "PartidaIndividual.h"
+#include "PartidaMultijugador.h"
 #include "Suscripcion.h"
 #include "datatypes/TipoPeriodo.h"
 #include "datatypes/DtPartida.h"
 #include "datatypes/DtSuscripcion.h"
 #include "datatypes/DtJugador.h"
 #include "datatypes/DtPartidaIndividual.h"
+#include "datatypes/DtPartidaMultijugador.h"
 #include "datatypes/DtVideojuegoSuscripcion.h"
 
 using namespace std;
