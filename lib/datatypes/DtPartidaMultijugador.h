@@ -4,6 +4,7 @@
 #include "DtPartida.h"
 #include <string>
 #include <iostream>
+#include <set>
 
 using std::string;
 using std::ostream;
@@ -13,13 +14,13 @@ class DtPartidaMultijugador : public DtPartida
 {
     private:
         bool transmitidaEnVivo;
-        string* nicknameJugadoresUnidos;
+        set<string> nicknameJugadoresUnidos;
         int cantidadJugadoresUnidos;
 
     public:
         // Constructor
         DtPartidaMultijugador(float id, float duracion, DtFechaHora fecha,
-            bool enVivo, string* jugadoresUnidos, int cantidadUnidos);
+            bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos);
         // Destructor
         ~DtPartidaMultijugador();
         // Funcion pura de DtPartida
@@ -27,7 +28,7 @@ class DtPartidaMultijugador : public DtPartida
 
         // Getters
         bool getTransmitidaEnVivo();
-        string* getNicknameJugadoresUnidos();
+        set<string> getNicknameJugadoresUnidos();
         int getCantidadJugadoresUnidos();
 
         // Sobrecarga del operador de insercion <<
