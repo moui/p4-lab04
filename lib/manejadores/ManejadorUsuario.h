@@ -32,7 +32,8 @@ class ManejadorUsuario {
 
         // Getters y Setters
         Usuario* buscarUsuario(string clave);
-        void agregarUsuario(Usuario* usuario);
+        void agregarDesarrollador(string clave, Desarrollador des);
+        void agregarJugador(string clave, Jugador jug);
         void borrarUsuario(string clave);
 
 };

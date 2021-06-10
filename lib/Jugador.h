@@ -28,7 +28,7 @@ class Jugador : public Usuario
 
   public:
     // Constructor y destructor
-    Jugador(string email, string contrasena, string nickname, string descripcion, map<int,Partida*> inicio);
+    Jugador(string email, string contrasena, string nickname, string descripcion);
 
     map<float, InfoPartidaMulti*> unen;
     set<Suscripcion*> suscripto;

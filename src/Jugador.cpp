@@ -2,12 +2,10 @@
 
 // Constructor y destructor
 
-Jugador::Jugador(string email, string contrasena, string nickname, string descripcion, map<int, Partida*> inicio)
-  : Usuario(email, contrasena)
+Jugador::Jugador(string email, string contrasena, string nickname, string descripcion): Usuario(email, contrasena)
 {
   this->nickname = nickname;
   this->descripcion = descripcion;
-  this->inicio = inicio;
   return;
 }
 

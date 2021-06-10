@@ -13,6 +13,7 @@ Fabrica::Fabrica()
 //Destructor
 Fabrica::~Fabrica()
 {
+    delete this;
 }
 
 // GetInstance

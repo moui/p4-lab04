@@ -19,6 +19,7 @@ CtrlUsuario::CtrlUsuario()
 // Destructor
 CtrlUsuario::~CtrlUsuario()
 {
+    delete instancia;
 }
 // Getters
 Usuario* CtrlUsuario::getSesionActiva()
@@ -57,13 +58,13 @@ void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){
 }
 
 void CtrlUsuario::confirmaAltaDesarrollador(){
-    Desarrollador des(mail, contrasena, empresa);
     ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    manusr->agregarUsuario(&des);
+    manusr->agregarDesarrollador(mail, Desarrollador(mail, contrasena, empresa));
 }
 
 void CtrlUsuario::confirmaAltaJugador(){
-
+    ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
+    manusr->agregarJugador(nickname, Jugador(mail, contrasena, nickname, descripcion));
 }
 
 void CtrlUsuario::cancelaAlta(){

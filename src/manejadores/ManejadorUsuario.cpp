@@ -15,12 +15,24 @@ ManejadorUsuario* ManejadorUsuario::getInstancia()
 // Constructor
 ManejadorUsuario::ManejadorUsuario(){}
 // Destructor
-ManejadorUsuario::~ManejadorUsuario(){}
+ManejadorUsuario::~ManejadorUsuario(){
+    for(itd = desarrolladores.begin(); itd != desarrolladores.end(); itd++)
+    {
+        delete &itd;
+    }
+    delete instancia;
+}
 
 Usuario* ManejadorUsuario::buscarUsuario(string clave){
     return NULL;
 }
 
-void ManejadorUsuario::agregarUsuario(Usuario* usuario){}
+void ManejadorUsuario::agregarDesarrollador(string clave, Desarrollador des){
+    desarrolladores.insert ( pair <string, Desarrollador>(clave, des) );
+}
+
+void ManejadorUsuario::agregarJugador(string clave, Jugador jug){
+    jugadores.insert ( pair <string, Jugador>(clave, jug) );
+}
 
 void ManejadorUsuario::borrarUsuario(string clave){}
