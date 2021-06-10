@@ -2,8 +2,7 @@
 
 // Constructor y destructor
 
-Jugador::Jugador(string email, string contrasena, string nickname, string descripcion)
-  : Usuario(email, contrasena)
+Jugador::Jugador(string email, string contrasena, string nickname, string descripcion): Usuario(email, contrasena)
 {
   this->nickname = nickname;
   this->descripcion = descripcion;
@@ -100,8 +99,20 @@ bool estaSuscritoA(std::string NombreVJ)
 
 set<DtPartidaIndividual*> partidasIndF()
 {
-  set<DtPartidaIndividual*> foo;
-  return foo;
+   map<int, Partida*>::iterator i = this->inicio.begin();
+   set<DtPartidaIndividual*> isf;
+   while(i != this->inicio.end()){
+      if(i->second->getFinalizada()){	
+        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
+	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
+	 float* f = new float (pi->getContinuada()->getId());
+         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
+	 isf.insert(p);
+	}
+      }
+    i++;
+    }
+    return isf;
 }
 
 set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()
