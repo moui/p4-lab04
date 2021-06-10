@@ -110,7 +110,7 @@ set<DtPartidaIndividual*> partidasIndF()
 	 isf.insert(p);
 	}
       }
-    i++;
+    ++i;
     }
     return isf;
 }
