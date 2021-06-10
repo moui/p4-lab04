@@ -14,8 +14,13 @@ PartidaIndividual::~PartidaIndividual()
 // Getters
 bool PartidaIndividual::getContinuacion()
 {
+    return (this->continuacion != NULL);
+}
+
+PartidaIndividual* PartidaIndividual::getContinuada(){
     return this->continuacion;
 }
+
 
 // Setters
 void PartidaIndividual::setContinuacion(PartidaIndividual* partida)
