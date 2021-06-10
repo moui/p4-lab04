@@ -71,10 +71,10 @@ set<DtPartida*> Jugador::partidasInSF()
 	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
         map<string, InfoPartidaMulti> part = pm->getParticipan();
         map<string, InfoPartidaMulti>::iterator it = part.begin();
-        string* s = new string[100];
+        set<string> s;
 	int c = 0;
         while (it != part.end()){
-          s[c] = it->second.getParticipa()->getNickname();
+          //s[c] = it->second.getParticipa()->getNickname();
 	  c++;
           ++it;
         }
