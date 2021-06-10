@@ -63,7 +63,7 @@ set<DtPartida*> Jugador::partidasInSF()
       if(!i->second->getFinalizada()){	
         if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
 	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
-         DtPartidaIndividual* p = DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), pi->getContinuada());
+         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), pi->getContinuacion());
          DtPartida* p2 = dynamic_cast<DtPartida*>(p);
          isf.insert(p2);
 	 isf.insert(p);
@@ -76,7 +76,7 @@ set<DtPartida*> Jugador::partidasInSF()
           s.insert(it->second.getParticipa()->getNickname());
           ++it;
         }
-        DtPartidaMultijugador* p = DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
+        DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
 	DtPartida* p2 = dynamic_cast<DtPartida*>(p);
         isf.insert(p2);
         }
