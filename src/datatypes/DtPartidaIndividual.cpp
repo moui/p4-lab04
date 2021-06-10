@@ -10,8 +10,6 @@ DtPartidaIndividual::DtPartidaIndividual(float identificador,float duracion, DtF
 
 DtPartidaIndividual::~DtPartidaIndividual()
 {
-    if (continuacion != NULL)
-        delete continuacion;
 }
 
 // Funcion pura de DtPartida
@@ -30,8 +28,8 @@ ostream& operator<<(ostream& os, const DtPartidaIndividual& dtPartidaInd)
   os << "ID partida: " << static_cast<float>(dtPartidaInd.identificador) << endl;
   os << "Fecha partida: " << dtPartidaInd.fecha << endl;
   os << "Duracion partida: " << static_cast<int>(dtPartidaInd.duracion) << " hs" << endl;
-  if (dtPartidaInd.continuacion != NULL)
-    os << "Continua partida ID " << *static_cast<float*>(dtPartidaInd.continuacion) << endl;
+  if (dtPartidaInd.continuacion == true)
+    os << "Continua partida ID " << static_cast<float>(dtPartidaInd.continuacion) << endl;
   else
     os << "No es continuacion de partidas anteriores" << endl;
   return os;

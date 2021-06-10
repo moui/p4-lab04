@@ -97,7 +97,7 @@ bool estaSuscritoA(std::string NombreVJ)
   return false;
 }
 
-set<DtPartidaIndividual*> partidasIndF()
+set<DtPartidaIndividual*> Jugador::partidasIndF()
 {
    map<int, Partida*>::iterator i = this->inicio.begin();
    set<DtPartidaIndividual*> isf;
