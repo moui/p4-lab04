@@ -2,7 +2,7 @@
 #include "../../lib/datatypes/DtFechaHora.h"
 
 // Constructor y destructor
-DtPartidaIndividual::DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, float* continuacion)
+DtPartidaIndividual::DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, PartidaIndividual* continuacion)
     : DtPartida::DtPartida(identificador, duracion, fecha)
 {
     this->continuacion = continuacion;
