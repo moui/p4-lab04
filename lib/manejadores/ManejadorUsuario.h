@@ -34,6 +34,7 @@ class ManejadorUsuario {
         Usuario* buscarUsuario(string clave);
         void agregarDesarrollador(string clave, Desarrollador des);
         void agregarJugador(string clave, Jugador jug);
+        bool existeJugador(string nickname);
         void borrarUsuario(string clave);
 
 };

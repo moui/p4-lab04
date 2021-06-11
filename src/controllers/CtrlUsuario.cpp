@@ -49,8 +49,14 @@ void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){
 }
 
 void CtrlUsuario::ingresaDatosJugador(string nnickname, string ndescripcion){
-    this->nickname = nnickname;
-    this->descripcion = ndescripcion;
+    ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
+    if ( manusr->existeJugador(nickname) ){
+        throw invalid_argument( "Ya existe un jugador con ese nickname." );
+    }
+    else {
+        this->nickname = nnickname;
+        this->descripcion = ndescripcion;
+    }
 }
 
 void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){

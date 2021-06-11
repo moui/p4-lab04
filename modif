@@ -1,0 +1,84 @@
+flag = false;
+            while (flag==false) {
+            cin >> tipo;
+            if (tipo=="j") {
+                reintenta = "y";
+                while (reintenta == "y"){
+                    cout << "Ingrese nickname: ";
+                    cin >> nickname;
+                    cout << "Ingrese descripcion: ";
+                    cin >> descripcion;
+                    try {
+                        IUsr->ingresaDatosJugador(nickname, descripcion);
+                        flag = true;
+                        reintenta = "n";
+                    }
+                    catch (const std::invalid_argument& err) {
+                        cerr << "Error: " << err.what() << '\n';
+                        flag2 = false;
+                        while (flag2 == false){
+                            cout << "Desea volver a intentarlo? (y/n): ";
+                            cin >> reintenta;
+                            if (reintenta == "y" || reintenta == "n"){
+                                flag2 = true;
+                            }
+                            else flag2 = false;
+                        }
+                    }
+                }
+            }
+            else if (tipo=="d") {
+                
+            }
+            else {
+                cout << "Seleccione un tipo valido. (d/j): " ;
+            }
+            }
+            if (reintenta == "y"){
+                cout << "Desea confirmar el alta de usuario? (y/n): ";
+                flag = false;
+                while (flag==false) {
+                cin >> confirma;
+                if (confirma=="y") {
+                    if (tipo=="j") {
+                        try {
+                            IUsr->confirmaAltaJugador();
+                            flag = true;
+                        }
+                        catch (const std::invalid_argument& err) {
+                            cerr << "Error: " << err.what() << '\n';
+                        }
+                    }
+                    else if (tipo=="d") {
+                        try {
+                            IUsr->confirmaAltaDesarrollador();
+                            flag = true;
+                        }
+                        catch (const std::invalid_argument& err) {
+                            cerr << "Error: " << err.what() << '\n';
+                        }
+                    }
+                }
+                else if (confirma=="n") {
+                    try {
+                        IUsr->cancelaAlta();
+                        flag = true;
+                    }
+                    catch (const std::invalid_argument& err) {
+                        cerr << "Error: " << err.what() << '\n';
+                    }
+                }
+                else {
+                    cout << "Seleccione una opcion valida. (y/n): " ;
+                }
+                }
+            }
+            else {
+                try {
+                        IUsr->cancelaAlta();
+                        flag = true;
+                    }
+                    catch (const std::invalid_argument& err) {
+                        cerr << "Error: " << err.what() << '\n';
+                    }
+            }   

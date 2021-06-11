@@ -35,4 +35,14 @@ void ManejadorUsuario::agregarJugador(string clave, Jugador jug){
     jugadores.insert ( pair <string, Jugador>(clave, jug) );
 }
 
+bool ManejadorUsuario::existeJugador(string nickname){
+    bool ret = false;
+    if ( jugadores.find(nickname) == jugadores.end() ) {
+        ret = false;
+    } else {
+        ret = true;
+    }
+    return ret;
+}
+
 void ManejadorUsuario::borrarUsuario(string clave){}

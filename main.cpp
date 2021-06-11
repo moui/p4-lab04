@@ -20,18 +20,18 @@ int main()
     FechaSistema* fechaSistema = new FechaSistema();
     IUsuario* IUsr = Fabrica::getInstancia()->getIUsuario();
     int operacion = 1;
-    string mail, contrasena, tipo, empresa, nickname, descripcion, confirma;
     cout << Constantes::MenuPrincipal;
     while (operacion != 0)
     {
         cout << "Ingrese codigo de operacion: ";
         cin >> operacion;
 
-        switch (operacion)
-        {
+        switch (operacion){
         case 1:
         {
-            bool flag;
+            string mail, contrasena, empresa, nickname, descripcion, confirma, reintenta;
+            int tipo;
+            bool flag, flag2;
             cout << Constantes::Separador << endl << "                           ALTA DE USUARIO                                \n";
             cout << "Ingrese mail: ";
             cin >> mail;
@@ -43,76 +43,37 @@ int main()
             catch (const std::invalid_argument& err) {
                 cerr << "Error: " << err.what() << '\n';
             }
-            cout << "El usuario es Desarrollador o Jugador (d/j): ";
-            flag = false;
-            while (flag==false) {
-            cin >> tipo;
-            if (tipo=="j") {
-                cout << "Ingrese nickname: ";
-                cin >> nickname;
-                cout << "Ingrese descripcion: ";
-                cin >> descripcion;
-                try {
-                    IUsr->ingresaDatosJugador(nickname, descripcion);
-                    flag = true;
-                }
-                catch (const std::invalid_argument& err) {
-                    cerr << "Error: " << err.what() << '\n';
-                }
-            }
-            else if (tipo=="d") {
-                cout << "Ingrese empresa: ";
-                cin >> empresa;
-                //alta desarrollador
-                try {
-                    IUsr->ingresaDatosDesarrollador(empresa);
-                    flag = true;
-                }
-                catch (const std::invalid_argument& err) {
-                    cerr << "Error: " << err.what() << '\n';
-                }
-            }
-            else {
-                cout << "Seleccione un tipo valido. (d/j): " ;
-            }
-            }
-            cout << "Desea confirmar el alta de usuario? (y/n): ";
-            flag = false;
-            while (flag==false) {
-            cin >> confirma;
-            if (confirma=="y") {
-                if (tipo=="j") {
-                    try {
-                        IUsr->confirmaAltaJugador();
-                        flag = true;
+            while (flag == false){
+                cout << "Ingrese tipo de usuario (1)Desarrollador o (2)Jugador: ";
+                cin >> tipo;
+                switch (tipo) {
+                    case 1:{
+                        cout << "Ingrese empresa: ";
+                        cin >> empresa;
+                        //alta desarrollador
+                        try {
+                            IUsr->ingresaDatosDesarrollador(empresa);
+                            flag = true;
+                        }
+                        catch (const std::invalid_argument& err) {
+                            cerr << "Error: " << err.what() << '\n';
+                            flag = true;
+                        }
                     }
-                    catch (const std::invalid_argument& err) {
-                        cerr << "Error: " << err.what() << '\n';
+                    case 2:{
+                        
+                        break;
                     }
-                }
-                else if (tipo=="d") {
-                    try {
-                        IUsr->confirmaAltaDesarrollador();
-                        flag = true;
+                    default:{
+                        cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                        flag = false;
+                        break;
                     }
-                    catch (const std::invalid_argument& err) {
-                        cerr << "Error: " << err.what() << '\n';
-                    }
+                
                 }
             }
-            else if (confirma=="n") {
-                try {
-                    IUsr->cancelaAlta();
-                    flag = true;
-                }
-                catch (const std::invalid_argument& err) {
-                    cerr << "Error: " << err.what() << '\n';
-                }
-            }
-            else {
-                cout << "Seleccione una opcion valida. (y/n): " ;
-            }
-            }
+            
+
             break;
         }
         case 2:
