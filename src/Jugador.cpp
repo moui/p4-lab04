@@ -46,11 +46,11 @@ void Jugador::setInicioPartidas(map<int,Partida*> inicio)
   this->inicio = inicio;
 }
 
-void finPartida(float id){
+void Jugador::finPartida(float id){
   /* this->iniciadas[id]->filaizada = true; */
 }
 
-void seguir(Jugador* j){
+void Jugador::seguir(Jugador* j){
   /* sigue->insert(j); */
 }
 
@@ -66,19 +66,16 @@ set<DtPartida*> Jugador::partidasInSF()
          DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
          DtPartida* p2 = dynamic_cast<DtPartida*>(p);
          isf.insert(p2);
-	 isf.insert(p);
         } else {
 	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
         map<string, InfoPartidaMulti> part = pm->getParticipan();
         map<string, InfoPartidaMulti>::iterator it = part.begin();
         set<string> s;
-	int c = 0;
         while (it != part.end()){
-          //s[c] = it->second.getParticipa()->getNickname();
-	  c++;
+          s.insert(it->second.getParticipa()->getNickname());
           ++it;
         }
-        DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, c);
+        DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
 	DtPartida* p2 = dynamic_cast<DtPartida*>(p);
         isf.insert(p2);
         }
@@ -92,7 +89,7 @@ void Jugador::iniciadaP(Partida* p){
    this->inicio[p->getId()] = p; 
 }
 
-bool estaSuscritoA(std::string NombreVJ)
+bool Jugador::estaSuscritoA(std::string NombreVJ)
 {
   return false;
 }
@@ -115,17 +112,17 @@ set<DtPartidaIndividual*> Jugador::partidasIndF()
     return isf;
 }
 
-set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()
+set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas()
 {
   set<DtVideojuegoSuscripcion*> foo;
   return foo;
 }
 
-void AltaSuscripcion()
+void Jugador::AltaSuscripcion()
 {
 }
 
-void CancelarSuscripcion(string NombreVJ)
+void Jugador::CancelarSuscripcion(string NombreVJ)
 {
 }
 
