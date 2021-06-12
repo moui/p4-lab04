@@ -14,31 +14,32 @@ ManejadorPartida* ManejadorPartida::getInstancia()
 }
 
 // Constructor
-ManejadorUsuario::ManejadorUsuario(){}
+ManejadorPartida::ManejadorPartida(){}
 
 // Destructor
-ManejadorUsuario::~ManejadorUsuario(){
+ManejadorPartida::~ManejadorPartida(){
 	partidasI.clear();
 	partidasM.clear();
 	delete instancia;
 }
 
 //Getters y Setters
-PartidaIndividual* getPI(float id){ 
-	PartidaIndividual* p = new partidasI[id]; 
+PartidaIndividual* ManejadorPartida::getPI(float id){ 
+	PartidaIndividual* p = & this->partidasI[id]; 
 	return p;
 }
 
-PartidaMultijugador* getPM(float id){
-	PartidaMultijugador* p = new partidasM[id]; 
+PartidaMultijugador* ManejadorPartida::getPM(float id){
+	PartidaMultijugador* p = & this->partidasM[id]; 
 	return p;
 }
 
-void AgregarPartidaIndividual(float id, PartidaIndividual pi){
-	partidasI[id] = pi;
+void ManejadorPartida::AgregarPartidaIndividual(float id, PartidaIndividual pi){
+	this->partidasI[id] = pi;
 }
 
-void AgregarPartidaMultijugador(float id, PartidaMultijugador pm){
-	partidasM[id] = pm;
+void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador pm){
+	this->partidasM[id] = pm;
 }
+
 
