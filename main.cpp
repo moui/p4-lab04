@@ -19,6 +19,7 @@ int main()
 {
     FechaSistema* fechaSistema = new FechaSistema();
     IUsuario* IUsr = Fabrica::getInstancia()->getIUsuario();
+    string  mail, contrasena;
     int operacion = 1;
     cout << Constantes::MenuPrincipal;
     while (operacion != 0)
@@ -29,9 +30,9 @@ int main()
         switch (operacion){
         case 1:
         {
-            string mail, contrasena, empresa, nickname, descripcion, confirma, reintenta;
-            int tipo;
-            bool flag, flag2;
+            string empresa, nickname, descripcion;
+            char tipo, repe, conf;
+            bool aconfirmar, reintentar;
             cout << Constantes::Separador << endl << "                           ALTA DE USUARIO                                \n";
             cout << "Ingrese mail: ";
             cin >> mail;
@@ -43,41 +44,131 @@ int main()
             catch (const std::invalid_argument& err) {
                 cerr << "Error: " << err.what() << '\n';
             }
-            while (flag == false){
-                cout << "Ingrese tipo de usuario (1)Desarrollador o (2)Jugador: ";
+            cout << "Ingrese el tipo de usuario: (D)esarrollador o (J)ugador? ";
+           // while (tipo != 'D' || tipo != 'J'){
                 cin >> tipo;
-                switch (tipo) {
-                    case 1:{
-                        cout << "Ingrese empresa: ";
-                        cin >> empresa;
-                        //alta desarrollador
+                switch (tipo)
+                {
+                case 'D':{
+                    cout << "Ingrese empresa: ";
+                    cin >> empresa;
+                    //alta desarrollador
+                    try {
+                        IUsr->ingresaDatosDesarrollador(empresa);
+                        aconfirmar = true;
+                    }
+                    catch (const std::invalid_argument& err) {
+                        cerr << "Error: " << err.what() << '\n';
+                        aconfirmar = false;
+                    }
+                    break;
+                }
+                case 'J':{
+                    reintentar = true;
+                    while (reintentar){
+                        cout << "Ingrese nickname: ";
+                        cin >> nickname;
+                        cout << "Ingrese descripcion: ";
+                        cin >> descripcion;
                         try {
-                            IUsr->ingresaDatosDesarrollador(empresa);
-                            flag = true;
+                            IUsr->ingresaDatosJugador(nickname, descripcion);
+                            aconfirmar = true;
+                            reintentar = false;
+                        }
+                        catch (const std::invalid_argument& err){
+                            cerr << "Error: " << err.what() << '\n';
+                            cout << "Desea (R)eintentar o (C)ancelar? ";
+                            cin >> repe;
+                          //  while (repe != 'R' || repe != 'C'){
+                                switch (repe)
+                                {
+                                case 'R':{
+                                    reintentar = true;
+                                    break;
+                                }
+                                case 'C':{
+                                    aconfirmar = false;
+                                    reintentar = false;
+                                    break;
+                                }
+                                default:
+                                    cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                    break;
+                                }
+                                
+                            //}
+                            
+                        }
+                    }
+                    break;
+                }
+                default:
+                    cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                    break;
+                }
+          //  }
+            if (aconfirmar == true){
+                cout << "Desea confirmar el (A)lta o (C)ancelar? ";
+                cin >> conf;
+              //  while (conf != 'A' || repe != 'C'){
+                    switch (conf)
+                    {
+                    case 'A':{
+                        if (tipo == 'J'){
+                            try {
+                                IUsr->confirmaAltaJugador();
+                            }
+                            catch (const std::invalid_argument& err) {
+                                cerr << "Error: " << err.what() << '\n';
+                            }
+                        }
+                        else {
+                            try {
+                                IUsr->confirmaAltaDesarrollador();
+                            }
+                            catch (const std::invalid_argument& err) {
+                                cerr << "Error: " << err.what() << '\n';
+                            }
+                        }
+                        break;
+                    }
+                    case 'C':{
+                        try {
+                            IUsr->cancelaAlta();
                         }
                         catch (const std::invalid_argument& err) {
                             cerr << "Error: " << err.what() << '\n';
-                            flag = true;
-                        }
-                    }
-                    case 2:{
-                        
+                        }           
                         break;
                     }
-                    default:{
+                    default:
                         cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
-                        flag = false;
                         break;
                     }
-                
                 }
+            //}
+            else {
+                try {
+                    IUsr->cancelaAlta();
+                }
+                catch (const std::invalid_argument& err) {
+                    cerr << "Error: " << err.what() << '\n';
+                } 
             }
-            
-
             break;
         }
         case 2:
-            // INICIAR SESION
+            cout << Constantes::Separador << endl << "                          INICIAR SESION                                 \n";
+            cout << "Ingrese mail: ";
+            cin >> mail;
+            cout << "Ingrese contrasena: ";
+            cin >> contrasena;
+            try {
+                IUsr->iniciarSesion(mail, contrasena);
+            }
+            catch (const std::invalid_argument& err) {
+                cerr << "Error: " << err.what() << '\n';
+            }
             break;
         case 3:
             // MOSTRAR FECHA DEL SISTEMA

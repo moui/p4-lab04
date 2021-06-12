@@ -37,9 +37,9 @@ void CtrlUsuario::altaUsuario()
 
 }
 
-void CtrlUsuario::iniciarSesion()
-{
-
+void CtrlUsuario::iniciarSesion(string mail, string contrasena){
+   // ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
+    
 }
 
 // Implementacion de caso de uso Alta Usuario
@@ -50,7 +50,7 @@ void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){
 
 void CtrlUsuario::ingresaDatosJugador(string nnickname, string ndescripcion){
     ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    if ( manusr->existeJugador(nickname) ){
+    if ( manusr->existeJugador(nnickname) ){
         throw invalid_argument( "Ya existe un jugador con ese nickname." );
     }
     else {

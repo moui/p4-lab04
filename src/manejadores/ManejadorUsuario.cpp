@@ -46,3 +46,7 @@ bool ManejadorUsuario::existeJugador(string nickname){
 }
 
 void ManejadorUsuario::borrarUsuario(string clave){}
+
+ //Usuario* autenticarUsuario(string mail, string contrasena){
+   //  if ( desarrolladores.find(mail))
+// }

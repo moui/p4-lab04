@@ -82,3 +82,94 @@ flag = false;
                         cerr << "Error: " << err.what() << '\n';
                     }
             }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+flag = false;
+            while (flag == false){
+                cout << "Ingrese tipo de usuario (1)Desarrollador o (2)Jugador: ";
+                cin >> tipo;
+                switch (tipo) {
+                    case 1:{
+                        cout << "Ingrese empresa: ";
+                        cin >> empresa;
+                        //alta desarrollador
+                        try {
+                            IUsr->ingresaDatosDesarrollador(empresa);
+                            flag = true;
+                            flag2 = true;
+                        }
+                        catch (const std::invalid_argument& err) {
+                            cerr << "Error: " << err.what() << '\n';
+                            flag = true;
+                        }
+                    break;
+                    }
+                    case 2:{
+                        flag2 = false;
+                        while (flag2 == false){
+                            cout << "Ingrese nickname: ";
+                            cin >> nickname;
+                            cout << "Ingrese descripcion: ";
+                            cin >> descripcion;
+                            try {
+                                IUsr->ingresaDatosJugador(nickname, descripcion);
+                                flag2 = true;
+                            }
+                            catch (const std::invalid_argument& err) {
+                                cerr << "Error: " << err.what() << '\n';
+                                flag3 = true;
+                                while (flag3 == true){
+                                    cout << "Ingrese 1 para ingresar otro nickname, 2 para cancelar. (1/2): ";
+                                    cin >> reintenta;
+                                    if (reintenta == 1) {
+                                        flag2 = false;
+                                        flag3 = false;
+                                    }
+                                    else if (reintenta == 2) {
+                                        flag2 = true;
+                                        flag3 = false;
+                                    }
+                                    else {
+                                        cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                        flag3 = true;
+                                    }
+                                } 
+                            }
+                        }
+                        break;
+                    }
+                    default:{
+                        cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                        flag = false;
+                        break;
+                    }
+                
+                }
+            }
+            if (flag2 == true){
+                flag3 = true;
+                while (flag3 == true){
+                    cout << "Ingrese 1 para confirmar el alta, 2 para cancelar. (1/2): ";
+                    cin >> confirma;
+                    if (confirma == 1) {
+                    }
+                    else if (confirma == 2) {
+                    }
+                    else {
+                        cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                        flag3 = true;
+                    }
+                } 
+            }    

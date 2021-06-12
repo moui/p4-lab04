@@ -36,7 +36,7 @@ class ManejadorUsuario {
         void agregarJugador(string clave, Jugador jug);
         bool existeJugador(string nickname);
         void borrarUsuario(string clave);
-
+       // Usuario* autenticarUsuario(string mail, string contrasena);
 };
 
 #endif

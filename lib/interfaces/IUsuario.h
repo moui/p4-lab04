@@ -11,7 +11,7 @@ class IUsuario
         virtual ~IUsuario();
 
         virtual void altaUsuario() = 0;
-        virtual void iniciarSesion() = 0;
+        virtual void iniciarSesion(string mail, string contrasena) = 0;
 
         virtual void ingresaDatosUsuario(string nmail, string ncontrasena) = 0;
         virtual void ingresaDatosJugador(string nnickname, string ndescipcion) = 0;
