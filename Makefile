@@ -6,7 +6,7 @@ CONST = Constantes
 DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtEstadistica DtCategoria DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado TipoPuntaje
 INTERFACES = IEstadistica IPartida IUsuario IVideojuego
 CONTROLLERS = CtrlUsuario CtrlPartida CtrlVideojuego
-MANEJADORES = ManejadorUsuario ManejadorVideojuego
+MANEJADORES = ManejadorUsuario ManejadorPartida ManejadorVideojuego
 HELPERS = FechaSistema
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
@@ -144,6 +144,9 @@ obj/controllers/CtrlVideojuego.o: lib/controllers/CtrlVideojuego.h src/controlle
 # MANEJADORES
 obj/manejadores/ManejadorUsuario.o: lib/manejadores/ManejadorUsuario.h src/manejadores/ManejadorUsuario.cpp
 	$(CC) $(OPTIONS) -c src/manejadores/ManejadorUsuario.cpp -o obj/manejadores/ManejadorUsuario.o
+	
+obj/manejadores/ManejadorPartida.o: lib/manejadores/ManejadorPartida.h src/manejadores/ManejadorPartida.cpp
+	$(CC) $(OPTIONS) -c src/manejadores/ManejadorPartida.cpp -o obj/manejadores/ManejadorPartida.o	
 
 obj/manejadores/ManejadorVideojuego.o: lib/manejadores/ManejadorVideojuego.h src/manejadores/ManejadorVideojuego.cpp
 	$(CC) $(OPTIONS) -c src/manejadores/ManejadorVideojuego.cpp -o obj/manejadores/ManejadorVideojuego.o
