@@ -40,10 +40,38 @@ const string Constantes::MsjeErrorIngresoFecha =
     "Ingrese la nueva fecha del sistema: ";
 
 const string Constantes::MenuDesarrollador = 
-    "Desarrollador";
+    "\n"
+    "--------------------------------------------------------------------------\n"
+    "                            MENU DESARROLLADOR                            \n"
+    "           Programacion 4 - Laboratorio Implementacion - 2021             \n"
+    "--------------------------------------------------------------------------\n"
+    "        Codigo         |                    Operacion                     \n"
+    "--------------------------------------------------------------------------\n"
+    "           1           |                 AGREGAR CATEGORIA                \n"
+    "           2           |                PUBLICAR VIDEOJUEGO               \n"
+    "           3           |                ELIMINAR VIDEOJUEGO               \n"
+    "           4           |              SELECCIONAR ESTADISTICAS            \n"
+    "           5           |               CONSULTAR ESTADISTICAS             \n"
+    "           6           |           VER INFORMACION DE VIDEOJUEGO          \n"
+    "           0           |                      SALIR                       \n"
+    "--------------------------------------------------------------------------\n";
 
 const string Constantes::MenuJugador = 
-    "Jugador";
+    "\n"
+    "--------------------------------------------------------------------------\n"
+    "                               MENU JUGADOR                               \n"
+    "           Programacion 4 - Laboratorio Implementacion - 2021             \n"
+    "--------------------------------------------------------------------------\n"
+    "        Codigo         |                    Operacion                     \n"
+    "--------------------------------------------------------------------------\n"
+    "           1           |             SUSCRIBIRSE A VIDEOJUEGO             \n"
+    "           2           |           ASIGNAR PUNTAJE A VIDEOJUEGO           \n"
+    "           3           |                 INICIAR PARTIDA                  \n"
+    "           4           |          ABANDONAR PARTIDA MULTIJUGADOR          \n"
+    "           5           |                FINALIZAR PARTIDA                 \n"
+    "           6           |           VER INFORMACION DE VIDEOJUEGO          \n"
+    "           0           |                      SALIR                       \n"
+    "--------------------------------------------------------------------------\n";
 
 const string Constantes::Separador =
     "--------------------------------------------------------------------------\n";
