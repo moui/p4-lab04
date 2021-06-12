@@ -16,10 +16,12 @@ ManejadorUsuario* ManejadorUsuario::getInstancia()
 ManejadorUsuario::ManejadorUsuario(){}
 // Destructor
 ManejadorUsuario::~ManejadorUsuario(){
-    for(itd = desarrolladores.begin(); itd != desarrolladores.end(); itd++)
+    /*for(itd = desarrolladores.begin(); itd != desarrolladores.end(); itd++)
     {
         delete &itd;
-    }
+    }*/
+    desarrolladores.clear();
+    jugadores.clear();
     delete instancia;
 }
 

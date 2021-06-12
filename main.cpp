@@ -31,7 +31,7 @@ int main()
         {
             string mail, contrasena, empresa, nickname, descripcion, confirma, reintenta;
             int tipo;
-            bool flag, flag2;
+            bool flag;
             cout << Constantes::Separador << endl << "                           ALTA DE USUARIO                                \n";
             cout << "Ingrese mail: ";
             cin >> mail;
