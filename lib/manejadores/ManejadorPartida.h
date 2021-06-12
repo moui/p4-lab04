@@ -4,6 +4,7 @@
 #include "../Partida.h"
 #include "../PartidaIndividual.h"
 #include "../PartidaMultijugador.h"
+#include "../controllers/CtrlUsuario.h"
 
 #include <map>
 
@@ -35,3 +36,5 @@ class ManejadorPartida {
 		void AgregarPartidaMultijugador(float id, PartidaMultijugador pm);
 
 }
+
+#endif
