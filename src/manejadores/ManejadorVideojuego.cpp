@@ -21,16 +21,16 @@ ManejadorVideojuego::~ManejadorVideojuego(){
     delete instancia;
 }
 //getters
-Videojuego* ManejadorVideojuego::buscarVideojuego(string clave){
-    return (itvj=find(clave));
+Videojuego ManejadorVideojuego::buscarVideojuego(string clave){
+    return (catalogoVJ.find(clave)->second);
 }
 
-DescripcionSuscripcion* ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){
-    return (itds=find(clave));
+DescripcionSuscripcion ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){
+    return (descSuscripcion.find(clave)->second);
 }
 
-Categoria* ManejadorVideojuego::buscarCategoria(string clave){
-    return (itc=find(clave));
+Categoria ManejadorVideojuego::buscarCategoria(string clave){
+    return (categorias.find(clave)->second);
 }
 //setters
 void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego v){
@@ -42,20 +42,20 @@ void ManejadorVideojuego::agregarDescripcionSuscripcion(string clave, Descripcio
 }
 
 void ManejadorVideojuego::agregarCategoria(string clave, Categoria cat){
-    descSuscripcion.insert( pair <string, Categoria>(clave, cat));
+    categorias.insert( pair <string, Categoria>(clave, cat));
 }
 
 //deleters (?
 
 void ManejadorVideojuego::borrarVideojuego(string clave){
-    catalogoVJ.erase(itvj=find(clave));
+    catalogoVJ.erase(itvj=catalogoVJ.find(clave));
 }
 
 
 void ManejadorVideojuego::borrarDescripcionSuscripcion(string clave){
-    descSuscripcion.erase(itds=find(clave));
+    descSuscripcion.erase(itds=descSuscripcion.find(clave));
 }
 
 void ManejadorVideojuego::borrarCategoria(string clave){
-    categorias.erase(itc=find(clave));
+    categorias.erase(itc=categorias.find(clave));
 }

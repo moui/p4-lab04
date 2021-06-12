@@ -10,6 +10,7 @@
 
 #include <string>
 #include <map>
+#include <algorithm>
 
 
 using namespace std;
@@ -39,13 +40,13 @@ class ManejadorVideojuego {
         ~ManejadorVideojuego();
 
         // Getters y mapters
-        Videojuego* buscarVideojuego(string clave);
-        DescripcionSuscripcion* buscarDescripcionSuscripcion(string clave);
+        Videojuego buscarVideojuego(string clave);
+        DescripcionSuscripcion buscarDescripcionSuscripcion(string clave);
         Categoria buscarCategoria(string clave);
 
         void agregarVideojuego(string clave, Videojuego v);
         void agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion ds);
-        void agregarCategoria(sting clave, Categoria cat)
+        void agregarCategoria(string clave, Categoria cat);
 
         void borrarVideojuego(string clave);
         void borrarDescripcionSuscripcion(string clave);
