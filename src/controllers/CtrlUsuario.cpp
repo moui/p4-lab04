@@ -70,7 +70,7 @@ void CtrlUsuario::confirmaAltaDesarrollador(){
 
 void CtrlUsuario::confirmaAltaJugador(){
     ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    manusr->agregarJugador(nickname, new Jugador(mail, contrasena, nickname, descripcion));
+    manusr->agregarJugador(mail, new Jugador(mail, contrasena, nickname, descripcion));
 }
 
 void CtrlUsuario::cancelaAlta(){
