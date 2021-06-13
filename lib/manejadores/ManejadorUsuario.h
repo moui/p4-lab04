@@ -26,12 +26,13 @@ class ManejadorUsuario {
         ~ManejadorUsuario();
 
         // Getters y Setters
-        Usuario* buscarUsuario(string clave);
         void agregarDesarrollador(string clave, Desarrollador* des);
         void agregarJugador(string clave, Jugador* jug);
         bool existeJugador(string nickname);
         void borrarUsuario(string clave);
-       // Usuario* autenticarUsuario(string mail, string contrasena);
+
+        Jugador* autenticarJugador(string mail, string contrasena);
+        Desarrollador* autenticarDesarollador(string mail, string contrasena);
 };
 
 #endif

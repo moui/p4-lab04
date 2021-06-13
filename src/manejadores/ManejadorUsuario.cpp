@@ -21,9 +21,6 @@ ManejadorUsuario::~ManejadorUsuario(){
     jugadores.clear();
 }
 
-Usuario* ManejadorUsuario::buscarUsuario(string clave){
-    return NULL;
-}
 
 void ManejadorUsuario::agregarDesarrollador(string clave, Desarrollador* des){
     desarrolladores.insert ( pair <string, Desarrollador*>(clave, des) );
@@ -34,17 +31,25 @@ void ManejadorUsuario::agregarJugador(string clave, Jugador* jug){
 }
 
 bool ManejadorUsuario::existeJugador(string nickname){
-    bool ret = false;
-    if ( jugadores.find(nickname) == jugadores.end() ) {
-        ret = false;
-    } else {
-        ret = true;
+    bool res;
+    while (itj!=jugadores.end()) {
+        if (itj->second->getNickname()==nickname)
+            break;
+        itj++;
     }
-    return ret;
+    (itj==jugadores.end()) ? res=true : res=false;
+    return res;
 }
 
 void ManejadorUsuario::borrarUsuario(string clave){}
 
- //Usuario* autenticarUsuario(string mail, string contrasena){
-   //  if ( desarrolladores.find(mail))
-// }
+Jugador* ManejadorUsuario::autenticarJugador(string mail, string contrasena){
+   /* Jugador* res;
+    itvj=desarrolladores.find(mail);
+    */
+    return NULL;
+}
+
+Desarrollador* ManejadorUsuario::autenticarDesarollador(string mail, string contrasena){
+    return NULL;
+}
