@@ -6,6 +6,7 @@
 #include "../Desarrollador.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
 #include "../datatypes/DtCategoria.h"
+#include "../manejadores/ManejadorVideojuego.h"
 #include <set>
 
 using namespace std;
@@ -16,6 +17,8 @@ class CtrlVideojuego : public IVideojuego
         set<Suscripcion> suscripciones;
         set<DescripcionSuscripcion> descSuscripcion;
         set <Videojuego> catalogoVJ;
+
+        ManejadorVideojuego* manejadorVideojuego;
 
         static CtrlVideojuego * instancia;
         CtrlVideojuego();
@@ -30,8 +33,6 @@ class CtrlVideojuego : public IVideojuego
         void cancelarEliminarVideoJuego();
         void confirmarEliminarVideoJuego();
         void ingresarDatosVideojuego(DtVideojuego datos);
-        set<DtCategoria>listarCategorias();
-        void seleccionarCategoria(string nombre);
         DtVideojuego mostrarVideojuego();
         void cancelaPublicarVideojuego();
         void confirmaPublicarVideojuego();
@@ -41,6 +42,11 @@ class CtrlVideojuego : public IVideojuego
         void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
         void AltaSuscripcion(); //faltan parametros
         DtVideojuego verInfoVideojuego(string nombre); 
+
+        //categorias
+        set<DtCategoria>listarCategorias();
+        void seleccionarCategoria(string nombre);
+        
 };
 
 #endif

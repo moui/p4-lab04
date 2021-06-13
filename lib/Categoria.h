@@ -3,6 +3,7 @@
 
 #include "datatypes/TipoCat.h"
 #include <string>
+#include "datatypes/DtCategoria.h"
 
 using namespace std;
 
