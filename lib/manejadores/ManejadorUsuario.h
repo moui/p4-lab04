@@ -26,6 +26,8 @@ class ManejadorUsuario {
         ~ManejadorUsuario();
 
         // Getters y Setters
+
+
         void agregarDesarrollador(string clave, Desarrollador* des);
         void agregarJugador(string clave, Jugador* jug);
         bool existeJugador(string nickname);

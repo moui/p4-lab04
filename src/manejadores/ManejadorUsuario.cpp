@@ -49,10 +49,20 @@ void ManejadorUsuario::borrarUsuario(string clave){}
 
 
 Jugador* ManejadorUsuario::buscarJugador(string clave){
-    return (jugadores.find(clave)->second);
+    Jugador* res;
+    if (jugadores.find(clave)!=jugadores.end()){
+        res= jugadores.find(clave)->second;
+    } else res=NULL;
+
+    return res;
 }
 Desarrollador* ManejadorUsuario::buscarDesarrollador(string clave){
-    return (desarrolladores.find(clave)->second);
+   Desarrollador* res;
+    if (desarrolladores.find(clave)!=desarrolladores.end()){
+        res= desarrolladores.find(clave)->second;
+    } else res=NULL;
+    
+    return res;
 }
 
 

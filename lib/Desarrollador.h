@@ -7,6 +7,7 @@
 #include "interfaces/IEstadistica.h"
 #include "datatypes/DtVideojuego.h"
 #include "datatypes/DtEstadistica.h"
+#include "datatypes/DtDesarrollador.h"
 #include <set>
 
 using namespace std;

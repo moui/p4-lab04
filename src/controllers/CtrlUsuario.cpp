@@ -43,7 +43,47 @@ void CtrlUsuario::altaUsuario()
 }
 
 DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
-    return NULL;
+    DtUsuario* res=NULL;
+    bool existeUsr=manejadorUsuario->existeUsuario(mail);
+    if (!existeUsr) {
+        throw invalid_argument( "Usuario no registrado." );    
+    } else{
+        Jugador* j = manejadorUsuario->buscarJugador(mail);
+
+        if (j!=NULL) {
+
+            bool autentica = manejadorUsuario->autenticarJugador(mail, contrasena);
+            if (!autentica) {
+
+                throw invalid_argument( "Contrasena incorrecta.");
+            } else {
+                this->sesionActiva=j;
+
+                string m = j->getMail();
+                string n = j->getNickname();
+                string d = j->getDescripcion();
+
+                res= new DtJugador(m,n,d);
+
+            }
+        } else {
+            bool autentica = manejadorUsuario->autenticarDesarollador(mail, contrasena);
+            if (!autentica) {
+
+                throw invalid_argument( "Contrasena incorrecta.");
+            } else {
+                Desarrollador* d= manejadorUsuario->buscarDesarrollador(mail);
+                this->sesionActiva=d;
+
+                string m = d->getMail();
+                string e = d->getEmpresa();
+
+                res= new DtDesarrollador(m,e);
+
+            }
+        }
+    }
+    return res;
 }
 
 // Implementacion de caso de uso Alta Usuario
