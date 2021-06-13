@@ -3,16 +3,20 @@
 
 #include <string>
 #include <map>
+#include <set>
 
 #include "InfoPartidaMulti.h"
 #include "Usuario.h"
 #include "Partida.h"
+#include "PartidaIndividual.h"
+#include "PartidaMultijugador.h"
 #include "Suscripcion.h"
 #include "datatypes/TipoPeriodo.h"
 #include "datatypes/DtPartida.h"
 #include "datatypes/DtSuscripcion.h"
 #include "datatypes/DtJugador.h"
 #include "datatypes/DtPartidaIndividual.h"
+#include "datatypes/DtPartidaMultijugador.h"
 #include "datatypes/DtVideojuegoSuscripcion.h"
 
 using namespace std;
@@ -28,7 +32,7 @@ class Jugador : public Usuario
 
   public:
     // Constructor y destructor
-    Jugador(string email, string contrasena, string nickname, string descripcion, map<int,Partida*> inicio);
+    Jugador(string email, string contrasena, string nickname, string descripcion);
 
     map<float, InfoPartidaMulti*> unen;
     set<Suscripcion*> suscripto;
@@ -63,6 +67,7 @@ class Jugador : public Usuario
     void setSuscripcion(Suscripcion* s);
     void seguir(Jugador* j);
 
+    void mostrarUsuario();
 };
 
 #endif

@@ -10,18 +10,19 @@ using std::endl;
 class DtPartidaIndividual : public DtPartida
 {
     private:
-        float* continuacion;
+        bool continuacion;
 
     public:
         // Contructor y destructor
-        DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, float* continuacion);
+        DtPartidaIndividual(float identificador,float duracion, DtFechaHora fecha, bool continuacion);
         ~DtPartidaIndividual();
         // Declaracion de funcion pura de DtPartida
         void abstracta(); 
         // Getters
-        float* getContinuacion();
+        bool getContinuacion();
         // Sobrecarga del operador de insercion <<
         friend  ostream& operator<<(ostream& os, const DtPartidaIndividual& dtPartidaInd);
 };
 
 #endif
+

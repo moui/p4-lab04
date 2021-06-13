@@ -9,6 +9,8 @@
 
 using namespace std;
 
+class InfoPartidaMulti;
+
 class PartidaMultijugador : public Partida
 {
     private:

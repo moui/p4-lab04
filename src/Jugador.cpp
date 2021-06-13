@@ -2,12 +2,10 @@
 
 // Constructor y destructor
 
-Jugador::Jugador(string email, string contrasena, string nickname, string descripcion, map<int, Partida*> inicio)
-  : Usuario(email, contrasena)
+Jugador::Jugador(string email, string contrasena, string nickname, string descripcion): Usuario(email, contrasena)
 {
   this->nickname = nickname;
   this->descripcion = descripcion;
-  this->inicio = inicio;
   return;
 }
 
@@ -48,67 +46,84 @@ void Jugador::setInicioPartidas(map<int,Partida*> inicio)
   this->inicio = inicio;
 }
 
-void finPartida(float id){
+void Jugador::finPartida(float id){
   /* this->iniciadas[id]->filaizada = true; */
 }
 
-void seguir(Jugador* j){
+void Jugador::seguir(Jugador* j){
   /* sigue->insert(j); */
 }
 
-set<DtPartida*> partidasInSF()
+set<DtPartida*> Jugador::partidasInSF()
 {
-   set<DtPartida*> foo;
-   /*map<float, Partida*>::iterator i = inicio->begin();
+   map<int, Partida*>::iterator i = this->inicio.begin();
    set<DtPartida*> isf;
-   while(i != inicio->end()){
-      if(!estaFinalizada(**i)){
-        if(dynamic_cast<PartidaIndividual*>(*i) != NULL){
-         DtPartidaIndividual* p = dynamic_cast<DtPartidaIndividual*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getContinuacion());
-         isf->insert(p);
+   while(i != this->inicio.end()){
+      if(!i->second->getFinalizada()){	
+        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
+	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
+	 float* f = new float (pi->getContinuada()->getId());
+         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
+         DtPartida* p2 = dynamic_cast<DtPartida*>(p);
+         isf.insert(p2);
         } else {
-        map<string, InfoPartidaMulti> part = *i->getParticipan();
-        map<string, InfoPartidaMulti>::iterator it = part->begin();
+	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
+        map<string, InfoPartidaMulti> part = pm->getParticipan();
+        map<string, InfoPartidaMulti>::iterator it = part.begin();
         set<string> s;
-        while (*it != part->end()){
-          s->insert(*it->getNickname);
+        while (it != part.end()){
+          s.insert(it->second.getParticipa()->getNickname());
           ++it;
         }
-        DtPartidaMultijugador* p = dynamic_cast<DtPartidaMultijugador*>(*i->getId(), *i->getDuracion, *i->getFecha(), *i->getTrasmitidaEnVivo(), s, s->size());
-        isf->insert(p);
+        DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
+	DtPartida* p2 = dynamic_cast<DtPartida*>(p);
+        isf.insert(p2);
         }
       }
       ++i;
    }
-   return isf; */
-   return foo;
+   return isf; 
 }
 
-void iniciadaP(Partida* p){
-  /* this->inicio[p->getId()] = p; */
+void Jugador::iniciadaP(Partida* p){
+   this->inicio[p->getId()] = p; 
 }
 
-bool estaSuscritoA(std::string NombreVJ)
+bool Jugador::estaSuscritoA(std::string NombreVJ)
 {
   return false;
 }
 
-set<DtPartidaIndividual*> partidasIndF()
+set<DtPartidaIndividual*> Jugador::partidasIndF()
 {
-  set<DtPartidaIndividual*> foo;
-  return foo;
+   map<int, Partida*>::iterator i = this->inicio.begin();
+   set<DtPartidaIndividual*> isf;
+   while(i != this->inicio.end()){
+      if(i->second->getFinalizada()){	
+        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
+	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
+	 float* f = new float (pi->getContinuada()->getId());
+         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
+	 isf.insert(p);
+	}
+      }
+    ++i;
+    }
+    return isf;
 }
 
-set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()
+set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas()
 {
   set<DtVideojuegoSuscripcion*> foo;
   return foo;
 }
 
-void AltaSuscripcion()
+void Jugador::AltaSuscripcion()
 {
 }
 
-void CancelarSuscripcion(string NombreVJ)
+void Jugador::CancelarSuscripcion(string NombreVJ)
 {
 }
+
+void Jugador::mostrarUsuario(){ cout << "jug"; }

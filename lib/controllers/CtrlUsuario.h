@@ -4,6 +4,9 @@
 #include "../interfaces/IUsuario.h"
 #include "../Jugador.h"
 #include "../Desarrollador.h"
+#include "../manejadores/ManejadorUsuario.h"
+
+#include <string>
 
 using namespace std;
 
@@ -17,6 +20,8 @@ class CtrlUsuario : public IUsuario
         CtrlUsuario();
         // Members
         Usuario* sesionActiva;
+        // "Memoria"
+        string mail, contrasena, nickname, empresa, descripcion;
 
     public:
         // GetInstance
@@ -30,7 +35,15 @@ class CtrlUsuario : public IUsuario
         
         // Implementacion IUsuario
         void altaUsuario();
-        void iniciarSesion();
+        void iniciarSesion(string mail, string contrasena);
+
+        // Caso de Uso Alta Usuario
+        void ingresaDatosUsuario(string nmail, string ncontrasena);
+        void ingresaDatosJugador(string nnickname, string ndescripcion);
+        void ingresaDatosDesarrollador(string nempresa);
+        void confirmaAltaDesarrollador();
+        void confirmaAltaJugador();
+        void cancelaAlta();
 };
 
 #endif

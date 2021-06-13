@@ -32,6 +32,8 @@ class Desarrollador : public Usuario
     void setEmpresa(string empresa);
     void publicarVJ(Videojuego vj);
     void setEstadistica(IEstadistica e);
+
+    void mostrarUsuario();
 };
 
 #endif

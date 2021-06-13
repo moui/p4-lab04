@@ -18,6 +18,7 @@ class PartidaIndividual : public Partida
     
     // Getters
     bool getContinuacion();
+    PartidaIndividual* getContinuada();
 
     // Setters
     void setContinuacion(PartidaIndividual* partida);

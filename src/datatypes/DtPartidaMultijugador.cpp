@@ -3,8 +3,7 @@
 
 // Constructor.
 DtPartidaMultijugador::DtPartidaMultijugador(float id, float duracion, DtFechaHora fecha, 
-    bool enVivo, string* jugadoresUnidos, int cantidadUnidos)
-        : DtPartida::DtPartida(id, duracion, fecha)
+    bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos): DtPartida::DtPartida(id, duracion, fecha)
 {
     transmitidaEnVivo = enVivo;
     nicknameJugadoresUnidos = jugadoresUnidos;
@@ -14,7 +13,7 @@ DtPartidaMultijugador::DtPartidaMultijugador(float id, float duracion, DtFechaHo
 // Destructor
 DtPartidaMultijugador::~DtPartidaMultijugador()
 {
-    delete[] nicknameJugadoresUnidos;
+  //  delete nicknameJugadoresUnidos; no es la manera de vaciar un set
 }
 
 // Implementacion funcion pura de DtPartida
@@ -26,7 +25,7 @@ bool DtPartidaMultijugador::getTransmitidaEnVivo()
     return transmitidaEnVivo;
 }
 
-string* DtPartidaMultijugador::getNicknameJugadoresUnidos()
+set<string> DtPartidaMultijugador::getNicknameJugadoresUnidos()
 {
     return nicknameJugadoresUnidos;
 }
@@ -51,7 +50,7 @@ std::ostream& operator<<(std::ostream& os, const DtPartidaMultijugador& dtPartid
     os << "Jugadores unidos a la partida: ";
     for (int i = 0; i < dtPartidaMulti.cantidadJugadoresUnidos; i++)
     {
-        os << dtPartidaMulti.nicknameJugadoresUnidos[i] << " ";
+     //   os << dtPartidaMulti.nicknameJugadoresUnidos[i] << " "; no es la manera de usar set
     }
     os << endl;
     return os;
