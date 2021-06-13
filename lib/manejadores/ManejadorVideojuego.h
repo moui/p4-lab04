@@ -7,6 +7,7 @@
 #include "../Suscripcion.h"
 #include "../DescripcionSuscripcion.h"
 #include "../Categoria.h"
+#include "../controllers/CtrlVideojuego.h"
 
 #include <string>
 #include <map>

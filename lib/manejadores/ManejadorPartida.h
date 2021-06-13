@@ -7,6 +7,7 @@
 #include "../controllers/CtrlUsuario.h"
 
 #include <map>
+#include <algorithm>
 
 using namespace std;
  
@@ -18,10 +19,10 @@ class ManejadorPartida {
        	ManejadorPartida();
        	// Member 
 		map<float, PartidaIndividual> partidasI;
-		map<float, PartidaIndividual>::Iterator itPI;
+		map<float, PartidaIndividual>::iterator itPI;
 
 		map<float, PartidaMultijugador> partidasM;
-		map<float, PartidaMultijugador>::Iterator itPM;
+		map<float, PartidaMultijugador>::iterator itPM;
 	public:
 		// GetInstance
         	static ManejadorPartida* getInstancia();
@@ -30,11 +31,11 @@ class ManejadorPartida {
         	~ManejadorPartida();
 
 		//Getters y Setters
-		PartidaIndividual* getPI(float id);
-		PartidaMultijugador* getPM(float id);
+		PartidaIndividual getPI(float id);
+		PartidaMultijugador getPM(float id);
 		void AgregarPartidaIndividual(float id, PartidaIndividual pi);
 		void AgregarPartidaMultijugador(float id, PartidaMultijugador pm);
 
-}
+};
 
 #endif
