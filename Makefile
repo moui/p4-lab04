@@ -3,7 +3,7 @@ CC = g++
 
 CLASSES = Fabrica Partida PartidaIndividual PartidaMultijugador Videojuego Usuario Jugador Desarrollador InfoPartidaMulti Suscripcion DescripcionSuscripcion Categoria
 CONST = Constantes
-DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtJugador DtVideojuego DtFechaHora DtEstadistica DtCategoria DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado TipoPuntaje
+DATATYPES = DtPartida DtPartidaIndividual DtPartidaMultijugador DtUsuario DtJugador DtDesarrollador DtVideojuego DtFechaHora DtEstadistica DtCategoria DtSuscripcion DtVideojuegoSuscripcion TipoCat TipoPeriodo TipoPago TipoEstado TipoPuntaje
 INTERFACES = IEstadistica IPartida IUsuario IVideojuego
 CONTROLLERS = CtrlUsuario CtrlPartida CtrlVideojuego
 MANEJADORES = ManejadorUsuario ManejadorPartida ManejadorVideojuego
@@ -84,6 +84,12 @@ obj/datatypes/DtPartidaMultijugador.o: lib/datatypes/DtPartidaMultijugador.h src
 
 obj/datatypes/DtVideojuego.o: lib/datatypes/DtVideojuego.h src/datatypes/DtVideojuego.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtVideojuego.cpp -o obj/datatypes/DtVideojuego.o
+
+obj/datatypes/DtUsuario.o: lib/datatypes/DtUsuario.h src/datatypes/DtUsuario.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtUsuario.cpp -o obj/datatypes/DtUsuario.o
+
+obj/datatypes/DtDesarrollador.o: lib/datatypes/DtDesarrollador.h src/datatypes/DtDesarrollador.cpp
+	$(CC) $(OPTIONS) -c src/datatypes/DtDesarrollador.cpp -o obj/datatypes/DtDesarrollador.o
 
 obj/datatypes/DtJugador.o: lib/datatypes/DtJugador.h src/datatypes/DtJugador.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/DtJugador.cpp -o obj/datatypes/DtJugador.o
