@@ -54,7 +54,7 @@ void Jugador::seguir(Jugador* j){
   /* sigue->insert(j); */
 }
 
-set<DtPartida*> Jugador::partidasInSF()
+set<DtPartida*> Jugador::partidasIniciadasSinFinalizar()
 {
    map<int, Partida*>::iterator i = this->inicio.begin();
    set<DtPartida*> isf;
@@ -91,10 +91,21 @@ void Jugador::iniciadaP(Partida* p){
 
 bool Jugador::estaSuscritoA(std::string NombreVJ)
 {
-  return false;
+  bool b = false;
+  set<Suscripcion*>::iterator it = suscripto.begin();
+  Suscripcion* s = NULL;
+  while (!b && (it != suscripto.end())) {
+	s = *it;
+	if (s->getnombreVJ() == NombreVJ){
+		b = true;
+	}
+	++it;
+  }
+  s->~Suscripcion();
+  return b;
 }
 
-set<DtPartidaIndividual*> Jugador::partidasIndF()
+set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
 {
    map<int, Partida*>::iterator i = this->inicio.begin();
    set<DtPartidaIndividual*> isf;
