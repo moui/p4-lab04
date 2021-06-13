@@ -30,6 +30,8 @@ class ManejadorUsuario {
         void agregarJugador(string clave, Jugador* jug);
         bool existeJugador(string nickname);
         void borrarUsuario(string clave);
+        //IniciarPartida
+    	set<string> listaJugadoresSus(string NomVJ);
 
         Jugador* autenticarJugador(string mail, string contrasena);
         Desarrollador* autenticarDesarollador(string mail, string contrasena);
