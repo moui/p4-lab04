@@ -111,7 +111,7 @@ void CtrlUsuario::confirmaAltaDesarrollador(){
 }
 
 void CtrlUsuario::confirmaAltaJugador(){
-    manejadorUsuario->agregarJugador(nickname, new Jugador(mail, contrasena, nickname, descripcion));
+    manejadorUsuario->agregarJugador(mail, new Jugador(mail, contrasena, nickname, descripcion));
 }
 
 void CtrlUsuario::cancelaAlta(){
