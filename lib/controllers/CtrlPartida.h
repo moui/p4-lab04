@@ -1,12 +1,14 @@
-#ifndef CTRLPARTIDA
-#define CTRLPARTIDA
-
 #include "../interfaces/IPartida.h"
 #include "../datatypes/DtPartidaIndividual.h"
 #include "../datatypes/DtPartida.h"
 #include "../PartidaIndividual.h"
 #include "../PartidaMultijugador.h"
+#include "../controllers/CtrlUsuario.h"
+#include "../Fabrica.h"
+#include "../interfaces/IUsuario.h"
 #include <set>
+#include <string>
+
 
 using namespace std;
 
@@ -28,7 +30,7 @@ class CtrlPartida : public IPartida
         void crearPartida(string nombreVJ);
         void partidaAContinuar(float id);
         void listaJugUnidos(set<string> nicknames);
-        set<string> listaJugSuscriptos();
+        set<string> listaJugSuscriptos(string NomVJ);
         void confirmarIniciarPartida();
         set<DtPartidaIndividual> listaPartidasIndTer();
         void enVivo(bool enVivo);
