@@ -31,8 +31,8 @@ void listaJugUnidos(set<string> nicknames){
 }
 
 set<string> listaJugSuscriptos(){
-    set<string> a;
-    return a;
+    IUsuario* IUsr = Fabrica::getInstancia()->getIUsuario();
+    return (IUsr->listaJugadoresSus(NomVJ));
 }
 
 void confirmarIniciarPartida(){
