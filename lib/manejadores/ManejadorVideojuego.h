@@ -33,8 +33,6 @@ class ManejadorVideojuego {
     public:
         // Constructor
         ManejadorVideojuego();
-        // GetInstance
-        static ManejadorVideojuego* getInstancia();
         // Destructor
         ~ManejadorVideojuego();
 

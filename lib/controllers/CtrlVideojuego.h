@@ -46,7 +46,7 @@ class CtrlVideojuego : public IVideojuego
         //categorias
         set<DtCategoria>listarCategorias();
         void seleccionarCategoria(string nombre);
-        
+
 };
 
 #endif
