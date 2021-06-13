@@ -199,7 +199,7 @@ int main()
                 DtUsuario *usuario = IUsr->iniciarSesion(mail, contrasena);
                 cout << Constantes::PresentacionIniciarSesion_Fin << usuario->getEmail() << ".\n";
 
-                if (dynamic_cast<DtDesarrollador *>(usuario) != NULL)
+                if (dynamic_cast<DtDesarrollador*>(usuario) != NULL)
                 { // usuario es instancia de DtDesarrollador
                     // DtDesarrollador *desarrollador = dynamic_cast<DtDesarrollador*>(usuario);
                     
