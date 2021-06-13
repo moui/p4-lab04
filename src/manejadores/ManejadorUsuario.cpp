@@ -42,12 +42,16 @@ void ManejadorUsuario::agregarJugador(string clave, Jugador* jug){
 
 bool ManejadorUsuario::existeJugador(string nickname){
     bool res;
-    while (itj!=jugadores.end()) {
-        if (itj->second->getNickname()==nickname)
-            break;
-        itj++;
+    if ( !jugadores.empty() ){
+        itj = jugadores.begin();
+        while (itj!=jugadores.end()) {
+            if (itj->second->getNickname()==nickname)
+                break;
+            itj++;
+        }
+        (itj==jugadores.end()) ? res=false : res=true;
     }
-    (itj==jugadores.end()) ? res=true : res=false;
+    else res = false;
     return res;
 }
 
