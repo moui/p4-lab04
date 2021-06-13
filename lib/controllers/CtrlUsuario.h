@@ -20,6 +20,7 @@ class CtrlUsuario : public IUsuario
         CtrlUsuario();
         // Members
         Usuario* sesionActiva;
+        ManejadorUsuario* manejadorUsuario;
         // "Memoria"
         string mail, contrasena, nickname, empresa, descripcion;
 
@@ -31,6 +32,7 @@ class CtrlUsuario : public IUsuario
 
         // Getters y Setters
         Usuario* getSesionActiva();
+        ManejadorUsuario* getManejadorUsuario();
         void setSesionActiva(Usuario* usuario);
         
         // Implementacion IUsuario

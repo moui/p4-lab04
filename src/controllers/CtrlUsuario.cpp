@@ -15,15 +15,21 @@ CtrlUsuario* CtrlUsuario::getInstancia()
 CtrlUsuario::CtrlUsuario()
 {
     sesionActiva = NULL;
+    manejadorUsuario = new ManejadorUsuario();
 }
 // Destructor
 CtrlUsuario::~CtrlUsuario()
 {
+    delete manejadorUsuario;
 }
 // Getters
 Usuario* CtrlUsuario::getSesionActiva()
 {
     return sesionActiva;
+}
+ManejadorUsuario* CtrlUsuario::getManejadorUsuario()
+{
+    return manejadorUsuario;
 }
 // Setters
 void CtrlUsuario::setSesionActiva(Usuario* usuario)
@@ -48,8 +54,7 @@ void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){
 }
 
 void CtrlUsuario::ingresaDatosJugador(string nnickname, string ndescripcion){
-    ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    if ( manusr->existeJugador(nnickname) ){
+    if ( manejadorUsuario->existeJugador(nnickname) ){
         throw invalid_argument( "Ya existe un jugador con ese nickname." );
     }
     else {
@@ -63,13 +68,11 @@ void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){
 }
 
 void CtrlUsuario::confirmaAltaDesarrollador(){
-    ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    manusr->agregarDesarrollador(mail, new Desarrollador(mail, contrasena, empresa));
+    manejadorUsuario->agregarDesarrollador(mail, new Desarrollador(mail, contrasena, empresa));
 }
 
 void CtrlUsuario::confirmaAltaJugador(){
-    ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    manusr->agregarJugador(nickname, new Jugador(mail, contrasena, nickname, descripcion));
+    manejadorUsuario->agregarJugador(nickname, new Jugador(mail, contrasena, nickname, descripcion));
 }
 
 void CtrlUsuario::cancelaAlta(){

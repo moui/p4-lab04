@@ -13,20 +13,15 @@ using namespace std;
 // Singleton.
 class ManejadorUsuario {
     private:
-        // Singleton
-        static ManejadorUsuario* instancia;
-        // Constructor
-        ManejadorUsuario();
         // Member
         map<string, Desarrollador*> desarrolladores;
         map<string, Desarrollador*>::iterator itd;
         map<string, Jugador*> jugadores;
         map<string, Jugador*>::iterator itj;
 
-
     public:
-        // GetInstance
-        static ManejadorUsuario* getInstancia();
+        // Constructor
+        ManejadorUsuario();
         // Destructor
         ~ManejadorUsuario();
 
