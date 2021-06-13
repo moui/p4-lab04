@@ -31,8 +31,11 @@ class ManejadorUsuario {
         bool existeJugador(string nickname);
         void borrarUsuario(string clave);
 
-        Jugador* autenticarJugador(string mail, string contrasena);
-        Desarrollador* autenticarDesarollador(string mail, string contrasena);
+        Jugador* buscarJugador(string clave);
+        Desarrollador* buscarDesarrollador(string clave);
+
+        bool autenticarJugador(string mail, string contrasena);
+        bool autenticarDesarollador(string mail, string contrasena);
 };
 
 #endif

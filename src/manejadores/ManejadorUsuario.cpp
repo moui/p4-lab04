@@ -47,13 +47,44 @@ bool ManejadorUsuario::existeJugador(string nickname){
 
 void ManejadorUsuario::borrarUsuario(string clave){}
 
-Jugador* ManejadorUsuario::autenticarJugador(string mail, string contrasena){
-   /* Jugador* res;
-    itvj=desarrolladores.find(mail);
-    */
-    return NULL;
+
+Jugador* buscarJugador(string clave){
+    return (itj=jugadores.find(clave)->second);
+}
+Desarrollador* buscarDesarrollador(string clave){
+    return (itd==desarrolladores.find(clave)->second);
 }
 
-Desarrollador* ManejadorUsuario::autenticarDesarollador(string mail, string contrasena){
-    return NULL;
+
+bool existeUsuario(string clave){
+    bool res;
+    itj=jugadores.find(clave);
+    itd=desarrolladores.find(clave);
+    return (res=(itd!=desarrolladores.end() || itj!=jugadores.end())); 
+}
+
+bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
+    bool res=false;
+    if (!jugadores.empty()){
+        itj= jugadores.find(mail);
+
+        if(itj!=jugadores.end()){
+            ( (mail==itj->second->getMail()) && (contrasena==itj->second->getContrasena()) ) ? res= true : res= false;
+        }
+
+    }
+    return res;
+}
+
+ bool ManejadorUsuario::autenticarDesarollador(string mail, string contrasena){
+    bool res=false;
+    if (!desarrolladores.empty()){
+        itd= desarrolladores.find(mail);
+
+        if(itd!=desarrolladores.end()){
+            ( (mail==itd->second->getMail()) && (contrasena==itd->second->getContrasena()) ) ? res= true : res= false;
+        }
+
+    }
+    return res;
 }
