@@ -1,24 +1,12 @@
 #include "../../lib/manejadores/ManejadorVideojuego.h"
 
-// Singleton
-ManejadorVideojuego* ManejadorVideojuego::instancia = NULL;
-
-// GetInstance
-ManejadorVideojuego* ManejadorVideojuego::getInstancia()
-{
-    if (instancia == NULL)
-    {
-        instancia = new ManejadorVideojuego();
-    }
-    return instancia;
-}
 // Constructor
 ManejadorVideojuego::ManejadorVideojuego(){}
+
 // Destructor
 ManejadorVideojuego::~ManejadorVideojuego(){
     catalogoVJ.clear();
     descSuscripcion.clear();
-    delete instancia;
 }
 //getters
 Videojuego ManejadorVideojuego::buscarVideojuego(string clave){
@@ -29,9 +17,11 @@ DescripcionSuscripcion ManejadorVideojuego::buscarDescripcionSuscripcion(string 
     return (descSuscripcion.find(clave)->second);
 }
 
-Categoria ManejadorVideojuego::buscarCategoria(string clave){
-    return (categorias.find(clave)->second);
+Categoria* ManejadorVideojuego::buscarCategoria(string clave){
+    itc = categorias.find(clave);
+    return itc->second;
 }
+
 //setters
 void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego v){
     catalogoVJ.insert( pair <string, Videojuego>(clave, v));
@@ -41,8 +31,8 @@ void ManejadorVideojuego::agregarDescripcionSuscripcion(string clave, Descripcio
     descSuscripcion.insert( pair <string, DescripcionSuscripcion>(clave, ds));
 }
 
-void ManejadorVideojuego::agregarCategoria(string clave, Categoria cat){
-    categorias.insert( pair <string, Categoria>(clave, cat));
+void ManejadorVideojuego::agregarCategoria(string clave, Categoria* cat){
+    categorias.insert( pair <string, Categoria*>(clave, cat));
 }
 
 //deleters (?

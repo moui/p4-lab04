@@ -19,10 +19,6 @@ using namespace std;
 // Singleton.
 class ManejadorVideojuego {
     private:
-        // Singleton
-        static ManejadorVideojuego* instancia;
-        // Constructor
-        ManejadorVideojuego();
         // map
         map<string, Videojuego> catalogoVJ;
         map<string, Videojuego>::iterator itvj;
@@ -30,24 +26,24 @@ class ManejadorVideojuego {
         map<string, DescripcionSuscripcion> descSuscripcion;
         map<string, DescripcionSuscripcion>::iterator itds;
 
-        map<string, Categoria> categorias;
-        map<string, Categoria>::iterator itc;
+        map<string, Categoria*> categorias;
+        map<string, Categoria*>::iterator itc;
 
 
     public:
-        // GetInstance
-        static ManejadorVideojuego* getInstancia();
+        // Constructor
+        ManejadorVideojuego();
         // Destructor
         ~ManejadorVideojuego();
 
         // Getters y mapters
         Videojuego buscarVideojuego(string clave);
         DescripcionSuscripcion buscarDescripcionSuscripcion(string clave);
-        Categoria buscarCategoria(string clave);
+        Categoria* buscarCategoria(string clave);
 
         void agregarVideojuego(string clave, Videojuego v);
         void agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion ds);
-        void agregarCategoria(string clave, Categoria cat);
+        void agregarCategoria(string clave, Categoria* cat);
 
         void borrarVideojuego(string clave);
         void borrarDescripcionSuscripcion(string clave);

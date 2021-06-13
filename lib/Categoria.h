@@ -3,6 +3,7 @@
 
 #include "datatypes/TipoCat.h"
 #include <string>
+#include "datatypes/DtCategoria.h"
 
 using namespace std;
 
@@ -26,6 +27,8 @@ class Categoria
     void setNombre(string);
     void setDescripcion(string);
     void setTipoCat(TipoCat);
+
+    DtCategoria getDtCategoria(Categoria cat);
 };
 
 #endif
