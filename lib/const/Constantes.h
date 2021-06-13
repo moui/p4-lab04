@@ -8,6 +8,8 @@ using namespace std;
 class Constantes
 {
     public:
+        static const string IngresarOperacion;
+
         static const string MenuPrincipal;
         static const string MenuDesarrollador;
         static const string MenuJugador;
@@ -15,6 +17,9 @@ class Constantes
         static const string PresentacionFechaActual;
         static const string PresentacionModificarFecha_Inicio;
         static const string PresentacionModificarFecha_Fin;
+
+        static const string PresentacionIniciarSesion_Inicio;
+        static const string PresentacionIniciarSesion_Fin;
 
         static const string MsjeErrorIngresoFecha;
         

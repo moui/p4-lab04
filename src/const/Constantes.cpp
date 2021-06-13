@@ -1,5 +1,7 @@
 #include "../../lib/const/Constantes.h"
 
+const string Constantes::IngresarOperacion = "Ingrese codigo de operacion ";
+
 const string Constantes::MenuPrincipal = 
     "\n"
     "--------------------------------------------------------------------------\n"
@@ -18,6 +20,15 @@ const string Constantes::MenuPrincipal =
 
 const string Constantes::PresentacionFechaActual =
     "Fecha actual del sistema: ";
+
+const string Constantes::PresentacionIniciarSesion_Inicio =
+    "                                                                          \n"
+    "                             INICIAR SESION                               \n"
+    "                                                                          \n"
+    ;
+
+const string Constantes::PresentacionIniciarSesion_Fin =
+    "Sesion iniciada como ";
 
 const string Constantes::PresentacionModificarFecha_Inicio =
     "                                                                          \n"
