@@ -42,8 +42,8 @@ void CtrlUsuario::altaUsuario()
 
 }
 
-void CtrlUsuario::iniciarSesion(string mail, string contrasena){
-   
+DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
+    return NULL;
 }
 
 // Implementacion de caso de uso Alta Usuario

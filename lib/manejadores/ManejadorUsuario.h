@@ -34,6 +34,8 @@ class ManejadorUsuario {
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
 
+        bool existeUsuario(sting clave);
+
         bool autenticarJugador(string mail, string contrasena);
         bool autenticarDesarollador(string mail, string contrasena);
 };
