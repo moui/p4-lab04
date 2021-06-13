@@ -19,6 +19,16 @@ const string Constantes::MenuPrincipal =
 const string Constantes::PresentacionFechaActual =
     "Fecha actual del sistema: ";
 
+const string Constantes::PresentacionIniciarSesion_Inicio =
+    "                                                                          \n"
+    "                             INICIAR SESION                               \n"
+    "                                                                          \n"
+    "Ingrese email: ";
+
+const string Constantes::PresentacionIniciarSesion_Fin =
+    "Iniciada sesion.                                                          \n"
+    ;
+
 const string Constantes::PresentacionModificarFecha_Inicio =
     "                                                                          \n"
     "                       MODIFICAR FECHA DEL SISTEMA                        \n"
