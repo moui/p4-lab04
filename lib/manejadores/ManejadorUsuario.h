@@ -33,8 +33,13 @@ class ManejadorUsuario {
         //IniciarPartida
     	set<string> listaJugadoresSus(string NomVJ);
 
-        Jugador* autenticarJugador(string mail, string contrasena);
-        Desarrollador* autenticarDesarollador(string mail, string contrasena);
+        Jugador* buscarJugador(string clave);
+        Desarrollador* buscarDesarrollador(string clave);
+
+        bool existeUsuario(string clave);
+
+        bool autenticarJugador(string mail, string contrasena);
+        bool autenticarDesarollador(string mail, string contrasena);
 };
 
 #endif

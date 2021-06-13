@@ -2,6 +2,7 @@
 #define IUSUARIO
 
 #include <string>
+#include "../datatypes/DtUsuario.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ class IUsuario
         virtual ~IUsuario();
 
         virtual void altaUsuario() = 0;
-        virtual void iniciarSesion(string mail, string contrasena) = 0;
+        virtual DtUsuario* iniciarSesion(string mail, string contrasena) = 0;
 
         virtual void ingresaDatosUsuario(string nmail, string ncontrasena) = 0;
         virtual void ingresaDatosJugador(string nnickname, string ndescipcion) = 0;

@@ -42,9 +42,8 @@ void CtrlUsuario::altaUsuario()
 
 }
 
-void CtrlUsuario::iniciarSesion(string mail, string contrasena){
-   // ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    
+DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
+    return NULL;
 }
 
 // Implementacion de caso de uso Alta Usuario

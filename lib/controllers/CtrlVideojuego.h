@@ -14,10 +14,7 @@ using namespace std;
 class CtrlVideojuego : public IVideojuego
 {
     private:
-        set<Suscripcion> suscripciones;
-        set<DescripcionSuscripcion> descSuscripcion;
-        set <Videojuego> catalogoVJ;
-
+    
         ManejadorVideojuego* manejadorVideojuego;
 
         static CtrlVideojuego * instancia;
@@ -46,7 +43,7 @@ class CtrlVideojuego : public IVideojuego
         //categorias
         set<DtCategoria>listarCategorias();
         void seleccionarCategoria(string nombre);
-        
+
 };
 
 #endif

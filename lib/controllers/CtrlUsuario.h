@@ -37,7 +37,7 @@ class CtrlUsuario : public IUsuario
         
         // Implementacion IUsuario
         void altaUsuario();
-        void iniciarSesion(string mail, string contrasena);
+        DtUsuario* iniciarSesion(string mail, string contrasena);
 
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);
