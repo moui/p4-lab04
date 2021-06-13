@@ -1,5 +1,7 @@
 #include "../../lib/const/Constantes.h"
 
+const string Constantes::IngresarOperacion = "Ingrese codigo de operacion ";
+
 const string Constantes::MenuPrincipal = 
     "\n"
     "--------------------------------------------------------------------------\n"
@@ -23,11 +25,10 @@ const string Constantes::PresentacionIniciarSesion_Inicio =
     "                                                                          \n"
     "                             INICIAR SESION                               \n"
     "                                                                          \n"
-    "Ingrese email: ";
+    ;
 
 const string Constantes::PresentacionIniciarSesion_Fin =
-    "Iniciada sesion.                                                          \n"
-    ;
+    "Sesion iniciada como ";
 
 const string Constantes::PresentacionModificarFecha_Inicio =
     "                                                                          \n"
