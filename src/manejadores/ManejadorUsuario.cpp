@@ -1,19 +1,10 @@
 #include "../../lib/manejadores/ManejadorUsuario.h"
 
-// Singleton
-ManejadorUsuario* ManejadorUsuario::instancia = NULL;
-
-// GetInstance
-ManejadorUsuario* ManejadorUsuario::getInstancia()
-{
-    if (instancia == NULL)
-    {
-        instancia = new ManejadorUsuario();
-    }
-    return instancia;
-}
 // Constructor
-ManejadorUsuario::ManejadorUsuario(){}
+ManejadorUsuario::ManejadorUsuario()
+{
+
+}
 // Destructor
 ManejadorUsuario::~ManejadorUsuario(){
     for (itd = desarrolladores.begin(); itd != desarrolladores.end(); itd++)
@@ -28,7 +19,6 @@ ManejadorUsuario::~ManejadorUsuario(){
     }
     desarrolladores.clear();
     jugadores.clear();
-    delete instancia;
 }
 
 

@@ -91,7 +91,18 @@ void Jugador::iniciadaP(Partida* p){
 
 bool Jugador::estaSuscritoA(std::string NombreVJ)
 {
-  return false;
+  bool b = false;
+  set<Suscripcion*>::iterator it = suscripto.begin();
+  Suscripcion* s = NULL;
+  while (!b && (it != suscripto.end())) {
+	s = *it;
+	if (s->getnombreVJ() == NombreVJ){
+		b = true;
+	}
+	++it;
+  }
+  s->~Suscripcion();
+  return b;
 }
 
 set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
