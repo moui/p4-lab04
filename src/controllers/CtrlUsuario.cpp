@@ -65,12 +65,12 @@ void CtrlUsuario::ingresaDatosDesarrollador(string nempresa){
 
 void CtrlUsuario::confirmaAltaDesarrollador(){
     ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    manusr->agregarDesarrollador(mail, Desarrollador(mail, contrasena, empresa));
+    manusr->agregarDesarrollador(mail, new Desarrollador(mail, contrasena, empresa));
 }
 
 void CtrlUsuario::confirmaAltaJugador(){
     ManejadorUsuario* manusr = ManejadorUsuario::getInstancia();
-    manusr->agregarJugador(nickname, Jugador(mail, contrasena, nickname, descripcion));
+    manusr->agregarJugador(nickname, new Jugador(mail, contrasena, nickname, descripcion));
 }
 
 void CtrlUsuario::cancelaAlta(){

@@ -29,12 +29,12 @@ Usuario* ManejadorUsuario::buscarUsuario(string clave){
     return NULL;
 }
 
-void ManejadorUsuario::agregarDesarrollador(string clave, Desarrollador des){
-    desarrolladores.insert ( pair <string, Desarrollador>(clave, des) );
+void ManejadorUsuario::agregarDesarrollador(string clave, Desarrollador* des){
+    desarrolladores.insert ( pair <string, Desarrollador*>(clave, des) );
 }
 
-void ManejadorUsuario::agregarJugador(string clave, Jugador jug){
-    jugadores.insert ( pair <string, Jugador>(clave, jug) );
+void ManejadorUsuario::agregarJugador(string clave, Jugador* jug){
+    jugadores.insert ( pair <string, Jugador*>(clave, jug) );
 }
 
 bool ManejadorUsuario::existeJugador(string nickname){
