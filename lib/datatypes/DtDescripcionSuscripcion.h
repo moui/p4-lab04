@@ -6,10 +6,10 @@
 #include "TipoEstado.h"
 #include "DtFechaHora.h"
 
-using namespace std;
+using std::string;
 
-
-class DtDescripcionSuscripcion{
+class DtDescripcionSuscripcion
+{
   private:
     string nombre;
     float costo;
@@ -18,10 +18,10 @@ class DtDescripcionSuscripcion{
     DtDescripcionSuscripcion(string nom, float costo, TipoPeriodo p);
     ~DtDescripcionSuscripcion();
 
-//Getters
+    //Getters
     string getNombre();
     float getCosto();
-    TipoPago getPeriodo();
-  };
+    TipoPeriodo getPeriodo();
+};
 
 #endif

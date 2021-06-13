@@ -1,18 +1,27 @@
 #ifndef DT_JUGADOR
 #define DT_JUGADOR
 
+#include "DtUsuario.h"
+
 #include <string>
 
-class DtJugador
+using std::string;
+
+class DtJugador : public DtUsuario
 {
   private:
-    std::string nickname;
-    int edad;
+    string nickname;
+    string descripcion;
 
   public:
-    DtJugador(std::string ,int );
-    std::string getnick();
-    int gete();
+    // Contructor y destructor
+    DtJugador(string email, string nickname, string descripcion);
+    ~DtJugador();
+    // Declaracion de funcion pura de DtUsuario
+    void abstracta(); 
+    // Getters
+    string getNickname();
+    string getDescripcion();
 };
 
 #endif

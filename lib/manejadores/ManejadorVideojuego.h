@@ -50,8 +50,6 @@ class ManejadorVideojuego {
         void borrarVideojuego(string clave);
         void borrarDescripcionSuscripcion(string clave);
         void borrarCategoria(string clave);
-
-
 };
 
 #endif

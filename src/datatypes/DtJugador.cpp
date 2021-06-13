@@ -1,18 +1,27 @@
 #include "../../lib/datatypes/DtJugador.h"
 
-DtJugador::DtJugador(std::string nickname, int edad)
+DtJugador::DtJugador(string email, string nickname, string descripcion)
+  : DtUsuario::DtUsuario(email)
 {
   this->nickname = nickname;
-  this->edad = edad;
-  return;
+  this->descripcion = descripcion;
 }
 
-std::string DtJugador::getnick()
+// Constructor y destructor
+DtJugador::~DtJugador()
 {
-  return this->nickname;
 }
 
-int DtJugador::gete()
+// Funcion pura de DtJugador
+void DtJugador::abstracta() {}
+
+// Getters
+string DtJugador::getNickname()
 {
-  return this->edad;
+  return nickname;
+}
+
+string DtJugador::getDescripcion()
+{
+  return descripcion;
 }

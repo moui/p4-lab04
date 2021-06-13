@@ -1,24 +1,29 @@
 #include "../../lib/datatypes/DtDescripcionSuscripcion.h"
 
-
-
-
-DtSuscripcion(string nom, float costo, TipoPeriodo p){
+DtDescripcionSuscripcion::DtDescripcionSuscripcion(string nom, float costo, TipoPeriodo p)
+{
   this->nombre = nom;
-  this->costo = c;
+  this->costo = costo;
   this->periodo = p;
   return;
 }
-~DtDescripcionSuscripcion();
 
-string DtDescripcionSuscripcion::getnombre(){
+DtDescripcionSuscripcion::~DtDescripcionSuscripcion()
+{
+
+}
+
+string DtDescripcionSuscripcion::getNombre()
+{
   return this->nombre;
 }
 
-float DtDescripcionSuscripcion::getCosto(){
+float DtDescripcionSuscripcion::getCosto()
+{
   return this->costo;
 }
 
-TipoPago DtDescripcionSuscripcion::getTipoPeriodo(){
+TipoPeriodo DtDescripcionSuscripcion::getPeriodo()
+{
   return this->periodo;
 }

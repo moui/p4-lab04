@@ -47,6 +47,19 @@ bool ManejadorUsuario::existeJugador(string nickname){
 
 void ManejadorUsuario::borrarUsuario(string clave){}
 
+//IniciarPartida
+
+set<string> ManejadorUsuario::listaJugadoresSus(string NomVJ){
+	set<string> s;
+	itj = jugadores.begin();
+	for(itj = jugadores.begin(); itj != jugadores.end(); ++itj){
+		if(itj->second->estaSuscritoA(NomVJ)){
+			s.insert(itj->second->getNickname());
+		}
+	}
+	return s;
+}
+
 Jugador* ManejadorUsuario::autenticarJugador(string mail, string contrasena){
    /* Jugador* res;
     itvj=desarrolladores.find(mail);
