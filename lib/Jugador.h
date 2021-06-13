@@ -40,10 +40,10 @@ class Jugador : public Usuario
 
     ~Jugador();
     void finPartida(float id);
-    set<DtPartida*> partidasInSF();
+    set<DtPartida*> partidasIniciadasSinFinalizar();
     void iniciadaP(Partida* p);
     bool estaSuscritoA(std::string NombreVJ);
-    set<DtPartidaIndividual*> partidasIndF();
+    set<DtPartidaIndividual*> partidasIndividualesFinalizadas();
     set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
     void AltaSuscripcion();
     void CancelarSuscripcion(std::string NombreVJ);
