@@ -19,7 +19,6 @@ CtrlUsuario::CtrlUsuario()
 // Destructor
 CtrlUsuario::~CtrlUsuario()
 {
-    delete instancia;
 }
 // Getters
 Usuario* CtrlUsuario::getSesionActiva()

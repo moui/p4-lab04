@@ -13,7 +13,7 @@ Fabrica::Fabrica()
 //Destructor
 Fabrica::~Fabrica()
 {
-    delete this;
+
 }
 
 // GetInstance
@@ -27,7 +27,15 @@ Fabrica * Fabrica::getInstancia()
 }
 
 // GetInterfaces
-IUsuario *Fabrica::getIUsuario()
+IUsuario* Fabrica::getIUsuario()
 {
     return CtrlUsuario::getInstancia();
+}
+
+// Destruir
+void Fabrica::destruir()
+{
+    CtrlUsuario* IUsr = CtrlUsuario::getInstancia();
+    delete IUsr;
+    delete instancia;
 }

@@ -21,6 +21,8 @@ class Fabrica
         IUsuario* getIUsuario();
         // GetInstance
 	    static Fabrica* getInstancia();
+
+        static void destruir();
 };
 
 #endif

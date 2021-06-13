@@ -200,6 +200,7 @@ int main()
         }
     }
 
+    Fabrica::destruir();
     delete fechaSistema;
     return 0;
 }
