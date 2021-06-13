@@ -48,15 +48,15 @@ bool ManejadorUsuario::existeJugador(string nickname){
 void ManejadorUsuario::borrarUsuario(string clave){}
 
 
-Jugador* buscarJugador(string clave){
-    return (itj=jugadores.find(clave)->second);
+Jugador* ManejadorUsuario::buscarJugador(string clave){
+    return (jugadores.find(clave)->second);
 }
-Desarrollador* buscarDesarrollador(string clave){
-    return (itd==desarrolladores.find(clave)->second);
+Desarrollador* ManejadorUsuario::buscarDesarrollador(string clave){
+    return (desarrolladores.find(clave)->second);
 }
 
 
-bool existeUsuario(string clave){
+bool ManejadorUsuario::existeUsuario(string clave){
     bool res;
     itj=jugadores.find(clave);
     itd=desarrolladores.find(clave);
