@@ -63,6 +63,17 @@ bool existeUsuario(string clave){
     return (res=(itd!=desarrolladores.end() || itj!=jugadores.end())); 
 }
 
+set<string> ManejadorUsuario::listaJugadoresSus(string NomVJ){
+	set<string> s;
+	itj = jugadores.begin();
+	for(itj = jugadores.begin(); itj != jugadores.end(); ++itj){
+		if(itj->second->estaSuscritoA(NomVJ)){
+			s.insert(itj->second->getNickname());
+		}
+	}
+	return s;
+}
+
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;
     if (!jugadores.empty()){
