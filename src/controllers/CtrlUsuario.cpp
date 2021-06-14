@@ -86,6 +86,16 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
     return res;
 }
 
+//implementacion caso de uso Suscribirse a Videojuego
+
+    set<DtVideojuegoSuscripcion*> CtrlUsuario::ObtenerCatalogo(){
+    set <DtVideojuegoSuscripcion*> res;
+    CtrlVideojuego* ctrlvidejuego;
+    ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
+    res = ctrlvidejuego->ObtenerCatalogo();
+    return res;
+}
+
 // Implementacion de caso de uso Alta Usuario
 void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){
     this->mail = nmail;

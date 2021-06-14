@@ -56,9 +56,12 @@ void CtrlVideojuego::confirmaPublicarVideojuego(){
 void CtrlVideojuego::confirmaPublicarVideojuego(Videojuego * v){
 }
 
-set<DtVideojuegoSuscripcion> CtrlVideojuego::ObtenerCatalogo(){
-  set<DtVideojuegoSuscripcion> a;
-  return a;
+
+//imprementacion caso de uso suscribirse a VJ
+set<DtVideojuegoSuscripcion*> CtrlVideojuego::ObtenerCatalogo(){
+  set<DtVideojuegoSuscripcion*> res;
+  res=manejadorVideojuego->ObtenerCatalogo();
+  return res;
 }
 
 void CtrlVideojuego::SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo){

@@ -3,31 +3,45 @@
 
 #include "Partida.h"
 #include "datatypes/TipoPuntaje.h"
+#include "DescripcionSuscripcion.h"
 #include "Categoria.h"
 #include <string>
 #include <set>
 
-using std::string;
+using namespace std;
 
 // class Partida;
 
 class Videojuego
 {
   private:
-    std::string nombre;
+    string nombre;
+    string descripcion;
+
+    float costo1;
+    float costo3;
+    float costo12;
+    float costoV;
 
     Partida **tiene;
+    set <DescripcionSuscripcion*> descSuscripcionVJ;
+    set <DescripcionSuscripcion*>::iterator itdsVJ;
 
   public:
-    Videojuego(std::string, Partida **);
+    Videojuego(string, Partida **);
     ~Videojuego();
     
 
     //getters
 
-    std::string getNombreVJ();
+    string getNombreVJ();
 
     Partida ** getTienePartida();
+
+    float getCosto1();
+    float getCosto3();
+    float getCosto12();
+    float getCostoV(); 
 
 
     //setters
@@ -37,6 +51,14 @@ class Videojuego
     void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);
     void setCategoria(Categoria*);
+
+    void setCosto1(float c1);
+    void setCosto3(float c3);
+    void setCosto12(float c12);
+    void setCostoV(float cV);
+
+    void agregarDescripcionSuscripcion(DescripcionSuscripcion* ds);
+
 };
 
 #endif

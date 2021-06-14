@@ -34,16 +34,14 @@ class CtrlVideojuego : public IVideojuego
         void cancelaPublicarVideojuego();
         void confirmaPublicarVideojuego();
         void confirmaPublicarVideojuego(Videojuego * v); // no se si es correcto, pero lo podemos cambiar, esta en el diagrama
-        set<DtVideojuegoSuscripcion> ObtenerCatalogo();
         void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
         void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
         void AltaSuscripcion(); //faltan parametros
         DtVideojuego verInfoVideojuego(string nombre); 
 
 
-        //caso de uso suscribirse a Videojuego
-
-        
+        //suscribirse a Videojuego (caso de uso en CtrlUsuario), devuelve copia del catalogo
+        set<DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
 
         //categorias
         set<DtCategoria> listarCategorias();

@@ -5,10 +5,15 @@
 #include "../Jugador.h"
 #include "../Desarrollador.h"
 #include "../manejadores/ManejadorUsuario.h"
+#include "../datatypes/DtVideojuegoSuscripcion.h"
+#include "CtrlVideojuego.h"
 
 #include <string>
+#include <set>
 
 using namespace std;
+
+class CtrlVideojuego;
 
 // Singleton. Implementa IUsuario.
 class CtrlUsuario : public IUsuario
@@ -38,6 +43,10 @@ class CtrlUsuario : public IUsuario
         // Implementacion IUsuario
         void altaUsuario();
         DtUsuario* iniciarSesion(string mail, string contrasena);
+
+        // caso de uso suscribirse a videojuego
+
+        set<DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
 
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);

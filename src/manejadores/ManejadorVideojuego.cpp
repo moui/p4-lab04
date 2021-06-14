@@ -49,3 +49,21 @@ void ManejadorVideojuego::borrarDescripcionSuscripcion(string clave){
 void ManejadorVideojuego::borrarCategoria(string clave){
     categorias.erase(itc=categorias.find(clave));
 }
+
+//suscribirse a videojuego
+
+set<DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
+    set<DtVideojuegoSuscripcion*> res;
+    if(!catalogoVJ.empty()){
+        for (itvj=catalogoVJ.begin(); itvj!=catalogoVJ.end(); itvj++){
+            string n=itvj->second->getNombreVJ();
+            float c1=itvj->second->getCosto1();
+            float c3=itvj->second->getCosto3();
+            float c12=itvj->second->getCosto12();
+            float cV=itvj->second->getCostoV();
+            DtVideojuegoSuscripcion* vs=new DtVideojuegoSuscripcion(c1,c3,c12,cV);
+            res.insert(vs);
+        }
+    }
+    return res;
+}

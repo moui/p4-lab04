@@ -7,9 +7,12 @@
 #include "../Suscripcion.h"
 #include "../DescripcionSuscripcion.h"
 #include "../Categoria.h"
+#include "../datatypes/DtCategoria.h"
+#include "../datatypes/DtVideojuegoSuscripcion.h"
 
 #include <string>
 #include <map>
+#include <set>
 #include <algorithm>
 
 
@@ -47,6 +50,10 @@ class ManejadorVideojuego {
         void borrarVideojuego(string clave);
         void borrarDescripcionSuscripcion(string clave);
         void borrarCategoria(string clave);
+
+        //suscribirse
+
+        set<DtVideojuegoSuscripcion*> ObtenerCatalogo();
 };
 
 #endif
