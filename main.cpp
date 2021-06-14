@@ -37,8 +37,7 @@ int main()
             string empresa, nickname, descripcion;
             char tipo, repe, conf;
             bool aconfirmar, reintentar;
-            cout << Constantes::Separador << endl
-                 << "                           ALTA DE USUARIO                                \n";
+            cout << Constantes::PresentacionAltaUsuario_Inicio;
             cout << "Ingrese mail: ";
             cin >> mail;
             cout << "Ingrese contrasena: ";
@@ -111,8 +110,6 @@ int main()
                             cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
                             break;
                         }
-
-                        //}
                     }
                 }
                 break;
@@ -121,7 +118,7 @@ int main()
                 cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
                 break;
             }
-            //  }
+
             if (aconfirmar == true)
             {
                 cout << "Desea confirmar el (A)lta o (C)ancelar? ";
@@ -171,8 +168,8 @@ int main()
                     cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
                     break;
                 }
+                cout << Constantes::Separador;
             }
-            //}
             else
             {
                 try
@@ -305,10 +302,12 @@ int main()
                         }
                     }                
                 }
+                cout << Constantes::MenuPrincipal;
+                delete usuario;
             }
             catch (const std::invalid_argument &exception)
             {
-                cout << exception.what() << '\n';
+                cout << exception.what() << '\n' << Constantes::Separador;
             }
             break;
         }

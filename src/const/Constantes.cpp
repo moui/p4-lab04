@@ -1,6 +1,6 @@
 #include "../../lib/const/Constantes.h"
 
-const string Constantes::IngresarOperacion = "Ingrese codigo de operacion ";
+const string Constantes::IngresarOperacion = "Ingrese codigo de operacion: ";
 
 const string Constantes::MenuPrincipal = 
     "\n"
@@ -20,6 +20,11 @@ const string Constantes::MenuPrincipal =
 
 const string Constantes::PresentacionFechaActual =
     "Fecha actual del sistema: ";
+
+const string Constantes::PresentacionAltaUsuario_Inicio = 
+    "                                                                          \n"
+    "                             ALTA USUARIO                                 \n"
+    "                                                                          \n";
 
 const string Constantes::PresentacionIniciarSesion_Inicio =
     "                                                                          \n"

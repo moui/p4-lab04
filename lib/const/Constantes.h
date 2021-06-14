@@ -18,6 +18,8 @@ class Constantes
         static const string PresentacionModificarFecha_Inicio;
         static const string PresentacionModificarFecha_Fin;
 
+        static const string PresentacionAltaUsuario_Inicio;
+
         static const string PresentacionIniciarSesion_Inicio;
         static const string PresentacionIniciarSesion_Fin;
 
