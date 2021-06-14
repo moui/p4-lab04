@@ -6,7 +6,11 @@
 #include "../datatypes/DtPartida.h"
 #include "../PartidaIndividual.h"
 #include "../PartidaMultijugador.h"
+#include "../controllers/CtrlUsuario.h"
+#include "../Fabrica.h"
+#include "../interfaces/IUsuario.h"
 #include <set>
+#include <string>
 
 using namespace std;
 
