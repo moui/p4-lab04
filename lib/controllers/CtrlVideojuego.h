@@ -46,8 +46,11 @@ class CtrlVideojuego : public IVideojuego
         
 
         //categorias
-        set<DtCategoria>listarCategorias();
+        set<DtCategoria> listarCategorias();
         void seleccionarCategoria(string nombre);
+        void agregarCategoria(string nombre, string descripcion, TipoCat tipo);
+        void confirma_agregarCategoria();
+        void cancela_agregarCategoria();
 
 };
 
