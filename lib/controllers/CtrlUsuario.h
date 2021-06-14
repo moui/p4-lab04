@@ -55,6 +55,9 @@ class CtrlUsuario : public IUsuario
         void confirmaAltaDesarrollador();
         void confirmaAltaJugador();
         void cancelaAlta();
+        
+        //IniciarPartida
+	    set<string> listaJugadoresSus(string NomVJ);
 };
 
 #endif

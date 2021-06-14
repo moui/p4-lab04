@@ -73,6 +73,7 @@ bool ManejadorUsuario::existeUsuario(string clave){
     return (res=(itd!=desarrolladores.end() || itj!=jugadores.end())); 
 }
 
+//IniciarPartida
 set<string> ManejadorUsuario::listaJugadoresSus(string NomVJ){
 	set<string> s;
 	itj = jugadores.begin();
@@ -83,6 +84,15 @@ set<string> ManejadorUsuario::listaJugadoresSus(string NomVJ){
 	}
 	return s;
 }
+
+set<DtPartidaIndividual*> ManejadorUsuario::partidasIndividualesFinalizadas(string nickname){
+	itj = jugadores.begin();
+	while((itj->second->getNickname() != nickname) && (itj != jugadores.end())){
+		++itj;
+	}
+	return itj->second->partidasIndividualesFinalizadas();
+}
+
 
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;

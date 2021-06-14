@@ -4,6 +4,9 @@
 #include "../Usuario.h"
 #include "../Jugador.h"
 #include "../Desarrollador.h"
+#include "../datatypes/DtPartidaIndividual.h"
+#include "../datatypes/DtPartidaMultijugador.h"
+#include "../datatypes/DtPartida.h"
 
 #include <string>
 #include <map>
@@ -34,6 +37,7 @@ class ManejadorUsuario {
         void borrarUsuario(string clave);
         //IniciarPartida
     	set<string> listaJugadoresSus(string NomVJ);
+	    set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
