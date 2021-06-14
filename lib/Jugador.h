@@ -35,7 +35,9 @@ class Jugador : public Usuario
     Jugador(string email, string contrasena, string nickname, string descripcion);
 
     map<float, InfoPartidaMulti*> unen;
+
     set<Suscripcion*> suscripto;
+
     set<Jugador*> sigue;
 
     ~Jugador();
@@ -44,7 +46,7 @@ class Jugador : public Usuario
     void iniciadaP(Partida* p);
     bool estaSuscritoA(std::string NombreVJ);
     set<DtPartidaIndividual*> partidasIndividualesFinalizadas();
-    set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
+    set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(map<string, DtVideojuegoSuscripcion*> Dcatalogo);
     void AltaSuscripcion();
     void CancelarSuscripcion(std::string NombreVJ);
 
@@ -57,10 +59,10 @@ class Jugador : public Usuario
     set<DtSuscripcion*> getSusAdquiridas;
 
 
+
     // Setters
     void setNickname(string nickname);
     void setDescripcion(string descripcion);
-
     void setInicioPartidas(map<int,Partida*> inicio);
 
     void setPartidaMultijugador(InfoPartidaMulti partidasMultijugador);

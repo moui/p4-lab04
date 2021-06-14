@@ -53,7 +53,7 @@ class ManejadorVideojuego {
 
         //suscribirse
 
-        set<DtVideojuegoSuscripcion*> ObtenerCatalogo();
+        map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo();
 };
 
 #endif

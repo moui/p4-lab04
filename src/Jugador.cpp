@@ -123,11 +123,28 @@ set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
     return isf;
 }
 
-set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas()
+//Suscribirse a videojuego
+
+set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas(map<string, DtVideojuegoSuscripcion*> Dcatalogo)
 {
-  set<DtVideojuegoSuscripcion*> foo;
-  return foo;
+  set<DtVideojuegoSuscripcion*> res;
+  set<Suscripcion*>::iterator it;
+  for(it=suscripto.begin(); it!=suscripto.end(); it++){
+    Suscripcion *s;
+    s=*it;
+    string idVJ=s->getnombreVJ();
+    if (s->getEstado()==TipoEstado::activa){
+
+        map<string, DtVideojuegoSuscripcion*>::iterator itDcatalogo=Dcatalogo.find(idVJ);
+        res.insert(itDcatalogo->second);
+        Dcatalogo.erase(idVJ);
+
+    }
+  }
+  return res;
 }
+
+
 
 void Jugador::AltaSuscripcion()
 {

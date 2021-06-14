@@ -52,8 +52,8 @@ void ManejadorVideojuego::borrarCategoria(string clave){
 
 //suscribirse a videojuego
 
-set<DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
-    set<DtVideojuegoSuscripcion*> res;
+map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
+    map<string, DtVideojuegoSuscripcion*> res;
     if(!catalogoVJ.empty()){
         for (itvj=catalogoVJ.begin(); itvj!=catalogoVJ.end(); itvj++){
             string n=itvj->second->getNombreVJ();
@@ -62,7 +62,7 @@ set<DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
             float c12=itvj->second->getCosto12();
             float cV=itvj->second->getCostoV();
             DtVideojuegoSuscripcion* vs=new DtVideojuegoSuscripcion(c1,c3,c12,cV);
-            res.insert(vs);
+            res.insert( pair<string, DtVideojuegoSuscripcion*>(n,vs));
         }
     }
     return res;

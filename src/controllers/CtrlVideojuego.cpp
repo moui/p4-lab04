@@ -58,8 +58,9 @@ void CtrlVideojuego::confirmaPublicarVideojuego(Videojuego * v){
 
 
 //imprementacion caso de uso suscribirse a VJ
-set<DtVideojuegoSuscripcion*> CtrlVideojuego::ObtenerCatalogo(){
-  set<DtVideojuegoSuscripcion*> res;
+
+map<string, DtVideojuegoSuscripcion*> CtrlVideojuego::ObtenerCatalogo(){
+  map<string, DtVideojuegoSuscripcion*> res;
   res=manejadorVideojuego->ObtenerCatalogo();
   return res;
 }

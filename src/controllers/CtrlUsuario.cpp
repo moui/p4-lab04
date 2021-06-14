@@ -41,6 +41,7 @@ void CtrlUsuario::altaUsuario()
 {
 
 }
+//iniciar sesion
 
 DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
     DtUsuario* res=NULL;
@@ -88,13 +89,34 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
 //implementacion caso de uso Suscribirse a Videojuego
 
-    set<DtVideojuegoSuscripcion*> CtrlUsuario::ObtenerCatalogo(){
-    set <DtVideojuegoSuscripcion*> res;
-    CtrlVideojuego* ctrlvidejuego;
-    ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
-    res = ctrlvidejuego->ObtenerCatalogo();
-    return res;
+    map<string, DtVideojuegoSuscripcion*> CtrlUsuario::ObtenerCatalogo(){
+        map<string, DtVideojuegoSuscripcion*> res;
+        CtrlVideojuego* ctrlvidejuego;
+        ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
+        res = ctrlvidejuego->ObtenerCatalogo();
+        return res;
 }
+
+
+    set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesActivas(){
+        set<DtVideojuegoSuscripcion*> res;
+        Usuario* user= CtrlUsuario::getSesionActiva();
+        Jugador * jugador={dynamic_cast<Jugador*>(user)};
+
+        res=jugador->listarVideojuegoSuscripcionesActivas(Dcatalogo);
+        return res;
+    }
+
+    set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesNoActivas(){
+        set<DtVideojuegoSuscripcion*> res;
+        map<string, DtVideojuegoSuscripcion*>::iterator itDcatalogo;
+        for(itDcatalogo=Dcatalogo.begin(); itDcatalogo!=Dcatalogo.end(); itDcatalogo++){
+            res.insert(itDcatalogo->second);
+            Dcatalogo.erase(itDcatalogo);
+        }
+        return res;
+       
+    }
 
 // Implementacion de caso de uso Alta Usuario
 void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){

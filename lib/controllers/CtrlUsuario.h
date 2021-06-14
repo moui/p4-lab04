@@ -9,6 +9,7 @@
 #include "CtrlVideojuego.h"
 
 #include <string>
+#include <algorithm>
 #include <set>
 
 using namespace std;
@@ -29,6 +30,8 @@ class CtrlUsuario : public IUsuario
         // "Memoria"
         string mail, contrasena, nickname, empresa, descripcion;
 
+        map<string, DtVideojuegoSuscripcion*> Dcatalogo;
+
     public:
         // GetInstance
         static CtrlUsuario* getInstancia();
@@ -46,7 +49,9 @@ class CtrlUsuario : public IUsuario
 
         // caso de uso suscribirse a videojuego
 
-        set<DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
+        map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
+        set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
+        set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas();
 
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);
