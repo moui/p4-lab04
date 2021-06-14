@@ -117,3 +117,8 @@ void CtrlUsuario::confirmaAltaJugador(){
 void CtrlUsuario::cancelaAlta(){
 
 }
+
+//IniciarPartida
+set<string> CtrlUsuario::listaJugadoresSus(string NomVJ){
+	return (manejadorUsuario->listaJugadoresSus(NomVJ));
+}
