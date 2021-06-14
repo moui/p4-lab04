@@ -42,16 +42,6 @@ void CtrlVideojuego::ingresarDatosVideojuego(DtVideojuego datos){
 
 }
 
-set<DtCategoria>CtrlVideojuego::listarCategorias(){
-  set<DtCategoria> a;
-  return a;
-}
-
-
-void CtrlVideojuego::seleccionarCategoria(string nombre){
-
-}
-
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
   DtVideojuego b;
   return b;
@@ -78,3 +68,27 @@ void CtrlVideojuego::AgregarSuscripcion(Suscripcion *s){
 }
 
 void CtrlVideojuego::AltaSuscripcion(){}
+
+//categorias
+
+set<DtCategoria>CtrlVideojuego::listarCategorias(){
+  set<DtCategoria> a;
+  return a;
+}
+
+
+void CtrlVideojuego::seleccionarCategoria(string nombre){
+
+}
+
+void CtrlVideojuego::agregarCategoria(string nombre, string descripcion, TipoCat tipo){
+
+}
+
+void CtrlVideojuego::confirma_agregarCategoria(){
+
+}
+
+void CtrlVideojuego::cancela_agregarCategoria(){
+  
+}

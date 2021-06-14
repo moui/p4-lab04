@@ -365,6 +365,9 @@ int main()
             IUsr->ingresaDatosUsuario("camila@mail.com", "123");
             IUsr->ingresaDatosJugador("camila", "soy camila");
             IUsr->confirmaAltaJugador();
+
+            //carga categorias
+            
             break;
         case 0:
             // SALIR
