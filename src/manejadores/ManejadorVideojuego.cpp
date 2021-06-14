@@ -9,11 +9,11 @@ ManejadorVideojuego::~ManejadorVideojuego(){
     descSuscripcion.clear();
 }
 //getters
-Videojuego ManejadorVideojuego::buscarVideojuego(string clave){
+Videojuego* ManejadorVideojuego::buscarVideojuego(string clave){
     return (catalogoVJ.find(clave)->second);
 }
 
-DescripcionSuscripcion ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){
+DescripcionSuscripcion* ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){
     return (descSuscripcion.find(clave)->second);
 }
 
@@ -23,12 +23,12 @@ Categoria* ManejadorVideojuego::buscarCategoria(string clave){
 }
 
 //setters
-void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego v){
-    catalogoVJ.insert( pair <string, Videojuego>(clave, v));
+void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego* v){
+    catalogoVJ.insert( pair <string, Videojuego*>(clave, v));
 }
 
-void ManejadorVideojuego::agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion ds){
-    descSuscripcion.insert( pair <string, DescripcionSuscripcion>(clave, ds));
+void ManejadorVideojuego::agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion* ds){
+    descSuscripcion.insert( pair <string, DescripcionSuscripcion*>(clave, ds));
 }
 
 void ManejadorVideojuego::agregarCategoria(string clave, Categoria* cat){

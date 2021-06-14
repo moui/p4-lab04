@@ -40,6 +40,11 @@ class CtrlVideojuego : public IVideojuego
         void AltaSuscripcion(); //faltan parametros
         DtVideojuego verInfoVideojuego(string nombre); 
 
+
+        //caso de uso suscribirse a Videojuego
+
+        
+
         //categorias
         set<DtCategoria>listarCategorias();
         void seleccionarCategoria(string nombre);
