@@ -331,6 +331,40 @@ int main()
         }
         case 5:
             // CARGAR DATOS DE PRUEBA
+
+            //cargar desarrolladores
+            IUsr->ingresaDatosUsuario("ironhide@mail.com", "123");
+            IUsr->ingresaDatosDesarrollador("Ironhide Game Studio");
+            IUsr->confirmaAltaDesarrollador();
+
+            IUsr->ingresaDatosUsuario("epic@mail.com", "123");
+            IUsr->ingresaDatosDesarrollador("Epic Games");
+            IUsr->confirmaAltaDesarrollador();
+
+            IUsr->ingresaDatosUsuario("mojang@mail.com", "123");
+            IUsr->ingresaDatosDesarrollador("Mojang Studios");
+            IUsr->confirmaAltaDesarrollador();
+
+            IUsr->ingresaDatosUsuario("ea@mail.com", "123");
+            IUsr->ingresaDatosDesarrollador("EA Sports");
+            IUsr->confirmaAltaDesarrollador();
+
+            //cargar jugadores
+            IUsr->ingresaDatosUsuario("gamer@mail.com", "123");
+            IUsr->ingresaDatosJugador("gamer", "soy gamer");
+            IUsr->confirmaAltaJugador();
+
+            IUsr->ingresaDatosUsuario("ari@mail.com", "123");
+            IUsr->ingresaDatosJugador("ari", "soy ari");
+            IUsr->confirmaAltaJugador();
+
+            IUsr->ingresaDatosUsuario("ibai@mail.com", "123");
+            IUsr->ingresaDatosJugador("ibai", "soy ibai");
+            IUsr->confirmaAltaJugador();
+
+            IUsr->ingresaDatosUsuario("camila@mail.com", "123");
+            IUsr->ingresaDatosJugador("camila", "soy camila");
+            IUsr->confirmaAltaJugador();
             break;
         case 0:
             // SALIR
