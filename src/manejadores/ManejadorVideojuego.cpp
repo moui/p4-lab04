@@ -69,6 +69,6 @@ map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
 }
 
 //IniciarPartida
-void ManejadorUsuario::iniciadaP(string clave,Partida* p){
-	jugadores[clave]->iniciadaP(p);
+void ManejadorVideojuego::setPartida(Partida* p){
+	p->getVideojuego()->setPartida(p);
 }
