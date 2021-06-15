@@ -154,3 +154,9 @@ void CtrlUsuario::cancelaAlta(){
 set<string> CtrlUsuario::listaJugadoresSus(string NomVJ){
 	return (manejadorUsuario->listaJugadoresSus(NomVJ));
 }
+
+set<DtPartidaIndividual*> CtrlUsuario::listaPartidasIndividualesTerminadas(){
+	Jugador* j = dynamic_cast<Jugador*> (sesionActiva);
+	return manejadorUsuario->partidasIndividualesFinalizadas(j->getNickname());
+}
+
