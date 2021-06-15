@@ -54,6 +54,8 @@ class ManejadorVideojuego {
         //suscribirse
 
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo();
+        //IniciarPartida
+	    void setPartida(Partida* p);
 };
 
 #endif
