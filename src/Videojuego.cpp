@@ -41,6 +41,14 @@ Videojuego::Videojuego(std::string nombre, Partida **partidas)
         this->tiene=p;
     }
 
+    void Videojuego::setPartida(Partida* p){
+	    int curr = 0;
+      while (this->tiene[curr] != NULL){
+		      curr++;
+	    }
+	    this->tiene[curr] = p;
+    }
+
     void Videojuego::setCosto1(float c1){
         this->costo1=c1;
     }
