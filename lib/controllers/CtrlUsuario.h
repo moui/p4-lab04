@@ -65,7 +65,8 @@ class CtrlUsuario : public IUsuario
         void cancelaAlta();
         
         //IniciarPartida
-	    set<string> listaJugadoresSus(string NomVJ);
+	set<string> listaJugadoresSus(string NomVJ);
+	set<DtPartidaIndividual*> listaPartidasIndividualesTerminadas();
 };
 
 #endif
