@@ -2,7 +2,9 @@
 #define IUSUARIO
 
 #include <string>
+#include <set>
 #include "../datatypes/DtUsuario.h"
+#include "../datatypes/DtVideojuegoSuscripcion.h"
 
 using namespace std;
 
@@ -20,6 +22,9 @@ class IUsuario
         virtual void confirmaAltaDesarrollador() = 0;
         virtual void confirmaAltaJugador() = 0;
         virtual void cancelaAlta() = 0;
+
+        virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()=0;
+        virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas()=0;
 };
 
 #endif

@@ -34,8 +34,11 @@ Suscripcion::~Suscripcion()
 
     TipoEstado Suscripcion::getEstado(){
       return this->estado;
-    }
 
+    }
+    bool Suscripcion::getVitalicia(){
+      return this->vitalicia;
+    }
     //Setters
     void Suscripcion::setNombreVJ(string n){
       this->nombreVJ=n;
@@ -55,4 +58,7 @@ Suscripcion::~Suscripcion()
 
     void Suscripcion::setTipoEstado(TipoEstado e){
       this->estado=e;
+    }
+    void Suscripcion::setVitalicia(bool v){
+      this->vitalicia=v;
     }

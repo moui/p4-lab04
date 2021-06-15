@@ -35,6 +35,19 @@ const string Constantes::PresentacionIniciarSesion_Inicio =
 const string Constantes::PresentacionIniciarSesion_Fin =
     "Sesion iniciada como ";
 
+const string Constantes::PresentacionSuscribirse =
+    "                                                                          \n"
+    "                        SUSCRIBIRSE A VIDEOJUEGO                               \n"
+    "                                                                          \n"
+    ;
+
+ const string Constantes::PresentacionSuscribirse_Fin =
+    "                                                                          \n"
+    "                        SUSCRIBIRSE A VIDEOJUEGO                               \n"
+    "                                                                          \n"
+    ;
+
+
 const string Constantes::PresentacionModificarFecha_Inicio =
     "                                                                          \n"
     "                       MODIFICAR FECHA DEL SISTEMA                        \n"

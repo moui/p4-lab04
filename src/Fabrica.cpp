@@ -31,7 +31,10 @@ IUsuario* Fabrica::getIUsuario()
 {
     return CtrlUsuario::getInstancia();
 }
-
+IVideojuego* Fabrica::getIVideojuego()
+{
+    return CtrlVideojuego::getCtrlVideojuego();
+}
 // Destruir
 void Fabrica::destruir()
 {

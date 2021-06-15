@@ -105,6 +105,20 @@ bool Jugador::estaSuscritoA(std::string NombreVJ)
   return b;
 }
 
+Suscripcion* Jugador::getSuscripcion(string nomVJ){
+  set<Suscripcion*>::iterator it = suscripto.begin();
+  Suscripcion* res = NULL;
+  while (it != suscripto.end()) {
+    Suscripcion* s= *it;
+	  if (s->getnombreVJ() == nomVJ){
+		  res=s;
+      break;
+	}
+	++it;
+  }
+  return res;
+}
+
 set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
 {
    map<int, Partida*>::iterator i = this->inicio.begin();

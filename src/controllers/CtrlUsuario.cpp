@@ -89,17 +89,34 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
 //implementacion caso de uso Suscribirse a Videojuego
 
+
+    DtSuscripcion* CtrlUsuario::JuegoSuscribirse(string nomVJ){
+        DtSuscripcion* res=NULL;
+     /*
+        Usuario* user= CtrlUsuario::getSesionActiva();
+        Jugador * jugador={dynamic_cast<Jugador*>(user)};
+        Suscripcion* s= jugador->getSuscripcion(nomVJ);
+
+    */
+        return res;
+    }
+
     map<string, DtVideojuegoSuscripcion*> CtrlUsuario::ObtenerCatalogo(){
         map<string, DtVideojuegoSuscripcion*> res;
+        if (!Dcatalogo.empty()) {
         CtrlVideojuego* ctrlvidejuego;
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
         res = ctrlvidejuego->ObtenerCatalogo();
+        } else {
+            throw invalid_argument( "Catalogo de Videojuegos vacio. ");
+        }
         return res;
 }
 
 
     set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesActivas(){
         set<DtVideojuegoSuscripcion*> res;
+        this->Dcatalogo=ObtenerCatalogo();
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
 

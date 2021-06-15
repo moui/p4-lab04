@@ -61,7 +61,7 @@ map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
             float c3=itvj->second->getCosto3();
             float c12=itvj->second->getCosto12();
             float cV=itvj->second->getCostoV();
-            DtVideojuegoSuscripcion* vs=new DtVideojuegoSuscripcion(c1,c3,c12,cV);
+            DtVideojuegoSuscripcion* vs=new DtVideojuegoSuscripcion(n,c1,c3,c12,cV);
             res.insert( pair<string, DtVideojuegoSuscripcion*>(n,vs));
         }
     }

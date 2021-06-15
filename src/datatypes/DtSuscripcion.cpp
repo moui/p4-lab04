@@ -35,3 +35,6 @@ TipoPago DtSuscripcion::getTipoPago(){
 TipoEstado DtSuscripcion::getEstado(){
   return this->estado;
 }
+bool DtSuscripcion::getVitalicia(){
+  return this->vitalicia;
+}

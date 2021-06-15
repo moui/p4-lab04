@@ -6,6 +6,7 @@
 #include "../Desarrollador.h"
 #include "../manejadores/ManejadorUsuario.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
+#include "../datatypes/DtSuscripcion.h"
 #include "CtrlVideojuego.h"
 
 #include <string>
@@ -52,6 +53,8 @@ class CtrlUsuario : public IUsuario
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
         set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
         set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas();
+        DtSuscripcion* JuegoSuscribirse(string nomVJ);
+        void CancelarOperacion();
 
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);

@@ -23,6 +23,9 @@ class Constantes
         static const string PresentacionIniciarSesion_Inicio;
         static const string PresentacionIniciarSesion_Fin;
 
+        static const string PresentacionSuscribirse;
+        static const string PresentacionSuscribirse_Fin;
+        
         static const string MsjeErrorIngresoFecha;
         
         static const string Separador;

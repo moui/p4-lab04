@@ -4,11 +4,14 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <set>
 
 #include "lib/helpers/FechaSistema.h"
 #include "lib/datatypes/DtUsuario.h"
 #include "lib/datatypes/DtJugador.h"
 #include "lib/datatypes/DtDesarrollador.h"
+#include "lib/datatypes/DtVideojuegoSuscripcion.h"
+#include "lib/datatypes/DtSuscripcion.h"
 #include "lib/datatypes/DtFechaHora.h"
 #include "lib/interfaces/IUsuario.h"
 #include "lib/Fabrica.h"
@@ -22,6 +25,7 @@ int main()
 {
     FechaSistema *fechaSistema = new FechaSistema();
     IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
+    //IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego(); si se usa descomentar
     string mail, contrasena;
     int operacion = 1;
     cout << Constantes::MenuPrincipal;
@@ -264,6 +268,29 @@ int main()
                         case 1:
                         {
                             // SUSCRIBIRSE A VIDEOJUEGO
+                            cout << Constantes::PresentacionSuscribirse;
+                            try 
+                            {
+                             set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
+                             set<DtVideojuegoSuscripcion*> sna = IUsr->listarVideojuegoSuscripcionesNoActivas();
+                             cout << "SUSCRIPCIONES ACTIVAS: \n";
+                             for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
+                                 cout<< *itsa;
+                             };
+                             cout << Constantes::Separador;
+                             cout << "SUSCRIPCIONES NO ACTIVAS: \n";
+                             for (set<DtVideojuegoSuscripcion*>::iterator itsna=sna.begin(); itsna!=sna.end(); itsna++){
+                                 cout<< *itsna;
+                             };
+                             cout << Constantes::Separador;
+                             cout << "Seleccione un Videojuego para suscribirse: \n";
+                            // cin >> string nomVJ;
+                            
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                            cerr << "Error: " << err.what() << '\n';
+                            }
                             break;
                         }
                         case 2:

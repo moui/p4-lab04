@@ -2,7 +2,9 @@
 #define FABRICA
 
 #include "interfaces/IUsuario.h"
+#include "interfaces/IVideojuego.h"
 #include "controllers/CtrlUsuario.h"
+#include "controllers/CtrlVideojuego.h"
 
 using namespace std;
 
@@ -19,6 +21,7 @@ class Fabrica
         ~Fabrica();
         // GetInterfaces
         IUsuario* getIUsuario();
+        IVideojuego* getIVideojuego();
         // GetInstance
 	    static Fabrica* getInstancia();
 

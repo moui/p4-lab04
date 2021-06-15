@@ -44,11 +44,11 @@ class Jugador : public Usuario
     void finPartida(float id);
     set<DtPartida*> partidasIniciadasSinFinalizar();
     void iniciadaP(Partida* p);
-    bool estaSuscritoA(std::string NombreVJ);
+    bool estaSuscritoA(string NombreVJ);
     set<DtPartidaIndividual*> partidasIndividualesFinalizadas();
     set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(map<string, DtVideojuegoSuscripcion*> Dcatalogo);
     void AltaSuscripcion();
-    void CancelarSuscripcion(std::string NombreVJ);
+    void CancelarSuscripcion(string NombreVJ);
 
     // Getters
     string getNickname();
@@ -57,6 +57,8 @@ class Jugador : public Usuario
     map<float, InfoPartidaMulti*> getPartidasMultijugador();
     set<DtJugador*> getSeguidos;
     set<DtSuscripcion*> getSusAdquiridas;
+
+    Suscripcion* getSuscripcion(string nomVJ);
 
 
 

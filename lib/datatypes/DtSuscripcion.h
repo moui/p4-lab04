@@ -16,6 +16,7 @@ class DtSuscripcion{
     float costo;
     TipoPago pago;
     TipoEstado estado;
+    bool vitalicia;
   public:
     DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e);
     ~DtSuscripcion();
@@ -26,6 +27,7 @@ class DtSuscripcion{
   float getCosto();
   TipoPago getTipoPago();
   TipoEstado getEstado();
+  bool getVitalicia();
   };
 
 #endif
