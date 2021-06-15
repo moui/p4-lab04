@@ -37,7 +37,8 @@ class ManejadorUsuario {
         void borrarUsuario(string clave);
         //IniciarPartida
     	set<string> listaJugadoresSus(string NomVJ);
-	    set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
+	set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
+	void iniciadaP(string clave, Partida* p);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
