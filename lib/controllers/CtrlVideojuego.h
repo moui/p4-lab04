@@ -10,6 +10,7 @@
 #include <set>
 
 using namespace std;
+class ManejadorVideojuego;
 
 class CtrlVideojuego : public IVideojuego
 {

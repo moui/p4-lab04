@@ -16,6 +16,7 @@
 using namespace std;
 
 class CtrlVideojuego;
+class ManejadorUsuario;
 
 // Singleton. Implementa IUsuario.
 class CtrlUsuario : public IUsuario
