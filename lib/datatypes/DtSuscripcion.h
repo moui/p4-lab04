@@ -18,7 +18,7 @@ class DtSuscripcion{
     TipoEstado estado;
     bool vitalicia;
   public:
-    DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e);
+    DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e, bool v);
     ~DtSuscripcion();
 
 //Getters

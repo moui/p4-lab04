@@ -53,7 +53,7 @@ class CtrlUsuario : public IUsuario
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
         set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
         set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas();
-        DtSuscripcion* JuegoSuscribirse(string nomVJ);
+        TipoEstado JuegoSuscribirse(string nomVJ);
         void CancelarOperacion();
 
         // Caso de Uso Alta Usuario

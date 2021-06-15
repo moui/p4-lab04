@@ -18,6 +18,7 @@
 #include "datatypes/DtPartidaIndividual.h"
 #include "datatypes/DtPartidaMultijugador.h"
 #include "datatypes/DtVideojuegoSuscripcion.h"
+#include "controllers/CtrlUsuario.h"
 
 using namespace std;
 
@@ -59,6 +60,7 @@ class Jugador : public Usuario
     set<DtSuscripcion*> getSusAdquiridas;
 
     Suscripcion* getSuscripcion(string nomVJ);
+    DtSuscripcion* getDatosSuscripcion(string nomVJ);
 
 
 

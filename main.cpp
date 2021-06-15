@@ -284,8 +284,9 @@ int main()
                              };
                              cout << Constantes::Separador;
                              cout << "Seleccione un Videojuego para suscribirse: \n";
-                            // cin >> string nomVJ;
-                            
+                             string nomVJ;
+                             cin >> nomVJ;
+                             
                             }
                             catch (const std::invalid_argument &err)
                             {

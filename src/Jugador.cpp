@@ -119,6 +119,29 @@ Suscripcion* Jugador::getSuscripcion(string nomVJ){
   return res;
 }
 
+DtSuscripcion* getDatosSuscripcion(string nomVJ){
+  DtSuscripcion* res=NULL;
+  CtrlUsuario* ctrlusuario = CtrlUsuario::getInstancia();
+  Usuario* user= ctrlusuario->getSesionActiva();
+  Jugador * jugador={dynamic_cast<Jugador*>(user)};
+  Suscripcion* s= jugador->getSuscripcion(nomVJ);
+
+  s = jugador->getSuscripcion(nomVJ);
+  if (s!=NULL){
+    //datos
+    string n = s->getnombreVJ();
+    DtFechaHora f=s->getFecha();
+    float c = s->getCosto();
+    TipoPago tp = s->getTipoPago();
+    TipoEstado te=s->getEstado();
+    bool v = s->getVitalicia();
+    //(n,f,c,tp,te,v) datos
+
+    res = new DtSuscripcion(n,f,c,tp,te,v);
+  }
+  return res;
+}
+
 set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
 {
    map<int, Partida*>::iterator i = this->inicio.begin();

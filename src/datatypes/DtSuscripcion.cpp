@@ -3,12 +3,14 @@
 
 
 
-DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e){
+DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e, bool v){
   this->nombreVJ = nomVJ;
   this->fecha = f;
   this->costo = costo;
   this->pago = p;
   this->estado = e;
+  this->vitalicia=v;
+
   return;
 }
 DtSuscripcion::~DtSuscripcion()
