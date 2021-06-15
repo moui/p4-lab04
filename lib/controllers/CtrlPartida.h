@@ -7,6 +7,7 @@
 #include "../PartidaIndividual.h"
 #include "../PartidaMultijugador.h"
 #include "../controllers/CtrlUsuario.h"
+#include "../Jugador.h"
 #include "../Fabrica.h"
 #include "../interfaces/IUsuario.h"
 #include <set>
@@ -34,7 +35,7 @@ class CtrlPartida : public IPartida
         void listaJugUnidos(set<string> nicknames);
         set<string> listaJugSuscriptos();
         void confirmarIniciarPartida();
-        set<DtPartidaIndividual> listaPartidasIndTer();
+        set<DtPartidaIndividual*> listaPartidasIndTer();
         void enVivo(bool enVivo);
         void cancelarIniciarPartida();
         set<DtPartida> listaPartidasIniciadas(string nickname);
