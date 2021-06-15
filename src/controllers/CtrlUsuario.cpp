@@ -179,3 +179,7 @@ set<DtPartidaIndividual*> CtrlUsuario::listaPartidasIndividualesTerminadas(){
 	return manejadorUsuario->partidasIndividualesFinalizadas(j->getNickname());
 }
 
+void CtrlUsuario::iniciadaP(Partida* p){
+	string c = sesionActiva->getMail();
+	manejadorUsuario->iniciadaP(c ,p);
+}

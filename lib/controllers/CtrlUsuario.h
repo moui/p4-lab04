@@ -67,6 +67,7 @@ class CtrlUsuario : public IUsuario
         //IniciarPartida
 	set<string> listaJugadoresSus(string NomVJ);
 	set<DtPartidaIndividual*> listaPartidasIndividualesTerminadas();
+	void iniciadaP(Partida* p);
 };
 
 #endif

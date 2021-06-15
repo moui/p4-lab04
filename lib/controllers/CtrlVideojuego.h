@@ -49,6 +49,9 @@ class CtrlVideojuego : public IVideojuego
         void agregarCategoria(string nombre, string descripcion, TipoCat tipo);
         void confirma_agregarCategoria();
         void cancela_agregarCategoria();
+        
+        //IniciarPartida
+	    void iniciadaP(Partida* p);
 
 };
 

@@ -67,3 +67,8 @@ map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
     }
     return res;
 }
+
+//IniciarPartida
+void ManejadorVideojuego::setPartida(Partida* p){
+	p->getVideojuego()->setPartida(p);
+}

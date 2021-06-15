@@ -93,6 +93,9 @@ set<DtPartidaIndividual*> ManejadorUsuario::partidasIndividualesFinalizadas(stri
 	return itj->second->partidasIndividualesFinalizadas();
 }
 
+void ManejadorUsuario::iniciadaP(string clave,Partida* p){
+	jugadores[clave]->iniciadaP(p);
+}
 
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;
