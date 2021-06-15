@@ -96,3 +96,8 @@ void CtrlVideojuego::confirma_agregarCategoria(){
 void CtrlVideojuego::cancela_agregarCategoria(){
   
 }
+
+//IniciarPartida
+void CtrlVideojuego::iniciadaP(Partida* p){
+	manejadorVideojuego->setPartida(p);
+}
