@@ -32,16 +32,24 @@ void listaJugUnidos(set<string> nicknames){
 
 set<string> listaJugSuscriptos(){
     set<string> a;
+    CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+    Jugador* j = dynamic_cast<Jugador*> (ctrlUsuario->getSesionActiva());
+    a = ctrlUsuario->listaJugadoresSus(j->getNickname());
     return a;
 }
 
 void confirmarIniciarPartida(){
 
 }
-set<DtPartidaIndividual> listaPartidasIndTer(){
-    set<DtPartidaIndividual> a;
+set<DtPartidaIndividual*> listaPartidasIndTer(){
+    set<DtPartidaIndividual*> a;
+    CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+    a = ctrlUsuario->listaPartidasIndividualesTerminadas();
     return a;
 }
+
 void enVivo(bool enVivo){
 
 }
