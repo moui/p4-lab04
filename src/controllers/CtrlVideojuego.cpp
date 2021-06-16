@@ -100,3 +100,7 @@ void CtrlVideojuego::cancela_agregarCategoria(){
 void CtrlVideojuego::iniciadaP(Partida* p){
 	manejadorVideojuego->setPartida(p);
 }
+
+Videojuego* CtrlVideojuego::getVJ(nomVJ){
+	return manejadorVideojuego->buscarVideojuego(nomVJ);
+}
