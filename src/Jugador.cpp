@@ -68,11 +68,11 @@ set<DtPartida*> Jugador::partidasIniciadasSinFinalizar()
          isf.insert(p2);
         } else {
 	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
-        map<string, InfoPartidaMulti> part = pm->getParticipan();
-        map<string, InfoPartidaMulti>::iterator it = part.begin();
+        map<string, InfoPartidaMulti*> part = pm->getParticipan();
+        map<string, InfoPartidaMulti*>::iterator it = part.begin();
         set<string> s;
         while (it != part.end()){
-          s.insert(it->second.getParticipa()->getNickname());
+          s.insert(it->second->getParticipa()->getNickname());
           ++it;
         }
         DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
