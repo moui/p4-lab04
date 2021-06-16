@@ -50,7 +50,7 @@ class CtrlPartida : public IPartida
         set<DtPartidaIndividual*> listaPartidasIndTer();
         void ENVivo(bool EnVivo);
         void cancelarIniciarPartida();
-        set<DtPartida> listaPartidasIniciadas(string nickname);
+        set<DtPartida*> listaPartidasIniciadas();
         void finalizarPartida(float id);
         void cancelarFinalizarPartida(); 
 
