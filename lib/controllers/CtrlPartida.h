@@ -20,10 +20,16 @@ class CtrlPartida : public IPartida
     private:
         set<PartidaIndividual*> partidasI;
         set<PartidaMultijugador*> partidasM;
+	float cantP;
 
         static CtrlPartida * instancia;
         CtrlPartida();
-
+	
+	//Memoria
+	string nomVJ;
+	float* f;
+	bool enVivo;
+	set<string> nicknames;
 
     public:
         ~CtrlPartida();
@@ -34,7 +40,7 @@ class CtrlPartida : public IPartida
         void partidaAContinuar(float id);
         void listaJugUnidos(set<string> nicknames);
         set<string> listaJugSuscriptos();
-        void confirmarIniciarPartida();
+        void confirmarIniciarPartida(DtFechaHora inicio);
         set<DtPartidaIndividual*> listaPartidasIndTer();
         void enVivo(bool enVivo);
         void cancelarIniciarPartida();
