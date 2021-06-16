@@ -28,7 +28,7 @@ class Categoria
     void setDescripcion(string);
     void setTipoCat(TipoCat);
 
-    DtCategoria getDtCategoria(Categoria cat);
+    DtCategoria getDtCategoria();
 };
 
 #endif
