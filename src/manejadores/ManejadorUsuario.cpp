@@ -97,6 +97,16 @@ void ManejadorUsuario::iniciadaP(string clave,Partida* p){
 	jugadores[clave]->iniciadaP(p);
 }
 
+map<string, InfoPartidaMulti> ManejadorUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
+	set<string>::iterator it = mails.begin();
+	map<string, InfoPartidaMulti> m;
+	while(it != mails.end()){	
+		m[*it] = InfoPartidaMulti(f ,jugadores[*it]);
+		++it;
+	}
+	return m;
+}
+
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;
     if (!jugadores.empty()){
