@@ -54,12 +54,14 @@ void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
 		PartidaMultijugador* p = new PartidaMultijugador(cantP, 0, false, inicio, v, enVivo, mapInfoPM);
 		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
 		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
+		manejadorPartida->AgregarPartidaMultijugador(cantP, *p);
 	} else {
 		PartidaIndividual pi = manejadorPartida->getPI(f);
 		PartidaIndividual* i = & pi;
 		PartidaIndividual* p = new PartidaIndividual(cantP, 0, false, inicio, v, i);
 		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
 		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
+		manejadorPartida->AgregarPartidaIndividual(cantP, *p);
 	}
 	cantP = cantP + 1;	
 }
@@ -79,7 +81,7 @@ void cancelarIniciarPartida(){
 
 }
 
-set<DtPartida*> listaPartidasIniciadas(){
+set<DtPartida*> CtrlPartida::listaPartidasIniciadas(){
     set<DtPartida*> a;
     CtrlUsuario* ctrlUsuario;
     ctrlUsuario = CtrlUsuario::getInstancia();
@@ -87,8 +89,10 @@ set<DtPartida*> listaPartidasIniciadas(){
     return a;
 }
 
-void finalizarPartida(float id){
-
+void CtrlPartida::finalizarPartida(DtFechaHora f, float id){
+	CtrlUsuario* ctrlUsuario;
+    	ctrlUsuario = CtrlUsuario::getInstancia();
+	ctrlUsuario->finPartida(f, id);
 }
 void cancelarFinalizarPartida(){
 
