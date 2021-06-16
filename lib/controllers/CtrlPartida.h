@@ -51,7 +51,7 @@ class CtrlPartida : public IPartida
         void ENVivo(bool EnVivo);
         void cancelarIniciarPartida();
         set<DtPartida*> listaPartidasIniciadas();
-        void finalizarPartida(float id);
+        void finalizarPartida(DtFechaHora f, float id);
         void cancelarFinalizarPartida(); 
 
 };
