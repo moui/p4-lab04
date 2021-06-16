@@ -79,7 +79,7 @@ void cancelarIniciarPartida(){
 
 }
 
-set<DtPartida*> listaPartidasIniciadas(string nickname){
+set<DtPartida*> listaPartidasIniciadas(){
     set<DtPartida*> a;
     CtrlUsuario* ctrlUsuario;
     ctrlUsuario = CtrlUsuario::getInstancia();
