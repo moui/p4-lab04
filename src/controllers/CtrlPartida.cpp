@@ -78,10 +78,15 @@ void CtrlPartida::ENVivo(bool EnVivo){
 void cancelarIniciarPartida(){
 
 }
-set<DtPartidaIndividual> listaPartidasIniciadas(string nickname){
-    set<DtPartidaIndividual> a;
+
+set<DtPartida*> listaPartidasIniciadas(string nickname){
+    set<DtPartida*> a;
+    CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+    a = ctrlUsuario->listaPartidasIniciadas();
     return a;
 }
+
 void finalizarPartida(float id){
 
 }
