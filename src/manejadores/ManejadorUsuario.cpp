@@ -97,11 +97,11 @@ void ManejadorUsuario::iniciadaP(string clave,Partida* p){
 	jugadores[clave]->iniciadaP(p);
 }
 
-map<string, InfoPartidaMulti> ManejadorUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
+map<string, InfoPartidaMulti*> ManejadorUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
 	set<string>::iterator it = mails.begin();
-	map<string, InfoPartidaMulti> m;
+	map<string, InfoPartidaMulti*> m;
 	while(it != mails.end()){	
-		m[*it] = InfoPartidaMulti(f ,jugadores[*it]);
+		m[*it] = new InfoPartidaMulti(f, jugadores[*it]);
 		++it;
 	}
 	return m;
