@@ -18,21 +18,22 @@ class DtCategoria
         ~DtCategoria();
 
         //getters
-        string getNombre();
-        string getDescripcion();
-        TipoCat getTipo();
+        string getNombre() const;
+        string getDescripcion() const;
+        TipoCat getTipo() const;
 
         //setters
         void setNombre(string nombre);
         void setDescripcion(string descripcion);
         void setTipo(TipoCat tipo);
+
 };
 
-inline bool operator==( DtCategoria& lhs, DtCategoria& rhs){ return( lhs.getNombre() == rhs.getNombre() ); }
-inline bool operator!=( DtCategoria& lhs,  DtCategoria& rhs){ return !operator==(lhs,rhs);}
-inline bool operator< ( DtCategoria& lhs,  DtCategoria& rhs){ return ( lhs.getNombre() < rhs.getNombre() ); }
-inline bool operator> ( DtCategoria& lhs, DtCategoria& rhs){ return  operator< (rhs,lhs);}
-inline bool operator<=( DtCategoria& lhs, DtCategoria& rhs){ return !operator> (lhs,rhs);}
-inline bool operator>=( DtCategoria& lhs, DtCategoria& rhs){ return !operator< (lhs,rhs);}
+inline bool operator==(const DtCategoria& lhs, const DtCategoria& rhs){ return( lhs.getNombre() == rhs.getNombre() ); }
+inline bool operator!=(const DtCategoria& lhs, const DtCategoria& rhs){ return !operator==(lhs,rhs);}
+inline bool operator< (const DtCategoria& lhs, const DtCategoria& rhs){ return ( lhs.getNombre() < rhs.getNombre() ); }
+inline bool operator> (const DtCategoria& lhs, const DtCategoria& rhs){ return  operator< (rhs,lhs);}
+inline bool operator<=(const DtCategoria& lhs, const DtCategoria& rhs){ return !operator> (lhs,rhs);}
+inline bool operator>=(const DtCategoria& lhs, const DtCategoria& rhs){ return !operator< (lhs,rhs);}
 
 #endif

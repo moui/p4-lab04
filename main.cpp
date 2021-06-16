@@ -14,6 +14,7 @@
 #include "lib/datatypes/DtSuscripcion.h"
 #include "lib/datatypes/DtFechaHora.h"
 #include "lib/interfaces/IUsuario.h"
+#include "lib/datatypes/TipoCat.h"
 #include "lib/Fabrica.h"
 
 using namespace std;
@@ -25,7 +26,7 @@ int main()
 {
     FechaSistema *fechaSistema = new FechaSistema();
     IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
-    //IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego(); si se usa descomentar
+    IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego();
     string mail, contrasena;
     int operacion = 1;
     cout << Constantes::MenuPrincipal;
@@ -214,7 +215,36 @@ int main()
                         {
                         case 1:
                         {
-                            // AGREGAR CATGORIA
+                            string nombrecat, descricat;
+                            char conf;
+                            TipoCat tipoca;
+                            cout << Constantes::Separador << " Catalogo de Categorias: \n";
+                            set<DtCategoria*> setcat = IVid->listarCategorias();
+                            set<DtCategoria*>::iterator itcat;
+                            for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
+                                cout << *itcat << endl;
+                            }
+                            cout << "Ingrese el nombre de la nueva categoria: ";
+                            cin >> nombrecat;
+                            cout << "Ingrese la descripcion de la nueva categoria: ";
+                            cin >> descricat;
+                            cout << "Ingrese el tipo de la nueva categoria (Plataforma, Genero, Otro): ";
+                            cin >> tipoca;
+                            IVid->agregarCategoria(nombrecat, descricat, tipoca);
+                            cout << "Desea confirmar el (A)lta o (C)ancelar? ";
+                            cin >> conf;
+                            switch (conf)
+                            {
+                            case 'A':
+                                IVid->confirma_agregarCategoria();
+                                break;
+                            case 'C':
+                                IVid->cancela_agregarCategoria();
+                                break;
+                            default:
+                                cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                break;
+                            }
                             break;
                         }
                         case 2:
@@ -361,6 +391,7 @@ int main()
             // CARGAR DATOS DE PRUEBA
 
             //cargar desarrolladores
+
             IUsr->ingresaDatosUsuario("ironhide@mail.com", "123");
             IUsr->ingresaDatosDesarrollador("Ironhide Game Studio");
             IUsr->confirmaAltaDesarrollador();
@@ -396,6 +427,44 @@ int main()
 
             //carga categorias
             
+            IVid->agregarCategoria("PC", "Sos Gamer?", TipoCat::Plataforma);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("PS4", "Sony", TipoCat::Plataforma);
+            IVid->confirma_agregarCategoria();
+            
+            IVid->agregarCategoria("Xbox One", "Microsoft", TipoCat::Plataforma);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("Deporte", "Aprende deportes", TipoCat::Genero);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("Supervivencia", "Aprende a sobrevivir", TipoCat::Genero);
+            IVid->confirma_agregarCategoria();
+            
+            IVid->agregarCategoria("Estrategia", "Desarrolla tu mente", TipoCat::Genero);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("Teen", "Su contenido esta dirigido a jovenes de 13 años en adelante", TipoCat::Otro);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("E", "Su contenido esta dirigido para todo publico", TipoCat::Otro);
+            IVid->confirma_agregarCategoria();
+            
+            IVid->agregarCategoria("Accion", "Pa cagarse a tirito", TipoCat::Genero);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("Aventura", "Mejor es salir a vivirlas", TipoCat::Genero);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("Switch", "Nintento", TipoCat::Plataforma);
+            IVid->confirma_agregarCategoria();
+            
+            IVid->agregarCategoria("Xbox X", "Si no existe lo inventamos", TipoCat::Plataforma);
+            IVid->confirma_agregarCategoria();
+
+            IVid->agregarCategoria("Play Station 5", "Cheto como Leonel Messi", TipoCat::Plataforma);
+            IVid->confirma_agregarCategoria();           
             break;
         case 0:
             // SALIR

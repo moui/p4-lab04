@@ -1,7 +1,7 @@
 #include "../../lib/controllers/CtrlVideojuego.h"
 
 using namespace std;
- //*
+
 CtrlVideojuego* CtrlVideojuego::instancia = NULL;
 
 CtrlVideojuego::~CtrlVideojuego()
@@ -10,6 +10,7 @@ CtrlVideojuego::~CtrlVideojuego()
 
 CtrlVideojuego::CtrlVideojuego()
 {
+  manejadorVideojuego = new ManejadorVideojuego();
 }
 
 CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
@@ -84,12 +85,14 @@ void CtrlVideojuego::seleccionarCategoria(string nombre){
 
 }
 
-void CtrlVideojuego::agregarCategoria(string nombre, string descripcion, TipoCat tipo){
-
+void CtrlVideojuego::agregarCategoria(string nnombre, string ndescripcion, TipoCat ntipo){
+  this->nombre = nnombre;
+  this->descripcion = ndescripcion;
+  this->tipo = ntipo;
 }
 
 void CtrlVideojuego::confirma_agregarCategoria(){
-
+  manejadorVideojuego->agregarCategoria(nombre, new Categoria(nombre, descripcion, tipo));
 }
 
 void CtrlVideojuego::cancela_agregarCategoria(){
