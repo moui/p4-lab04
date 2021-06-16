@@ -3,6 +3,7 @@
 
 #include "../Usuario.h"
 #include "../Jugador.h"
+#include "../InfoPartidaMulti.h"
 #include "../Desarrollador.h"
 #include "../datatypes/DtPartidaIndividual.h"
 #include "../datatypes/DtPartidaMultijugador.h"
@@ -12,6 +13,7 @@
 #include <map>
 
 using namespace std;
+
 
 // Singleton.
 class ManejadorUsuario {
@@ -39,6 +41,7 @@ class ManejadorUsuario {
     	set<string> listaJugadoresSus(string NomVJ);
 	set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
 	void iniciadaP(string clave, Partida* p);
+	map<string, InfoPartidaMulti> getInfoJugadores(DtFechaHora f, set<string> mails);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
