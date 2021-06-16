@@ -184,6 +184,6 @@ void CtrlUsuario::iniciadaP(Partida* p){
 	manejadorUsuario->iniciadaP(c ,p);
 }
 
-map<string, InfoPartidaMulti> CtrlUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
+map<string, InfoPartidaMulti*> CtrlUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
 	return manejadorUsuario->getInfoJugadores(f, mails);
 }
