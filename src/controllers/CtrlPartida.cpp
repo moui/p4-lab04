@@ -39,9 +39,24 @@ set<string> listaJugSuscriptos(){
     return a;
 }
 
-void confirmarIniciarPartida(){
-
+void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
+	CtrlVideojuego* ctrlvidejuego;
+        ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
+	Videojuego* v = ctrlVideojuego->getVJ();
+	CtrlUsuario* ctrlUsuario;
+    	ctrlUsuario = CtrlUsuario::getInstancia();
+	map<string, InfoPartidaMulti> mapInfoPM = ctrlUsuario->getInfoPartida(nicknames);	
+	if (this->enVivo != NULL) {
+		PartidaMultijugador* p = PartidaMultijugador(cantP, 0, false, inicio, v, enVivo, mapInfoPM);
+		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
+		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
+	} else {
+		PartidaIndividual* p = PartidaIndividual(id, 0, false, inicio, v, enVivo, f);
+		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
+		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
+	}	
 }
+
 set<DtPartidaIndividual*> listaPartidasIndTer(){
     set<DtPartidaIndividual*> a;
     CtrlUsuario* ctrlUsuario;
@@ -66,4 +81,3 @@ void finalizarPartida(float id){
 void cancelarFinalizarPartida(){
 
 }
-
