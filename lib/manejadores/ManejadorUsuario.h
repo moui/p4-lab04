@@ -46,6 +46,7 @@ class ManejadorUsuario {
 	
 	//FinalizarPartida
 	set<DtPartida*> listaPartidasIniciadas(string mail);
+	void finPartida(string mail, DtFechaHora f, float id);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
