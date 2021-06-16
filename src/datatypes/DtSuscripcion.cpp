@@ -3,7 +3,7 @@
 
 
 
-DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e, bool v){
+DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v){
   this->nombreVJ = nomVJ;
   this->fecha = f;
   this->costo = costo;
@@ -22,7 +22,7 @@ string DtSuscripcion::getnombreVJ(){
   return this->nombreVJ;
 }
 
-DtFechaHora DtSuscripcion::getFecha(){
+DtFechaHora* DtSuscripcion::getFecha(){
   return this->fecha;
 }
 

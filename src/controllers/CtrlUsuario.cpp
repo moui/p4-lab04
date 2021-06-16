@@ -89,12 +89,71 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
 //implementacion caso de uso Suscribirse a Videojuego
 
+    void CtrlUsuario::AltaSuscripcion()
+    {
+        Usuario* user= CtrlUsuario::getSesionActiva();
+        Jugador * jugador={dynamic_cast<Jugador*>(user)};
+        if(datosDescripcionSuscripcion==NULL)
+        {
+            throw invalid_argument("no se guardaron los datos en el sistema. ");
+        }
+        jugador->AltaSuscripcion(datosDescripcionSuscripcion, pagoSuscripcion);
 
-    TipoEstado CtrlUsuario::JuegoSuscribirse(string nomVJ){
-        TipoEstado res;
+
+    }
+
+    void CtrlUsuario::CancelarOperacion()
+    {
+        Dcatalogo.clear();
+        delete datosDescripcionSuscripcion;
+        //delete pagoSuscripcion;
+    }
+
+    void CtrlUsuario::CancelarSuscripcion(string nomVJ){
 
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
+        jugador->CancelarSuscripcion(nomVJ);
+
+    }
+
+    void CtrlUsuario::SuscribirseVideojuego(int a, int b, string nomVJ)
+    {
+        TipoPago pago;
+        TipoPeriodo periodo;
+        switch(a)
+        {
+            case 1:pago=TipoPago::paypal; break; 
+            case 2:pago=TipoPago::tarjeta; break; 
+            case 3:pago=TipoPago::otro; break; 
+            default: throw invalid_argument( "Metodo de pago invalido. " ); break;
+        }
+        switch(b)
+        {
+            case 1:periodo=TipoPeriodo::mensual; break; 
+            case 3:periodo=TipoPeriodo::trimestral; break; 
+            case 12:periodo=TipoPeriodo::anual; break;
+            case 0:periodo=TipoPeriodo::vitalicia; break;
+            default: throw invalid_argument( "Periodo de validez invalido. " ); break;        
+        }
+        CtrlVideojuego* ctrlvidejuego;
+        ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
+
+        DtDescripcionSuscripcion* ds=NULL;
+        ds= ctrlvidejuego->getDatosDescripcionSuscripcion(periodo, nomVJ);
+        this->datosDescripcionSuscripcion=ds;
+        this->pagoSuscripcion= pago;
+
+
+    }
+
+
+    TipoEstado CtrlUsuario::JuegoSuscribirse(string nomVJ){
+        TipoEstado res= TipoEstado::expirada;
+
+        Usuario* user= CtrlUsuario::getSesionActiva();
+        Jugador * jugador={dynamic_cast<Jugador*>(user)};
+
         Suscripcion* s= jugador->getSuscripcion(nomVJ);
         if (s->getVitalicia()) {
             throw invalid_argument( "No se puede cancelar suscripcion Vitalicia. " );

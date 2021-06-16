@@ -24,7 +24,10 @@ class IUsuario
         virtual void confirmaAltaJugador() = 0;
         virtual void cancelaAlta() = 0;
 
-
+        virtual void AltaSuscripcion()=0;
+        virtual void CancelarOperacion()=0;
+        virtual void SuscribirseVideojuego(int a, int b, string nomVJ)=0;
+        virtual void CancelarSuscripcion(string nomVJ)=0;
         virtual TipoEstado JuegoSuscribirse(string nomVJ)=0;
         virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()=0;
         virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas()=0;

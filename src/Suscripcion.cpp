@@ -1,12 +1,13 @@
 #include "../lib/Suscripcion.h"
 
-Suscripcion::Suscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e)
+Suscripcion::Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v)
 {
   this->nombreVJ = nomVJ;
   this->fecha = f;
   this->costo = costo;
   this->pago = p;
   this->estado = e;
+  this->vitalicia = v;
   return;
 }
 
@@ -20,7 +21,7 @@ Suscripcion::~Suscripcion()
       return this->nombreVJ;
     }
 
-    DtFechaHora Suscripcion::getFecha(){
+    DtFechaHora* Suscripcion::getFecha(){
       return this->fecha;
     }
 
@@ -44,7 +45,7 @@ Suscripcion::~Suscripcion()
       this->nombreVJ=n;
     }
 
-    void Suscripcion::setFecha(DtFechaHora f){
+    void Suscripcion::setFecha(DtFechaHora* f){
       this->fecha=f;
     }
 

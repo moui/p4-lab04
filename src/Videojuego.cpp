@@ -10,6 +10,27 @@ Videojuego::Videojuego(std::string nombre, Partida **partidas)
 
     //getters
 
+    DtDescripcionSuscripcion* Videojuego::getDatosDescripcionSuscripcion(TipoPeriodo p)
+    {
+        DtDescripcionSuscripcion* res=NULL;
+        DescripcionSuscripcion* ds=NULL;
+        for(itdsVJ=descSuscripcionVJ.begin(); itdsVJ!=descSuscripcionVJ.end(); itdsVJ++)
+        {
+            if((*itdsVJ)->getPeriodo()==p)
+            {
+                ds=*itdsVJ;
+            }
+        }
+        if (ds==NULL)
+        {
+            throw invalid_argument("No se encontro Descripcion de suscripcion en el sistema. ");
+        } else
+        {
+            res= new DtDescripcionSuscripcion(ds->getNombre(), ds->getCosto(), p);
+        }
+        return res;
+    }
+
     string Videojuego::getNombreVJ(){
         return this->nombre;
         }

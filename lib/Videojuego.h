@@ -3,6 +3,7 @@
 
 #include "Partida.h"
 #include "datatypes/TipoPuntaje.h"
+#include "datatypes/DtDescripcionSuscripcion.h"
 #include "DescripcionSuscripcion.h"
 #include "Categoria.h"
 #include <string>
@@ -42,6 +43,8 @@ class Videojuego
     float getCosto3();
     float getCosto12();
     float getCostoV(); 
+
+    DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p);
 
 
     //setters

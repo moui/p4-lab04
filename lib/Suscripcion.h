@@ -17,18 +17,18 @@ using namespace std;
 class Suscripcion{
   private:
     string nombreVJ;
-    DtFechaHora fecha;
+    DtFechaHora* fecha;
     float costo;
     TipoPago pago;
     TipoEstado estado;
     bool vitalicia;
   public:
-    Suscripcion(string nomVJ, DtFechaHora f, float costo, TipoPago p, TipoEstado e);
+    Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v);
     ~Suscripcion();
 
 //Getters
   string getnombreVJ();
-  DtFechaHora getFecha();
+  DtFechaHora* getFecha();
   float getCosto();
   TipoPago getTipoPago();
   TipoEstado getEstado();
@@ -36,7 +36,7 @@ class Suscripcion{
 
 //Setters
 void setNombreVJ(string n);
-void setFecha(DtFechaHora f);
+void setFecha(DtFechaHora* f);
 void setCosto(float c);
 void setTipoPago(TipoPago p);
 void setTipoEstado(TipoEstado e);

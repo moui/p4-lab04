@@ -119,7 +119,7 @@ Suscripcion* Jugador::getSuscripcion(string nomVJ){
   return res;
 }
 
-DtSuscripcion* getDatosSuscripcion(string nomVJ){
+DtSuscripcion* Jugador::getDatosSuscripcion(string nomVJ){
   DtSuscripcion* res=NULL;
   CtrlUsuario* ctrlusuario = CtrlUsuario::getInstancia();
   Usuario* user= ctrlusuario->getSesionActiva();
@@ -130,7 +130,7 @@ DtSuscripcion* getDatosSuscripcion(string nomVJ){
   if (s!=NULL){
     //datos
     string n = s->getnombreVJ();
-    DtFechaHora f=s->getFecha();
+    DtFechaHora* f=s->getFecha();
     float c = s->getCosto();
     TipoPago tp = s->getTipoPago();
     TipoEstado te=s->getEstado();
@@ -140,6 +140,28 @@ DtSuscripcion* getDatosSuscripcion(string nomVJ){
     res = new DtSuscripcion(n,f,c,tp,te,v);
   }
   return res;
+}
+
+void Jugador::CancelarSuscripcion(string nomVJ) //se repite codigo para no recorrer dos veces la coleccion
+{
+    set<Suscripcion*>::iterator it = suscripto.begin();
+    Suscripcion* res = NULL;
+     while (it != suscripto.end()) {
+      Suscripcion* s= *it;
+	    if (s->getnombreVJ() == nomVJ){
+		    res=s;
+        break;
+	    }
+	    ++it;
+    }
+    if (res==NULL){ //Para identificar si se llama incorrectamente la funcion
+      throw invalid_argument( "No existe suscripcion. " );
+    }
+    else {
+      suscripto.erase(it);
+      delete res;
+    }
+
 }
 
 set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
@@ -183,12 +205,18 @@ set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas(map<
 
 
 
-void Jugador::AltaSuscripcion()
+void Jugador::AltaSuscripcion(DtDescripcionSuscripcion* dtDS, TipoPago p)
 {
+  string nomVJ;
+  DtFechaHora* f = new DtFechaHora(); //arreglar esto
+  float c=dtDS->getCosto();
+  TipoEstado e= TipoEstado::activa;
+  bool v;
+  (dtDS->getPeriodo()==TipoPeriodo::vitalicia) ? v=true : v=false;
+
+  suscripto.insert(new Suscripcion(nomVJ, f, c, p, e, v));
+
 }
 
-void Jugador::CancelarSuscripcion(string NombreVJ)
-{
-}
 
 void Jugador::mostrarUsuario(){ cout << "jug"; }

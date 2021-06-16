@@ -11,6 +11,7 @@
 #include "lib/datatypes/DtJugador.h"
 #include "lib/datatypes/DtDesarrollador.h"
 #include "lib/datatypes/DtVideojuegoSuscripcion.h"
+#include "lib/datatypes/TipoEstado.h"
 #include "lib/datatypes/DtSuscripcion.h"
 #include "lib/datatypes/DtFechaHora.h"
 #include "lib/interfaces/IUsuario.h"
@@ -278,14 +279,93 @@ int main()
                                  cout<< *itsa;
                              };
                              cout << Constantes::Separador;
+
                              cout << "SUSCRIPCIONES NO ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsna=sna.begin(); itsna!=sna.end(); itsna++){
                                  cout<< *itsna;
                              };
                              cout << Constantes::Separador;
+                             string nomVJ;                            
                              cout << "Seleccione un Videojuego para suscribirse: \n";
-                             string nomVJ;
                              cin >> nomVJ;
+                             TipoEstado estado=IUsr->JuegoSuscribirse(nomVJ);
+                             switch(estado)
+                             {
+                             case (TipoEstado::activa):
+                             {
+                                 char cancela;
+                                 cout << "Desea cancelar su sucripcion temporal a: " << nomVJ << "Y/n? \n";
+                                 cin >> cancela;
+                                 switch(cancela)
+                                 {
+                                 case 'Y':
+                                 {
+                                    try
+                                     {
+                                         IUsr->CancelarSuscripcion(nomVJ);
+                                     }
+                                     catch (const std::invalid_argument &err)
+                                     {
+                                      cerr << "Error: " << err.what() << '\n';
+                                     }
+                                     break;
+                                 } 
+                                 default:
+                                    break;
+                                 }
+                             }
+                             case (TipoEstado::cancelada):
+                             case (TipoEstado::expirada):
+                             {
+                                 int pago, validez;
+                                 cout << "Seleccione metodo de pago: (1) Paypal | (2) Tarjeta | (3) Otro: \n";
+                                 cin >> pago;
+                                 cout << "Seleccione periodo de validez: (1) Mensual | (3) Trimestral | (12) Anual | (0) Vitalicia: \n";
+                                 cin >> validez;                                 
+                             try
+                             {
+                                 IUsr->SuscribirseVideojuego(pago, validez, nomVJ);
+                             }
+                             catch (const std::invalid_argument &err)
+                             {
+                              cerr << "Error: " << err.what() << '\n';
+                             }
+                                break;
+                             }
+                             default:
+                                break;
+                             }   
+                             char confirma;
+                             cout << "Desea confirmar el (A)lta suscripcion o (C)ancelar alta? ";
+                             cin >> confirma;
+                             switch(confirma)
+                             {
+                                 case 'A':
+                                 {
+                                    try
+                                    {
+                                        IUsr->AltaSuscripcion();
+                                        IUsr->CancelarOperacion();
+                                    }
+                                    catch (const std::invalid_argument &err)
+                                    {
+                                    cerr << "Error: " << err.what() << '\n';
+                                    }
+                                    break;   
+                                 }
+                                 case 'C':
+                                 {
+                                    try
+                                    {
+                                        IUsr->CancelarOperacion();
+                                    }
+                                    catch (const std::invalid_argument &err)
+                                    {
+                                    cerr << "Error: " << err.what() << '\n';
+                                    }
+                                    break;   
+                                 }
+                             }
                              
                             }
                             catch (const std::invalid_argument &err)

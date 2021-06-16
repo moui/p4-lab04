@@ -65,13 +65,20 @@ map<string, DtVideojuegoSuscripcion*> CtrlVideojuego::ObtenerCatalogo(){
   return res;
 }
 
-void CtrlVideojuego::SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo){
+DtDescripcionSuscripcion* CtrlVideojuego::getDatosDescripcionSuscripcion(TipoPeriodo p, string nomVJ)
+{
+  DtDescripcionSuscripcion* res=NULL;
+  Videojuego* v=manejadorVideojuego->buscarVideojuego(nomVJ);
+  res=v->getDatosDescripcionSuscripcion(p);
+  if(res==NULL)
+  {
+    throw invalid_argument("No se encontraron datos en el videojuego. ");
+  }
+  return res;
+  
 }
 
-void CtrlVideojuego::AgregarSuscripcion(Suscripcion *s){
-}
 
-void CtrlVideojuego::AltaSuscripcion(){}
 
 //categorias
 

@@ -15,9 +15,15 @@
 #include "datatypes/DtPartida.h"
 #include "datatypes/DtSuscripcion.h"
 #include "datatypes/DtJugador.h"
+#include "datatypes/TipoPago.h"
+#include "datatypes/TipoEstado.h"
+#include "datatypes/TipoPeriodo.h"
 #include "datatypes/DtPartidaIndividual.h"
 #include "datatypes/DtPartidaMultijugador.h"
+#include "datatypes/DtDescripcionSuscripcion.h"
 #include "datatypes/DtVideojuegoSuscripcion.h"
+#include "datatypes/DtFechaHora.h"
+#include "helpers/FechaSistema.h"
 #include "controllers/CtrlUsuario.h"
 
 using namespace std;
@@ -48,8 +54,7 @@ class Jugador : public Usuario
     bool estaSuscritoA(string NombreVJ);
     set<DtPartidaIndividual*> partidasIndividualesFinalizadas();
     set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(map<string, DtVideojuegoSuscripcion*> Dcatalogo);
-    void AltaSuscripcion();
-    void CancelarSuscripcion(string NombreVJ);
+
 
     // Getters
     string getNickname();
@@ -61,7 +66,8 @@ class Jugador : public Usuario
 
     Suscripcion* getSuscripcion(string nomVJ);
     DtSuscripcion* getDatosSuscripcion(string nomVJ);
-
+    void CancelarSuscripcion(string nomVJ);
+    void AltaSuscripcion(DtDescripcionSuscripcion* dtDS, TipoPago p);
 
 
     // Setters
@@ -70,7 +76,6 @@ class Jugador : public Usuario
     void setInicioPartidas(map<int,Partida*> inicio);
 
     void setPartidaMultijugador(InfoPartidaMulti partidasMultijugador);
-    void setSuscripcion(Suscripcion* s);
     void seguir(Jugador* j);
 
     void mostrarUsuario();
