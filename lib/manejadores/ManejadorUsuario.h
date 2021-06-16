@@ -14,6 +14,7 @@
 
 using namespace std;
 
+class InfoPartidaMulti;
 
 // Singleton.
 class ManejadorUsuario {
@@ -41,7 +42,7 @@ class ManejadorUsuario {
     	set<string> listaJugadoresSus(string NomVJ);
 	set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
 	void iniciadaP(string clave, Partida* p);
-	map<string, InfoPartidaMulti> getInfoJugadores(DtFechaHora f, set<string> mails);
+	map<string, InfoPartidaMulti*> getInfoJugadores(DtFechaHora f, set<string> mails);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
