@@ -19,15 +19,19 @@ CtrlPartida * CtrlPartida::getCtrlPartida(){
     return instancia;
 }
 
-void crearPartida(string nombreVJ){
-
+ManejadorPartida* CtrlPartida::getManejadorPatida(){
+	return manejadorPartida;
 }
 
-void partidaAContinuar(float id){
-
+void CtrlPartida::crearPartida(string nombreVJ){
+	this->nomVJ = nombreVJ;
 }
-void listaJugUnidos(set<string> nicknames){
 
+void CtrlPartida::partidaAContinuar(float id){
+	this->f = id;
+}
+void CtrlPartida::listaJugUnidos(set<string> Mails){
+	this->mails = Mails;
 }
 
 set<string> listaJugSuscriptos(){
@@ -40,22 +44,24 @@ set<string> listaJugSuscriptos(){
 }
 
 void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
-	CtrlVideojuego* ctrlvidejuego;
-        ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
-	Videojuego* v = ctrlVideojuego->getVJ();
+	CtrlVideojuego* ctrlvideojuego;
+        ctrlvideojuego = CtrlVideojuego::getCtrlVideojuego();
+	Videojuego* v = ctrlvideojuego->getVJ(nomVJ);
 	CtrlUsuario* ctrlUsuario;
     	ctrlUsuario = CtrlUsuario::getInstancia();
-	map<string, InfoPartidaMulti> mapInfoPM = ctrlUsuario->getInfoPartida(nicknames);	
+	map<string, InfoPartidaMulti> mapInfoPM = ctrlUsuario->getInfoJugadores(inicio, mails);	
 	if (this->enVivo != NULL) {
-		PartidaMultijugador* p = PartidaMultijugador(cantP, 0, false, inicio, v, enVivo, mapInfoPM);
+		PartidaMultijugador* p = new PartidaMultijugador(cantP, 0, false, inicio, v, enVivo, mapInfoPM);
 		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
 		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
 	} else {
-		PartidaIndividual* p = PartidaIndividual(id, 0, false, inicio, v, enVivo, f);
+		PartidaIndividual pi = manejadorPartida->getPI(f);
+		PartidaIndividual* i = & pi;
+		PartidaIndividual* p = new PartidaIndividual(cantP, 0, false, inicio, v, i);
 		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
 		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
 	}
-	cantP = cantP + 1;
+	cantP = cantP + 1;	
 }
 
 set<DtPartidaIndividual*> listaPartidasIndTer(){
@@ -66,8 +72,8 @@ set<DtPartidaIndividual*> listaPartidasIndTer(){
     return a;
 }
 
-void enVivo(bool enVivo){
-
+void CtrlPartida::ENVivo(bool EnVivo){
+	this->enVivo = & EnVivo;
 }
 void cancelarIniciarPartida(){
 
