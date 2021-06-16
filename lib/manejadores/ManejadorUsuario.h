@@ -43,6 +43,9 @@ class ManejadorUsuario {
 	set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
 	void iniciadaP(string clave, Partida* p);
 	map<string, InfoPartidaMulti*> getInfoJugadores(DtFechaHora f, set<string> mails);
+	
+	//FinalizarPartida
+	set<DtPartida*> listaPartidasIniciadas(string mail);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
