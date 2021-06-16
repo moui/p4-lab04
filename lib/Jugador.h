@@ -42,7 +42,7 @@ class Jugador : public Usuario
     set<Jugador*> sigue;
 
     ~Jugador();
-    void finPartida(float id);
+    void finPartida(float id, DtFechaHora f);
     set<DtPartida*> partidasIniciadasSinFinalizar();
     void iniciadaP(Partida* p);
     bool estaSuscritoA(string NombreVJ);
