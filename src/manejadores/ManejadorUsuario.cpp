@@ -107,6 +107,11 @@ map<string, InfoPartidaMulti*> ManejadorUsuario::getInfoJugadores(DtFechaHora f,
 	return m;
 }
 
+//FinalizarPartida
+set<DtPartida*> ManejadorUsuario::listaPartidasIniciadas(string mail){
+	return jugadores[mail]->partidasIniciadasSinFinalizar();
+}
+
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;
     if (!jugadores.empty()){
