@@ -72,3 +72,11 @@ map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
 void ManejadorVideojuego::setPartida(Partida* p){
 	p->getVideojuego()->setPartida(p);
 }
+
+set<DtCategoria*> ManejadorVideojuego::listarCategorias(){
+    set<DtCategoria*> ret;
+    for(auto itc = categorias.begin(); itc != categorias.end(); ++itc){
+		ret.insert(itc->second->getDtCategoria());
+	}
+    return ret;
+}

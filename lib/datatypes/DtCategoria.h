@@ -28,4 +28,11 @@ class DtCategoria
         void setTipo(TipoCat tipo);
 };
 
+inline bool operator==( DtCategoria& lhs, DtCategoria& rhs){ return( lhs.getNombre() == rhs.getNombre() ); }
+inline bool operator!=( DtCategoria& lhs,  DtCategoria& rhs){ return !operator==(lhs,rhs);}
+inline bool operator< ( DtCategoria& lhs,  DtCategoria& rhs){ return ( lhs.getNombre() < rhs.getNombre() ); }
+inline bool operator> ( DtCategoria& lhs, DtCategoria& rhs){ return  operator< (rhs,lhs);}
+inline bool operator<=( DtCategoria& lhs, DtCategoria& rhs){ return !operator> (lhs,rhs);}
+inline bool operator>=( DtCategoria& lhs, DtCategoria& rhs){ return !operator< (lhs,rhs);}
+
 #endif

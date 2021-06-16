@@ -75,9 +75,8 @@ void CtrlVideojuego::AltaSuscripcion(){}
 
 //categorias
 
-set<DtCategoria>CtrlVideojuego::listarCategorias(){
-  set<DtCategoria> a;
-  return a;
+set<DtCategoria*>CtrlVideojuego::listarCategorias(){
+  return manejadorVideojuego->listarCategorias();
 }
 
 

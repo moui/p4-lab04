@@ -42,7 +42,7 @@ void Categoria::setTipoCat(TipoCat tipo)
     this->tipo = tipo;
 }
 
-DtCategoria Categoria::getDtCategoria()
+DtCategoria* Categoria::getDtCategoria()
 {
-    return DtCategoria(this->nombre, this->descripcion, this->tipo);
+    return new DtCategoria(this->nombre, this->descripcion, this->tipo);
 }
