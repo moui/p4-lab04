@@ -26,7 +26,8 @@ class DtCategoria
         void setNombre(string nombre);
         void setDescripcion(string descripcion);
         void setTipo(TipoCat tipo);
-
+        
+        friend std::ostream& operator<<(std::ostream& out,const DtCategoria& dt);
 };
 
 inline bool operator==(const DtCategoria& lhs, const DtCategoria& rhs){ return( lhs.getNombre() == rhs.getNombre() ); }

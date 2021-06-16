@@ -223,7 +223,7 @@ int main()
                             set<DtCategoria*> setcat = IVid->listarCategorias();
                             set<DtCategoria*>::iterator itcat;
                             for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
-                                cout << *itcat << endl;
+                                cout << *(*itcat) << endl;
                             }
                             cout << "Ingrese el nombre de la nueva categoria: ";
                             cin >> nombrecat;

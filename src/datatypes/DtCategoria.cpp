@@ -36,7 +36,7 @@ void DtCategoria::setTipo(TipoCat tipo){
     this->tipo = tipo;
 }
 
-inline std::ostream& operator<<(std::ostream& out,const DtCategoria& dt){
+std::ostream& operator<<(std::ostream& out,const DtCategoria& dt){
     out << "Nombre: " << dt.getNombre() << endl;
     out << "Descripcion: " << dt.getDescripcion() << endl;
     out << "Tipo: ";
