@@ -15,23 +15,23 @@ class PartidaMultijugador : public Partida
 {
     private:
         bool transmitidaEnVivo;
-        map<string, InfoPartidaMulti> participan;
+        map<string, InfoPartidaMulti*> participan;
 
     public:
         // Constructores y destructores
         PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego,
-            bool enVivo, map<string, InfoPartidaMulti> mapInfoPM);
+            bool enVivo, map<string, InfoPartidaMulti*> mapInfoPM);
 
 
         ~PartidaMultijugador();
         
         // Getters
         bool getTransmitidaEnVivo();
-        map<string, InfoPartidaMulti> getParticipan();
+        map<string, InfoPartidaMulti*> getParticipan();
 
         // Setters
         void setTransmitidaEnVivo(bool enVivo);
-        void setParticipan(map<string, InfoPartidaMulti> mapInfoPM);
+        void setParticipan(map<string, InfoPartidaMulti*> mapInfoPM);
 
 
         // Operaciones
