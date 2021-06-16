@@ -49,7 +49,7 @@ void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
 	Videojuego* v = ctrlvideojuego->getVJ(nomVJ);
 	CtrlUsuario* ctrlUsuario;
     	ctrlUsuario = CtrlUsuario::getInstancia();
-	map<string, InfoPartidaMulti> mapInfoPM = ctrlUsuario->getInfoJugadores(inicio, mails);	
+	map<string, InfoPartidaMulti*> mapInfoPM = ctrlUsuario->getInfoJugadores(inicio, mails);	
 	if (this->enVivo != NULL) {
 		PartidaMultijugador* p = new PartidaMultijugador(cantP, 0, false, inicio, v, enVivo, mapInfoPM);
 		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
