@@ -112,6 +112,10 @@ set<DtPartida*> ManejadorUsuario::listaPartidasIniciadas(string mail){
 	return jugadores[mail]->partidasIniciadasSinFinalizar();
 }
 
+void ManejadorUsuario::finPartida(string mail, DtFechaHora f, float id){
+	jugadores[mail]->finPartida(id, f);
+}
+
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;
     if (!jugadores.empty()){
