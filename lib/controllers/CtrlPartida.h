@@ -7,6 +7,8 @@
 #include "../PartidaIndividual.h"
 #include "../PartidaMultijugador.h"
 #include "../controllers/CtrlUsuario.h"
+#include "../controllers/CtrlVideojuego.h"
+#include "../manejadores/ManejadorPartida.h"
 #include "../Jugador.h"
 #include "../Fabrica.h"
 #include "../interfaces/IUsuario.h"
@@ -25,24 +27,28 @@ class CtrlPartida : public IPartida
         static CtrlPartida * instancia;
         CtrlPartida();
 	
+	ManejadorPartida* manejadorPartida;
+	
 	//Memoria
 	string nomVJ;
-	float* f;
-	bool enVivo;
-	set<string> nicknames;
+	float f;
+	bool* enVivo;
+	set<string> mails;
 
     public:
         ~CtrlPartida();
 
         static CtrlPartida * getCtrlPartida();
 
+	ManejadorPartida* getManejadorPatida();
+
         void crearPartida(string nombreVJ);
         void partidaAContinuar(float id);
-        void listaJugUnidos(set<string> nicknames);
+        void listaJugUnidos(set<string> Mails);
         set<string> listaJugSuscriptos();
         void confirmarIniciarPartida(DtFechaHora inicio);
         set<DtPartidaIndividual*> listaPartidasIndTer();
-        void enVivo(bool enVivo);
+        void ENVivo(bool EnVivo);
         void cancelarIniciarPartida();
         set<DtPartida> listaPartidasIniciadas(string nickname);
         void finalizarPartida(float id);
