@@ -183,3 +183,7 @@ void CtrlUsuario::iniciadaP(Partida* p){
 	string c = sesionActiva->getMail();
 	manejadorUsuario->iniciadaP(c ,p);
 }
+
+map<string, InfoPartidaMulti> CtrlUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
+	return manejadorUsuario->getInfoJugadores(f, mails);
+}
