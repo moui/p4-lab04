@@ -69,6 +69,7 @@ class CtrlUsuario : public IUsuario
 	set<string> listaJugadoresSus(string NomVJ);
 	set<DtPartidaIndividual*> listaPartidasIndividualesTerminadas();
 	void iniciadaP(Partida* p);
+	map<string, InfoPartidaMulti> getInfoJugadores(DtFechaHora f, set<string> mails);
 };
 
 #endif
