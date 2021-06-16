@@ -46,8 +46,12 @@ void Jugador::setInicioPartidas(map<int,Partida*> inicio)
   this->inicio = inicio;
 }
 
-void Jugador::finPartida(float id){
-  /* this->iniciadas[id]->filaizada = true; */
+void Jugador::finPartida(float id, DtFechaHora f){
+   this->inicio[id]->setFinalizada(true);
+   PartidaMultijugador* p = dynamic_cast<PartidaMultijugador*>(this->inicio[id]);
+   if(p != NULL){
+     p->forzarAbandono(f);
+   }
 }
 
 void Jugador::seguir(Jugador* j){
