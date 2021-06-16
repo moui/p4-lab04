@@ -101,6 +101,6 @@ void CtrlVideojuego::iniciadaP(Partida* p){
 	manejadorVideojuego->setPartida(p);
 }
 
-Videojuego* CtrlVideojuego::getVJ(nomVJ){
+Videojuego* CtrlVideojuego::getVJ(string nomVJ){
 	return manejadorVideojuego->buscarVideojuego(nomVJ);
 }
