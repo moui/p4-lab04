@@ -54,7 +54,8 @@ void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
 		PartidaIndividual* p = PartidaIndividual(id, 0, false, inicio, v, enVivo, f);
 		ctrlvideojuego->iniciadaP(dynamic_cast<Partida*>(p));
 		ctrlUsuario->iniciadaP(dynamic_cast<Partida*>(p));
-	}	
+	}
+	cantP = cantP + 1;
 }
 
 set<DtPartidaIndividual*> listaPartidasIndTer(){
