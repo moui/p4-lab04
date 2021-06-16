@@ -17,9 +17,12 @@ class CtrlVideojuego : public IVideojuego
     private:
     
         ManejadorVideojuego* manejadorVideojuego;
-
         static CtrlVideojuego * instancia;
         CtrlVideojuego();
+
+        //memoria
+        string nombre, descripcion;        
+        TipoCat tipo;
 
     public:
         ~CtrlVideojuego();
@@ -45,7 +48,7 @@ class CtrlVideojuego : public IVideojuego
         //categorias
         set<DtCategoria*> listarCategorias();
         void seleccionarCategoria(string nombre);
-        void agregarCategoria(string nombre, string descripcion, TipoCat tipo);
+        void agregarCategoria(string nnombre, string ndescripcion, TipoCat ntipo);
         void confirma_agregarCategoria();
         void cancela_agregarCategoria();
         

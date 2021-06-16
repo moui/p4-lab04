@@ -75,8 +75,10 @@ void ManejadorVideojuego::setPartida(Partida* p){
 
 set<DtCategoria*> ManejadorVideojuego::listarCategorias(){
     set<DtCategoria*> ret;
-    for(auto itc = categorias.begin(); itc != categorias.end(); ++itc){
-		ret.insert(itc->second->getDtCategoria());
-	}
+    if(!categorias.empty()){
+        for(auto itc = categorias.begin(); itc != categorias.end(); ++itc){
+		    ret.insert(itc->second->getDtCategoria());
+	    }
+    }
     return ret;
 }
