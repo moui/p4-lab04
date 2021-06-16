@@ -187,3 +187,8 @@ void CtrlUsuario::iniciadaP(Partida* p){
 map<string, InfoPartidaMulti*> CtrlUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
 	return manejadorUsuario->getInfoJugadores(f, mails);
 }
+
+//FinalizarPartida
+set<DtPartida*> CtrlUsuario::listaPartidasIniciadas(){
+	return (manejadorUsuario->listaPartidasIniciadas(sesionActiva->getMail()));
+}
