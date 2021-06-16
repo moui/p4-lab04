@@ -2,7 +2,7 @@
 
 // Constructor y destructor
 PartidaMultijugador::PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora fecha, Videojuego* videojuego,
-    bool enVivo, map<string, InfoPartidaMulti> mapInfoPM) : Partida(id, duracion, finalizada, fecha, videojuego)
+    bool enVivo, map<string, InfoPartidaMulti*> mapInfoPM) : Partida(id, duracion, finalizada, fecha, videojuego)
 {
     this->transmitidaEnVivo = enVivo;
     this->participan = mapInfoPM;
@@ -18,7 +18,7 @@ bool PartidaMultijugador::getTransmitidaEnVivo()
     return this->transmitidaEnVivo;
 }
 
-map<string, InfoPartidaMulti> PartidaMultijugador::getParticipan()
+map<string, InfoPartidaMulti*> PartidaMultijugador::getParticipan()
 {
    return this->participan;
 }
@@ -29,7 +29,7 @@ void PartidaMultijugador::setTransmitidaEnVivo (bool enVivo)
     this->transmitidaEnVivo = enVivo;
 }
 
-void PartidaMultijugador::setParticipan(map<string, InfoPartidaMulti> mapInfoPM)
+void PartidaMultijugador::setParticipan(map<string, InfoPartidaMulti*> mapInfoPM)
 {
     this->participan = mapInfoPM;
 }
