@@ -15,7 +15,7 @@ class IEstadistica
         
         virtual ~IEstadistica();
 
-       // virtual DtEstadistica* calcular()=0;
+        virtual DtEstadistica* calcular()=0;
 
 };
 

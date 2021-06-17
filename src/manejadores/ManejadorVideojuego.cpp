@@ -64,6 +64,9 @@ map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
             DtVideojuegoSuscripcion* vs=new DtVideojuegoSuscripcion(n,c1,c3,c12,cV);
             res.insert( pair<string, DtVideojuegoSuscripcion*>(n,vs));
         }
+    } else 
+    {
+        throw invalid_argument( "Catalogo de Videojuegos vacio. ");
     }
     return res;
 }

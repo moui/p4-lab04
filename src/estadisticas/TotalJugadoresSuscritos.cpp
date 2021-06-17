@@ -1,9 +1,10 @@
 #include "../../lib/estadisticas/TotalJugadoresSuscritos.h"
 
-TotalJugadoresSuscritos::TotalJugadoresSuscritos(string n, float v)
+TotalJugadoresSuscritos::TotalJugadoresSuscritos(string n, float v, string d)
 {
     this->nomEstadistica=n;
     this->valor=v;
+    this->descripcion=d;
 }
 
 TotalJugadoresSuscritos::~TotalJugadoresSuscritos()
@@ -28,4 +29,9 @@ void TotalJugadoresSuscritos::setNombre(string n)
 void TotalJugadoresSuscritos::setValor(float v)
 {
     this->valor=v;
+}
+
+DtEstadistica* TotalJugadoresSuscritos::calcular(){
+    DtEstadistica* res=NULL;
+    return res;
 }

@@ -165,12 +165,12 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
     map<string, DtVideojuegoSuscripcion*> CtrlUsuario::ObtenerCatalogo(){
         map<string, DtVideojuegoSuscripcion*> res;
-        if (!Dcatalogo.empty()) {
         CtrlVideojuego* ctrlvidejuego;
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
         res = ctrlvidejuego->ObtenerCatalogo();
-        } else {
-            throw invalid_argument( "Catalogo de Videojuegos vacio. ");
+        if (Dcatalogo.empty())
+        {
+            throw invalid_argument("Fallo copia local del catalogo ");
         }
         return res;
 }
@@ -195,6 +195,17 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         return res;
        
     }
+
+// SELECCIONAR ESTADISTICAS
+
+set<DtEstadistica*> CtrlUsuario::listarEstadisticas()
+{
+        set<DtEstadistica*> res;
+        /*Usuario* user= CtrlUsuario::getSesionActiva();
+        Desarrollador* desarrollador={dynamic_cast<Desarrollador*>(user)};*/
+        return res;
+
+}
 
 // Implementacion de caso de uso Alta Usuario
 void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){

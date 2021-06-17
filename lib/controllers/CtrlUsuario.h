@@ -8,6 +8,7 @@
 #include "../datatypes/DtVideojuegoSuscripcion.h"
 #include "../datatypes/DtDescripcionSuscripcion.h"
 #include "../datatypes/DtSuscripcion.h"
+#include "../datatypes/DtEstadistica.h"
 #include "../datatypes/TipoEstado.h"
 #include "../datatypes/TipoPago.h"
 #include "CtrlVideojuego.h"
@@ -64,6 +65,11 @@ class CtrlUsuario : public IUsuario
         void CancelarOperacion();
         void CancelarSuscripcion(string nomVJ);
         void AltaSuscripcion();
+
+
+        // SELECCIONAR ESTADISTICAS
+
+        set<DtEstadistica*> listarEstadisticas();
 
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);

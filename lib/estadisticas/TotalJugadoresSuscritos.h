@@ -21,10 +21,11 @@ class TotalJugadoresSuscritos : public IEstadistica
 
     string nomEstadistica;
     float valor;
+    string descripcion;
 
     public:
 
-        TotalJugadoresSuscritos(string n, float v);
+        TotalJugadoresSuscritos(string n, float v, string);
         ~TotalJugadoresSuscritos();
 
         string getNombre();
@@ -32,7 +33,7 @@ class TotalJugadoresSuscritos : public IEstadistica
 
         void setNombre(string n);
         void setValor(float v);
-        //DtEstadistica* calcular();
+        DtEstadistica* calcular();
     
 };
 

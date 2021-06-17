@@ -21,10 +21,11 @@ class TotalHorasJuego : public IEstadistica
 
     string nomEstadistica;
     float valor;
+    string descripcion;
 
     public:
 
-        TotalHorasJuego(string n, float v);
+        TotalHorasJuego(string n, float v, string d);
         ~TotalHorasJuego();
 
         string getNombre();
@@ -32,7 +33,7 @@ class TotalHorasJuego : public IEstadistica
 
         void setNombre(string n);
         void setValor(float v);
-     //   DtEstadistica* calcular();
+        DtEstadistica* calcular();
     
 };
 

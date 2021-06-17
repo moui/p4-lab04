@@ -4,6 +4,7 @@
 #include <string>
 #include <set>
 #include "../datatypes/DtUsuario.h"
+#include "../datatypes/DtEstadistica.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
 #include "../datatypes/TipoEstado.h"
 
@@ -24,6 +25,7 @@ class IUsuario
         virtual void confirmaAltaJugador() = 0;
         virtual void cancelaAlta() = 0;
 
+        //Suscribirse
         virtual void AltaSuscripcion()=0;
         virtual void CancelarOperacion()=0;
         virtual void SuscribirseVideojuego(int a, int b, string nomVJ)=0;
@@ -31,6 +33,10 @@ class IUsuario
         virtual TipoEstado JuegoSuscribirse(string nomVJ)=0;
         virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()=0;
         virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas()=0;
+
+        //seleccionar estadisticas
+
+        virtual set<DtEstadistica*> listarEstadisticas()=0;
 };
 
 #endif

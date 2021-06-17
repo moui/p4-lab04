@@ -1,9 +1,10 @@
 #include "../../lib/estadisticas/TotalHorasJuego.h"
 
-TotalHorasJuego::TotalHorasJuego(string n, float v)
+TotalHorasJuego::TotalHorasJuego(string n, float v, string d)
 {
     this->nomEstadistica=n;
     this->valor=v;
+    this->descripcion=d;
 }
 
 TotalHorasJuego::~TotalHorasJuego()
@@ -28,4 +29,9 @@ void TotalHorasJuego::setNombre(string n)
 void TotalHorasJuego::setValor(float v)
 {
     this->valor=v;
+}
+
+DtEstadistica* TotalHorasJuego::calcular(){
+    DtEstadistica* res=NULL;
+    return res;
 }
