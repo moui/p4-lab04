@@ -25,6 +25,9 @@ class Constantes
 
         static const string PresentacionSuscribirse;
         static const string PresentacionSuscribirse_Fin;
+
+        static const string PresentacionSeleccionarEstadisticas;
+        static const string PresentacionSeleccionarEstadisticas_Fin;        
         
         static const string MsjeErrorIngresoFecha;
         

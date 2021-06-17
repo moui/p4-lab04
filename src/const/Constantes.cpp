@@ -43,9 +43,22 @@ const string Constantes::PresentacionSuscribirse =
 
  const string Constantes::PresentacionSuscribirse_Fin =
     "                                                                          \n"
-    "                        SUSCRIBIRSE A VIDEOJUEGO                               \n"
+    "                        SUSCRIPCION EXISTOSA                              \n"
+    "                                                                          \n"
+    "--------------------------------------------------------------------------\n"
+    ;
+const string Constantes::PresentacionSeleccionarEstadisticas =
+    "                                                                          \n"
+    "                        SELECCIONAR ESTADISTICAS                          \n"
     "                                                                          \n"
     ;
+
+const string Constantes::PresentacionSeleccionarEstadisticas_Fin =
+    "                                                                          \n"
+    "               ESTADISTICAS GUARDADAS PARA EL DESARROLLADOR               \n"
+    "                                                                          \n"
+    "--------------------------------------------------------------------------\n"
+    ;    
 
 
 const string Constantes::PresentacionModificarFecha_Inicio =

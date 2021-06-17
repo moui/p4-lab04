@@ -11,6 +11,7 @@
 #include "../datatypes/DtEstadistica.h"
 #include "../datatypes/TipoEstado.h"
 #include "../datatypes/TipoPago.h"
+#include "../const/Constantes.h"
 #include "CtrlVideojuego.h"
 
 #include <string>
@@ -69,7 +70,8 @@ class CtrlUsuario : public IUsuario
 
         // SELECCIONAR ESTADISTICAS
 
-        set<DtEstadistica*> listarEstadisticas();
+        void listarEstadisticas();
+        void seleccionarEstadisticas(bool s1, bool s2);
 
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);

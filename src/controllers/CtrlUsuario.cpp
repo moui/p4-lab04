@@ -198,14 +198,33 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
 // SELECCIONAR ESTADISTICAS
 
-set<DtEstadistica*> CtrlUsuario::listarEstadisticas()
+
+void CtrlUsuario::listarEstadisticas() //se imprimen directamente los strings, e ma facil
 {
-        set<DtEstadistica*> res;
-        /*Usuario* user= CtrlUsuario::getSesionActiva();
-        Desarrollador* desarrollador={dynamic_cast<Desarrollador*>(user)};*/
-        return res;
+    cout << "                 (1)   TOTAL HORAS DE JUEGO. \n";
+    cout << "\n";
+    cout << "Calcula el total de horas de juego, en todas las partidas para un juego determinado. \n";
+    cout << Constantes::Separador;
+    cout << "                 (2)  TOTAL DE JUGADORES SUSCRITOS. \n";
+    cout << "\n";
+    cout << "Calcula el total de jugadores suscritos a determinado. \n";
 
 }
+
+void CtrlUsuario::seleccionarEstadisticas(bool s1, bool s2)
+    {
+        Usuario* user= CtrlUsuario::getSesionActiva();
+        Desarrollador * desarrollador={dynamic_cast<Desarrollador*>(user)};
+
+        if(s1)
+        {
+            desarrollador->agregarEstadistica(1);
+        }
+        if(s2)
+        {
+            desarrollador->agregarEstadistica(2);
+        }
+    }
 
 // Implementacion de caso de uso Alta Usuario
 void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){

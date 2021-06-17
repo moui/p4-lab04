@@ -15,6 +15,7 @@
 using namespace std;
 
 class InfoPartidaMulti;
+class Desarrollador;
 
 // Singleton.
 class ManejadorUsuario {

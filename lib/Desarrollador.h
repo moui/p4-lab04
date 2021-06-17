@@ -8,6 +8,8 @@
 #include "datatypes/DtVideojuego.h"
 #include "datatypes/DtEstadistica.h"
 #include "datatypes/DtDesarrollador.h"
+#include "estadisticas/TotalHorasJuego.h"
+#include "estadisticas/TotalJugadoresSuscritos.h"
 #include <set>
 
 using namespace std;
@@ -35,6 +37,10 @@ class Desarrollador : public Usuario
     void setEstadistica(IEstadistica e);
 
     void mostrarUsuario();
+
+    //seleccionar estadisticas
+
+    void agregarEstadistica(int stat);
 };
 
 #endif

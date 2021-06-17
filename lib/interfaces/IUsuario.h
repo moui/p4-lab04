@@ -36,7 +36,8 @@ class IUsuario
 
         //seleccionar estadisticas
 
-        virtual set<DtEstadistica*> listarEstadisticas()=0;
+        virtual void listarEstadisticas()=0;
+        virtual void seleccionarEstadisticas(bool s1, bool s2)=0;
 };
 
 #endif

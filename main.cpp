@@ -261,6 +261,36 @@ int main()
                         case 4:
                         {
                             // SELECCIONAR ESTADISTICAS
+                            bool stat1=false;
+                            bool stat2=false;
+                            int opcion=-1;
+                            cout << Constantes::PresentacionSeleccionarEstadisticas;
+                            IUsr->listarEstadisticas();
+                            cout << Constantes::Separador;
+                            try 
+                            {
+                                while (opcion!=0)
+                                {
+                                    cout << "Por favor, ingrese las estadisticas deseadas, ingrese (0) para cancelar: \n";
+                                    cin >> opcion;
+                                    switch(opcion)
+                                    {   
+                                        case 0: break;
+                                        case 1:stat1=true; break;
+                                        case 2:stat2=true; break;
+                                        default: cout << "No ingreso una opcion valida. \n"; break;
+                                    }
+                                    IUsr->seleccionarEstadisticas(stat1, stat2);
+                                
+                                }
+                            }
+                            catch (const std::invalid_argument &err)
+                             {
+                                  cerr << "Error: " << err.what() << '\n';
+                             }
+
+                            cout << Constantes::PresentacionSeleccionarEstadisticas_Fin;
+
                             break;
                         }
                         case 5:
@@ -375,6 +405,7 @@ int main()
                                     try
                                     {
                                         IUsr->AltaSuscripcion();
+                                        cout << Constantes::PresentacionSuscribirse_Fin;
                                         IUsr->CancelarOperacion();
                                     }
                                     catch (const std::invalid_argument &err)
