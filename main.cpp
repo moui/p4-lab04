@@ -412,6 +412,36 @@ int main()
                         case 3:
                         {
                             // INICIAR PARTIDA
+                            /*try 
+                            {
+                              set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
+			                  cout << "SUSCRIPCIONES ACTIVAS: \n";
+                              for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
+                                   cout<< *itsa;
+                              };
+			                  cout << Constantes::Separador;
+                              string nomVJ;                            
+                              cout << "Seleccione un Videojuego al que jugar: \n";
+                              cin >> nomVJ;
+			                  IPar->crearPartida(nomVJ);
+			                  char tipo;
+			                  cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
+			                  cin >> tipo;
+			                  switch(tipo) 
+			                  {
+				                case'I' 
+				                {
+				                    try{
+				                        char cont;
+                                        cout << "Desea continuar una partida previa Y/n? \n";
+				                        cin >> cont;
+				                        if {
+					
+				                        }
+				                    }
+			                    }
+			                  }
+			                }*/
                             break;
                         }
                         case 4:
