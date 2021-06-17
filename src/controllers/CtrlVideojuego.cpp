@@ -58,7 +58,10 @@ void CtrlVideojuego::cancela_publicarVideojuego(){
 }
 
 void CtrlVideojuego::confirma_publicarVideojuego(){
-  manejadorVideojuego->agregarVideojuego(nombre, new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV));
+  Videojuego* vid = new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV, setcat);
+  manejadorVideojuego->agregarVideojuego(nombre, vid);
+  IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
+  
 }
 
 //imprementacion caso de uso suscribirse a VJ

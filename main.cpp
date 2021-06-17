@@ -249,8 +249,39 @@ int main()
                             break;
                         }
                         case 2:
-                        {
-                            // PUBLICAR VIDEOJUEGO
+                        {   
+                            string nombrevj, descrivj, nombrecat;
+                            float c1, c3, c12, cv;
+                            char conf;
+                            cout << "Ingrese nombre de videojuego: ";
+                            cin >> nombrevj;
+                            cout << "Ingrese descripcion del videojuego: ";
+                            cin >> descrivj;
+                            cout << "Ingrese el costo de la suscripcion mensual: ";
+                            cin >> c1;
+                            cout << "Ingrese el costo de la suscripcion trimestral: ";
+                            cin >> c3;
+                            cout << "Ingrese el costo de la suscripcion anual: ";
+                            cin >> c12;
+                            cout << "Ingrese el costo de la suscripcion vitalicia: ";
+                            cin >> cv;
+                            IVid->listarCategorias();
+                            cin >> nombrecat;
+                            IVid->seleccionarCategoria(nombrecat);
+                            cout << "Desea confirmar el (A)lta o (C)ancelar? ";
+                            cin >> conf;
+                            switch (conf)
+                            {
+                            case 'A':
+                                IVid->confirma_publicarVideojuego();
+                                break;
+                            case 'C':
+                                IVid->cancela_publicarVideojuego();
+                                break;
+                            default:
+                                cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                break;
+                            }
                             break;
                         }
                         case 3:
@@ -544,7 +575,15 @@ int main()
             IVid->confirma_agregarCategoria();
 
             IVid->agregarCategoria("Play Station 5", "Cheto como Leonel Messi", TipoCat::Plataforma);
-            IVid->confirma_agregarCategoria();           
+            IVid->confirma_agregarCategoria();
+
+            // carga videojuegos
+            IVid->seleccionarCategoria("PC");
+            IVid->seleccionarCategoria("PS4");
+            IVid->seleccionarCategoria("Estrategia");
+            IVid->seleccionarCategoria("E");
+            IVid->ingresarDatosVideojuego("Kingdom Rush", "Juego 1", 1, 2, 7, 14);
+            IVid->confirma_publicarVideojuego();
             break;
         case 0:
             // SALIR

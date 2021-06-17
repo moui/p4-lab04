@@ -7,6 +7,8 @@
 #include "../datatypes/DtVideojuegoSuscripcion.h"
 #include "../datatypes/DtCategoria.h"
 #include "../manejadores/ManejadorVideojuego.h"
+#include "../controllers/CtrlUsuario.h"
+#include "../Fabrica.h"
 #include <set>
 
 using namespace std;
@@ -24,6 +26,7 @@ class CtrlVideojuego : public IVideojuego
         string nombre, descripcion;
         float costo1, costo3, costo12, costoV;        
         TipoCat tipo;
+        set<Categoria*> setcat;
 
     public:
         ~CtrlVideojuego();

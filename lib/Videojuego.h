@@ -28,9 +28,12 @@ class Videojuego
     set <DescripcionSuscripcion*> descSuscripcionVJ;
     set <DescripcionSuscripcion*>::iterator itdsVJ;
 
+    set <Categoria*> categoriasVJ;
+    set <Categoria*>::iterator itcatVJ;
+
   public:
     //Videojuego(string, Partida **);
-    Videojuego(string , string , float , float , float , float);
+    Videojuego(string , string , float , float , float , float, set<Categoria*> catvj);
     ~Videojuego();
     
 
