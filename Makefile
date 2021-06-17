@@ -8,23 +8,25 @@ INTERFACES = IEstadistica IPartida IUsuario IVideojuego
 CONTROLLERS = CtrlUsuario CtrlPartida CtrlVideojuego
 MANEJADORES = ManejadorUsuario ManejadorPartida ManejadorVideojuego
 HELPERS = FechaSistema
+ESTADISTICAS = TotalHorasJuego TotalJugadoresSuscritos
 
 CLASSES_OBJ = $(CLASSES:%=obj/%.o)
 CONST_OBJ = $(CONST:%=obj/const/%.o)
 DATATYPES_OBJ = $(DATATYPES:%=obj/datatypes/%.o)
 INTERFACES_OBJ = $(INTERFACES:%=obj/interfaces/%.o)
+ESTADISTICAS_OBJ = $(ESTADISTICAS:%=obj/estadisticas/%.o)
 CONTROLLERS_OBJ = $(CONTROLLERS:%=obj/controllers/%.o)
 MANEJADORES_OBJ = $(MANEJADORES:%=obj/manejadores/%.o)
 HELPERS_OBJ = $(HELPERS:%=obj/helpers/%.o)
 
-DIRS=obj obj/const obj/datatypes obj/controllers obj/helpers obj/interfaces obj/manejadores
+DIRS=obj obj/const obj/datatypes obj/controllers obj/helpers obj/interfaces obj/manejadores obj/estadisticas
 
 $(shell mkdir -p $(DIRS))
 
 .PHONY: clean lab
 
 # MAIN
-main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) $(MANEJADORES_OBJ) $(HELPERS_OBJ)
+main: obj/main.o $(CLASSES_OBJ) $(CONST_OBJ) $(DATATYPES_OBJ) $(INTERFACES_OBJ) $(CONTROLLERS_OBJ) $(MANEJADORES_OBJ) $(HELPERS_OBJ) $(ESTADISTICAS_OBJ)
 	$(CC) $(OPTIONS) $^ -o $@
 
 obj/main.o: main.cpp
@@ -66,6 +68,8 @@ obj/DescripcionSuscripcion.o: lib/DescripcionSuscripcion.h src/DescripcionSuscri
 
 obj/Categoria.o: lib/Categoria.h src/Categoria.cpp
 	$(CC) $(OPTIONS) -c src/Categoria.cpp -o obj/Categoria.o
+
+
 
 
 # CONST
@@ -127,6 +131,8 @@ obj/datatypes/TipoPuntaje.o: lib/datatypes/TipoPuntaje.h src/datatypes/TipoPunta
 obj/datatypes/TipoCat.o: lib/datatypes/TipoCat.h src/datatypes/TipoCat.cpp
 	$(CC) $(OPTIONS) -c src/datatypes/TipoCat.cpp -o obj/datatypes/TipoCat.o
 
+	
+
 # INTERFACES
 obj/interfaces/IEstadistica.o: lib/interfaces/IEstadistica.h src/interfaces/IEstadistica.cpp
 	$(CC) $(OPTIONS) -c src/interfaces/IEstadistica.cpp -o obj/interfaces/IEstadistica.o
@@ -163,6 +169,16 @@ obj/manejadores/ManejadorVideojuego.o: lib/manejadores/ManejadorVideojuego.h src
 # HELPERS
 obj/helpers/FechaSistema.o: lib/helpers/FechaSistema.h src/helpers/FechaSistema.cpp
 	$(CC) $(OPTIONS) -c src/helpers/FechaSistema.cpp -o obj/helpers/FechaSistema.o
+
+
+# ESTADISTICAS
+
+obj/estadisticas/TotalHorasJuego.o: lib/estadisticas/TotalHorasJuego.h src/estadisticas/TotalHorasJuego.cpp
+	$(CC) $(OPTIONS) -c src/estadisticas/TotalHorasJuego.cpp -o obj/estadisticas/TotalHorasJuego.o
+
+obj/estadisticas/TotalJugadoresSuscritos.o: lib/estadisticas/TotalJugadoresSuscritos.h src/estadisticas/TotalJugadoresSuscritos.cpp
+	$(CC) $(OPTIONS) -c src/estadisticas/TotalJugadoresSuscritos.cpp -o obj/estadisticas/TotalJugadoresSuscritos.o	
+
 
 # PHONY TARGETS
 clean:
