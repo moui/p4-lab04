@@ -29,7 +29,7 @@ class Desarrollador : public Usuario
     string getEmpresa();
     set<DtVideojuego*> getVJPub();
     set<string*> ListarVideojuegosPublicados();
-    set<DtEstadistica*> CalEst(string idVj);
+    Videojuego* getVideojuego(string nomVJ);
  
     // Setters
     void setEmpresa(string empresa);
@@ -41,6 +41,11 @@ class Desarrollador : public Usuario
     //seleccionar estadisticas
 
     void agregarEstadistica(int stat);
+
+    //CONSULTAR ESTADISTICAS
+
+    set<string> listarVideojuegosPublicados();
+    set<DtEstadistica*> CalcularEstadisticas(string nomVJ);
 };
 
 #endif

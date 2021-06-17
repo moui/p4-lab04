@@ -28,6 +28,8 @@ void Desarrollador::setEmpresa(string empresa)
 void Desarrollador::mostrarUsuario(){ cout << "des"; }
 
 
+//seleccionar estadistica
+
 void Desarrollador::agregarEstadistica(int stat)
 {
   switch(stat)
@@ -46,6 +48,63 @@ void Desarrollador::agregarEstadistica(int stat)
     }
     default: throw invalid_argument("No existe estadistica cargada en el sistema. ");
     break;
-  }
-  
+  } 
+}
+
+Videojuego* Desarrollador::getVideojuego(string nomVJ)
+{
+    Videojuego* res=NULL;
+    if(publicados.empty())
+    {
+      throw invalid_argument("Videjuegos publicados vacio. \n");
+    }
+    for(set<Videojuego*>::iterator i=publicados.begin(); i!=publicados.end(); i++)
+    {
+      if ((*i)->getNombreVJ()==nomVJ)
+      {
+        res=(*i);
+      }
+    }
+    if(res==NULL)
+    {
+      throw invalid_argument("no se obtuvo el videojuego. ");
+    }
+    return res;
+}
+
+//CONSULTAR ESTADISTICA
+
+set<string> Desarrollador::listarVideojuegosPublicados()
+{
+    set<string> res;
+    if (publicados.empty())
+    {
+      throw invalid_argument("No hay videojuegos publicados para ese desarrollador. ");
+    }
+    for(set<Videojuego*>::iterator i=publicados.begin(); i!=publicados.end(); i++) 
+    {
+      res.insert((*i)->getNombreVJ());
+    }
+    return res;
+}
+
+
+set<DtEstadistica*> Desarrollador::CalcularEstadisticas(string nomVJ)
+{
+    set<DtEstadistica*> res;
+
+      CtrlUsuario* ctrlusuario = CtrlUsuario::getInstancia();
+      Usuario* user= ctrlusuario->getSesionActiva();
+      Desarrollador * desarrollador={dynamic_cast<Desarrollador*>(user)};
+      Videojuego* v= desarrollador->getVideojuego(nomVJ);
+
+      for(set<IEstadistica*>::iterator i= seleccionadas.begin(); i!=seleccionadas.end(); i++)
+      {
+        res.insert((*i)->calcular(v));
+      }
+      if (res.empty())
+      {
+        throw invalid_argument("No se obtuvieron datos de estadisticas.");
+      }
+        return res;
 }

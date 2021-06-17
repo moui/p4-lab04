@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include "../Videojuego.h"
 #include "../datatypes/DtUsuario.h"
 #include "../datatypes/DtEstadistica.h"
 #include "../datatypes/TipoEstado.h"
@@ -15,7 +16,7 @@ class IEstadistica
         
         virtual ~IEstadistica();
 
-        virtual DtEstadistica* calcular()=0;
+        virtual DtEstadistica* calcular(Videojuego* v)=0;
 
 };
 

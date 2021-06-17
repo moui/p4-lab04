@@ -9,6 +9,7 @@
 #include "lib/helpers/FechaSistema.h"
 #include "lib/datatypes/DtUsuario.h"
 #include "lib/datatypes/DtJugador.h"
+#include "lib/datatypes/DtEstadistica.h"
 #include "lib/datatypes/DtDesarrollador.h"
 #include "lib/datatypes/DtVideojuegoSuscripcion.h"
 #include "lib/datatypes/TipoEstado.h"
@@ -296,6 +297,25 @@ int main()
                         case 5:
                         {
                             // CONSULTAR ESTADISTICAS
+                            cout << Constantes::PresentacionConsultarEstadisticas;
+                            string nomVJ;
+                            try
+                            {
+                                set<string> VJpublicados=IUsr->listarVideojuegosPublicados();
+                                cout << "Videojuegos publicados: \n";
+                                for(set<string>::iterator i=VJpublicados.begin(); i!=VJpublicados.end(); i++)
+                                {
+                                    cout << "||" << (*i) << "|| \n";
+                                }
+                                cout << "Por favor, seleccione el juego para consultar estadisticas. \n";
+                                cin >> nomVJ;
+                                set<DtEstadistica*> stats= IUsr->ConsultarEstadisticas(nomVJ);
+                            }
+                            catch (const std::invalid_argument &err)
+                             {
+                                  cerr << "Error: " << err.what() << '\n';
+                             }
+                            cout << Constantes::PresentacionConsultarEstadisticas_Fin; 
                             break;
                         }
                         case 6:

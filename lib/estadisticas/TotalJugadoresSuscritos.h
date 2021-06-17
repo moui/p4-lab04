@@ -3,6 +3,7 @@
 
 #include "../interfaces/IEstadistica.h"
 #include "../Jugador.h"
+#include "../Videojuego.h"
 #include "../Desarrollador.h"
 #include "../manejadores/ManejadorUsuario.h"
 #include "../datatypes/DtEstadistica.h"
@@ -33,7 +34,7 @@ class TotalJugadoresSuscritos : public IEstadistica
 
         void setNombre(string n);
         void setValor(float v);
-        DtEstadistica* calcular();
+        DtEstadistica* calcular(Videojuego* v);
     
 };
 

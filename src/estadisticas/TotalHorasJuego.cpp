@@ -31,7 +31,7 @@ void TotalHorasJuego::setValor(float v)
     this->valor=v;
 }
 
-DtEstadistica* TotalHorasJuego::calcular(){
+DtEstadistica* TotalHorasJuego::calcular(Videojuego* v){
     DtEstadistica* res=NULL;
     return res;
 }

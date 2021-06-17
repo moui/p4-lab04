@@ -73,6 +73,10 @@ class CtrlUsuario : public IUsuario
         void listarEstadisticas();
         void seleccionarEstadisticas(bool s1, bool s2);
 
+        // CONSULTAR ESTADISTICAS
+        set<string> listarVideojuegosPublicados();
+        set<DtEstadistica*> ConsultarEstadisticas(string nomVJ);
+        
         // Caso de Uso Alta Usuario
         void ingresaDatosUsuario(string nmail, string ncontrasena);
         void ingresaDatosJugador(string nnickname, string ndescripcion);

@@ -31,7 +31,7 @@ void TotalJugadoresSuscritos::setValor(float v)
     this->valor=v;
 }
 
-DtEstadistica* TotalJugadoresSuscritos::calcular(){
+DtEstadistica* TotalJugadoresSuscritos::calcular(Videojuego*v){
     DtEstadistica* res=NULL;
     return res;
 }

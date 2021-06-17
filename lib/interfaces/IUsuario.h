@@ -38,6 +38,11 @@ class IUsuario
 
         virtual void listarEstadisticas()=0;
         virtual void seleccionarEstadisticas(bool s1, bool s2)=0;
+
+        //CONSULTAR ESTADISTICA
+
+        virtual set<string> listarVideojuegosPublicados()=0;
+        virtual set<DtEstadistica*> ConsultarEstadisticas(string nomVJ)=0;
 };
 
 #endif

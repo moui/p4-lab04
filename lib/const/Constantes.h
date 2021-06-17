@@ -29,6 +29,9 @@ class Constantes
         static const string PresentacionSeleccionarEstadisticas;
         static const string PresentacionSeleccionarEstadisticas_Fin;        
         
+        static const string PresentacionConsultarEstadisticas;
+        static const string PresentacionConsultarEstadisticas_Fin;  
+
         static const string MsjeErrorIngresoFecha;
         
         static const string Separador;

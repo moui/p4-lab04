@@ -60,6 +60,18 @@ const string Constantes::PresentacionSeleccionarEstadisticas_Fin =
     "--------------------------------------------------------------------------\n"
     ;    
 
+const string Constantes::PresentacionConsultarEstadisticas =
+    "                                                                          \n"
+    "                        CONSULTAR ESTADISTICAS                            \n"
+    "                                                                          \n"
+    ;
+
+const string Constantes::PresentacionConsultarEstadisticas_Fin =
+    "                                                                          \n"
+    "                         CONSULTA EXITOSA                                 \n"
+    "                                                                          \n"
+    "--------------------------------------------------------------------------\n"
+    ;    
 
 const string Constantes::PresentacionModificarFecha_Inicio =
     "                                                                          \n"

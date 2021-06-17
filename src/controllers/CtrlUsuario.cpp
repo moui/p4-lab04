@@ -225,6 +225,36 @@ void CtrlUsuario::seleccionarEstadisticas(bool s1, bool s2)
             desarrollador->agregarEstadistica(2);
         }
     }
+// CONSULTAR ESTADISTICAS
+
+
+set<string> CtrlUsuario::listarVideojuegosPublicados()
+{
+    set<string> res;
+    Usuario* user= CtrlUsuario::getSesionActiva();
+    Desarrollador * desarrollador={dynamic_cast<Desarrollador*>(user)};
+    res= desarrollador->listarVideojuegosPublicados();
+    if(res.empty())
+    {
+        throw invalid_argument("No se obtuvieron datos del Desarrollador. ");
+    }
+    return res;
+
+}
+
+set<DtEstadistica*> CtrlUsuario::ConsultarEstadisticas(string nomVJ)
+{
+    set<DtEstadistica*> res;
+    Usuario* user= CtrlUsuario::getSesionActiva();
+    Desarrollador * desarrollador={dynamic_cast<Desarrollador*>(user)};
+    res=desarrollador->CalcularEstadisticas(nomVJ);
+    if (res.empty())
+    {
+        throw invalid_argument("No de obtuvieron datos del desarrollador. ");
+    }
+    return res;
+}
+
 
 // Implementacion de caso de uso Alta Usuario
 void CtrlUsuario::ingresaDatosUsuario(string nmail, string ncontrasena){
