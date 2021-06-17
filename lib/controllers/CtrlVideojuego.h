@@ -21,7 +21,8 @@ class CtrlVideojuego : public IVideojuego
         CtrlVideojuego();
 
         //memoria
-        string nombre, descripcion;        
+        string nombre, descripcion;
+        float costo1, costo3, costo12, costoV;        
         TipoCat tipo;
 
     public:
@@ -33,17 +34,21 @@ class CtrlVideojuego : public IVideojuego
         void videojuegoAEliminar(string nombre);
         void cancelarEliminarVideoJuego();
         void confirmarEliminarVideoJuego();
-        void ingresarDatosVideojuego(DtVideojuego datos);
+
         DtVideojuego mostrarVideojuego();
-        void cancelaPublicarVideojuego();
-        void confirmaPublicarVideojuego();
-        void confirmaPublicarVideojuego(Videojuego * v); // no se si es correcto, pero lo podemos cambiar, esta en el diagrama
+
         DtVideojuego verInfoVideojuego(string nombre); 
 
 
         //suscribirse a Videojuego (caso de uso en CtrlUsuario), devuelve copia del catalogo
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
         DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p, string nomVJ);
+
+        //videojuegos
+        void ingresarDatosVideojuego(string, string, float, float, float, float);
+        void cancela_publicarVideojuego();
+        void confirma_publicarVideojuego();
+
 
         //categorias
         set<DtCategoria*> listarCategorias();

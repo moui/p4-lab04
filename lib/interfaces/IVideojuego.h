@@ -23,6 +23,10 @@ class IVideojuego
         virtual void confirma_agregarCategoria() = 0;
         virtual void cancela_agregarCategoria() = 0;
 
+        virtual void ingresarDatosVideojuego(string, string, float, float, float, float) = 0;
+        virtual void cancela_publicarVideojuego() = 0;
+        virtual void confirma_publicarVideojuego() = 0;
+
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
         virtual void videojuegoAEliminar(string nombre);
         virtual void cancelarEliminarVideoJuego();

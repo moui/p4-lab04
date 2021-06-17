@@ -39,8 +39,13 @@ void CtrlVideojuego::confirmarEliminarVideoJuego(){
 
 }
 
-void CtrlVideojuego::ingresarDatosVideojuego(DtVideojuego datos){
-
+void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion, float nc1, float nc3, float nc12, float ncv){
+  this->nombre = nnombre;
+  this->descripcion = ndescripcion;
+  this->costo1 = nc1;
+  this->costo3 = nc3;
+  this->costo12 = nc12;
+  this->costoV = ncv;
 }
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
@@ -48,15 +53,13 @@ DtVideojuego CtrlVideojuego::mostrarVideojuego(){
   return b;
 }
 
-void CtrlVideojuego::cancelaPublicarVideojuego(){
+void CtrlVideojuego::cancela_publicarVideojuego(){
+
 }
 
-void CtrlVideojuego::confirmaPublicarVideojuego(){
+void CtrlVideojuego::confirma_publicarVideojuego(){
+  manejadorVideojuego->agregarVideojuego(nombre, new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV));
 }
-
-void CtrlVideojuego::confirmaPublicarVideojuego(Videojuego * v){
-}
-
 
 //imprementacion caso de uso suscribirse a VJ
 

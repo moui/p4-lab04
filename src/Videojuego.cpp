@@ -1,11 +1,20 @@
 #include "../lib/Videojuego.h"
 
-Videojuego::Videojuego(std::string nombre, Partida **partidas)
+Videojuego::Videojuego(string nnombre, string ndescripcion, float costomensual, float costotrimestral, float costoanual, float costovitalicia){
+ this->nombre = nnombre;
+ this->descripcion = ndescripcion;
+ this->costo1 = costomensual;
+ this->costo3 = costotrimestral;
+ this->costo12 = costoanual;
+ this->costoV = costovitalicia;
+}
+
+/*Videojuego::Videojuego(std::string nombre, Partida **partidas)
 {
   this->nombre = nombre;
   this->tiene = partidas;
   return;
-}
+}*/
 
 
     //getters

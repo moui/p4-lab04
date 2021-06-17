@@ -5,12 +5,12 @@ ManejadorVideojuego::ManejadorVideojuego(){}
 
 // Destructor
 ManejadorVideojuego::~ManejadorVideojuego(){
-    catalogoVJ.clear();
+    videojuegos.clear();
     //descSuscripcion.clear();
 }
 //getters
 Videojuego* ManejadorVideojuego::buscarVideojuego(string clave){
-    return (catalogoVJ.find(clave)->second);
+    return (videojuegos.find(clave)->second);
 }
 
 /*DescripcionSuscripcion* ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){
@@ -23,8 +23,8 @@ Categoria* ManejadorVideojuego::buscarCategoria(string clave){
 }
 
 //setters
-void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego* v){
-    catalogoVJ.insert( pair <string, Videojuego*>(clave, v));
+void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego* vid){
+    videojuegos.insert( pair <string, Videojuego*>(clave, vid));
 }
 
 /*void ManejadorVideojuego::agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion* ds){
@@ -38,7 +38,7 @@ void ManejadorVideojuego::agregarCategoria(string clave, Categoria* cat){
 //deleters (?
 
 void ManejadorVideojuego::borrarVideojuego(string clave){
-    catalogoVJ.erase(itvj=catalogoVJ.find(clave));
+    videojuegos.erase(itvj=videojuegos.find(clave));
 }
 
 
@@ -54,8 +54,8 @@ void ManejadorVideojuego::borrarCategoria(string clave){
 
 map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
     map<string, DtVideojuegoSuscripcion*> res;
-    if(!catalogoVJ.empty()){
-        for (itvj=catalogoVJ.begin(); itvj!=catalogoVJ.end(); itvj++){
+    if(!videojuegos.empty()){
+        for (itvj=videojuegos.begin(); itvj!=videojuegos.end(); itvj++){
             string n=itvj->second->getNombreVJ();
             float c1=itvj->second->getCosto1();
             float c3=itvj->second->getCosto3();

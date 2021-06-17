@@ -29,7 +29,8 @@ class Videojuego
     set <DescripcionSuscripcion*>::iterator itdsVJ;
 
   public:
-    Videojuego(string, Partida **);
+    //Videojuego(string, Partida **);
+    Videojuego(string , string , float , float , float , float);
     ~Videojuego();
     
 

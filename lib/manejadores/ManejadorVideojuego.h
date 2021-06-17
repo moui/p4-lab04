@@ -22,7 +22,7 @@ using namespace std;
 class ManejadorVideojuego {
     private:
         // map
-        map<string, Videojuego*> catalogoVJ;
+        map<string, Videojuego*> videojuegos;
         map<string, Videojuego*>::iterator itvj;
 
        /* map<string, DescripcionSuscripcion*> descSuscripcion;
@@ -43,7 +43,7 @@ class ManejadorVideojuego {
       /*  DescripcionSuscripcion* buscarDescripcionSuscripcion(string clave); */
         Categoria* buscarCategoria(string clave);
 
-        void agregarVideojuego(string clave, Videojuego* v);
+        void agregarVideojuego(string clave, Videojuego* vid);
       /*  void agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion* ds);*/
         void agregarCategoria(string clave, Categoria* cat);
 
