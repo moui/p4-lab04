@@ -259,8 +259,9 @@ int main()
                         {
                             string nombrevj, desvj, catgen, nombrecat;
                             float c1, c3, c12, cv;
-                            bool exgen;
+                            bool exgen = true;
                             cout << Constantes::Separador << "PUBLICAR VIDEOJUEGO \n";
+                            // ingresa datos basicos del videojuego
                             cout << "Ingrese nombre del videojuego: ";
                             cin >> nombrevj;
                             cout << "Ingrese descripcion del videojuego: ";
@@ -273,17 +274,25 @@ int main()
                             cin >> c12;
                             cout << "Ingrese costo de suscripcion vitalicia: ";
                             cin >> cv;
+                            IVid->ingresarDatosVideojuego(nombrevj, desvj, c1, c3, c12, cv);
+                            // muestro catalogo categorias genero. selecciona al menos 1
                             cout << "Catalogo de categorías de genero: " << endl;
                             set<DtCategoria*> setcat = IVid->listarCategoriasGenero();
                             set<DtCategoria*>::iterator itcat;
+                            if (setcat.empty())
+                                cout << "No existen categorias en el catalogo." << endl << endl;
                             for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
                                 cout << *(*itcat) << endl;
                             }
+                            cout << "Ingrese los nombres de las categorias que desea. Ingrese al menos una. Para continuar ingrese 0.";
                             do {
+                                int i = 0;
                                 cin >> nombrecat;
-
-
+                                if (nombrecat == "0" && i > 1)    
+                                    exgen = false;
+                                IVid->seleccionarCategoria(nombrecat);
                             } while (exgen == true);
+
                             break;
                         }
                         case 3:

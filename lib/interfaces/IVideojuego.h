@@ -20,7 +20,6 @@ class IVideojuego
         // Operaciones ALTA CATEGORIA
         virtual set<DtCategoria*> listarCategorias() = 0;
         virtual void agregarCategoria(string nnombre, string ndescripcion, TipoCat ntipo) = 0; 
-        virtual void seleccionarCategoria(string nombre) = 0;
         virtual void confirma_agregarCategoria() = 0;
         virtual void cancela_agregarCategoria() = 0;
 
@@ -31,6 +30,7 @@ class IVideojuego
         virtual set<DtCategoria*> listarCategoriasGenero() = 0;
         virtual set<DtCategoria*> listarCategoriasPlataforma() = 0;
         virtual set<DtCategoria*> listarCategoriasOtros() = 0;
+        virtual void seleccionarCategoria(string nombre) = 0;
 
 
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
