@@ -85,6 +85,7 @@ void CtrlVideojuego::confirma_publicarVideojuego(){
 map<string, DtVideojuegoSuscripcion*> CtrlVideojuego::ObtenerCatalogo(){
   map<string, DtVideojuegoSuscripcion*> res;
   res=manejadorVideojuego->ObtenerCatalogo();
+  if (res.empty()){throw invalid_argument("es aca el error");}
   return res;
 }
 
