@@ -269,7 +269,7 @@ int main()
                         {
                             string nombrevj, desvj, catgen, nombrecat;
                             float c1, c3, c12, cv;
-                            bool exgen = true;
+                            int totCat = 0;
                             cout << Constantes::Separador << "PUBLICAR VIDEOJUEGO \n";
                             // ingresa datos basicos del videojuego
                             cout << "Ingrese nombre del videojuego: ";
@@ -294,20 +294,56 @@ int main()
                             for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
                                 cout << *(*itcat) << endl;
                             }
-                            cout << "Ingrese los nombres de las categorias que desea. Ingrese al menos una. Para continuar ingrese 0.";
-                            int i = 0;
-                            do {
+                            cout << "Ingrese los nombres de las categorias que desea (TIPO GENERO). Ingrese al menos una. Para continuar ingrese 0.";
+                            totCat = 0;
+                            while (true) 
+                            {
                                 cin >> nombrecat;
-                                if (nombrecat == "0" && i > 1){}    
-                                    exgen = false;
-                                try {
+                                if (nombrecat == "0" && totCat > 1)    
+                                    break;
+                                try 
+                                {
                                     IVid->seleccionarCategoria(nombrecat, TipoCat::Genero);
+                                    totCat++;
                                 }
-                                catch (const std::invalid_argument &err){
+                                catch (const std::invalid_argument &err)
+                                {
                                     cerr << "Error: " << err.what() << '\n';
                                 }
-                                i++;
-                            } while (exgen == true);
+                            }
+                            cout << "Ingrese los nombres de las categorias que desea (TIPO PLATAFORMA). Ingrese al menos una. Para continuar ingrese 0.";
+                            totCat = 0;
+                            while (true) 
+                            {
+                                cin >> nombrecat;
+                                if (nombrecat == "0" && totCat > 1)    
+                                    break;
+                                try 
+                                {
+                                    IVid->seleccionarCategoria(nombrecat, TipoCat::Plataforma);
+                                    totCat++;
+                                }
+                                catch (const std::invalid_argument &err)
+                                {
+                                    cerr << "Error: " << err.what() << '\n';
+                                }
+                            }
+                            cout << "Ingrese los nombres de las categorias que desea (TIPO OTRO). No hay minimo. Para continuar ingrese 0.";
+                            while (true) 
+                            {
+                                cin >> nombrecat;
+                                if (nombrecat == "0")    
+                                    break;
+                                try 
+                                {
+                                    IVid->seleccionarCategoria(nombrecat, TipoCat::Plataforma);
+                                    totCat++;
+                                }
+                                catch (const std::invalid_argument &err)
+                                {
+                                    cerr << "Error: " << err.what() << '\n';
+                                }
+                            }
                             break;
                         }
                         case 3:
