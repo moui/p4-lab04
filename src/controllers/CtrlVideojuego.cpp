@@ -58,7 +58,12 @@ void CtrlVideojuego::cancela_publicarVideojuego(){
 }
 
 void CtrlVideojuego::confirma_publicarVideojuego(){
-  manejadorVideojuego->agregarVideojuego(nombre, new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV));
+  Videojuego* nvj = new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV);
+  manejadorVideojuego->agregarVideojuego(nombre, nvj);
+  CtrlUsuario* ctrlUsuario;
+  ctrlUsuario = CtrlUsuario::getInstancia();
+  Desarrollador* d = dynamic_cast<Desarrollador*> (ctrlUsuario->getSesionActiva());
+  d->publicarVJ(nvj);
 }
 
 //imprementacion caso de uso suscribirse a VJ
