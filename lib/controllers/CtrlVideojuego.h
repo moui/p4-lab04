@@ -49,6 +49,9 @@ class CtrlVideojuego : public IVideojuego
         void cancela_publicarVideojuego();
         DtVideojuego mostrarVideojuego();
         void confirma_publicarVideojuego();
+        set<DtCategoria*> listarCategoriasGenero();
+        set<DtCategoria*> listarCategoriasPlataforma();
+        set<DtCategoria*> listarCategoriasOtros();
 
 
         //categorias

@@ -122,3 +122,14 @@ void CtrlVideojuego::iniciadaP(Partida* p){
 Videojuego* CtrlVideojuego::getVJ(string nomVJ){
 	return manejadorVideojuego->buscarVideojuego(nomVJ);
 }
+
+
+set<DtCategoria*> CtrlVideojuego::listarCategoriasGenero(){
+  return manejadorVideojuego->listarCategoriasGenero();
+}
+set<DtCategoria*> CtrlVideojuego::listarCategoriasPlataforma(){
+  return manejadorVideojuego->listarCategoriasPlataforma();
+}
+set<DtCategoria*> CtrlVideojuego::listarCategoriasOtros(){
+  return manejadorVideojuego->listarCategoriasOtros();
+}

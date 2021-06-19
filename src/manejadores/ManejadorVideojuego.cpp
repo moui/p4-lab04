@@ -85,3 +85,42 @@ set<DtCategoria*> ManejadorVideojuego::listarCategorias(){
     }
     return ret;
 }
+
+set<DtCategoria*> ManejadorVideojuego::listarCategoriasGenero(){
+    set<DtCategoria*> ret;
+    if(!categorias.empty()){
+        for(auto itc = categorias.begin(); itc != categorias.end(); ++itc){
+            if (itc->second->getTipoCat() == TipoCat::Genero){
+                ret.insert(itc->second->getDtCategoria());
+            }
+		    
+	    }
+    }
+    return ret;
+}
+      
+set<DtCategoria*> ManejadorVideojuego::listarCategoriasPlataforma(){
+    set<DtCategoria*> ret;
+    if(!categorias.empty()){
+        for(auto itc = categorias.begin(); itc != categorias.end(); ++itc){
+            if (itc->second->getTipoCat() == TipoCat::Plataforma){
+                ret.insert(itc->second->getDtCategoria());
+            }
+		    
+	    }
+    }
+    return ret;
+}
+
+set<DtCategoria*> ManejadorVideojuego::listarCategoriasOtros(){
+    set<DtCategoria*> ret;
+    if(!categorias.empty()){
+        for(auto itc = categorias.begin(); itc != categorias.end(); ++itc){
+            if (itc->second->getTipoCat() == TipoCat::Otro){
+                ret.insert(itc->second->getDtCategoria());
+            }
+		    
+	    }
+    }
+    return ret;
+}

@@ -58,6 +58,9 @@ class ManejadorVideojuego {
 	    void setPartida(Partida* p);
 
         set<DtCategoria*> listarCategorias();
+        set<DtCategoria*> listarCategoriasGenero();
+        set<DtCategoria*> listarCategoriasPlataforma();
+        set<DtCategoria*> listarCategoriasOtros();
 };
 
 #endif
