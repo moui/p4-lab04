@@ -64,7 +64,8 @@ ostream& operator<<(ostream& out, const DtVideojuego& dt)
     out << endl << "Pertenece a categorias:" << endl;
     for (it = dt.categorias.begin(); it != dt.categorias.end(); ++it)
     {
-        out << *(*it);
+
+        out << endl << *(*it);
     }
     return out;
 }

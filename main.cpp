@@ -268,15 +268,19 @@ int main()
                         case 2:
                         {
                             // PUBLICAR VIDEOJUEGO
+                            cin.clear();
+
                             string nombrevj, desvj, catgen, nombrecat;
                             float c1, c3, c12, cv;
                             int totCat = 0;
                             cout << Constantes::PresentacionPublicarVideojuego_Inicio;
                             // Ingresa datos basicos del videojuego
                             cout << "Ingrese nombre del videojuego: ";
-                            cin >> nombrevj;
+                            cin.ignore();
+                            getline(cin, nombrevj);
                             cout << "Ingrese descripcion del videojuego: ";
-                            cin >> desvj;
+                            cin.ignore();
+                            getline(cin, desvj);
                             cout << "Ingrese costo de suscripcion mensual: ";
                             cin >> c1;
                             cout << "Ingrese costo de suscripcion trimestral: ";
@@ -287,7 +291,7 @@ int main()
                             cin >> cv;
                             IVid->ingresarDatosVideojuego(nombrevj, desvj, c1, c3, c12, cv);
                             // Seleccionar categoria genero. Al menos 1
-                            cout << "Catalogo de categorías de genero: " << endl;
+                            cout << "CATALOGO CATEGORIAS GENERO: " << endl << endl;
                             set<DtCategoria*> setCatGen = IVid->listarCategoriasGenero();
                             set<DtCategoria*>::iterator itCat;
                             if (setCatGen.empty())
@@ -296,18 +300,12 @@ int main()
                                 cout << *(*itCat) << endl;
                             }
                             cout << "Ingrese los nombres de las categorias que desea (TIPO GENERO). Ingrese al menos una." << endl;
+                            cin.ignore();
                             totCat = 0;
                             while (true) 
                             {
                                 cout << "Ingrese nombre o 'cont' para continuar: ";
-                                cin >> nombrecat;
-                                if (cin.fail())
-                                {
-                                    cin.clear();
-                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lecture. Intente nuevamente.";
-                                    continue;
-                                }
+                                getline(cin, nombrecat);
                                 if (nombrecat == "cont" && totCat > 0)    
                                     break;
                                 try 
@@ -323,6 +321,7 @@ int main()
                             }
                             // Seleccionar categoria plataforma. Al menos 1
                             set<DtCategoria*> setCatPlat = IVid->listarCategoriasPlataforma();
+                            cout << "CATALOGO CATEGORIAS PLATAFORMA: " << endl << endl;
                             if (setCatPlat.empty())
                                 cout << "No existen categorias en el catalogo." << endl << endl;
                             for (itCat = setCatPlat.begin(); itCat != setCatPlat.end(); ++itCat) {
@@ -333,14 +332,7 @@ int main()
                             while (true) 
                             {
                                 cout << "Ingrese nombre o 'cont' para continuar: ";
-                                cin >> nombrecat;
-                                if (!cin.good())
-                                {
-                                    cin.clear();
-                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lecture. Intente nuevamente.";
-                                    continue;
-                                }
+                                getline(cin, nombrecat);
                                 if (nombrecat == "cont" && totCat > 0)    
                                     break;
                                 try 
@@ -356,6 +348,7 @@ int main()
                             }
                             // Seleccionar categoria otros. Sin minimo.
                             set<DtCategoria*> setCatOtros = IVid->listarCategoriasOtros();
+                            cout << "CATALOGO CATEGORIAS OTROS: " << endl << endl;
                             if (setCatOtros.empty())
                                 cout << "No existen categorias en el catalogo." << endl << endl;
                             for (itCat = setCatOtros.begin(); itCat != setCatOtros.end(); ++itCat) 
@@ -366,14 +359,7 @@ int main()
                             while (true) 
                             {
                                 cout << "Ingrese nombre o 'cont' para continuar: ";
-                                cin >> nombrecat;
-                                if (!cin.good())
-                                {
-                                    cin.clear();
-                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lecture. Intente nuevamente.";
-                                    continue;
-                                }
+                                getline(cin, nombrecat);
                                 if (nombrecat == "cont")
                                     break;
                                 try 
@@ -389,7 +375,7 @@ int main()
                             }
                             // Mostrar info videojuego.
                             DtVideojuego* infoVideojuego = IVid->mostrarVideojuego(); 
-                            cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR: \n"
+                            cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR" << endl << endl
                                  << *infoVideojuego << endl;
                             // Borrar memoria DtCats y DtVideojueo
                             delete infoVideojuego; 
