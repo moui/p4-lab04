@@ -274,7 +274,7 @@ int main()
                                 cout << *(*itcat) << endl;
                             }
                             do {
-                                cin >> ca
+                                cin >> nombrecat;
 
 
                             } while (exgen == true);
