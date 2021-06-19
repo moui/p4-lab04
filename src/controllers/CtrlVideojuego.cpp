@@ -49,8 +49,8 @@ void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion
 }
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
-  DtVideojuego b;
-  return b;
+  DtVideojuego ret;
+  return ret;
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){
