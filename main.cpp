@@ -344,6 +344,8 @@ int main()
                                     cerr << "Error: " << err.what() << '\n';
                                 }
                             }
+                            cout << Constantes::Separador << "VIDEOJUEGO A PUBLICAR: \n";
+                            cout << IVid->mostrarVideojuego();
                             break;
                         }
                         case 3:
@@ -567,25 +569,78 @@ int main()
                               string nomVJ;                            
                               cout << "Seleccione un Videojuego al que jugar: \n";
                               cin >> nomVJ;
-			                  IPar->crearPartida(nomVJ);
-			                  char tipo;
-			                  cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
-			                  cin >> tipo;
-			                  switch(tipo) 
-			                  {
-				                case'I' 
-				                {
-				                    try{
-				                        char cont;
+			      IPar->crearPartida(nomVJ);
+			      char tipo;
+			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
+			      cin >> tipo;
+			      switch(tipo) 
+			      {
+				 case'I' 
+				 {
+				     try{
+				        char cont;
                                         cout << "Desea continuar una partida previa Y/n? \n";
-				                        cin >> cont;
-				                        if {
-					
-				                        }
-				                    }
-			                    }
-			                  }
-			                }*/
+				        cin >> cont;
+				        switch(cont) 
+					{
+					  case'Y'
+					  {
+					    set<DtPartidaIndividual*> indter = IPar->listaPartidasIndTer();
+					    cout << "Partidas Individuales Previas: \n";
+                              		    for (set<DtPartidaIndividual*>::iterator itit=indter.begin(); itit!=indter.end(); itit++){
+                                   	    cout<< *itit;
+                              		  };
+					  float acont;
+					  cout << "Ingrese la Id de la Partida a Continuar: \n";
+					  cin >> acont;
+					  IPar->partidaAContinuar(acont);
+					}
+				     }
+			             cactch(){
+			             }
+				 }
+				 case'M'
+				 {
+				   set<string> js = IPar->listaJugSus();
+				   cout << "Jugadores Que Pueden Unirse: \n";
+                              	   for (set<string>::iterator itjs=js.begin(); itjs!=js.end(); itjs++){
+                                   	cout << *itjs;
+                              	   };
+				   set<string> jugUn;
+				   cout << "Eligue los Jugadores Que se Uniran A la Parida: \n";
+				   char set = Y;
+				   while (set == Y){
+					string jug;
+					cin >> jug;
+					jugUn.insert(jug);
+					cout << "Quiere Ingresar Otro Jugador Y/n? \n";
+					cin >> set;
+				   } 
+				   IPar->listaJugUnidos(jugUn);
+				   char vivo;
+				   cout << "La Partida Sera en Vivo Y/n? \n";
+				   cin >> vivo;
+				   switch(vivo){
+					case'Y'{
+					  IPar->ENVivo(true);
+					}
+					case'n'{
+					  IPar->ENVivo(false);
+					}
+				   }
+				 }
+			       }
+			       char conf;
+			       cout << "Confirmar Iniciar Partida Y/n? \n";
+			       switch{
+			         case'Y'{
+				 	IPar->confirmarIniciarPartida(fechaSistema);
+				 }
+				 case'n'{
+				 	IPar->cancelarIniciarPartida();
+				 }
+			       }
+			    }*/
                             break;
                         }
                         case 4:

@@ -31,13 +31,14 @@ class IVideojuego
         virtual set<DtCategoria*> listarCategoriasPlataforma() = 0;
         virtual set<DtCategoria*> listarCategoriasOtros() = 0;
         virtual void seleccionarCategoria(string, TipoCat) = 0;
+        virtual DtVideojuego mostrarVideojuego();
 
 
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
         virtual void videojuegoAEliminar(string nombre);
         virtual void cancelarEliminarVideoJuego();
         virtual void confirmarEliminarVideoJuego();
-        virtual DtVideojuego mostrarVideojuego();
+
         virtual set<DtVideojuegoSuscripcion> ObtenerCatalogo();
         virtual void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
         virtual void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
