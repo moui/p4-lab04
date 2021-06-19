@@ -56,7 +56,16 @@ DtVideojuego CtrlVideojuego::mostrarVideojuego(){
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){
-  //limpiar el set de categorias! y la otra memoria por las dudas
+  //limpiar el set de categorias
+  if (!cats.empty())
+  {
+      for (itcat = cats.begin(); itcat != cats.end(); ++itcat)
+      {
+          if (*itcat != NULL)
+              delete *itcat;
+      }
+      cats.clear();
+  }
 }
 
 void CtrlVideojuego::seleccionarCategoria(string nombre, TipoCat tcat){

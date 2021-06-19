@@ -16,13 +16,9 @@ using namespace std;
 class Videojuego
 {
   private:
-    string nombre;
-    string descripcion;
+    string nombre, descripcion;
 
-    float costo1;
-    float costo3;
-    float costo12;
-    float costoV;
+    float costo1, costo3, costo12, costoV;
 
     Partida **tiene;
     set <DescripcionSuscripcion*> descSuscripcionVJ;
