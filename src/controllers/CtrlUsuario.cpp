@@ -245,7 +245,6 @@ set<string> CtrlUsuario::listarVideojuegosPublicados()
         throw invalid_argument("No se obtuvieron datos del Desarrollador. ");
     }
     return res;
-
 }
 
 set<DtEstadistica*> CtrlUsuario::ConsultarEstadisticas(string nomVJ)
@@ -324,6 +323,7 @@ void CtrlUsuario::finPartida(DtFechaHora f, float id){
 
 
 set<DtVideojuego*> CtrlUsuario::listarVideoJuegosDesarrollador(){
-    set<DtVideojuego*> a;
-    return a;
+    set<DtVideojuego*> res;
+    Desarrollador* des = dynamic_cast<Desarrollador*>(CtrlUsuario::getSesionActiva());
+    return des->getVJPub();
 }

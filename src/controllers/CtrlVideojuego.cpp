@@ -21,18 +21,21 @@ CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
     return instancia;
 }
 
+// eliminar videojuego
+
 void CtrlVideojuego::videojuegoAEliminar(string nombre){
+  this->vjelim = nombre;
+}
+
+void CtrlVideojuego::cancelar_eliminarVideoJuego(){
 
 }
 
-void CtrlVideojuego::cancelarEliminarVideoJuego(){
-
+void CtrlVideojuego::confirmar_eliminarVideoJuego(){
+  manejadorVideojuego->buscarVideojuego(vjelim);
 }
 
-void CtrlVideojuego::confirmarEliminarVideoJuego(){
-
-}
-
+ // publicar videojuego
 void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion, float nc1, float nc3, float nc12, float ncv){
   this->nombre = nnombre;
   this->descripcion = ndescripcion;
