@@ -1,6 +1,6 @@
 #include "../lib/Categoria.h"
 
-Categoria::Categoria(string nombre, string descripcion, TipoCat TipoCat)
+Categoria::Categoria(string nombre, string descripcion, TipoCat tipo)
 {
     this->nombre = nombre;
     this->descripcion = descripcion;
