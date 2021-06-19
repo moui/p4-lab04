@@ -21,13 +21,6 @@ CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
     return instancia;
 }
 
-
-
-set<string> listarVideoJuegosDesarrollador(){
-  set<string> a;
-  return a;
-}
-
 void CtrlVideojuego::videojuegoAEliminar(string nombre){
 
 }
@@ -141,7 +134,10 @@ Videojuego* CtrlVideojuego::getVJ(string nomVJ){
 DtVideojuego* CtrlVideojuego::verInfoVideojuego(string nombre)
 {
   Videojuego* videojuego = getVJ(nombre);
-  return videojuego->getDatatype();
+  if (videojuego == NULL)
+    throw invalid_argument("Videojuego no existe en el catalogo.");
+  else   
+    return videojuego->getDatatype();
 }
 
 set<DtCategoria*> CtrlVideojuego::listarCategoriasGenero(){
