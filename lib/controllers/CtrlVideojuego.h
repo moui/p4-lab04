@@ -7,6 +7,7 @@
 #include "../datatypes/DtVideojuegoSuscripcion.h"
 #include "../datatypes/DtCategoria.h"
 #include "../manejadores/ManejadorVideojuego.h"
+#include "CtrlUsuario.h"
 #include <set>
 
 using namespace std;
@@ -35,7 +36,6 @@ class CtrlVideojuego : public IVideojuego
         void cancelarEliminarVideoJuego();
         void confirmarEliminarVideoJuego();
 
-        DtVideojuego mostrarVideojuego();
 
         DtVideojuego verInfoVideojuego(string nombre); 
 
@@ -44,9 +44,10 @@ class CtrlVideojuego : public IVideojuego
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
         DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p, string nomVJ);
 
-        //videojuegos
+        //publicar videojuego
         void ingresarDatosVideojuego(string, string, float, float, float, float);
         void cancela_publicarVideojuego();
+        DtVideojuego mostrarVideojuego();
         void confirma_publicarVideojuego();
 
 
