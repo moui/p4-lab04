@@ -625,7 +625,9 @@ int main()
             IVid->confirma_agregarCategoria();
 
             IVid->agregarCategoria("Play Station 5", "Cheto como Leonel Messi", TipoCat::Plataforma);
-            IVid->confirma_agregarCategoria();           
+            IVid->confirma_agregarCategoria();
+
+            cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
         case 0:
             // SALIR
