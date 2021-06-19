@@ -171,26 +171,20 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         return res;
     }
 
-    map<string, DtVideojuegoSuscripcion*> CtrlUsuario::ObtenerCatalogo(){
-        map<string, DtVideojuegoSuscripcion*> res;
+    void CtrlUsuario::ObtenerCatalogo(){
         CtrlVideojuego* ctrlvidejuego;
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
         this->Dcatalogo = ctrlvidejuego->ObtenerCatalogo();
-        for (map<string, DtVideojuegoSuscripcion*>::iterator it=Dcatalogo.begin(); it!=Dcatalogo.end(); it++)
-        {
-            cout << *(it->second);
-        }
         if (Dcatalogo.empty())
         {
             throw invalid_argument("Fallo copia local del catalogo ");
         }
-        return res;
+
 }
 
 
     set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesActivas(){
         set<DtVideojuegoSuscripcion*> res;
-        this->Dcatalogo=ObtenerCatalogo();
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
         res=jugador->listarVideojuegoSuscripcionesActivas(Dcatalogo);

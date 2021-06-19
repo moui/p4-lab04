@@ -59,7 +59,7 @@ class CtrlUsuario : public IUsuario
         // caso de uso suscribirse a videojuego
 
         void SuscribirseVideojuego(int a, int b, string nomVJ);
-        map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
+        void ObtenerCatalogo(); 
         set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
         set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas();
         TipoEstado JuegoSuscribirse(string nomVJ);
