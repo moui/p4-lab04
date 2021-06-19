@@ -51,15 +51,20 @@ void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
   DtVideojuego ret;
-  return ret;
+  return ret; //implementar metodo que tome los datos de la memoria y los muestre en un DtVideojuego.
+  //Tambien la sobrecarga del operador DtVideojuego
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){
+  //limpiar el set de categorias! y la otra memoria por las dudas
+}
 
+void CtrlVideojuego::seleccionarCategoria(string nombre){
+  cats.insert(manejadorVideojuego->buscarCategoria(nombre));
 }
 
 void CtrlVideojuego::confirma_publicarVideojuego(){
-  Videojuego* nvj = new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV);
+  Videojuego* nvj = new Videojuego(nombre, descripcion, costo1, costo3, costo12, costoV, cats);
   manejadorVideojuego->agregarVideojuego(nombre, nvj);
   CtrlUsuario* ctrlUsuario;
   ctrlUsuario = CtrlUsuario::getInstancia();
@@ -94,11 +99,6 @@ DtDescripcionSuscripcion* CtrlVideojuego::getDatosDescripcionSuscripcion(TipoPer
 
 set<DtCategoria*>CtrlVideojuego::listarCategorias(){
   return manejadorVideojuego->listarCategorias();
-}
-
-
-void CtrlVideojuego::seleccionarCategoria(string nombre){
-
 }
 
 void CtrlVideojuego::agregarCategoria(string nnombre, string ndescripcion, TipoCat ntipo){

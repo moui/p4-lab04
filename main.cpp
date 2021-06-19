@@ -251,7 +251,26 @@ int main()
                         }
                         case 2:
                         {
+                            string nombrevj, desvj, catgen;
+                            float c1, c3, c12, cv;
+                            bool exgen;
                             cout << Constantes::Separador << "PUBLICAR VIDEOJUEGO \n";
+                            cout << "Ingrese nombre del videojuego: ";
+                            cin >> nombrevj;
+                            cout << "Ingrese descripcion del videojuego: ";
+                            cin >> desvj;
+                            cout << "Ingrese costo de suscripcion mensual: ";
+                            cin >> c1;
+                            cout << "Ingrese costo de suscripcion trimestral: ";
+                            cin >> c3;
+                            cout << "Ingrese costo de suscripcion anual: ";
+                            cin >> c12;
+                            cout << "Ingrese costo de suscripcion vitalicia: ";
+                            cin >> cv;
+                            do {
+                                exgen = false;
+
+                            } while (exgen == true);
                             break;
                         }
                         case 3:

@@ -25,6 +25,7 @@ class CtrlVideojuego : public IVideojuego
         string nombre, descripcion;
         float costo1, costo3, costo12, costoV;        
         TipoCat tipo;
+        set<Categoria*> cats;
 
     public:
         ~CtrlVideojuego();
@@ -49,6 +50,7 @@ class CtrlVideojuego : public IVideojuego
         void cancela_publicarVideojuego();
         DtVideojuego mostrarVideojuego();
         void confirma_publicarVideojuego();
+        void seleccionarCategoria(string nombre);
         set<DtCategoria*> listarCategoriasGenero();
         set<DtCategoria*> listarCategoriasPlataforma();
         set<DtCategoria*> listarCategoriasOtros();
@@ -56,7 +58,6 @@ class CtrlVideojuego : public IVideojuego
 
         //categorias
         set<DtCategoria*> listarCategorias();
-        void seleccionarCategoria(string nombre);
         void agregarCategoria(string nnombre, string ndescripcion, TipoCat ntipo);
         void confirma_agregarCategoria();
         void cancela_agregarCategoria();

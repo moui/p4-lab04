@@ -28,9 +28,11 @@ class Videojuego
     set <DescripcionSuscripcion*> descSuscripcionVJ;
     set <DescripcionSuscripcion*>::iterator itdsVJ;
 
+    set<Categoria*> categoriasvj;
+    set<Categoria*>::iterator itcatvj;
   public:
     //Videojuego(string, Partida **);
-    Videojuego(string , string , float , float , float , float);
+    Videojuego(string , string , float , float , float , float, set<Categoria*>);
     ~Videojuego();
     
 
@@ -43,7 +45,9 @@ class Videojuego
     float getCosto1();
     float getCosto3();
     float getCosto12();
-    float getCostoV(); 
+    float getCostoV();
+
+    set<Categoria*> getCategoriasVJ(); 
 
     DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p);
 
@@ -60,6 +64,8 @@ class Videojuego
     void setCosto3(float c3);
     void setCosto12(float c12);
     void setCostoV(float cV);
+
+    void setCategoriasVJ(set<Categoria*> catvj); 
 
     void agregarDescripcionSuscripcion(DescripcionSuscripcion* ds);
 
