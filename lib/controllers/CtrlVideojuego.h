@@ -26,6 +26,7 @@ class CtrlVideojuego : public IVideojuego
         float costo1, costo3, costo12, costoV;        
         TipoCat tipo;
         set<Categoria*> cats;
+        set<Categoria*>::iterator itcat;
 
     public:
         ~CtrlVideojuego();
