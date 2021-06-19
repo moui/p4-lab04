@@ -344,6 +344,8 @@ int main()
                                     cerr << "Error: " << err.what() << '\n';
                                 }
                             }
+                            cout << Constantes::Separador << "VIDEOJUEGO A PUBLICAR: \n";
+                            cout << IVid->mostrarVideojuego() << Constantes::Separador;
                             break;
                         }
                         case 3:
