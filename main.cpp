@@ -271,6 +271,7 @@ int main()
                             cin.clear();
 
                             string nombrevj, desvj, catgen, nombrecat;
+                            char conf;
                             float c1, c3, c12, cv;
                             int totCat = 0;
                             cout << Constantes::PresentacionPublicarVideojuego_Inicio;
@@ -377,6 +378,25 @@ int main()
                             DtVideojuego* infoVideojuego = IVid->mostrarVideojuego(); 
                             cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR" << endl << endl
                                  << *infoVideojuego << endl;
+
+                            //alta o cancela
+                            cout << "Desea confirmar el (A)lta o (C)ancelar? ";
+                            cin >> conf;
+                            switch (conf)
+                            {
+                            case 'A':
+                                IVid->confirma_publicarVideojuego();
+                                cout << "Videojuego publicado." << endl << Constantes::Separador;
+                                break;
+                            case 'C':
+                                IVid->cancela_publicarVideojuego();
+                                cout << "Alta cancelada." << endl << Constantes::Separador;
+                                break;
+                            default:
+                                cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                break;
+                            }
+
                             // Borrar memoria DtCats y DtVideojueo
                             delete infoVideojuego; 
                             if (!setCatGen.empty())
@@ -772,6 +792,40 @@ int main()
 
             IVid->agregarCategoria("Play Station 5", "Cheto como Leonel Messi", TipoCat::Plataforma);
             IVid->confirma_agregarCategoria();
+
+            //carga videojuegos
+            IUsr->iniciarSesion("ironhide@mail.com", "123");
+            IVid->ingresarDatosVideojuego("KingdomRush", "Ta tremendo", 1, 2, 7, 14);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Estrategia", TipoCat::Genero);
+            IVid->seleccionarCategoria("E", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();
+
+            IUsr->iniciarSesion("epic@mail.com", "123");
+            IVid->ingresarDatosVideojuego("Fortnite", "El del baile", 3, 8, 30, 60);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Xbox One", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Supervivencia", TipoCat::Genero);
+            IVid->seleccionarCategoria("Teen", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();
+
+            IUsr->iniciarSesion("mojang@mail.com", "123");
+            IVid->ingresarDatosVideojuego("Minecraft", "En este hicieron la FIng", 2, 5, 20, 40);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Supervivencia", TipoCat::Genero);
+            IVid->seleccionarCategoria("Teen", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();
+
+            IUsr->iniciarSesion("ea@mail.com", "123");
+            IVid->ingresarDatosVideojuego("FIFA 21", "Fubolito", 3, 8, 28, 50);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Xbox One", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Deporte", TipoCat::Genero);
+            IVid->seleccionarCategoria("E", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();            
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;

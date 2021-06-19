@@ -172,7 +172,7 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         map<string, DtVideojuegoSuscripcion*> res;
         CtrlVideojuego* ctrlvidejuego;
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
-        res = ctrlvidejuego->ObtenerCatalogo();
+        this->Dcatalogo = ctrlvidejuego->ObtenerCatalogo();
         if (Dcatalogo.empty())
         {
             throw invalid_argument("Fallo copia local del catalogo ");

@@ -59,15 +59,7 @@ DtVideojuego* CtrlVideojuego::mostrarVideojuego(){
 
 void CtrlVideojuego::cancela_publicarVideojuego(){
   //limpiar el set de categorias
-  if (!cats.empty())
-  {
-      for (itcat = cats.begin(); itcat != cats.end(); ++itcat)
-      {
-          if (*itcat != NULL)
-              delete *itcat;
-      }
-      cats.clear();
-  }
+  cats.clear();
 }
 
 void CtrlVideojuego::seleccionarCategoria(string nombre, TipoCat tcat){
@@ -85,6 +77,7 @@ void CtrlVideojuego::confirma_publicarVideojuego(){
   ctrlUsuario = CtrlUsuario::getInstancia();
   Desarrollador* d = dynamic_cast<Desarrollador*> (ctrlUsuario->getSesionActiva());
   d->publicarVJ(nvj);
+  cats.clear();
 }
 
 //imprementacion caso de uso suscribirse a VJ
