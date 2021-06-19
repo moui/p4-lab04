@@ -21,6 +21,11 @@ const string Constantes::MenuPrincipal =
 const string Constantes::PresentacionFechaActual =
     "Fecha actual del sistema: ";
 
+const string Constantes::PresentacionAgregarCategoria_Inicio =
+    "                                                                          \n"
+    "                          AGREGAR CATEGORIA                               \n"
+    "                                                                          \n";
+
 const string Constantes::PresentacionAltaUsuario_Inicio = 
     "                                                                          \n"
     "                             ALTA USUARIO                                 \n"
