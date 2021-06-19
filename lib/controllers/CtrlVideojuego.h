@@ -49,7 +49,7 @@ class CtrlVideojuego : public IVideojuego
         //publicar videojuego
         void ingresarDatosVideojuego(string, string, float, float, float, float);
         void cancela_publicarVideojuego();
-        DtVideojuego mostrarVideojuego();
+        DtVideojuego* mostrarVideojuego();
         void confirma_publicarVideojuego();
         void seleccionarCategoria(string, TipoCat);
         set<DtCategoria*> listarCategoriasGenero();

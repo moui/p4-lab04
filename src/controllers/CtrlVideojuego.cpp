@@ -49,12 +49,12 @@ void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion
   this->costoV = ncv;
 }
 
-DtVideojuego CtrlVideojuego::mostrarVideojuego(){
+DtVideojuego* CtrlVideojuego::mostrarVideojuego(){
   set<DtCategoria*> tempcats;
   for (auto itcat = cats.begin(); itcat != cats.end(); ++itcat) {
     tempcats.insert((*itcat)->getDtCategoria());
   }
-  return DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, tempcats);
+  return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, tempcats);
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){
