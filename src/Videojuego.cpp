@@ -14,23 +14,21 @@ Videojuego::Videojuego(string nnombre, string ndescripcion, float costomensual, 
 
 DtDescripcionSuscripcion* Videojuego::getDatosDescripcionSuscripcion(TipoPeriodo p)
 {
-    DtDescripcionSuscripcion* res=NULL;
-    DescripcionSuscripcion* ds=NULL;
-    for(itdsVJ=descSuscripcionVJ.begin(); itdsVJ!=descSuscripcionVJ.end(); itdsVJ++)
+    DtDescripcionSuscripcion* res;
+    float cost;
+    switch (p)
     {
-        if((*itdsVJ)->getPeriodo()==p)
-        {
-            ds=*itdsVJ;
-        }
+        case TipoPeriodo::mensual : cost=this->costo1; break;
+        case TipoPeriodo::trimestral : cost=this->costo3; break;
+        case TipoPeriodo::anual : cost=this->costo12; break;
+        case TipoPeriodo::vitalicia : cost=this->costoV; break;
+        default: throw invalid_argument("Periodo no valido \n");
     }
-    if (ds==NULL)
-    {
-        throw invalid_argument("No se encontro Descripcion de suscripcion en el sistema. ");
-    } else
-    {
-        res= new DtDescripcionSuscripcion(ds->getNombre(), ds->getCosto(), p);
-    }
+
+    string nomVJ = this->nombre;
+    res = new DtDescripcionSuscripcion(nomVJ, cost, p);
     return res;
+   
 }
 
 string Videojuego::getNombreVJ(){
@@ -96,9 +94,7 @@ Videojuego::~Videojuego()
 {
 };
 
-void Videojuego::agregarDescripcionSuscripcion(DescripcionSuscripcion* ds){
-    descSuscripcionVJ.insert(ds);
-}
+
 
  void Videojuego::agregarSuscrito(string nomJ)
  {

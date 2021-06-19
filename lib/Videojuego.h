@@ -21,8 +21,6 @@ class Videojuego
 
     float costo1, costo3, costo12, costoV;
 
-    set <DescripcionSuscripcion*> descSuscripcionVJ;
-    set <DescripcionSuscripcion*>::iterator itdsVJ;
 
     set<string> suscritos;
 
@@ -64,7 +62,7 @@ class Videojuego
 
     void setCategoriasVJ(set<Categoria*> catvj); 
 
-    void agregarDescripcionSuscripcion(DescripcionSuscripcion* ds);
+
 
     //TJS
 
