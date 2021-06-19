@@ -33,7 +33,7 @@ class Desarrollador : public Usuario
  
     // Setters
     void setEmpresa(string empresa);
-    void publicarVJ(Videojuego vj);
+    void publicarVJ(Videojuego* vj);
     // void setEstadistica(IEstadistica e);
 
     void mostrarUsuario();

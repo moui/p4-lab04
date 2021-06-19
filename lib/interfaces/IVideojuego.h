@@ -17,12 +17,14 @@ class IVideojuego
         IVideojuego();
         virtual ~IVideojuego();
 
+        // Operaciones ALTA CATEGORIA
         virtual set<DtCategoria*> listarCategorias() = 0;
         virtual void agregarCategoria(string nnombre, string ndescripcion, TipoCat ntipo) = 0; 
         virtual void seleccionarCategoria(string nombre) = 0;
         virtual void confirma_agregarCategoria() = 0;
         virtual void cancela_agregarCategoria() = 0;
 
+        // Operaciones PUBLICAR VIDEOJUEGO
         virtual void ingresarDatosVideojuego(string, string, float, float, float, float) = 0;
         virtual void cancela_publicarVideojuego() = 0;
         virtual void confirma_publicarVideojuego() = 0;
