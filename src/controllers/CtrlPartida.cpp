@@ -77,7 +77,7 @@ set<DtPartidaIndividual*> listaPartidasIndTer(){
 void CtrlPartida::ENVivo(bool EnVivo){
 	this->enVivo = & EnVivo;
 }
-void cancelarIniciarPartida(){
+void CtrlPartida::cancelarIniciarPartida(){
 
 }
 
