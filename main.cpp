@@ -421,7 +421,35 @@ int main()
                         }
                         case 3:
                         {
-                            IUsr->listarVideojuegosPublicados();
+                            string vjelim;
+                            char conf;
+                            set<DtVideojuego*> setvjdes = IUsr->listarVideoJuegosDesarrollador();
+                            set<DtVideojuego*>::iterator itvid;
+                            cout << "VIDEOJUESO PUBLICADOS: " << endl << endl;
+                            if (setvjdes.empty())
+                                cout << "No existen videojuegos publicados en el catalogo." << endl << endl;
+                            for (itvid = setvjdes.begin(); itvid != setvjdes.end(); ++itvid){
+                                cout << *(*itvid) << endl;
+                            }
+                            cout << "Ingrese nombre de videojuego a eliminar: ";
+                            cin >> vjelim;
+                            IVid->videojuegoAEliminar(vjelim);
+                            cout << "Desea confirmar (E)liminar o (C)ancelar? ";
+                            cin >> conf;
+                            switch (conf)
+                            {
+                            case 'E':
+                                IVid->confirmar_eliminarVideoJuego();
+                                cout << "Videojuego eliminado." << endl << Constantes::Separador;
+                                break;
+                            case 'C':
+                                IVid->cancelar_eliminarVideoJuego();
+                                cout << "Eliminar cancelado." << endl << Constantes::Separador;
+                                break;
+                            default:
+                                cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                break;
+                            }
                             break;
                         }
                         case 4:
@@ -623,12 +651,25 @@ int main()
                         case 2:
                         {
                             // ASIGNAR PUNTAJE A VIDEOJUEGO
+                            IPar->cancelarIniciarPartida();
                             break;
                         }
                         case 3:
                         {
+                            
                             // INICIAR PARTIDA
-                            IPar->cancelarIniciarPartida();
+                            cout << Constantes::PresentacionIniciarPartida;
+                              // Listar videojuegos con suscripciones activas.
+                            cout << "SUSCRIPCIONES ACTIVAS" << endl << endl;
+                            set<DtVideojuegoSuscripcion*> videojuegos = IUsr->listarVideojuegoSuscripcionesActivas();
+                            for (auto it = videojuegos.begin(); it != videojuegos.end(); ++it)
+                            {
+                                DtVideojuegoSuscripcion* infoVideojuego = *it;
+                                cout << *(infoVideojuego) << endl;
+                            }
+                            
+
+
                             /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();

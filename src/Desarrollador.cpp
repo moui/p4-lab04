@@ -112,3 +112,14 @@ set<DtEstadistica*> Desarrollador::CalcularEstadisticas(string nomVJ)
       }
         return res;
 }
+
+set<DtVideojuego*> Desarrollador::getVJPub(){
+  set<DtVideojuego*> ret;
+  if(publicados.empty()){
+    throw invalid_argument("Videjuegos publicados vacio. \n");
+  }
+  for(set<Videojuego*>::iterator i=publicados.begin(); i!=publicados.end(); i++){
+    ret.insert((*i)->getDatatype());
+  }
+  return ret;
+}
