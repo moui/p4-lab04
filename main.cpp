@@ -267,7 +267,33 @@ int main()
                         }
                         case 2:
                         {
+                            string nombrevj, desvj, catgen, nombrecat;
+                            float c1, c3, c12, cv;
+                            bool exgen;
                             cout << Constantes::Separador << "PUBLICAR VIDEOJUEGO \n";
+                            cout << "Ingrese nombre del videojuego: ";
+                            cin >> nombrevj;
+                            cout << "Ingrese descripcion del videojuego: ";
+                            cin >> desvj;
+                            cout << "Ingrese costo de suscripcion mensual: ";
+                            cin >> c1;
+                            cout << "Ingrese costo de suscripcion trimestral: ";
+                            cin >> c3;
+                            cout << "Ingrese costo de suscripcion anual: ";
+                            cin >> c12;
+                            cout << "Ingrese costo de suscripcion vitalicia: ";
+                            cin >> cv;
+                            cout << "Catalogo de categorías de genero: " << endl;
+                            set<DtCategoria*> setcat = IVid->listarCategoriasGenero();
+                            set<DtCategoria*>::iterator itcat;
+                            for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
+                                cout << *(*itcat) << endl;
+                            }
+                            do {
+                                cin >> nombrecat;
+
+
+                            } while (exgen == true);
                             break;
                         }
                         case 3:

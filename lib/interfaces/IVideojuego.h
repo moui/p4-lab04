@@ -28,16 +28,16 @@ class IVideojuego
         virtual void ingresarDatosVideojuego(string, string, float, float, float, float) = 0;
         virtual void cancela_publicarVideojuego() = 0;
         virtual void confirma_publicarVideojuego() = 0;
+        virtual set<DtCategoria*> listarCategoriasGenero() = 0;
+        virtual set<DtCategoria*> listarCategoriasPlataforma() = 0;
+        virtual set<DtCategoria*> listarCategoriasOtros() = 0;
+
 
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
         virtual void videojuegoAEliminar(string nombre);
         virtual void cancelarEliminarVideoJuego();
         virtual void confirmarEliminarVideoJuego();
-        virtual void ingresarDatosVideojuego(DtVideojuego datos);
         virtual DtVideojuego mostrarVideojuego();
-        virtual void cancelaPublicarVideojuego();
-        virtual void confirmaPublicarVideojuego();
-        virtual void confirmaPublicarVideojuego(Videojuego * v); // no se si es correcto, pero lo podemos cambiar, esta en el diagrama
         virtual set<DtVideojuegoSuscripcion> ObtenerCatalogo();
         virtual void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
         virtual void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion

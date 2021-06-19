@@ -55,7 +55,7 @@ class ManejadorVideojuego {
 
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo();
         //IniciarPartida
-	    void setPartida(Partida* p);
+	      void setPartida(Partida* p);
 
         set<DtCategoria*> listarCategorias();
         set<DtCategoria*> listarCategoriasGenero();
