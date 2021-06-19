@@ -14,7 +14,11 @@ DtVideojuego::DtVideojuego(string nombre, string descripcion, float costo1, floa
 
 DtVideojuego::~DtVideojuego()
 {
-    
+    for (auto it = categorias.begin(); it != categorias.end(); ++it)
+    {
+        if (*it != NULL)
+            delete *it;
+    }
 }
 
 string DtVideojuego::getNombre()
@@ -55,6 +59,12 @@ ostream& operator<<(ostream& out, const DtVideojuego& dt)
     out << "Costo suscripcion 3 mes: " << dt.costo3 << endl;
     out << "Costo suscripcion 12 mes: " << dt.costo12 << endl;
     out << "Costo suscripcion vitalicia: " << dt.costoV << endl;
-
+    // Imprimir categorias
+    set<DtCategoria*>::iterator it;
+    out << endl << "Pertenece a categorias:" << endl;
+    for (it = dt.categorias.begin(); it != dt.categorias.end(); ++it)
+    {
+        out << *(*it);
+    }
     return out;
 }

@@ -20,6 +20,8 @@ class Constantes
 
         static const string PresentacionAgregarCategoria_Inicio;
 
+        static const string PresentacionPublicarVideojuego_Inicio;
+
         static const string PresentacionAltaUsuario_Inicio;
 
         static const string PresentacionIniciarSesion_Inicio;

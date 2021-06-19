@@ -37,6 +37,11 @@ const string Constantes::PresentacionIniciarSesion_Inicio =
     "                                                                          \n"
     ;
 
+const string Constantes::PresentacionPublicarVideojuego_Inicio =
+    "                                                                          \n"
+    "                          PUBLICAR VIDEOJUEGO                             \n"
+    "                                                                          \n";
+
 const string Constantes::PresentacionIniciarSesion_Fin =
     "Sesion iniciada como ";
 

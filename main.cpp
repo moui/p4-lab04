@@ -267,11 +267,12 @@ int main()
                         }
                         case 2:
                         {
+                            // PUBLICAR VIDEOJUEGO
                             string nombrevj, desvj, catgen, nombrecat;
                             float c1, c3, c12, cv;
                             int totCat = 0;
-                            cout << Constantes::Separador << "PUBLICAR VIDEOJUEGO \n";
-                            // ingresa datos basicos del videojuego
+                            cout << Constantes::PresentacionPublicarVideojuego_Inicio;
+                            // Ingresa datos basicos del videojuego
                             cout << "Ingrese nombre del videojuego: ";
                             cin >> nombrevj;
                             cout << "Ingrese descripcion del videojuego: ";
@@ -285,25 +286,34 @@ int main()
                             cout << "Ingrese costo de suscripcion vitalicia: ";
                             cin >> cv;
                             IVid->ingresarDatosVideojuego(nombrevj, desvj, c1, c3, c12, cv);
-                            // muestro catalogo categorias genero. selecciona al menos 1
+                            // Seleccionar categoria genero. Al menos 1
                             cout << "Catalogo de categorías de genero: " << endl;
-                            set<DtCategoria*> setcat = IVid->listarCategoriasGenero();
-                            set<DtCategoria*>::iterator itcat;
-                            if (setcat.empty())
+                            set<DtCategoria*> setCatGen = IVid->listarCategoriasGenero();
+                            set<DtCategoria*>::iterator itCat;
+                            if (setCatGen.empty())
                                 cout << "No existen categorias en el catalogo." << endl << endl;
-                            for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
-                                cout << *(*itcat) << endl;
+                            for (itCat = setCatGen.begin(); itCat != setCatGen.end(); ++itCat) {
+                                cout << *(*itCat) << endl;
                             }
-                            cout << "Ingrese los nombres de las categorias que desea (TIPO GENERO). Ingrese al menos una. Para continuar ingrese 0.";
+                            cout << "Ingrese los nombres de las categorias que desea (TIPO GENERO). Ingrese al menos una." << endl;
                             totCat = 0;
                             while (true) 
                             {
+                                cout << "Ingrese nombre o 'cont' para continuar: ";
                                 cin >> nombrecat;
-                                if (nombrecat == "0" && totCat > 1)    
+                                if (cin.fail())
+                                {
+                                    cin.clear();
+                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                    cout << "Error de lecture. Intente nuevamente.";
+                                    continue;
+                                }
+                                if (nombrecat == "cont" && totCat > 0)    
                                     break;
                                 try 
                                 {
                                     IVid->seleccionarCategoria(nombrecat, TipoCat::Genero);
+                                    cout << "Registrada categoria " << nombrecat << endl;
                                     totCat++;
                                 }
                                 catch (const std::invalid_argument &err)
@@ -311,16 +321,32 @@ int main()
                                     cerr << "Error: " << err.what() << '\n';
                                 }
                             }
-                            cout << "Ingrese los nombres de las categorias que desea (TIPO PLATAFORMA). Ingrese al menos una. Para continuar ingrese 0.";
+                            // Seleccionar categoria plataforma. Al menos 1
+                            set<DtCategoria*> setCatPlat = IVid->listarCategoriasPlataforma();
+                            if (setCatPlat.empty())
+                                cout << "No existen categorias en el catalogo." << endl << endl;
+                            for (itCat = setCatPlat.begin(); itCat != setCatPlat.end(); ++itCat) {
+                                cout << *(*itCat) << endl;
+                            }
+                            cout << "Ingrese los nombres de las categorias que desea (TIPO PLATAFORMA). Ingrese al menos una." << endl;
                             totCat = 0;
                             while (true) 
                             {
+                                cout << "Ingrese nombre o 'cont' para continuar: ";
                                 cin >> nombrecat;
-                                if (nombrecat == "0" && totCat > 1)    
+                                if (!cin.good())
+                                {
+                                    cin.clear();
+                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                    cout << "Error de lecture. Intente nuevamente.";
+                                    continue;
+                                }
+                                if (nombrecat == "cont" && totCat > 0)    
                                     break;
                                 try 
                                 {
                                     IVid->seleccionarCategoria(nombrecat, TipoCat::Plataforma);
+                                    cout << "Registrada categoria " << nombrecat << endl;
                                     totCat++;
                                 }
                                 catch (const std::invalid_argument &err)
@@ -328,15 +354,32 @@ int main()
                                     cerr << "Error: " << err.what() << '\n';
                                 }
                             }
-                            cout << "Ingrese los nombres de las categorias que desea (TIPO OTRO). No hay minimo. Para continuar ingrese 0.";
+                            // Seleccionar categoria otros. Sin minimo.
+                            set<DtCategoria*> setCatOtros = IVid->listarCategoriasOtros();
+                            if (setCatOtros.empty())
+                                cout << "No existen categorias en el catalogo." << endl << endl;
+                            for (itCat = setCatOtros.begin(); itCat != setCatOtros.end(); ++itCat) 
+                            {
+                                cout << *(*itCat) << endl;
+                            }
+                            cout << "Ingrese los nombres de las categorias que desea (TIPO OTRO). No hay minimo." << endl;
                             while (true) 
                             {
+                                cout << "Ingrese nombre o 'cont' para continuar: ";
                                 cin >> nombrecat;
-                                if (nombrecat == "0")    
+                                if (!cin.good())
+                                {
+                                    cin.clear();
+                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                    cout << "Error de lecture. Intente nuevamente.";
+                                    continue;
+                                }
+                                if (nombrecat == "cont")
                                     break;
                                 try 
                                 {
-                                    IVid->seleccionarCategoria(nombrecat, TipoCat::Plataforma);
+                                    IVid->seleccionarCategoria(nombrecat, TipoCat::Otro);
+                                    cout << "Registrada categoria " << nombrecat << endl;  
                                     totCat++;
                                 }
                                 catch (const std::invalid_argument &err)
@@ -344,8 +387,30 @@ int main()
                                     cerr << "Error: " << err.what() << '\n';
                                 }
                             }
-                            cout << Constantes::Separador << "VIDEOJUEGO A PUBLICAR: \n";
-                            cout << IVid->mostrarVideojuego() << Constantes::Separador;
+                            // Mostrar info videojuego.
+                            DtVideojuego* infoVideojuego = IVid->mostrarVideojuego(); 
+                            cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR: \n"
+                                 << *infoVideojuego << endl;
+                            // Borrar memoria DtCats y DtVideojueo
+                            delete infoVideojuego; 
+                            if (!setCatGen.empty())
+                                for (itCat = setCatGen.begin(); itCat != setCatGen.end(); ++itCat)
+                                {
+                                    if (*itCat != NULL)
+                                        delete *itCat;
+                                }
+                            if (!setCatPlat.empty())
+                                for (itCat = setCatPlat.begin(); itCat != setCatPlat.end(); ++itCat)
+                                {
+                                    if (*itCat != NULL)
+                                        delete *itCat;
+                                }
+                            if (!setCatOtros.empty())
+                                for (itCat = setCatOtros.begin(); itCat != setCatOtros.end(); ++itCat)
+                                {
+                                    if (*itCat != NULL)
+                                        delete *itCat;
+                                }
                             break;
                         }
                         case 3:
