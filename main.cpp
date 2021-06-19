@@ -269,6 +269,7 @@ int main()
                         {
                             // PUBLICAR VIDEOJUEGO
                             string nombrevj, desvj, catgen, nombrecat;
+                            char conf;
                             float c1, c3, c12, cv;
                             int totCat = 0;
                             cout << Constantes::PresentacionPublicarVideojuego_Inicio;
@@ -305,7 +306,7 @@ int main()
                                 {
                                     cin.clear();
                                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lecture. Intente nuevamente.";
+                                    cout << "Error de lectura. Intente nuevamente.";
                                     continue;
                                 }
                                 if (nombrecat == "cont" && totCat > 0)    
@@ -338,7 +339,7 @@ int main()
                                 {
                                     cin.clear();
                                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lecture. Intente nuevamente.";
+                                    cout << "Error de lectura. Intente nuevamente.";
                                     continue;
                                 }
                                 if (nombrecat == "cont" && totCat > 0)    
@@ -371,7 +372,7 @@ int main()
                                 {
                                     cin.clear();
                                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lecture. Intente nuevamente.";
+                                    cout << "Error de lectura. Intente nuevamente.";
                                     continue;
                                 }
                                 if (nombrecat == "cont")
@@ -391,6 +392,25 @@ int main()
                             DtVideojuego* infoVideojuego = IVid->mostrarVideojuego(); 
                             cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR: \n"
                                  << *infoVideojuego << endl;
+
+                            //alta o cancela
+                            cout << "Desea confirmar el (A)lta o (C)ancelar? ";
+                            cin >> conf;
+                            switch (conf)
+                            {
+                            case 'A':
+                                IVid->confirma_publicarVideojuego();
+                                cout << "Videojuego publicado." << endl << Constantes::Separador;
+                                break;
+                            case 'C':
+                                IVid->cancela_publicarVideojuego();
+                                cout << "Alta cancelada." << endl << Constantes::Separador;
+                                break;
+                            default:
+                                cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                break;
+                            }
+
                             // Borrar memoria DtCats y DtVideojueo
                             delete infoVideojuego; 
                             if (!setCatGen.empty())
