@@ -230,7 +230,7 @@ int main()
                             cin >> nombrecat;
                             cout << "Ingrese la descripcion de la nueva categoria: ";
                             cin >> descricat;
-                            cout << "Ingrese el tipo de la nueva categoria (Plataforma, Genero, Otro): ";
+                            cout << "Ingrese el tipo de la nueva categoria ((0)Plataforma, (1)Genero, (2)Otro): ";
                             cin >> tipoca;
                             IVid->agregarCategoria(nombrecat, descricat, tipoca);
                             cout << "Desea confirmar el (A)lta o (C)ancelar? ";
@@ -251,7 +251,7 @@ int main()
                         }
                         case 2:
                         {
-                            // PUBLICAR VIDEOJUEGO
+                            cout << Constantes::Separador << "PUBLICAR VIDEOJUEGO \n";
                             break;
                         }
                         case 3:

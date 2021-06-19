@@ -62,8 +62,8 @@ class CtrlVideojuego : public IVideojuego
         void cancela_agregarCategoria();
         
         //IniciarPartida
-	void iniciadaP(Partida* p);
-	Videojuego* getVJ(string nomVJ);
+	    void iniciadaP(Partida* p);
+	    Videojuego* getVJ(string nomVJ);
 };
 
 #endif
