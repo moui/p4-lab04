@@ -253,6 +253,16 @@ int main()
                                 cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
                                 break;
                             }
+
+                            if (!setcat.empty())
+                            {
+                                for (itcat = setcat.begin(); itcat != setcat.end(); ++itcat)
+                                {
+                                    if (*itcat != NULL)
+                                        delete *itcat;
+                                }
+                                setcat.clear();
+                            }
                             break;
                         }
                         case 2:
