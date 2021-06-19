@@ -158,9 +158,10 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
+
+        Suscripcion* s= jugador->getSuscripcion(nomVJ);
         if (s!=NULL)
         {
-            Suscripcion* s= jugador->getSuscripcion(nomVJ);
             if (s->getVitalicia()) {
                 throw invalid_argument( "No se puede cancelar suscripcion Vitalicia. " );
             }
