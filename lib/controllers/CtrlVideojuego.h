@@ -45,6 +45,7 @@ class CtrlVideojuego : public IVideojuego
         //suscribirse a Videojuego (caso de uso en CtrlUsuario), devuelve copia del catalogo
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
         DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p, string nomVJ);
+        void agregarSuscrito(string nomVJ, string nomJ);
 
         //publicar videojuego
         void ingresarDatosVideojuego(string, string, float, float, float, float);

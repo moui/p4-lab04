@@ -105,3 +105,7 @@ void Videojuego::agregarDescripcionSuscripcion(DescripcionSuscripcion* ds){
     descSuscripcionVJ.insert(ds);
 }
 
+ void Videojuego::agregarSuscrito(string nomJ)
+ {
+     suscritos.insert(nomJ);
+ }

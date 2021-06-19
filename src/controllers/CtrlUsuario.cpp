@@ -98,6 +98,11 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
             throw invalid_argument("no se guardaron los datos en el sistema. ");
         }
         jugador->AltaSuscripcion(datosDescripcionSuscripcion, pagoSuscripcion);
+        CtrlVideojuego* ctrlvidejuego;
+        ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
+        string nomVJ = datosDescripcionSuscripcion->getNombre();
+        string nomJ=jugador->getMail();
+        ctrlvidejuego->agregarSuscrito(nomVJ, nomJ);
 
 
     }
