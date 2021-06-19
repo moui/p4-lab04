@@ -33,7 +33,6 @@ class IVideojuego
         virtual void seleccionarCategoria(string, TipoCat) = 0;
         virtual DtVideojuego mostrarVideojuego();
 
-
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
         virtual void videojuegoAEliminar(string nombre);
         virtual void cancelarEliminarVideoJuego();
