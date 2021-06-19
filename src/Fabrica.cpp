@@ -37,6 +37,11 @@ IVideojuego* Fabrica::getIVideojuego()
     return CtrlVideojuego::getCtrlVideojuego();
 }
 
+IPartida* Fabrica::getIPartida()
+{
+    return CtrlPartida::getCtrlPartida();
+}
+
 // Destruir
 void Fabrica::destruir()
 {
@@ -45,6 +50,9 @@ void Fabrica::destruir()
 
     CtrlVideojuego* IVid = CtrlVideojuego::getCtrlVideojuego();
     delete IVid;
+
+    CtrlPartida* IPar = CtrlPartida::getCtrlPartida();
+    delete IPar;
     
     delete instancia;
 }

@@ -15,6 +15,8 @@ class IPartida //aca
         IPartida();
         virtual ~IPartida();
 
+        virtual void cancelarIniciarPartida() = 0;
+
        /* virtual void iniciarPartida();
         virtual void abandonarPartidaMultijugador();
         virtual void FinalizarPartida();

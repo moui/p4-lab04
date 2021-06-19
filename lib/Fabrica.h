@@ -3,8 +3,10 @@
 
 #include "interfaces/IUsuario.h"
 #include "interfaces/IVideojuego.h"
+#include "interfaces/IPartida.h"
 #include "controllers/CtrlUsuario.h"
 #include "controllers/CtrlVideojuego.h"
+#include "controllers/CtrlPartida.h"
 
 using namespace std;
 
@@ -22,6 +24,7 @@ class Fabrica
         // GetInterfaces
         IUsuario* getIUsuario();
         IVideojuego* getIVideojuego();
+        IPartida* getIPartida();
         // GetInstance
 	    static Fabrica* getInstancia();
 

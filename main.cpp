@@ -29,6 +29,8 @@ int main()
     FechaSistema *fechaSistema = new FechaSistema();
     IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
     IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego();
+    IPartida *IPar = Fabrica::getInstancia()->getIPartida();
+
     string mail, contrasena;
     int operacion = 1;
     cout << Constantes::MenuPrincipal;
@@ -220,9 +222,11 @@ int main()
                             string nombrecat, descricat;
                             char conf;
                             TipoCat tipoca;
-                            cout << Constantes::Separador << " Catalogo de Categorias: \n";
+                            cout << Constantes::PresentacionAgregarCategoria_Inicio << "CATALOGO DE CATEGORIAS" << endl << endl;
                             set<DtCategoria*> setcat = IVid->listarCategorias();
                             set<DtCategoria*>::iterator itcat;
+                            if (setcat.empty())
+                                cout << "No existen categorias en el catalogo." << endl << endl;
                             for (auto itcat = setcat.begin(); itcat != setcat.end(); ++itcat) {
                                 cout << *(*itcat) << endl;
                             }
@@ -230,7 +234,7 @@ int main()
                             cin >> nombrecat;
                             cout << "Ingrese la descripcion de la nueva categoria: ";
                             cin >> descricat;
-                            cout << "Ingrese el tipo de la nueva categoria ((0)Plataforma, (1)Genero, (2)Otro): ";
+                            cout << "Ingrese el tipo de la nueva categoria (0)Plataforma, (1)Genero, (2)Otro: ";
                             cin >> tipoca;
                             IVid->agregarCategoria(nombrecat, descricat, tipoca);
                             cout << "Desea confirmar el (A)lta o (C)ancelar? ";
@@ -239,9 +243,11 @@ int main()
                             {
                             case 'A':
                                 IVid->confirma_agregarCategoria();
+                                cout << "Categoria agregada." << endl << Constantes::Separador;
                                 break;
                             case 'C':
                                 IVid->cancela_agregarCategoria();
+                                cout << "Alta cancelada." << endl << Constantes::Separador;
                                 break;
                             default:
                                 cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
@@ -489,6 +495,7 @@ int main()
                         case 3:
                         {
                             // INICIAR PARTIDA
+                            IPar->cancelarIniciarPartida();
                             /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
@@ -651,7 +658,9 @@ int main()
             IVid->confirma_agregarCategoria();
 
             IVid->agregarCategoria("Play Station 5", "Cheto como Leonel Messi", TipoCat::Plataforma);
-            IVid->confirma_agregarCategoria();           
+            IVid->confirma_agregarCategoria();
+
+            cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
         case 0:
             // SALIR
