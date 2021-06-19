@@ -807,6 +807,40 @@ int main()
             IVid->agregarCategoria("Play Station 5", "Cheto como Leonel Messi", TipoCat::Plataforma);
             IVid->confirma_agregarCategoria();
 
+            //carga videojuegos
+            IUsr->iniciarSesion("ironhide@mail.com", "123");
+            IVid->ingresarDatosVideojuego("KingdomRush", "Ta tremendo", 1, 2, 7, 14);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Estrategia", TipoCat::Genero);
+            IVid->seleccionarCategoria("E", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();
+
+            IUsr->iniciarSesion("epic@mail.com", "123");
+            IVid->ingresarDatosVideojuego("Fortnite", "El del baile", 3, 8, 30, 60);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Xbox One", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Supervivencia", TipoCat::Genero);
+            IVid->seleccionarCategoria("Teen", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();
+
+            IUsr->iniciarSesion("mojang@mail.com", "123");
+            IVid->ingresarDatosVideojuego("Minecraft", "En este hicieron la FIng", 2, 5, 20, 40);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Supervivencia", TipoCat::Genero);
+            IVid->seleccionarCategoria("Teen", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();
+
+            IUsr->iniciarSesion("ea@mail.com", "123");
+            IVid->ingresarDatosVideojuego("FIFA 21", "Fubolito", 3, 8, 28, 50);
+            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Xbox One", TipoCat::Plataforma);
+            IVid->seleccionarCategoria("Deporte", TipoCat::Genero);
+            IVid->seleccionarCategoria("E", TipoCat::Otro);
+            IVid->confirma_publicarVideojuego();            
+
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
         case 0:
