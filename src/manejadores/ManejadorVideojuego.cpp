@@ -5,7 +5,19 @@ ManejadorVideojuego::ManejadorVideojuego(){}
 
 // Destructor
 ManejadorVideojuego::~ManejadorVideojuego(){
+    for (itvj = videojuegos.begin(); itvj != videojuegos.end(); itvj++)
+    {
+        if (itvj->second != NULL)
+            delete itvj->second;
+    }
     videojuegos.clear();
+
+    for (itc = categorias.begin(); itc != categorias.end(); itc++)
+    {
+        if (itc->second != NULL)
+            delete itc->second;
+    }
+    categorias.clear();
     //descSuscripcion.clear();
 }
 //getters

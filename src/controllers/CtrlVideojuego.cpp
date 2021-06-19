@@ -6,6 +6,7 @@ CtrlVideojuego* CtrlVideojuego::instancia = NULL;
 
 CtrlVideojuego::~CtrlVideojuego()
 {
+  delete manejadorVideojuego;
 }
 
 CtrlVideojuego::CtrlVideojuego()
