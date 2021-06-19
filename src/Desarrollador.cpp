@@ -27,6 +27,10 @@ void Desarrollador::setEmpresa(string empresa)
 
 void Desarrollador::mostrarUsuario(){ cout << "des"; }
 
+void Desarrollador::publicarVJ(Videojuego* videojuego)
+{
+  publicados.insert(videojuego);
+}
 
 //seleccionar estadistica
 
