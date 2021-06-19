@@ -70,6 +70,7 @@ class Videojuego
     //TJS
 
     void agregarSuscrito(string nomJ);
+    int getSuscritos();
 
 };
 
