@@ -59,8 +59,12 @@ void CtrlVideojuego::cancela_publicarVideojuego(){
   //limpiar el set de categorias! y la otra memoria por las dudas
 }
 
-void CtrlVideojuego::seleccionarCategoria(string nombre){
-  cats.insert(manejadorVideojuego->buscarCategoria(nombre));
+void CtrlVideojuego::seleccionarCategoria(string nombre, TipoCat tcat){
+  Categoria* tempcat = manejadorVideojuego->buscarCategoria(nombre);
+  if (tempcat->getTipoCat() == tcat)
+    cats.insert(manejadorVideojuego->buscarCategoria(nombre));
+  else
+    throw invalid_argument( "El nombre no corresponde a una categoria del tipo indicado." );
 }
 
 void CtrlVideojuego::confirma_publicarVideojuego(){

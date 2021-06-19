@@ -295,14 +295,19 @@ int main()
                                 cout << *(*itcat) << endl;
                             }
                             cout << "Ingrese los nombres de las categorias que desea. Ingrese al menos una. Para continuar ingrese 0.";
+                            int i = 0;
                             do {
-                                int i = 0;
                                 cin >> nombrecat;
-                                if (nombrecat == "0" && i > 1)    
+                                if (nombrecat == "0" && i > 1){}    
                                     exgen = false;
-                                IVid->seleccionarCategoria(nombrecat);
+                                try {
+                                    IVid->seleccionarCategoria(nombrecat, TipoCat::Genero);
+                                }
+                                catch (const std::invalid_argument &err){
+                                    cerr << "Error: " << err.what() << '\n';
+                                }
+                                i++;
                             } while (exgen == true);
-
                             break;
                         }
                         case 3:

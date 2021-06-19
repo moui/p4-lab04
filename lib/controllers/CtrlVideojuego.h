@@ -50,7 +50,7 @@ class CtrlVideojuego : public IVideojuego
         void cancela_publicarVideojuego();
         DtVideojuego mostrarVideojuego();
         void confirma_publicarVideojuego();
-        void seleccionarCategoria(string nombre);
+        void seleccionarCategoria(string, TipoCat);
         set<DtCategoria*> listarCategoriasGenero();
         set<DtCategoria*> listarCategoriasPlataforma();
         set<DtCategoria*> listarCategoriasOtros();
