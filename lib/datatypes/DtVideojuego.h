@@ -2,38 +2,38 @@
 #define DT_VIDEOJUEGO
 
 #include <string>
+#include <ostream>
 #include <set>
 
-using namespace std;
+using std::string;
+using std::ostream;
+using std::endl;
 
 class DtVideojuego
 {
-  private:
-    string nombre, descripcion;
-    float costo1, costo3, costo12, costoV, thj;
-    float totalHorasDeJuego;
+    private:
+        string nombre, descripcion;
+        float costo1, costo3, costo12, costoV; 
+        float* totalHorasDeJuego;
 
-  public:
-    ~DtVideojuego();
-    DtVideojuego(string, string, float, float, float, float);
+    public:
+        // CTOR y DTOR
+        DtVideojuego(string nombre, string descripcion, float costo1, float costo3, float costo12, 
+            float costoV, float* totalHorasDeJuego);
 
-    //getters
-    string getNombre();
-    string getDescripcion();
-    float getCosto1();
-    float getCosto3();
-    float getCosto12();
-    float getCostoV();
-    float getthj();
+        ~DtVideojuego();
 
-    //setters
-    void setNombre(string);
-    void setDescripcion(string);
-    void setCosto1(float c1);
-    void setCosto3(float c3);
-    void setCosto12(float c12);
-    void setCostoV(float cV);
-    void setthj(float thj);
+        // Getters
+        string getNombre();
+        string getDescripcion();
+        float getCosto1();
+        float getCosto3();
+        float getCosto12();
+        float getCostoV();
+        float* getTotalHorasDeJuego();
+
+        // Sobrecarga
+        friend ostream& operator<<(ostream& out, const DtVideojuego& dt);
 };
 
 #endif

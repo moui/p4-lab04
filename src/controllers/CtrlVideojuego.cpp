@@ -50,7 +50,7 @@ void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion
 }
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
-  return DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV);
+  return DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, NULL);
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){

@@ -37,8 +37,8 @@ void DtCategoria::setTipo(TipoCat tipo){
 }
 
 std::ostream& operator<<(std::ostream& out,const DtCategoria& dt){
-    out << "Nombre: " << dt.getNombre() << endl;
-    out << "Descripcion: " << dt.getDescripcion() << endl;
+    out << "Nombre: " << dt.nombre << endl;
+    out << "Descripcion: " << dt.descripcion << endl;
     out << "Tipo: ";
     switch (dt.getTipo()) {
         case TipoCat::Plataforma:
