@@ -158,11 +158,13 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
-
-        Suscripcion* s= jugador->getSuscripcion(nomVJ);
-        if (s->getVitalicia()) {
-            throw invalid_argument( "No se puede cancelar suscripcion Vitalicia. " );
-        }
+        if (s!=NULL)
+        {
+            Suscripcion* s= jugador->getSuscripcion(nomVJ);
+            if (s->getVitalicia()) {
+                throw invalid_argument( "No se puede cancelar suscripcion Vitalicia. " );
+            }
+        }    
         res = s->getEstado();
 
         return res;
@@ -183,7 +185,7 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
     set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesActivas(){
         set<DtVideojuegoSuscripcion*> res;
-        this->Dcatalogo=ObtenerCatalogo();
+       // this->Dcatalogo=ObtenerCatalogo();
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
         res=jugador->listarVideojuegoSuscripcionesActivas(Dcatalogo);
