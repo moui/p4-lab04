@@ -137,6 +137,11 @@ Videojuego* CtrlVideojuego::getVJ(string nomVJ){
 	return manejadorVideojuego->buscarVideojuego(nomVJ);
 }
 
+DtVideojuego* CtrlVideojuego::verInfoVideojuego(string nombre)
+{
+  Videojuego* videojuego = getVJ(nombre);
+  return videojuego->getDatatype();
+}
 
 set<DtCategoria*> CtrlVideojuego::listarCategoriasGenero(){
   return manejadorVideojuego->listarCategoriasGenero();
