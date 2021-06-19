@@ -50,9 +50,7 @@ void CtrlVideojuego::ingresarDatosVideojuego(string nnombre, string ndescripcion
 }
 
 DtVideojuego CtrlVideojuego::mostrarVideojuego(){
-  DtVideojuego ret;
-  return ret; //implementar metodo que tome los datos de la memoria y los muestre en un DtVideojuego.
-  //Tambien la sobrecarga del operador DtVideojuego
+  return DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV);
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){
