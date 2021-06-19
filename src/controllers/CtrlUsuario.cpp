@@ -165,9 +165,9 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
             if (s->getVitalicia()) {
                 throw invalid_argument( "No se puede cancelar suscripcion Vitalicia. " );
             }
-        }    
+            
         res = s->getEstado();
-
+        }
         return res;
     }
 
