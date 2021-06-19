@@ -108,6 +108,11 @@ DtDescripcionSuscripcion* CtrlVideojuego::getDatosDescripcionSuscripcion(TipoPer
   
 }
 
+void CtrlVideojuego::agregarSuscrito(string nomVJ, string nomJ)
+{
+  manejadorVideojuego->agregarSuscrito(nomVJ, nomJ);
+}
+
 
 
 //categorias

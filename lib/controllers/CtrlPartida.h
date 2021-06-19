@@ -17,6 +17,9 @@
 
 using namespace std;
 
+class CtrlUsuario;
+class CtrlVideojuego;
+
 class CtrlPartida : public IPartida
 {
     private:

@@ -33,5 +33,9 @@ void TotalJugadoresSuscritos::setValor(float v)
 
 DtEstadistica* TotalJugadoresSuscritos::calcular(Videojuego*v){
     DtEstadistica* res=NULL;
+    int tjs= v->getSuscritos();
+    float valor = static_cast<float>(tjs);
+    res= new DtEstadistica("Total Jugadores Suscritos", valor);
+
     return res;
 }

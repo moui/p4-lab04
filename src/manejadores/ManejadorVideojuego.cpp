@@ -83,6 +83,14 @@ map<string, DtVideojuegoSuscripcion*> ManejadorVideojuego::ObtenerCatalogo(){
     return res;
 }
 
+void ManejadorVideojuego::agregarSuscrito(string nomVJ, string nomJ)
+{
+    itvj=videojuegos.find(nomVJ);
+    (itvj->second)->agregarSuscrito(nomJ);
+
+}
+
+
 //IniciarPartida
 void ManejadorVideojuego::setPartida(Partida* p){
 	p->getVideojuego()->setPartida(p);

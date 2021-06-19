@@ -24,6 +24,8 @@ class Videojuego
     set <DescripcionSuscripcion*> descSuscripcionVJ;
     set <DescripcionSuscripcion*>::iterator itdsVJ;
 
+    set<string> suscritos;
+
     set<Categoria*> categoriasvj;
     set<Categoria*>::iterator itcatvj;
   public:
@@ -64,6 +66,11 @@ class Videojuego
     void setCategoriasVJ(set<Categoria*> catvj); 
 
     void agregarDescripcionSuscripcion(DescripcionSuscripcion* ds);
+
+    //TJS
+
+    void agregarSuscrito(string nomJ);
+    int getSuscritos();
 
 };
 

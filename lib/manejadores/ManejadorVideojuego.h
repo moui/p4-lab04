@@ -54,6 +54,8 @@ class ManejadorVideojuego {
         //suscribirse
 
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo();
+        void agregarSuscrito(string nomVJ, string nomJ);
+
         //IniciarPartida
 	      void setPartida(Partida* p);
 
