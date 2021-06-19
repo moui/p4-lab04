@@ -162,8 +162,7 @@ void Jugador::CancelarSuscripcion(string nomVJ) //se repite codigo para no recor
       throw invalid_argument( "No existe suscripcion. " );
     }
     else {
-      suscripto.erase(it);
-      delete res;
+      res->setTipoEstado(TipoEstado::cancelada);
     }
 
 }
