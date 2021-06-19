@@ -92,9 +92,6 @@ void ManejadorVideojuego::agregarSuscrito(string nomVJ, string nomJ)
 
 
 //IniciarPartida
-void ManejadorVideojuego::setPartida(Partida* p){
-	p->getVideojuego()->setPartida(p);
-}
 
 set<DtCategoria*> ManejadorVideojuego::listarCategorias(){
     set<DtCategoria*> ret;

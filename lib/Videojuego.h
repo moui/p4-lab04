@@ -20,7 +20,6 @@ class Videojuego
 
     float costo1, costo3, costo12, costoV;
 
-    Partida **tiene;
     set <DescripcionSuscripcion*> descSuscripcionVJ;
     set <DescripcionSuscripcion*>::iterator itdsVJ;
 
@@ -38,8 +37,6 @@ class Videojuego
 
     string getNombreVJ();
 
-    Partida ** getTienePartida();
-
     float getCosto1();
     float getCosto3();
     float getCosto12();
@@ -53,7 +50,6 @@ class Videojuego
     //setters
 
     void setNombreVJ(string);
-    void setTienePartida(Partida **);
     void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);
     void setCategoria(Categoria*);
