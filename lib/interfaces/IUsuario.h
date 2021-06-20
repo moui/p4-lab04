@@ -5,6 +5,7 @@
 #include <set>
 #include "../datatypes/DtUsuario.h"
 #include "../datatypes/DtEstadistica.h"
+#include "../datatypes/DtVideojuego.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
 #include "../datatypes/TipoEstado.h"
 
@@ -41,8 +42,12 @@ class IUsuario
 
         //CONSULTAR ESTADISTICA
 
-        virtual set<string> listarVideojuegosPublicados()=0;
+        virtual set<string> listarVideojuegosPublicados() = 0;
         virtual set<DtEstadistica*> ConsultarEstadisticas(string nomVJ)=0;
+
+
+        //eliminar
+        virtual set<DtVideojuego*> listarVideoJuegosDesarrollador() = 0;
 };
 
 #endif
