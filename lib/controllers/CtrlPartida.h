@@ -23,28 +23,29 @@ class CtrlVideojuego;
 class CtrlPartida : public IPartida
 {
     private:
-        set<PartidaIndividual*> partidasI;
-        set<PartidaMultijugador*> partidasM;
-	float cantP;
-
         static CtrlPartida * instancia;
         CtrlPartida();
 	
 	ManejadorPartida* manejadorPartida;
 	
 	//Memoria
+        /*
 	string nomVJ;
 	float f;
 	bool* enVivo;
 	set<string> mails;
+        */
 
     public:
         ~CtrlPartida();
 
-        static CtrlPartida * getCtrlPartida();
+        static CtrlPartida* getCtrlPartida();
 
 	ManejadorPartida* getManejadorPatida();
 
+        void cancelarIniciarPartida() {} // Implementacion IPartida
+
+        /*
         void crearPartida(string nombreVJ);
         void partidaAContinuar(float id);
         void listaJugUnidos(set<string> Mails);
@@ -55,7 +56,9 @@ class CtrlPartida : public IPartida
         void cancelarIniciarPartida();
         set<DtPartida*> listaPartidasIniciadas();
         void finalizarPartida(DtFechaHora f, float id);
-        void cancelarFinalizarPartida(); 
+        void cancelarFinalizarPartida();
+
+        */
 
 };
 

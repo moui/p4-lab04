@@ -727,7 +727,56 @@ int main()
                                 DtVideojuegoSuscripcion* infoVideojuego = *it;
                                 cout << "Nombre videojuego: " << infoVideojuego->getNombreVideojuego() << endl << endl;
                             }
-                            
+
+                            string tipoPartida, continua;
+                            cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
+                            cin >> tipoPartida;
+
+                            if (tipoPartida == "I")
+                            {
+                                // INICIAR PARTIDA INDIVIDUAL
+                                // Continuar partida anterior?
+                                cout << "Continuar partida anterior? (Y/N): " << endl;
+                                cin >> continua;
+                                if (continua == "Y")
+                                {
+                                    // Lista partidas individuales ya finalizadas.
+                                    // por orden crronologico. Mostrar ID, Fecha y Duracion
+
+                                    // Ingresar ID de partida a continuar.
+                                    
+                                    // Alta partida.
+
+
+
+
+
+
+
+
+                                }
+                                else if (continua == "N")
+                                {
+
+                                }
+                                else 
+                                {
+                                    cout << "Parametro invalido." << endl;
+                                }
+                            }
+                            else if (tipoPartida == "M")
+                            {
+                                // INICIAR PARTIDA MULTIJUGADOR
+
+
+
+                            }
+                            else
+                            {
+                                // Invalid read.
+
+
+                            }
 
 
                            /*try 
