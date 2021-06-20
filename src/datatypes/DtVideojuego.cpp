@@ -1,7 +1,7 @@
 #include "../../lib/datatypes/DtVideojuego.h"
 
 DtVideojuego::DtVideojuego(string nombre, string descripcion, float costo1, float costo3, float costo12, 
-    float costoV, set<DtCategoria*> categorias, float promedio)
+    float costoV, set<DtCategoria*> categorias, float promedio, float thj)
 {
     this->nombre = nombre;
     this->descripcion = descripcion;
@@ -11,6 +11,7 @@ DtVideojuego::DtVideojuego(string nombre, string descripcion, float costo1, floa
     this->costoV = costoV;
     this->categorias = categorias;
     this->ppromedio = promedio;
+    this->tothorasjuego = thj;
 }
 
 DtVideojuego::~DtVideojuego()
@@ -70,4 +71,17 @@ ostream& operator<<(ostream& out, const DtVideojuego& dt)
         out << endl << *(*it);
     }
     return out;
+}
+
+float DtVideojuego::getPromedio(){
+    return this->ppromedio;
+}
+void DtVideojuego::setPromedio(float prom){
+    this->ppromedio = prom;
+}
+float DtVideojuego::getTotalHorasJugadas(){
+    return this->tothorasjuego;
+}
+void DtVideojuego::setTotalHorasJugadas(float thj){
+    this->tothorasjuego = thj;
 }

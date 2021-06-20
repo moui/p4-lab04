@@ -43,6 +43,7 @@ class ManejadorPartida {
 		int getTotalPartidasMulti();
 		//ABANDONAR PARTIDA MJ
 
+		void ConfirmarAbandonarPartida(string mail, int partidaMJ);
 		set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
 
 };

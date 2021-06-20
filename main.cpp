@@ -548,7 +548,8 @@ int main()
                             {
                                 DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
                                 cout << "INFORMACION VIDEOJUEGO" << endl << endl
-                                     << *(infoVideojuego) << Constantes::Separador;
+                                     << *(infoVideojuego) << endl;
+                                cout << "Total de horas jugadas: " << (*infoVideojuego).getTotalHorasJugadas() << endl << Constantes::Separador << endl;
                                 delete infoVideojuego;
                             }
                             catch (const std::invalid_argument &err)
@@ -556,7 +557,6 @@ int main()
                                 cerr << "Error: " << err.what() << '\n';
                                 cout << Constantes::Separador;
                             }
-                            // FALTA AGREGAR QUE SI ES DESARROLLADOR LE MUESTRE EL TOTAL DE HORAS JUGADAS
                             break;
                         }
                         case 0:
@@ -905,12 +905,22 @@ int main()
                         }
                         case 4: //ABANDONAR PARTIDA MULTIJUGADOR
                         {
-                            string partidaMJ;
+                            int partidaMJ;
                             cout << Constantes::PresentacionAbandonarPartidaMultijugador;
                             set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listarPartidasMultijugadorUnidas();
                             cout << "Por favor, ingrese el identificador de la partida que desea abandonar:  \n";
                             cin >> partidaMJ;
-                            
+                            try 
+                            {
+                            IUsr->ConfirmarAbandonarPartida(partidaMJ);
+
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
                             break;
                         }
                         case 5:
