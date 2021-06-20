@@ -21,7 +21,7 @@ class DtPartida
         string getNombreVJ();
         float getId();
         float getDuracion();
-        DtFechaHora getFecha();
+        DtFechaHora* getFecha();
 };
 
 #endif

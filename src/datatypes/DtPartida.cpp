@@ -30,7 +30,7 @@ float DtPartida::getDuracion()
   return duracion;
 }
 
-DtFechaHora DtPartida::getFecha()
+DtFechaHora* DtPartida::getFecha()
 {
   return fecha;
 }
