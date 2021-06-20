@@ -727,7 +727,6 @@ int main()
                         }
                         case 3:
                         {
-                            
                             // INICIAR PARTIDA
                             cout << Constantes::PresentacionIniciarPartida;
                               // Listar videojuegos con suscripciones activas.
@@ -740,9 +739,10 @@ int main()
                             }
 
                             string tipoPartida, continua, nombreVideojuego, confirma;
+                            int idContinuacion;
+
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
-
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
                             try
                             {
@@ -781,13 +781,22 @@ int main()
                                         delete dataPartida;
                                     }
                                     // Ingresar ID de partida a continuar.
-                                    cin >> continua;
+                                    cin >> idContinuacion;
+                                    if (cin.fail())
+                                    {
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.clear();
+                                        cout << "Parametro invalido." << endl;
+                                        break;
+                                    }
+                                    DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, new int(idContinuacion));
                                     // Alta partida.
                                 }
                                 else if (continua == "N")
                                 {
                                     DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
-                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, false);
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, NULL);
                                 }
                                 else 
                                 {
@@ -818,9 +827,6 @@ int main()
                                 IPar->altaPartida(datosPartida);
                                 cout << "Alta partida exitosa" << endl;
                             }
-
-                                
-
                             // Limpiar memoria
                             delete datosPartida;
                             cout << Constantes::Separador;
@@ -850,8 +856,26 @@ int main()
                         case 5:
                         {
                             // FINALIZAR PARTIDA
+                            int partidaI;
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            try 
+                            {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
-                            
+                            cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
+                            cin >> partidaI;
+
+                            IPar->finalizarPartida(fechaSistema->getFecha(), partidaI);
+
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
+                            break;
+                            ;
+
                             break;
                         }
                         case 6:

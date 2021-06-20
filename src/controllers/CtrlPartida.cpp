@@ -32,7 +32,6 @@ ManejadorPartida* CtrlPartida::getManejadorPatida()
 	return manejadorPartida;
 }
 
-
 // INICIAR PARTIDA
 
 set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideojuego)
@@ -65,7 +64,12 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 			if ( !partidaInd->getFinalizada() || nombreVid != nombreVideojuego )
 				continue;
 			// Agregar data 'partidaInd' a 'partidas'	
-			bool continuacion = partidaInd->getContinuada() == NULL ? false : true;
+			int* continuacion;
+			if (partidaInd->getContinuada() == NULL)
+				continuacion = NULL;
+			else
+				continuacion = new int(partidaInd->getContinuada()->getId());
+				
 			partidas.insert(new DtPartidaIndividual(partidaInd->getId(), partidaInd->getDuracion(),
 				partidaInd->getFecha(), NULL, nombreVid, continuacion)
 				);
@@ -175,13 +179,13 @@ set<DtPartida*> CtrlPartida::listaPartidasIniciadas(){
     return a;
 }
 
-}
-
-void CtrlPartida::finalizarPartida(DtFechaHora f, int id){
-	CtrlUsuario* ctrlUsuario;
-    ctrlUsuario = CtrlUsuario::getInstancia();
-	ctrlUsuario->finPartida(f, id);
 }*/
+
+void CtrlPartida::finalizarPartida(DtFechaHora* fin, int id){
+	Partida* par = manejadorPartida->getPI(id);
+	par->setFechaFin(fin);
+	//calcular duracion y setearla tambien
+}
 
 void cancelarFinalizarPartida(){
 

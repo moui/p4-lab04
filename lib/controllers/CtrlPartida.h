@@ -47,14 +47,14 @@ class CtrlPartida : public IPartida
 
 	    ManejadorPartida* getManejadorPatida();
 
-        void cancelarIniciarPartida() {} // Implementacion IPartida
+        // INICIAR PARTIDA
 
         // Devuelve set<DtPartidaInd*> con las partidas individuales
             // finalizadas del jugador que inicio sesion.
-        set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego); 
+        set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego);         
 
         void altaPartida(DtPartida* datosPartida);
-        void finalizarPartida(DtFechaHora f, int id);
+        void finalizarPartida(DtFechaHora* fin, int id);
 
         /*
         void crearPartida(string nombreVJ);
