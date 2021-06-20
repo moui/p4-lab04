@@ -74,8 +74,8 @@ DtVideojuego* Videojuego::getDatatype()
         Categoria* cat = *itcatvj;
         dtCategorias.insert(cat->getDtCategoria());
     }
-
-    return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias, ppromedio);
+    calcularTotalHorasJugadas();
+    return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias, ppromedio, tothorasjuego);
 }
 
 
@@ -134,4 +134,12 @@ void Videojuego::calcularPromedio(){
 
 float Videojuego::getPromedio(){
     return ppromedio;
+}
+
+float Videojuego::getTotalHorasJugadas(){
+    return this->tothorasjuego;
+}
+
+void Videojuego::calcularTotalHorasJugadas(){
+    this->tothorasjuego = 10;
 }

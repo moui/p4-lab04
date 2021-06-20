@@ -165,6 +165,23 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         return res;
     }
 
+    TipoEstado CtrlUsuario::getEstadoSuscripcion(string nombreVideojuego)
+    {
+        Usuario* user= CtrlUsuario::getSesionActiva();
+        if (dynamic_cast<Jugador*>(user) == NULL)
+            throw invalid_argument("Usuario loggeado debe ser jugador");
+        
+        Jugador* jugador = dynamic_cast<Jugador*>(user);
+        Suscripcion* suscripcion = jugador->getSuscripcion(nombreVideojuego);
+
+        if (suscripcion == NULL)
+            throw invalid_argument(
+                jugador->getMail() + " no cuenta con suscripciones activas para " + nombreVideojuego
+                );
+        
+        return suscripcion->getEstado();
+    }
+
 
     set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesActivas(){
         set<DtVideojuegoSuscripcion*> res;
@@ -258,6 +275,7 @@ set<DtEstadistica*> CtrlUsuario::ConsultarEstadisticas(string nomVJ)
     }
     return res;
 }
+
 
 
 // Implementacion de caso de uso Alta Usuario

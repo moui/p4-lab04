@@ -66,7 +66,7 @@ class CtrlUsuario : public IUsuario
         void CancelarOperacion();
         void CancelarSuscripcion(string nomVJ);
         void AltaSuscripcion();
-
+        TipoEstado getEstadoSuscripcion(string nombreVideojuego);
 
         // SELECCIONAR ESTADISTICAS
 

@@ -12,14 +12,12 @@
 
 using namespace std;
 
-// class Partida;
-
 class Videojuego
 {
   private:
     string nombre, descripcion;
 
-    float costo1, costo3, costo12, costoV, ppromedio;
+    float costo1, costo3, costo12, costoV, ppromedio, tothorasjuego;
 
     set<string> suscritos;
 
@@ -51,6 +49,7 @@ class Videojuego
     DtVideojuego* getDatatype();
 
     float getPromedio();
+    float getTotalHorasJugadas();
 
     //setters
 
@@ -65,6 +64,7 @@ class Videojuego
     void setCostoV(float cV);
 
     void calcularPromedio();
+    void calcularTotalHorasJugadas();
 
     void setCategoriasVJ(set<Categoria*> catvj); 
 

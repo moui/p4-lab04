@@ -33,9 +33,14 @@ ManejadorPartida* CtrlPartida::getManejadorPatida()
 }
 
 
+// INICIAR PARTIDA
 
-set<DtPartidaIndividual*> partidasIndFinalizadas()
+set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideojuego)
 {
+	// Checkear que el videojuego exista en el catalogo
+	if (CtrlVideojuego::getCtrlVideojuego()->getVJ(nombreVideojuego) == NULL)
+		throw invalid_argument("No existe videojuego " + nombreVideojuego);
+
 	set<DtPartidaIndividual*> partidas;
 	// Get usuario loggeado
 	Usuario* usuario =  CtrlUsuario::getInstancia()->getSesionActiva();
@@ -46,24 +51,57 @@ set<DtPartidaIndividual*> partidasIndFinalizadas()
 	map<float, Partida*> partidasJugador = jugador->getInicioPartidas();
 	
 	if (partidasJugador.empty())
-		return partidas;
+		return partidas; // Si no existen partidasJugador retorna el set vacio
 	else
 	{
 		for (auto it = partidasJugador.begin(); it != partidasJugador.end(); ++it)
 		{
 			if ( dynamic_cast<PartidaIndividual*>(it->second) == NULL )
 				continue;
-			
-			// Agregar data 'partidaInd' a 'partidas'
+			// Castear a partida individual, checkear si esta finalizada
+			// y si es el videojuego que se pide
 			auto partidaInd = dynamic_cast<PartidaIndividual*>(it->second);
 			string nombreVid = partidaInd->getVideojuego()->getNombreVJ();
-			
+			if ( !partidaInd->getFinalizada() || nombreVid != nombreVideojuego )
+				continue;
+			// Agregar data 'partidaInd' a 'partidas'	
+			bool continuacion = partidaInd->getContinuada() == NULL ? false : true;
+			partidas.insert(new DtPartidaIndividual(partidaInd->getId(), partidaInd->getDuracion(),
+				partidaInd->getFecha(), nombreVid, continuacion)
+				);
 		}
 	}
-
 	return partidas;
 }
 
+
+void CtrlPartida::altaPartida(DtPartida* datosPartida)
+{
+	// Determinar tipo partida
+	if ( dynamic_cast<DtPartidaIndividual*>(datosPartida) != NULL )
+	{
+		// ALTA PARTIDA INDIVIDUAL
+		auto datosPartidaInd = dynamic_cast<DtPartidaIndividual*>(datosPartida);
+		if (datosPartidaInd->getContinuacion())
+		{
+			// CONTINUA PARTIDA ANTERIOR
+		}
+		else
+		{
+			// NO CONTINUA PARTIDA ANTERIOR
+			int id = manejadorPartida->getTotalPartidasInd();
+			Videojuego* videojueo = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
+			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
+			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, videojueo, NULL);
+			manejadorPartida->AgregarPartidaIndividual(id, partida);
+		}
+	}
+	else
+	{
+		// ALTA PARTIDA MULTIJUGADOR
+
+	}
+}
 
 /*
 

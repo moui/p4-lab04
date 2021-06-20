@@ -39,8 +39,8 @@ class ManejadorPartida {
 		PartidaMultijugador* getPM(int id);
 		void AgregarPartidaIndividual(int id, PartidaIndividual* pi);
 		void AgregarPartidaMultijugador(int id, PartidaMultijugador* pm);
-
-
+		int getTotalPartidasInd();
+		int getTotalPartidasMulti();
 		//ABANDONAR PARTIDA MJ
 
 		void ConfirmarAbandonarPartida(string mail, int partidaMJ);
