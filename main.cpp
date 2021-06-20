@@ -700,6 +700,7 @@ int main()
                         {
                             // ASIGNAR PUNTAJE A VIDEOJUEGO
                             string nombre;
+                            TipoPuntaje puntos;
                             map<string, string> setvjsistema = IVid->listarNombresVideojuego();
                             map<string, string>::iterator itvj;
                             cout << "CATALOGO VIDEOJUEGOS: " << endl << endl;
@@ -712,6 +713,16 @@ int main()
                             cout << "Ingrese el nombre de un videojuego: ";
                             cin.ignore();
                             getline(cin, nombre);
+                            cout << "Ingrese un puntaje del 1 al 5: ";
+                            cin >> puntos;
+                            try {
+                                IVid->asignarPuntajeVideojuego(nombre, puntos);
+                                cout << "Puntaje asignado.\n" << Constantes::Separador;       
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                            }
                             break;
                         }
                         case 3:

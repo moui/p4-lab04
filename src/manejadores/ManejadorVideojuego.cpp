@@ -162,3 +162,11 @@ map<string, string> ManejadorVideojuego::listarNombresVideojuego(){
     }
     return ret;
 }
+
+void ManejadorVideojuego::asignarPuntajeVideojuegoJ(string nombrevj, string nickname, TipoPuntaje puntaje){
+    if (!videojuegos.empty()){
+        itvj = videojuegos.find(nombrevj);
+        itvj->second->setPuntajeVJ(nickname, puntaje);
+        videojuegos.erase(itvj);
+    }
+}

@@ -38,14 +38,9 @@ class IVideojuego
         virtual void confirmar_eliminarVideoJuego() = 0;
         virtual map<string, string> listarNombresVideojuego() = 0;
 
-       /* virtual set<string>listarVideoJuegosDesarrollador()=0;
+        virtual void asignarPuntajeVideojuego(string, TipoPuntaje) = 0;
 
-
-        virtual set<DtVideojuegoSuscripcion> ObtenerCatalogo();
-        virtual void SuscribirseVideojuego(TipoPago pago, TipoPeriodo periodo);
-        virtual void AgregarSuscripcion(Suscripcion *s); //para agregar en descSuscripcion
-        virtual void AltaSuscripcion(); //faltan parametros
-        virtual DtVideojuego verInfoVideojuego(string nombre); */
+       /* virtual set<string>listarVideoJuegosDesarrollador()=0; */
 };
 
 #endif

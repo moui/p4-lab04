@@ -55,7 +55,6 @@ class Videojuego
 
     void setNombreVJ(string);
     void setDescripcionVJ(string);
-    void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);
     void setCategoria(Categoria*);
 
