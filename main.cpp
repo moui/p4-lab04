@@ -439,8 +439,17 @@ int main()
                             switch (conf)
                             {
                             case 'E':
-                                IVid->confirmar_eliminarVideoJuego();
-                                cout << "Videojuego eliminado." << endl << Constantes::Separador;
+                                try 
+                                {
+                                    IVid->confirmar_eliminarVideoJuego();
+                                    cout << "Videojuego eliminado." << endl << Constantes::Separador;
+                                }
+                                catch (const std::invalid_argument &err)
+                                {
+                                    cerr << "Error: " << err.what() << '\n';
+                                }
+
+
                                 break;
                             case 'C':
                                 IVid->cancelar_eliminarVideoJuego();
@@ -449,6 +458,13 @@ int main()
                             default:
                                 cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
                                 break;
+                            }
+                            if (!setvjdes.empty()){
+                                for (itvid = setvjdes.begin(); itvid != setvjdes.end(); ++itvid)
+                                {
+                                    if (*itvid != NULL)
+                                        delete *itvid;
+                                }
                             }
                             break;
                         }
