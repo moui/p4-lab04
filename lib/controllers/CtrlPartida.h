@@ -52,7 +52,7 @@ class CtrlPartida : public IPartida
         // Devuelve set<DtPartidaInd*> con las partidas individuales
             // finalizadas del jugador que inicio sesion.
         set<DtPartidaIndividual*> partidasIndFinalizadas(); 
-
+        
 
 
 

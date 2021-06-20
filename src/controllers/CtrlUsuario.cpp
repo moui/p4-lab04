@@ -292,7 +292,6 @@ void CtrlUsuario::cancelaAlta(){
 
 }
 
-
 set<DtVideojuego*> CtrlUsuario::listarVideoJuegosDesarrollador(){
     set<DtVideojuego*> res;
     Desarrollador* des = dynamic_cast<Desarrollador*>(CtrlUsuario::getSesionActiva());
