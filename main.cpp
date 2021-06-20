@@ -439,8 +439,17 @@ int main()
                             switch (conf)
                             {
                             case 'E':
-                                IVid->confirmar_eliminarVideoJuego();
-                                cout << "Videojuego eliminado." << endl << Constantes::Separador;
+                                try 
+                                {
+                                    IVid->confirmar_eliminarVideoJuego();
+                                    cout << "Videojuego eliminado." << endl << Constantes::Separador;
+                                }
+                                catch (const std::invalid_argument &err)
+                                {
+                                    cerr << "Error: " << err.what() << '\n';
+                                }
+
+
                                 break;
                             case 'C':
                                 IVid->cancelar_eliminarVideoJuego();
@@ -449,6 +458,13 @@ int main()
                             default:
                                 cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
                                 break;
+                            }
+                            if (!setvjdes.empty()){
+                                for (itvid = setvjdes.begin(); itvid != setvjdes.end(); ++itvid)
+                                {
+                                    if (*itvid != NULL)
+                                        delete *itvid;
+                                }
                             }
                             break;
                         }
@@ -674,7 +690,7 @@ int main()
                             
 
 
-                            /*try 
+                           /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
 			                  cout << "SUSCRIPCIONES ACTIVAS: \n";
@@ -685,25 +701,78 @@ int main()
                               string nomVJ;                            
                               cout << "Seleccione un Videojuego al que jugar: \n";
                               cin >> nomVJ;
-			                  IPar->crearPartida(nomVJ);
-			                  char tipo;
-			                  cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
-			                  cin >> tipo;
-			                  switch(tipo) 
-			                  {
-				                case'I' 
-				                {
-				                    try{
-				                        char cont;
+			      IPar->crearPartida(nomVJ);
+			      char tipo;
+			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
+			      cin >> tipo;
+			      switch(tipo) 
+			      {
+				 case'I' 
+				 {
+				     try{
+				        char cont;
                                         cout << "Desea continuar una partida previa Y/n? \n";
-				                        cin >> cont;
-				                        if {
-					
-				                        }
-				                    }
-			                    }
-			                  }
-			                }*/
+				        cin >> cont;
+				        switch(cont) 
+					{
+					  case'Y'
+					  {
+					    set<DtPartidaIndividual*> indter = IPar->listaPartidasIndTer();
+					    cout << "Partidas Individuales Previas: \n";
+                              		    for (set<DtPartidaIndividual*>::iterator itit=indter.begin(); itit!=indter.end(); itit++){
+                                   	    cout<< *itit;
+                              		  };
+					  float acont;
+					  cout << "Ingrese la Id de la Partida a Continuar: \n";
+					  cin >> acont;
+					  IPar->partidaAContinuar(acont);
+					}
+				     }
+			             cactch(){
+			             }
+				 }
+				 case'M'
+				 {
+				   set<string> js = IPar->listaJugSus();
+				   cout << "Jugadores Que Pueden Unirse: \n";
+                              	   for (set<string>::iterator itjs=js.begin(); itjs!=js.end(); itjs++){
+                                   	cout << *itjs;
+                              	   };
+				   set<string> jugUn;
+				   cout << "Eligue los Jugadores Que se Uniran A la Parida: \n";
+				   char set = Y;
+				   while (set == Y){
+					string jug;
+					cin >> jug;
+					jugUn.insert(jug);
+					cout << "Quiere Ingresar Otro Jugador Y/n? \n";
+					cin >> set;
+				   } 
+				   IPar->listaJugUnidos(jugUn);
+				   char vivo;
+				   cout << "La Partida Sera en Vivo Y/n? \n";
+				   cin >> vivo;
+				   switch(vivo){
+					case'Y'{
+					  IPar->ENVivo(true);
+					}
+					case'n'{
+					  IPar->ENVivo(false);
+					}
+				   }
+				 }
+			       }
+			       char conf;
+			       cout << "Confirmar Iniciar Partida Y/n? \n";
+			       switch{
+			         case'Y'{
+				 	IPar->confirmarIniciarPartida(fechaSistema);
+				 }
+				 case'n'{
+				 	IPar->cancelarIniciarPartida();
+				 }
+			       }
+			    }*/
                             break;
                         }
                         case 4:
