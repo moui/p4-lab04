@@ -21,8 +21,12 @@ ManejadorVideojuego::~ManejadorVideojuego(){
     //descSuscripcion.clear();
 }
 //getters
-Videojuego* ManejadorVideojuego::buscarVideojuego(string clave){
-    return (videojuegos.find(clave)->second);
+Videojuego* ManejadorVideojuego::buscarVideojuego(string clave)
+{
+    if (videojuegos.find(clave) == videojuegos.end())
+        return NULL;
+    else 
+        return videojuegos.find(clave)->second;
 }
 
 /*DescripcionSuscripcion* ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){

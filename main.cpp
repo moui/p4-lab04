@@ -678,10 +678,18 @@ int main()
                             cout << "Ingrese el nombre del videojuego: ";
                             cin.ignore();
                             getline(cin, nombre);
-                            DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
-                            cout << "INFORMACION VIDEOJUEGO" << endl << endl
-                                 << *(infoVideojuego) << Constantes::Separador;
-                            delete infoVideojuego;
+                            try 
+                            {
+                                DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
+                                cout << "INFORMACION VIDEOJUEGO" << endl << endl
+                                     << *(infoVideojuego) << Constantes::Separador;
+                                delete infoVideojuego;
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
                             break;
                         }
                         case 0:

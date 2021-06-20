@@ -140,7 +140,10 @@ Videojuego* CtrlVideojuego::getVJ(string nomVJ){
 DtVideojuego* CtrlVideojuego::verInfoVideojuego(string nombre)
 {
   Videojuego* videojuego = getVJ(nombre);
-  return videojuego->getDatatype();
+  if (videojuego == NULL)
+    throw invalid_argument("Videojuego no existe en el catalogo.");
+  else   
+    return videojuego->getDatatype();
 }
 
 set<DtCategoria*> CtrlVideojuego::listarCategoriasGenero(){
