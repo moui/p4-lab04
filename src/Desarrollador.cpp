@@ -32,6 +32,11 @@ void Desarrollador::publicarVJ(Videojuego* videojuego)
   publicados.insert(videojuego);
 }
 
+void Desarrollador::quitarVJ(Videojuego* videojuego)
+{
+  publicados.erase(videojuego);
+}
+
 //seleccionar estadistica
 
 void Desarrollador::agregarEstadistica(int stat)

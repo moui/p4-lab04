@@ -18,10 +18,10 @@ DtDescripcionSuscripcion* Videojuego::getDatosDescripcionSuscripcion(TipoPeriodo
     float cost;
     switch (p)
     {
-        case TipoPeriodo::mensual : cost=this->costo1; break;
-        case TipoPeriodo::trimestral : cost=this->costo3; break;
-        case TipoPeriodo::anual : cost=this->costo12; break;
-        case TipoPeriodo::vitalicia : cost=this->costoV; break;
+        case TipoPeriodo::Mensual : cost=this->costo1; break;
+        case TipoPeriodo::Trimestral : cost=this->costo3; break;
+        case TipoPeriodo::Anual : cost=this->costo12; break;
+        case TipoPeriodo::Vitalicia : cost=this->costoV; break;
         default: throw invalid_argument("Periodo no valido \n");
     }
 

@@ -218,7 +218,7 @@ void Jugador::AltaSuscripcion(DtDescripcionSuscripcion* dtDS, TipoPago p)
   float c=dtDS->getCosto();
   TipoEstado e= TipoEstado::activa;
   bool v;
-  (dtDS->getPeriodo()==TipoPeriodo::vitalicia) ? v=true : v=false;
+  (dtDS->getPeriodo()==TipoPeriodo::Vitalicia) ? v=true : v=false;
 
   suscripto.insert(new Suscripcion(nomVJ, f, c, p, e, v));
 

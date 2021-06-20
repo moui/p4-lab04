@@ -18,16 +18,16 @@ inline std::istream& operator>> ( std::istream& in, TipoPeriodo& t ){
 
 inline std::ostream& operator<<(std::ostream& out, const TipoPeriodo& t){
     switch (t) {
-        case TipoPeriodo::mensual:
+        case TipoPeriodo::Mensual:
             out << "Mensual";
             break;
-        case TipoPeriodo::trimestral:
+        case TipoPeriodo::Trimestral:
             out << "Trimestral";
             break;
-        case TipoPeriodo::anual:
+        case TipoPeriodo::Anual:
             out << "Anual";
             break;
-        case TipoPeriodo::vitalicia:
+        case TipoPeriodo::Vitalicia:
             out << "Vitalicia";
             break;
     }

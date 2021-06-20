@@ -135,10 +135,10 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         }
         switch(b)
         {
-            case 1:periodo=TipoPeriodo::mensual; break; 
-            case 3:periodo=TipoPeriodo::trimestral; break; 
-            case 12:periodo=TipoPeriodo::anual; break;
-            case 0:periodo=TipoPeriodo::vitalicia; break;
+            case 1:periodo=TipoPeriodo::Mensual; break; 
+            case 3:periodo=TipoPeriodo::Trimestral; break; 
+            case 12:periodo=TipoPeriodo::Anual; break;
+            case 0:periodo=TipoPeriodo::Vitalicia; break;
             default: throw invalid_argument( "Periodo de validez invalido. " ); break;        
         }
         CtrlVideojuego* ctrlvidejuego;
