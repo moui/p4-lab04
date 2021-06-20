@@ -421,7 +421,14 @@ int main()
                         }
                         case 3:
                         {
-                            IUsr->listarVideojuegosPublicados();
+                            set<DtVideojuego*> setvjdes = IUsr->listarVideoJuegosDesarrollador();
+                            set<DtVideojuego*>::iterator itvid;
+                            cout << "VIDEOJUESO PUBLICADOS: " << endl << endl;
+                            if (setvjdes.empty())
+                                cout << "No existen videojuegos publicados en el catalogo." << endl << endl;
+                            for (itvid = setvjdes.begin(); itvid != setvjdes.end(); ++itvid){
+                                cout << *(*itvid) << endl;
+                            }
                             break;
                         }
                         case 4:
