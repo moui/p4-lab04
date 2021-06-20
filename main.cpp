@@ -634,12 +634,25 @@ int main()
                         case 2:
                         {
                             // ASIGNAR PUNTAJE A VIDEOJUEGO
+                            IPar->cancelarIniciarPartida();
                             break;
                         }
                         case 3:
                         {
+                            
                             // INICIAR PARTIDA
-                            IPar->cancelarIniciarPartida();
+                            cout << Constantes::PresentacionIniciarPartida;
+                              // Listar videojuegos con suscripciones activas.
+                            cout << "SUSCRIPCIONES ACTIVAS" << endl << endl;
+                            set<DtVideojuegoSuscripcion*> videojuegos = IUsr->listarVideojuegoSuscripcionesActivas();
+                            for (auto it = videojuegos.begin(); it != videojuegos.end(); ++it)
+                            {
+                                DtVideojuegoSuscripcion* infoVideojuego = *it;
+                                cout << *(infoVideojuego) << endl;
+                            }
+                            
+
+
                             /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();

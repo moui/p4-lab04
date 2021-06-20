@@ -31,6 +31,11 @@ const string Constantes::PresentacionAltaUsuario_Inicio =
     "                             ALTA USUARIO                                 \n"
     "                                                                          \n";
 
+const string Constantes::PresentacionIniciarPartida =
+    "                                                                          \n"
+    "                            INICIAR PARTIDA                               \n"
+    "                                                                          \n";
+
 const string Constantes::PresentacionIniciarSesion_Inicio =
     "                                                                          \n"
     "                             INICIAR SESION                               \n"

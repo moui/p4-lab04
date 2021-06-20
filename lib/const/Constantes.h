@@ -22,6 +22,8 @@ class Constantes
 
         static const string PresentacionPublicarVideojuego_Inicio;
 
+        static const string PresentacionIniciarPartida;
+
         static const string PresentacionAltaUsuario_Inicio;
 
         static const string PresentacionIniciarSesion_Inicio;
