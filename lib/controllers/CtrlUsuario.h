@@ -95,7 +95,7 @@ class CtrlUsuario : public IUsuario
 	set<DtPartida*> listaPartidasIniciadas();
 	void finPartida(DtFechaHora f, float id);
 
-    set<DtVideojuego> listarVideoJuegosDesarrollador();
+    set<DtVideojuego*> listarVideoJuegosDesarrollador();
 };
 
 #endif

@@ -325,7 +325,7 @@ void CtrlUsuario::finPartida(DtFechaHora f, float id){
 }
 
 
-set<DtVideojuego> CtrlUsuario::listarVideoJuegosDesarrollador(){
-    
-
+set<DtVideojuego*> CtrlUsuario::listarVideoJuegosDesarrollador(){
+    set<DtVideojuego*> a;
+    return a;
 }
