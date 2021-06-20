@@ -875,10 +875,14 @@ int main()
 			    }*/
                             break;
                         }
-                        case 4:
+                        case 4: //ABANDONAR PARTIDA MULTIJUGADOR
                         {
+                            string partidaMJ;
                             cout << Constantes::PresentacionAbandonarPartidaMultijugador;
                             set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listarPartidasMultijugadorUnidas();
+                            cout << "Por favor, ingrese el identificador de la partida que desea abandonar:  \n";
+                            cin >> partidaMJ;
+                            
                             break;
                         }
                         case 5:

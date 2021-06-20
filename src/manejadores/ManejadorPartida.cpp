@@ -58,7 +58,7 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 	for (itPM=partidasM.begin(); itPM!=partidasM.end(); itPM++)
 	{
 		auto it=itPM->second->getParticipan().find(mailJugador);
-		if ( it != itPM->second->getParticipan().end())
+		if ( it != itPM->second->getParticipan().end() && !(itPM->second->getFinalizada()) )
 		{
 			set<string> nicknameUnidos;
 			for ( auto itUnidos = (itPM)->second->getParticipan().begin(); itUnidos!= (itPM)->second->getParticipan().end(); itUnidos++)
