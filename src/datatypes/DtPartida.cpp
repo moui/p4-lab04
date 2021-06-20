@@ -11,6 +11,8 @@ DtPartida::DtPartida(int id, float duracion, DtFechaHora* fecha, string n)
 
 DtPartida::~DtPartida()
 {
+  if (fecha != NULL)
+    delete fecha;
 }
 
 // Getters

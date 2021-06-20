@@ -89,7 +89,11 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 		else
 		{
 			// NO CONTINUA PARTIDA ANTERIOR
-			
+			int id = manejadorPartida->getTotalPartidasInd();
+			Videojuego* videojueo = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
+			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
+			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, videojueo, NULL);
+			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 	}
 	else

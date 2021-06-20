@@ -739,11 +739,27 @@ int main()
                                 cout << "Nombre videojuego: " << infoVideojuego->getNombreVideojuego() << endl << endl;
                             }
 
-                            string tipoPartida, continua, nombreVideojuego;
+                            string tipoPartida, continua, nombreVideojuego, confirma;
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
                             cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
                             cin >> tipoPartida;
+
+                            // Checkear que tenga suscripcion activa para el videojuego ingresado
+                            try
+                            {
+                                TipoEstado estadoSuscripcion = IUsr->getEstadoSuscripcion(nombreVideojuego);
+                                if ( estadoSuscripcion != TipoEstado::activa )
+                                    throw invalid_argument("Suscripcion para " + nombreVideojuego + " esta inactiva.");
+                            }
+                            catch (exception &e)
+                            {
+                                cout << "Error: " << e.what() << endl << endl;
+                                cout << Constantes::Separador;
+                                break;
+                            }
+
+                            DtPartida* datosPartida;
 
                             if (tipoPartida == "I")
                             {
@@ -766,16 +782,16 @@ int main()
                                     // Ingresar ID de partida a continuar.
                                     cin >> continua;
                                     // Alta partida.
-
-
                                 }
                                 else if (continua == "N")
                                 {
-
+                                    DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, nombreVideojuego, false);
                                 }
                                 else 
                                 {
                                     cout << "Parametro invalido." << endl;
+                                    break;
                                 }
                             }
                             else if (tipoPartida == "M")
@@ -788,10 +804,19 @@ int main()
                             else
                             {
                                 // Invalid read.
-
+                                cout << "Parametro invalido." << endl;
+                                break;
 
                             }
 
+                            // CONFIRMAR ALTA
+                            cout << "Confirma alta partida? (Y/N) " << endl;
+                            cin >> confirma;
+                            if (confirma == "Y")
+                                IPar->altaPartida(datosPartida);
+
+                            // Limpiar memoria
+                            delete datosPartida;
 
                            /*try 
                             {

@@ -35,6 +35,7 @@ class IUsuario
         virtual TipoEstado JuegoSuscribirse(string nomVJ)=0;
         virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas()=0;
         virtual set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesNoActivas()=0;
+        virtual TipoEstado getEstadoSuscripcion(string nombreVideojuego) = 0;
 
         //seleccionar estadisticas
 
