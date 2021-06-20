@@ -996,17 +996,7 @@ int main()
             IVid->seleccionarCategoria("Deporte", TipoCat::Genero);
             IVid->seleccionarCategoria("E", TipoCat::Otro);
             IVid->confirma_publicarVideojuego();
-            delete usr; 
-
-            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
-            IVid->ingresarDatosVideojuego("FIFA 21", "Fubolito", 3, 8, 28, 50);
-            IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
-            IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
-            IVid->seleccionarCategoria("Xbox One", TipoCat::Plataforma);
-            IVid->seleccionarCategoria("Deporte", TipoCat::Genero);
-            IVid->seleccionarCategoria("E", TipoCat::Otro);
-            IVid->confirma_publicarVideojuego();
-            delete usr;              
+            delete usr;       
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
