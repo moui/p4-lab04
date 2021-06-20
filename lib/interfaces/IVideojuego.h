@@ -32,7 +32,7 @@ class IVideojuego
         virtual set<DtCategoria*> listarCategoriasOtros() = 0;
         virtual void seleccionarCategoria(string, TipoCat) = 0;
         virtual DtVideojuego* mostrarVideojuego() = 0;
-        virtual DtVideojuego* verInfoVideojuego() = 0;
+        virtual DtVideojuego* verInfoVideojuego(string nombre) = 0;
 
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
         virtual void videojuegoAEliminar(string nombre);
