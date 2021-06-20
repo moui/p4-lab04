@@ -25,7 +25,7 @@ ManejadorPartida::~ManejadorPartida()
 }
 
 //Getters y Setters
-PartidaIndividual* ManejadorPartida::getPI(float id)
+PartidaIndividual* ManejadorPartida::getPI(int id)
 {
 	if (partidasI.find(id) == partidasI.end())
 		return NULL;
@@ -33,7 +33,7 @@ PartidaIndividual* ManejadorPartida::getPI(float id)
 	return (partidasI.find(id)->second);
 }
 
-PartidaMultijugador* ManejadorPartida::getPM(float id)
+PartidaMultijugador* ManejadorPartida::getPM(int id)
 {
 	if (partidasM.find(id) == partidasM.end())
 		return NULL;
@@ -41,14 +41,14 @@ PartidaMultijugador* ManejadorPartida::getPM(float id)
 	return (partidasM.find(id)->second);
 }
 
-void ManejadorPartida::AgregarPartidaIndividual(float id, PartidaIndividual* pi)
+void ManejadorPartida::AgregarPartidaIndividual(int id, PartidaIndividual* pi)
 {
-	partidasI.insert( pair <float, PartidaIndividual*>(id,pi) );
+	partidasI.insert( pair <int, PartidaIndividual*>(id,pi) );
 }
 
-void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador* pm)
+void ManejadorPartida::AgregarPartidaMultijugador(int id, PartidaMultijugador* pm)
 {
-	partidasM.insert( pair <float,PartidaMultijugador*>(id,pm) );
+	partidasM.insert( pair <int,PartidaMultijugador*>(id,pm) );
 }
 
 int ManejadorPartida::getTotalPartidasMulti()
@@ -68,7 +68,7 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 	for (itPM=partidasM.begin(); itPM!=partidasM.end(); itPM++)
 	{
 		auto it=itPM->second->getParticipan().find(mailJugador);
-		if ( it != itPM->second->getParticipan().end())
+		if ( it != itPM->second->getParticipan().end() && !(itPM->second->getFinalizada()) )
 		{
 			set<string> nicknameUnidos;
 			for ( auto itUnidos = (itPM)->second->getParticipan().begin(); itUnidos!= (itPM)->second->getParticipan().end(); itUnidos++)
