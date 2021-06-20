@@ -323,9 +323,3 @@ set<DtPartida*> CtrlUsuario::listaPartidasIniciadas(){
 void CtrlUsuario::finPartida(DtFechaHora f, float id){
 	manejadorUsuario->finPartida(sesionActiva->getMail(), f, id);
 }
-
-
-set<DtVideojuego*> CtrlUsuario::listarVideoJuegosDesarrollador(){
-    set<DtVideojuego*> a;
-    return a;
-}
