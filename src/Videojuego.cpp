@@ -110,12 +110,12 @@ int Videojuego::getSuscritos()
      return suscritos.size();
  }
 
-DtVideojuego* Videojuego::getDtVideojuego(){
+DtVideojuego* Videojuego::getDatatype(){
     set<DtCategoria*> settemp;
-    for (itcatvj = categoriasvj.begin(); itcatvj != setcat.end(); ++itcat)
+    for (itcatvj = categoriasvj.begin(); itcatvj != categoriasvj.end(); ++itcatvj)
                                 {
-                                    if (*itcat != NULL)
-                                        delete *itcat;
+                                    if (*itcatvj != NULL)
+                                        delete *itcatvj;
                                 }
     return new DtVideojuego(this->nombre, this->descripcion, this->costo1, this->costo3, this->costo12, this->costoV, settemp);
 }

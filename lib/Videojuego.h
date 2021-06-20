@@ -48,7 +48,7 @@ class Videojuego
 
     DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p);
 
-    DtVideojuego* getDtVideojuego();
+    DtVideojuego* getDatatype();
 
     //setters
 
