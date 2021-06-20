@@ -742,8 +742,6 @@ int main()
                             string tipoPartida, continua, nombreVideojuego, confirma;
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
-                            cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
-                            cin >> tipoPartida;
 
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
                             try
@@ -758,6 +756,9 @@ int main()
                                 cout << Constantes::Separador;
                                 break;
                             }
+
+                            cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
+                            cin >> tipoPartida;
 
                             DtPartida* datosPartida;
 
@@ -786,7 +787,7 @@ int main()
                                 else if (continua == "N")
                                 {
                                     DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
-                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, nombreVideojuego, false);
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, false);
                                 }
                                 else 
                                 {
@@ -823,89 +824,6 @@ int main()
                             // Limpiar memoria
                             delete datosPartida;
                             cout << Constantes::Separador;
-                           /*try 
-                            {
-                              set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
-			                  cout << "SUSCRIPCIONES ACTIVAS: " << end1 << end1;
-                              for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
-                                   cout<< *itsa << end1;
-                              };
-			                  cout << Constantes::Separador;
-                              string nomVJ;                            
-                              cout << "Seleccione un Videojuego al que jugar: " << end1;
-                              cin >> nomVJ;
-			      IPar->crearPartida(nomVJ);
-			      char tipo;
-			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: " << end1;
-			      cin >> tipo;
-			      switch(tipo) 
-			      {
-				 case'I' 
-				 {
-				     try{
-				        char cont;
-                                        cout << "Desea continuar una partida previa Y/n? " << end1;
-				        cin >> cont;
-				        switch(cont) 
-					{
-					  case'Y'
-					  {
-					    set<DtPartidaIndividual*> indter = IPar->listaPartidasIndTer();
-					    cout << "Partidas Individuales Previas: " << end1;
-                              		    for (set<DtPartidaIndividual*>::iterator itit=indter.begin(); itit!=indter.end(); itit++){
-                                   	    cout<< *itit << end1;
-                              		  };
-					  float acont;
-					  cout << "Ingrese la Id de la Partida a Continuar: " << end1;
-					  cin >> acont;
-					  IPar->partidaAContinuar(acont);
-					}
-				     }
-			             cactch(){
-			             }
-				 }
-				 case'M'
-				 {
-				   set<string> js = IPar->listaJugSus();
-				   cout << "Jugadores Que Pueden Unirse: " << end1;
-                              	   for (set<string>::iterator itjs=js.begin(); itjs!=js.end(); itjs++){
-                                   	cout << *itjs << end1;
-                              	   };
-				   set<string> jugUn;
-				   cout << "Eligue los Jugadores Que se Uniran A la Parida: " << end1;
-				   char set = Y;
-				   while (set == Y){
-					string jug;
-					cin >> jug;
-					jugUn.insert(jug);
-					cout << "Quiere Ingresar Otro Jugador Y/n? " << end1;
-					cin >> set;
-				   } 
-				   IPar->listaJugUnidos(jugUn);
-				   char vivo;
-				   cout << "La Partida Sera en Vivo Y/n?" << end1;
-				   cin >> vivo;
-				   switch(vivo){
-					case'Y'{
-					  IPar->ENVivo(true);
-					}
-					case'n'{
-					  IPar->ENVivo(false);
-					}
-				   }
-				 }
-			       }
-			       char conf;
-			       cout << "Confirmar Iniciar Partida Y/n?" << end1;
-			       switch{
-			         case'Y'{
-				 	IPar->confirmarIniciarPartida(fechaSistema);
-				 }
-				 case'n'{
-				 	IPar->cancelarIniciarPartida();
-				 }
-			       }
-			    }*/
                             break;
                         }
                         case 4: //ABANDONAR PARTIDA MULTIJUGADOR

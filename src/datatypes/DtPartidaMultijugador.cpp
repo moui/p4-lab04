@@ -2,8 +2,8 @@
 #include "../../lib/datatypes/DtFechaHora.h"
 
 // Constructor.
-DtPartidaMultijugador::DtPartidaMultijugador(int id, float duracion, DtFechaHora* fecha, string n,
-    bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos): DtPartida::DtPartida(id, duracion, fecha, n)
+DtPartidaMultijugador::DtPartidaMultijugador(int id, float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin, string n,
+    bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos): DtPartida::DtPartida(id, duracion, fecha, fecha_fin, n)
 {
     transmitidaEnVivo = enVivo;
     nicknameJugadoresUnidos = jugadoresUnidos;

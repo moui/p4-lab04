@@ -1,8 +1,8 @@
 #include "../lib/PartidaMultijugador.h"
 
 // Constructor y destructor
-PartidaMultijugador::PartidaMultijugador(int id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego,
-    bool enVivo, map<string, InfoPartidaMulti*> mapInfoPM) : Partida(id, duracion, finalizada, fecha, videojuego)
+PartidaMultijugador::PartidaMultijugador(int id, float duracion, bool finalizada, DtFechaHora* fecha, DtFechaHora* fecha_fin, Videojuego* videojuego,
+    bool enVivo, map<string, InfoPartidaMulti*> mapInfoPM) : Partida(id, duracion, finalizada, fecha, fecha_fin, videojuego)
 {
     this->transmitidaEnVivo = enVivo;
     this->participan = mapInfoPM;

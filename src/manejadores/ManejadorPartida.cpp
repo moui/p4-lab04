@@ -94,7 +94,7 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 			{
 				nicknameUnidos.insert((itUnidos)->second->getParticipa()->getNickname());
 			}
-			res.insert( new DtPartidaMultijugador((itPM)->first, (itPM)->second->getDuracion(), (itPM)->second->getFecha(),
+			res.insert( new DtPartidaMultijugador((itPM)->first, (itPM)->second->getDuracion(), (itPM)->second->getFecha(), (itPM)->second->getFechaFin(), 
 			(itPM)->second->getVideojuego()->getNombreVJ(), (itPM)->second->getTransmitidaEnVivo(), nicknameUnidos, nicknameUnidos.size()) );
 		}
 	 }
@@ -102,12 +102,12 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 	return res;
 }
 
- void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
- {
+void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
+{
 	 itPM=partidasM.find(partidaMJ);
 	 auto itInfoPartida = (itPM->second->getParticipan()).find(mail);
 	 DtFechaHora* fechaSistema = FechaSistema::getInstancia()->getFecha();
 	 itInfoPartida->second->setAbandonaEn(fechaSistema);
- }
+}
  
 

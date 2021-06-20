@@ -1,9 +1,10 @@
 #include "../../lib/datatypes/DtPartida.h"
 
-DtPartida::DtPartida(int id, float duracion, DtFechaHora* fecha, string n)
+DtPartida::DtPartida(int id, float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin,  string n)
 {
   this->identificador = id;
   this->fecha = fecha;
+  this->fecha_fin = fecha_fin;
   this->duracion = duracion;
   this->nomVJ=n;
   return;
@@ -35,4 +36,9 @@ float DtPartida::getDuracion()
 DtFechaHora* DtPartida::getFecha()
 {
   return fecha;
+}
+
+DtFechaHora* DtPartida::getFechaFin()
+{
+  return fecha_fin;
 }

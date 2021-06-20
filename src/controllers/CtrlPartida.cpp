@@ -48,7 +48,7 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 		throw invalid_argument("Usuario loggeado debe ser jugador.");
 	Jugador* jugador = dynamic_cast<Jugador*>(usuario);
 	// Iterar en partidas iniciadas por jugador
-	map<float, Partida*> partidasJugador = jugador->getInicioPartidas();
+	map<int, Partida*> partidasJugador = jugador->getInicioPartidas();
 	
 	if (partidasJugador.empty())
 		return partidas; // Si no existen partidasJugador retorna el set vacio
@@ -67,7 +67,7 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 			// Agregar data 'partidaInd' a 'partidas'	
 			bool continuacion = partidaInd->getContinuada() == NULL ? false : true;
 			partidas.insert(new DtPartidaIndividual(partidaInd->getId(), partidaInd->getDuracion(),
-				partidaInd->getFecha(), nombreVid, continuacion)
+				partidaInd->getFecha(), NULL, nombreVid, continuacion)
 				);
 		}
 	}
@@ -77,6 +77,8 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 
 void CtrlPartida::altaPartida(DtPartida* datosPartida)
 {
+	Jugador* jugador = dynamic_cast<Jugador*>(CtrlUsuario::getInstancia()->getSesionActiva());
+	map<int, Partida*> partidasJugador = jugador->getInicioPartidas();
 	// Determinar tipo partida
 	if ( dynamic_cast<DtPartidaIndividual*>(datosPartida) != NULL )
 	{
@@ -92,7 +94,9 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 			int id = manejadorPartida->getTotalPartidasInd();
 			Videojuego* videojueo = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
 			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
-			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, videojueo, NULL);
+			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojueo, NULL);
+			// Actualizar colecciones
+			partidasJugador.insert(pair<int, Partida*>(id, partida));
 			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 	}
@@ -171,19 +175,21 @@ set<DtPartida*> CtrlPartida::listaPartidasIniciadas(){
     return a;
 }
 
-void CtrlPartida::finalizarPartida(DtFechaHora f, float id){
-	CtrlUsuario* ctrlUsuario;
-    	ctrlUsuario = CtrlUsuario::getInstancia();
-	ctrlUsuario->finPartida(f, id);
 }
-void cancelarFinalizarPartida(){
 
+void CtrlPartida::finalizarPartida(DtFechaHora f, int id){
+	CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+	ctrlUsuario->finPartida(f, id);
 }*/
 
+void cancelarFinalizarPartida(){
 
-	// ABANDONAR PARTIDA MULTIJUGADOR
+}
 
 
+
+// ABANDONAR PARTIDA MULTIJUGADOR
 set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas(string mailJugador)
 {
 	set<DtPartidaMultijugador*> res = manejadorPartida->listarPartidasMultijugadorUnidas(mailJugador);

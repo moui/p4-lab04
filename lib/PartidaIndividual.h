@@ -11,7 +11,7 @@ class PartidaIndividual : public Partida
     PartidaIndividual* continuacion;
 
   public:
-    PartidaIndividual(int id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego, PartidaIndividual* continuacion);
+    PartidaIndividual(int id, float duracion, bool finalizada, DtFechaHora* fecha, DtFechaHora* fecha_fin, Videojuego* videojuego, PartidaIndividual* continuacion);
     ~PartidaIndividual();
 
     float darTotalHorasParticipantes();

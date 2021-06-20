@@ -19,6 +19,7 @@ class IPartida //aca
         virtual set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego) = 0;
 
         virtual void altaPartida(DtPartida* partida) = 0;
+        
         //virtual void cancelarIniciarPartida() = 0;
 
        /* virtual void iniciarPartida();
