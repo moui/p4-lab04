@@ -62,6 +62,8 @@ class ManejadorVideojuego {
         set<DtCategoria*> listarCategoriasGenero();
         set<DtCategoria*> listarCategoriasPlataforma();
         set<DtCategoria*> listarCategoriasOtros();
+
+        set<string> listarNombresVideojuego();
 };
 
 #endif

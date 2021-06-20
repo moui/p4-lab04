@@ -530,6 +530,31 @@ int main()
                         case 6:
                         {
                             // VER INFORMACION DE VIDEOJUEGO
+                            string nombre;
+                            set<string> setvjsistema = IVid->listarNombresVideojuego();
+                            set<string>::iterator itvj;
+                            cout << "CATALOGO VIDEOJUEGOS PLATAFORMA: " << endl << endl;
+                            if (setvjsistema.empty())
+                                cout << "No existen videojuegos en el catalogo." << endl << endl;
+                            for (itvj = setvjsistema.begin(); itvj != setvjsistema.end(); ++itvj) {
+                                cout << (*itvj) << endl;
+                            }
+                            cout << "Ingrese el nombre de un videojuego: ";
+                            cin.ignore();
+                            getline(cin, nombre);
+                            try 
+                            {
+                                DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
+                                cout << "INFORMACION VIDEOJUEGO" << endl << endl
+                                     << *(infoVideojuego) << Constantes::Separador;
+                                delete infoVideojuego;
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
+                            // FALTA AGREGAR QUE SI ES DESARROLLADOR LE MUESTRE EL TOTAL DE HORAS JUGADAS
                             break;
                         }
                         case 0:
@@ -789,7 +814,15 @@ int main()
                         {
                             // VER INFORMACION DE VIDEOJUEGO
                             string nombre;
-                            cout << "Ingrese el nombre del videojuego: ";
+                            set<string> setvjsistema = IVid->listarNombresVideojuego();
+                            set<string>::iterator itvj;
+                            cout << "CATALOGO VIDEOJUEGOS PLATAFORMA: " << endl << endl;
+                            if (setvjsistema.empty())
+                                cout << "No existen videojuegos en el catalogo." << endl << endl;
+                            for (itvj = setvjsistema.begin(); itvj != setvjsistema.end(); ++itvj) {
+                                cout << (*itvj) << endl;
+                            }
+                            cout << "Ingrese el nombre de un videojuego: ";
                             cin.ignore();
                             getline(cin, nombre);
                             try 

@@ -66,6 +66,8 @@ class CtrlVideojuego : public IVideojuego
         //IniciarPartida
 	    void iniciadaP(Partida* p);
 	    Videojuego* getVJ(string nomVJ);
+
+        set<string> listarNombresVideojuego();
 };
 
 #endif

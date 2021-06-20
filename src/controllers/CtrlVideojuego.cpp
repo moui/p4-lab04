@@ -194,3 +194,7 @@ set<DtCategoria*> CtrlVideojuego::listarCategoriasPlataforma(){
 set<DtCategoria*> CtrlVideojuego::listarCategoriasOtros(){
   return manejadorVideojuego->listarCategoriasOtros();
 }
+
+set<string> CtrlVideojuego::listarNombresVideojuego(){
+  return manejadorVideojuego->listarNombresVideojuego();
+}

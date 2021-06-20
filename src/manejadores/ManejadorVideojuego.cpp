@@ -152,3 +152,13 @@ set<DtCategoria*> ManejadorVideojuego::listarCategoriasOtros(){
     }
     return ret;
 }
+
+set<string> ManejadorVideojuego::listarNombresVideojuego(){
+    set<string> ret;
+    if(!videojuegos.empty()){
+        for(auto itvj = videojuegos.begin(); itvj != videojuegos.end(); ++itvj){
+		    ret.insert(itvj->second->getNombreVJ());
+	    }
+    }
+    return ret;
+}
