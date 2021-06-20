@@ -700,6 +700,7 @@ int main()
                         {
                             // ASIGNAR PUNTAJE A VIDEOJUEGO
                             string nombre;
+                            TipoPuntaje puntos;
                             map<string, string> setvjsistema = IVid->listarNombresVideojuego();
                             map<string, string>::iterator itvj;
                             cout << "CATALOGO VIDEOJUEGOS: " << endl << endl;
@@ -712,6 +713,16 @@ int main()
                             cout << "Ingrese el nombre de un videojuego: ";
                             cin.ignore();
                             getline(cin, nombre);
+                            cout << "Ingrese un puntaje del 1 al 5: ";
+                            cin >> puntos;
+                            try {
+                                IVid->asignarPuntajeVideojuego(nombre, puntos);
+                                cout << "Puntaje asignado.\n" << Constantes::Separador;       
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                            }
                             break;
                         }
                         case 3:
@@ -725,25 +736,74 @@ int main()
                             for (auto it = videojuegos.begin(); it != videojuegos.end(); ++it)
                             {
                                 DtVideojuegoSuscripcion* infoVideojuego = *it;
-                                cout << *(infoVideojuego) << endl;
+                                cout << "Nombre videojuego: " << infoVideojuego->getNombreVideojuego() << endl << endl;
                             }
-                            
+
+                            string tipoPartida, continua;
+                            cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
+                            cin >> tipoPartida;
+
+                            if (tipoPartida == "I")
+                            {
+                                // INICIAR PARTIDA INDIVIDUAL
+                                // Continuar partida anterior?
+                                cout << "Continuar partida anterior? (Y/N): " << endl;
+                                cin >> continua;
+                                if (continua == "Y")
+                                {
+                                    // Lista partidas individuales ya finalizadas.
+                                    // por orden crronologico. Mostrar ID, Fecha y Duracion
+
+                                    // Ingresar ID de partida a continuar.
+                                    
+                                    // Alta partida.
+
+
+
+
+
+
+
+
+                                }
+                                else if (continua == "N")
+                                {
+
+                                }
+                                else 
+                                {
+                                    cout << "Parametro invalido." << endl;
+                                }
+                            }
+                            else if (tipoPartida == "M")
+                            {
+                                // INICIAR PARTIDA MULTIJUGADOR
+
+
+
+                            }
+                            else
+                            {
+                                // Invalid read.
+
+
+                            }
 
 
                            /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
-			                  cout << "SUSCRIPCIONES ACTIVAS: \n";
+			                  cout << "SUSCRIPCIONES ACTIVAS: " << end1 << end1;
                               for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
-                                   cout<< *itsa;
+                                   cout<< *itsa << end1;
                               };
 			                  cout << Constantes::Separador;
                               string nomVJ;                            
-                              cout << "Seleccione un Videojuego al que jugar: \n";
+                              cout << "Seleccione un Videojuego al que jugar: " << end1;
                               cin >> nomVJ;
 			      IPar->crearPartida(nomVJ);
 			      char tipo;
-			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
+			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: " << end1;
 			      cin >> tipo;
 			      switch(tipo) 
 			      {
@@ -751,19 +811,19 @@ int main()
 				 {
 				     try{
 				        char cont;
-                                        cout << "Desea continuar una partida previa Y/n? \n";
+                                        cout << "Desea continuar una partida previa Y/n? " << end1;
 				        cin >> cont;
 				        switch(cont) 
 					{
 					  case'Y'
 					  {
 					    set<DtPartidaIndividual*> indter = IPar->listaPartidasIndTer();
-					    cout << "Partidas Individuales Previas: \n";
+					    cout << "Partidas Individuales Previas: " << end1;
                               		    for (set<DtPartidaIndividual*>::iterator itit=indter.begin(); itit!=indter.end(); itit++){
-                                   	    cout<< *itit;
+                                   	    cout<< *itit << end1;
                               		  };
 					  float acont;
-					  cout << "Ingrese la Id de la Partida a Continuar: \n";
+					  cout << "Ingrese la Id de la Partida a Continuar: " << end1;
 					  cin >> acont;
 					  IPar->partidaAContinuar(acont);
 					}
@@ -774,23 +834,23 @@ int main()
 				 case'M'
 				 {
 				   set<string> js = IPar->listaJugSus();
-				   cout << "Jugadores Que Pueden Unirse: \n";
+				   cout << "Jugadores Que Pueden Unirse: " << end1;
                               	   for (set<string>::iterator itjs=js.begin(); itjs!=js.end(); itjs++){
-                                   	cout << *itjs;
+                                   	cout << *itjs << end1;
                               	   };
 				   set<string> jugUn;
-				   cout << "Eligue los Jugadores Que se Uniran A la Parida: \n";
+				   cout << "Eligue los Jugadores Que se Uniran A la Parida: " << end1;
 				   char set = Y;
 				   while (set == Y){
 					string jug;
 					cin >> jug;
 					jugUn.insert(jug);
-					cout << "Quiere Ingresar Otro Jugador Y/n? \n";
+					cout << "Quiere Ingresar Otro Jugador Y/n? " << end1;
 					cin >> set;
 				   } 
 				   IPar->listaJugUnidos(jugUn);
 				   char vivo;
-				   cout << "La Partida Sera en Vivo Y/n? \n";
+				   cout << "La Partida Sera en Vivo Y/n?" << end1;
 				   cin >> vivo;
 				   switch(vivo){
 					case'Y'{
@@ -803,7 +863,7 @@ int main()
 				 }
 			       }
 			       char conf;
-			       cout << "Confirmar Iniciar Partida Y/n? \n";
+			       cout << "Confirmar Iniciar Partida Y/n?" << end1;
 			       switch{
 			         case'Y'{
 				 	IPar->confirmarIniciarPartida(fechaSistema);
@@ -894,7 +954,7 @@ int main()
             break;
         }
         case 5:
-            // CARGAR DATOS DE PRUEBA
+        {   // CARGAR DATOS DE PRUEBA
 
             //cargar desarrolladores
 
@@ -1010,10 +1070,59 @@ int main()
             IVid->seleccionarCategoria("Deporte", TipoCat::Genero);
             IVid->seleccionarCategoria("E", TipoCat::Otro);
             IVid->confirma_publicarVideojuego();
-            delete usr;       
+            delete usr;
+
+            DtFechaHora* d = new DtFechaHora(01, 06, 2021, 9, 0);
+            fechaSistema->setFecha(d);
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            IUsr->SuscribirseVideojuego(1, 3, "KingdomRush");
+            IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
+            delete usr;
+
+            d = new DtFechaHora(02, 06, 2021, 11, 0);
+            fechaSistema->setFecha(d);
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            IUsr->SuscribirseVideojuego(2, 3, "Fortnite");
+            IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
+            delete usr;
+
+            d = new DtFechaHora(04, 06, 2021, 9, 0);
+            fechaSistema->setFecha(d);
+            usr = IUsr->iniciarSesion("ari@mail.com", "123");
+            IUsr->SuscribirseVideojuego(1, 1, "Fortnite");
+            IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
+            delete usr;
+
+            d = new DtFechaHora(11, 06, 2021, 9, 0);
+            fechaSistema->setFecha(d);
+            usr = IUsr->iniciarSesion("ari@mail.com", "123");
+            IUsr->SuscribirseVideojuego(2, 12, "Minecraft");
+            IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
+            delete usr;
+
+            d = new DtFechaHora(03, 06, 2021, 7, 0);
+            fechaSistema->setFecha(d);
+            usr = IUsr->iniciarSesion("ibai@mail.com", "123");
+            IUsr->SuscribirseVideojuego(2, 1, "Fortnite");
+            IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
+            delete usr;
+
+            d = new DtFechaHora(21, 12, 2020, 9, 0);
+            fechaSistema->setFecha(d);
+            usr = IUsr->iniciarSesion("ibai@mail.com", "123");
+            IUsr->SuscribirseVideojuego(2, 0, "Minecraft");
+            IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
+            delete usr;
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
+        }
         case 0:
             // SALIR
             break;

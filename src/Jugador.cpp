@@ -17,7 +17,7 @@ Jugador::~Jugador()
     if (*it != NULL)
       delete *it;
   }
-  
+  suscripto.clear();
 }
 
 // Getters

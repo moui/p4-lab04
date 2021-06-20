@@ -7,7 +7,6 @@
 #include "../controllers/CtrlUsuario.h"
 
 #include <map>
-#include <algorithm>
 
 using namespace std;
  
@@ -16,9 +15,9 @@ class PartidaIndividual;
 
 class ManejadorPartida {
 	private:
-		 // Singleton
-        	static ManejadorPartida* instancia;
-        	// Constructor
+		// Singleton
+        static ManejadorPartida* instancia;
+        // Constructor
        	ManejadorPartida();
        	// Member 
 		map<float, PartidaIndividual*> partidasI;
@@ -28,10 +27,10 @@ class ManejadorPartida {
 		map<float, PartidaMultijugador*>::iterator itPM;
 	public:
 		// GetInstance
-        	static ManejadorPartida* getInstancia();
+        static ManejadorPartida* getInstancia();
 
-        	// Destructor
-        	~ManejadorPartida();
+        // Destructor
+        ~ManejadorPartida();
 
 		//Getters y Setters
 		PartidaIndividual* getPI(float id);

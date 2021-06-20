@@ -2,26 +2,37 @@
 
 using namespace std;
 
-CtrlPartida * CtrlPartida::instancia = NULL;
-    
-CtrlPartida::~CtrlPartida(){
+CtrlPartida* CtrlPartida::instancia = NULL;
+
+// CONSTRUCTOR
+CtrlPartida::CtrlPartida()
+{
 
 }
 
-CtrlPartida::CtrlPartida(){
+// DESTRUCTOR
+CtrlPartida::~CtrlPartida()
+{
 
 }
-    
-CtrlPartida * CtrlPartida::getCtrlPartida(){
-    if (instancia == NULL){
+
+// getInstance()
+CtrlPartida* CtrlPartida::getCtrlPartida()
+{
+    if (instancia == NULL)
+	{
         instancia = new CtrlPartida();
     }
     return instancia;
 }
 
-ManejadorPartida* CtrlPartida::getManejadorPatida(){
+// OPERACIONES MANEJADOR
+ManejadorPartida* CtrlPartida::getManejadorPatida()
+{
 	return manejadorPartida;
 }
+
+/*
 
 void CtrlPartida::crearPartida(string nombreVJ){
 	this->nomVJ = nombreVJ;

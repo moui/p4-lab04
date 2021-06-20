@@ -142,7 +142,7 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
 
         int costo = ctrlvidejuego->getCostoSuscripcion(periodo, nomVJ);
-        
+
         this->datosSuscripcion = new DtSuscripcion(nomVJ, new DtFechaHora(FechaSistema::getInstancia()->getFecha()),
             costo, pago, TipoEstado::activa, periodo);
     }

@@ -26,6 +26,9 @@ class Videojuego
 
     set<Categoria*> categoriasvj;
     set<Categoria*>::iterator itcatvj;
+
+    map<string, TipoPuntaje> puntajesjugadores;
+    map<string, TipoPuntaje>::iterator itpj;
     
   public:
     //Videojuego(string, Partida **);
@@ -42,7 +45,9 @@ class Videojuego
     float getCosto12();
     float getCostoV();
 
-    set<Categoria*> getCategoriasVJ(); 
+    set<Categoria*> getCategoriasVJ();
+
+    map<string, TipoPuntaje> getPuntajesVJ(); 
 
     DtVideojuego* getDatatype();
 
@@ -50,7 +55,6 @@ class Videojuego
 
     void setNombreVJ(string);
     void setDescripcionVJ(string);
-    void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);
     void setCategoria(Categoria*);
 
@@ -61,7 +65,7 @@ class Videojuego
 
     void setCategoriasVJ(set<Categoria*> catvj); 
 
-
+    void setPuntajeVJ(string, TipoPuntaje);
 
     //TJS
 
