@@ -14,7 +14,11 @@ Videojuego::Videojuego(string nnombre, string ndescripcion, float costomensual, 
 
 string Videojuego::getNombreVJ(){
     return this->nombre;
-    }
+}
+
+string Videojuego::getDescripcionVJ(){
+    return this->descripcion;
+}
 
 float Videojuego::getCosto1(){
     return this->costo1;
@@ -37,6 +41,10 @@ set<Categoria*> Videojuego::getCategoriasVJ(){
 
 void Videojuego::setNombreVJ(string nombreVJ){
     this->nombre=nombreVJ;
+}
+
+void Videojuego::setDescripcionVJ(string descripcionVJ){
+    this->descripcion=descripcionVJ;
 }
 
 void Videojuego::setCosto1(float c1){

@@ -63,7 +63,7 @@ class ManejadorVideojuego {
         set<DtCategoria*> listarCategoriasPlataforma();
         set<DtCategoria*> listarCategoriasOtros();
 
-        set<string> listarNombresVideojuego();
+        map<string, string> listarNombresVideojuego();
 };
 
 #endif

@@ -195,6 +195,6 @@ set<DtCategoria*> CtrlVideojuego::listarCategoriasOtros(){
   return manejadorVideojuego->listarCategoriasOtros();
 }
 
-set<string> CtrlVideojuego::listarNombresVideojuego(){
+map<string, string> CtrlVideojuego::listarNombresVideojuego(){
   return manejadorVideojuego->listarNombresVideojuego();
 }

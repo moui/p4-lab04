@@ -36,7 +36,7 @@ class Videojuego
     //getters
 
     string getNombreVJ();
-
+    string getDescripcionVJ();
     float getCosto1();
     float getCosto3();
     float getCosto12();
@@ -49,6 +49,7 @@ class Videojuego
     //setters
 
     void setNombreVJ(string);
+    void setDescripcionVJ(string);
     void setPuntaje(TipoPuntaje);
     void setPartida(Partida*);
     void setCategoria(Categoria*);

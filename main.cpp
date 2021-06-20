@@ -29,7 +29,7 @@ int main()
     FechaSistema *fechaSistema = FechaSistema::getInstancia();
     IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
     IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego();
-    IPartida *IPar = Fabrica::getInstancia()->getIPartida();
+    //IPartida *IPar = Fabrica::getInstancia()->getIPartida();
 
     string mail, contrasena;
     int operacion = 1;
@@ -533,13 +533,13 @@ int main()
                         {
                             // VER INFORMACION DE VIDEOJUEGO
                             string nombre;
-                            set<string> setvjsistema = IVid->listarNombresVideojuego();
-                            set<string>::iterator itvj;
+                            map<string, string> setvjsistema = IVid->listarNombresVideojuego();
+                            map<string, string>::iterator itvj;
                             cout << "CATALOGO VIDEOJUEGOS PLATAFORMA: " << endl << endl;
                             if (setvjsistema.empty())
                                 cout << "No existen videojuegos en el catalogo." << endl << endl;
                             for (itvj = setvjsistema.begin(); itvj != setvjsistema.end(); ++itvj) {
-                                cout << (*itvj) << endl;
+                                cout << itvj->first << endl;
                             }
                             cout << "Ingrese el nombre de un videojuego: ";
                             cin.ignore();
@@ -699,7 +699,19 @@ int main()
                         case 2:
                         {
                             // ASIGNAR PUNTAJE A VIDEOJUEGO
-                            IPar->cancelarIniciarPartida();
+                            string nombre;
+                            map<string, string> setvjsistema = IVid->listarNombresVideojuego();
+                            map<string, string>::iterator itvj;
+                            cout << "CATALOGO VIDEOJUEGOS: " << endl << endl;
+                            if (setvjsistema.empty())
+                                cout << "No existen videojuegos en el catalogo." << endl << endl;
+                            cout << "NOMBRE   |   DESCRIPCION" << endl;                            
+                            for (itvj = setvjsistema.begin(); itvj != setvjsistema.end(); ++itvj) {
+                                cout << itvj->first << "  |  " << itvj->second << endl;
+                            }
+                            cout << "Ingrese el nombre de un videojuego: ";
+                            cin.ignore();
+                            getline(cin, nombre);
                             break;
                         }
                         case 3:
@@ -817,13 +829,13 @@ int main()
                         {
                             // VER INFORMACION DE VIDEOJUEGO
                             string nombre;
-                            set<string> setvjsistema = IVid->listarNombresVideojuego();
-                            set<string>::iterator itvj;
-                            cout << "CATALOGO VIDEOJUEGOS PLATAFORMA: " << endl << endl;
+                            map<string, string> setvjsistema = IVid->listarNombresVideojuego();
+                            map<string, string>::iterator itvj;
+                            cout << "CATALOGO VIDEOJUEGOS: " << endl << endl;
                             if (setvjsistema.empty())
                                 cout << "No existen videojuegos en el catalogo." << endl << endl;
                             for (itvj = setvjsistema.begin(); itvj != setvjsistema.end(); ++itvj) {
-                                cout << (*itvj) << endl;
+                                cout << itvj->first << endl;
                             }
                             cout << "Ingrese el nombre de un videojuego: ";
                             cin.ignore();
