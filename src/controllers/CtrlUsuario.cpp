@@ -21,7 +21,6 @@ CtrlUsuario::CtrlUsuario()
 CtrlUsuario::~CtrlUsuario()
 {
     delete manejadorUsuario;
-    delete datosSuscripcion;
 }
 // Getters
 Usuario* CtrlUsuario::getSesionActiva()

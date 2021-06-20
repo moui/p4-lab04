@@ -1038,6 +1038,7 @@ int main()
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             IUsr->SuscribirseVideojuego(1, 3, "KingdomRush");
             IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
             delete usr;
 
             d = new DtFechaHora(02, 06, 2021, 11, 0);
@@ -1045,6 +1046,7 @@ int main()
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             IUsr->SuscribirseVideojuego(2, 3, "Fortnite");
             IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
             delete usr;
 
             d = new DtFechaHora(04, 06, 2021, 9, 0);
@@ -1052,6 +1054,7 @@ int main()
             usr = IUsr->iniciarSesion("ari@mail.com", "123");
             IUsr->SuscribirseVideojuego(1, 1, "Fortnite");
             IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
             delete usr;
 
             d = new DtFechaHora(11, 06, 2021, 9, 0);
@@ -1059,6 +1062,7 @@ int main()
             usr = IUsr->iniciarSesion("ari@mail.com", "123");
             IUsr->SuscribirseVideojuego(2, 12, "Minecraft");
             IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
             delete usr;
 
             d = new DtFechaHora(03, 06, 2021, 7, 0);
@@ -1066,6 +1070,7 @@ int main()
             usr = IUsr->iniciarSesion("ibai@mail.com", "123");
             IUsr->SuscribirseVideojuego(2, 1, "Fortnite");
             IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
             delete usr;
 
             d = new DtFechaHora(21, 12, 2020, 9, 0);
@@ -1073,6 +1078,7 @@ int main()
             usr = IUsr->iniciarSesion("ibai@mail.com", "123");
             IUsr->SuscribirseVideojuego(2, 0, "Minecraft");
             IUsr->AltaSuscripcion();
+            IUsr->CancelarOperacion();
             delete usr;
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
