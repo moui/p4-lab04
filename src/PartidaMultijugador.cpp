@@ -6,7 +6,6 @@ PartidaMultijugador::PartidaMultijugador(float id, float duracion, bool finaliza
 {
     this->transmitidaEnVivo = enVivo;
     this->participan = mapInfoPM;
-	this->finaliza = finalizada;
 }
 
 PartidaMultijugador::~PartidaMultijugador()
@@ -56,13 +55,3 @@ void PartidaMultijugador::forzarAbandono(DtFechaHora f){
 	}
 	this->setDuracion(this->getFecha()->getHora() - f.getHora());
 }
-
- bool PartidaMultijugador::getFinalizada()
- {
-	return this->finaliza;
- }
-
- void PartidaMultijugador::setFinalizada(bool f)
- {
-	 this->finaliza=f;
- }

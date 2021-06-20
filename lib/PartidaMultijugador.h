@@ -16,7 +16,6 @@ class PartidaMultijugador : public Partida
     private:
         bool transmitidaEnVivo;
         map<string, InfoPartidaMulti*> participan;
-        bool finaliza;
 
     public:
         // Constructores y destructores
@@ -27,12 +26,10 @@ class PartidaMultijugador : public Partida
         ~PartidaMultijugador();
         
         // Getters
-        bool getFinalizada();
         bool getTransmitidaEnVivo();
         map<string, InfoPartidaMulti*> getParticipan();
 
         // Setters
-        void setFinalizada(bool f);
         void setTransmitidaEnVivo(bool enVivo);
         void setParticipan(map<string, InfoPartidaMulti*> mapInfoPM);
 
