@@ -69,7 +69,7 @@ class Jugador : public Usuario
     map<string, DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
 
     //ABANDONA PARTIDA MJ
-    set<DtPartidaMultijugador*> Jugador::listarPartidasMultijugadorUnidas()
+    set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
 
 };
 #endif

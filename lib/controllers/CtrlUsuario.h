@@ -86,6 +86,7 @@ class CtrlUsuario : public IUsuario
         void cancelaAlta();
 
         set<DtVideojuego*> listarVideoJuegosDesarrollador();
+        set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
 };
 
 #endif
