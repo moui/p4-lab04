@@ -548,7 +548,8 @@ int main()
                             {
                                 DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
                                 cout << "INFORMACION VIDEOJUEGO" << endl << endl
-                                     << *(infoVideojuego) << Constantes::Separador;
+                                     << *(infoVideojuego) << endl;
+                                cout << "Total de horas jugadas: " << (*infoVideojuego).getTotalHorasJugadas() << endl << Constantes::Separador << endl;
                                 delete infoVideojuego;
                             }
                             catch (const std::invalid_argument &err)
@@ -556,7 +557,6 @@ int main()
                                 cerr << "Error: " << err.what() << '\n';
                                 cout << Constantes::Separador;
                             }
-                            // FALTA AGREGAR QUE SI ES DESARROLLADOR LE MUESTRE EL TOTAL DE HORAS JUGADAS
                             break;
                         }
                         case 0:
