@@ -21,7 +21,6 @@ CtrlUsuario::CtrlUsuario()
 CtrlUsuario::~CtrlUsuario()
 {
     delete manejadorUsuario;
-    delete datosSuscripcion;
 }
 // Getters
 Usuario* CtrlUsuario::getSesionActiva()
@@ -144,7 +143,7 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
         int costo = ctrlvidejuego->getCostoSuscripcion(periodo, nomVJ);
 
-        this->datosSuscripcion = new DtSuscripcion(nomVJ, FechaSistema::getInstancia()->getFecha(),
+        this->datosSuscripcion = new DtSuscripcion(nomVJ, new DtFechaHora(FechaSistema::getInstancia()->getFecha()),
             costo, pago, TipoEstado::activa, periodo);
     }
 
