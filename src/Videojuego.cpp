@@ -75,7 +75,7 @@ DtVideojuego* Videojuego::getDatatype()
         dtCategorias.insert(cat->getDtCategoria());
     }
 
-    return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias);
+    return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias, ppromedio);
 }
 
 
@@ -111,7 +111,7 @@ void Videojuego::calcularPromedio(){
         switch (itpj->second)
         {
         case TipoPuntaje::uno:
-            sum = sum++;
+            sum = sum + 1;
             break;
         case TipoPuntaje::dos:
             sum = sum + 2;
