@@ -15,7 +15,7 @@ class Usuario
   public:
     Usuario(string email, string contrasena);
     virtual ~Usuario();
-    virtual void mostrarUsuario() = 0; // Usuario es clase abstracta
+    virtual void abstracta() = 0; // Usuario es clase abstracta
     
     // Getters
     string getMail();

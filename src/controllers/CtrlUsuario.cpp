@@ -165,17 +165,6 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         return res;
     }
 
-    void CtrlUsuario::ObtenerCatalogo(){
-        CtrlVideojuego* ctrlvidejuego;
-        ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
-        this->Dcatalogo = ctrlvidejuego->ObtenerCatalogo();
-        if (Dcatalogo.empty())
-        {
-            throw invalid_argument("Fallo copia local del catalogo ");
-        }
-
-}
-
 
     set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesActivas(){
         set<DtVideojuegoSuscripcion*> res;
@@ -301,34 +290,6 @@ void CtrlUsuario::confirmaAltaJugador(){
 
 void CtrlUsuario::cancelaAlta(){
 
-}
-
-//IniciarPartida
-set<string> CtrlUsuario::listaJugadoresSus(string NomVJ){
-	return (manejadorUsuario->listaJugadoresSus(NomVJ));
-}
-
-set<DtPartidaIndividual*> CtrlUsuario::listaPartidasIndividualesTerminadas(){
-	Jugador* j = dynamic_cast<Jugador*> (sesionActiva);
-	return manejadorUsuario->partidasIndividualesFinalizadas(j->getNickname());
-}
-
-void CtrlUsuario::iniciadaP(Partida* p){
-	string c = sesionActiva->getMail();
-	manejadorUsuario->iniciadaP(c ,p);
-}
-
-map<string, InfoPartidaMulti*> CtrlUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
-	return manejadorUsuario->getInfoJugadores(f, mails);
-}
-
-//FinalizarPartida
-set<DtPartida*> CtrlUsuario::listaPartidasIniciadas(){
-	return (manejadorUsuario->listaPartidasIniciadas(sesionActiva->getMail()));
-}
-
-void CtrlUsuario::finPartida(DtFechaHora f, float id){
-	manejadorUsuario->finPartida(sesionActiva->getMail(), f, id);
 }
 
 

@@ -38,7 +38,6 @@ class CtrlUsuario : public IUsuario
         // "Memoria"
         string mail, contrasena, nickname, empresa, descripcion;
 
-        map<string, DtVideojuegoSuscripcion*> Dcatalogo;
         DtSuscripcion* datosSuscripcion;
         TipoPago pagoSuscripcion;
 
@@ -85,24 +84,9 @@ class CtrlUsuario : public IUsuario
         void confirmaAltaDesarrollador();
         void confirmaAltaJugador();
         void cancelaAlta();
-        
-        //IniciarPartida
-	set<string> listaJugadoresSus(string NomVJ);
-	set<DtPartidaIndividual*> listaPartidasIndividualesTerminadas();
-	void iniciadaP(Partida* p);
-	map<string, InfoPartidaMulti*> getInfoJugadores(DtFechaHora f, set<string> mails);
-	
-	//FinalizarPartida
-	set<DtPartida*> listaPartidasIniciadas();
-	void finPartida(DtFechaHora f, float id);
 
-    set<DtVideojuego*> listarVideoJuegosDesarrollador();
-
-
-    //ABANDONDAR PARTIDA MULTIUGADOR
-
-    set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
-
+        set<DtVideojuego*> listarVideoJuegosDesarrollador();
+        set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
 };
 
 #endif

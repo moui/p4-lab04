@@ -15,13 +15,13 @@ class DtVideojuego
 {
     private:
         string nombre, descripcion;
-        float costo1, costo3, costo12, costoV; 
+        float costo1, costo3, costo12, costoV, ppromedio; 
         set<DtCategoria*> categorias;
 
     public:
         // CTOR y DTOR
         DtVideojuego(string nombre, string descripcion, float costo1, float costo3, float costo12, 
-            float costoV, set<DtCategoria*> categorias);
+            float costoV, set<DtCategoria*> categorias, float promedio);
 
         ~DtVideojuego();
 
@@ -33,6 +33,8 @@ class DtVideojuego
         float getCosto12();
         float getCostoV();
         set<DtCategoria*> getCategorias();
+        float getPromedio();
+        void setPromedio();
 
         // Sobrecarga
         friend ostream& operator<<(ostream& out, const DtVideojuego& dt);

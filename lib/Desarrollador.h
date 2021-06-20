@@ -25,6 +25,8 @@ class Desarrollador : public Usuario
     Desarrollador(string email, string contrasena, string empresa);
     ~Desarrollador();
 
+    void abstracta() { }
+
     // Getters
     string getEmpresa();
     set<DtVideojuego*> getVJPub();
@@ -36,8 +38,6 @@ class Desarrollador : public Usuario
     void publicarVJ(Videojuego* vj);
     void quitarVJ(Videojuego* vj);
     // void setEstadistica(IEstadistica e);
-
-    void mostrarUsuario();
 
     //seleccionar estadisticas
 

@@ -73,49 +73,6 @@ bool ManejadorUsuario::existeUsuario(string clave){
     return (res=(itd!=desarrolladores.end() || itj!=jugadores.end())); 
 }
 
-//IniciarPartida
-set<string> ManejadorUsuario::listaJugadoresSus(string NomVJ){
-	set<string> s;
-	itj = jugadores.begin();
-	for(itj = jugadores.begin(); itj != jugadores.end(); ++itj){
-		if(itj->second->estaSuscritoA(NomVJ)){
-			s.insert(itj->second->getNickname());
-		}
-	}
-	return s;
-}
-
-set<DtPartidaIndividual*> ManejadorUsuario::partidasIndividualesFinalizadas(string nickname){
-	itj = jugadores.begin();
-	while((itj->second->getNickname() != nickname) && (itj != jugadores.end())){
-		++itj;
-	}
-	return itj->second->partidasIndividualesFinalizadas();
-}
-
-void ManejadorUsuario::iniciadaP(string clave,Partida* p){
-	jugadores[clave]->iniciadaP(p);
-}
-
-map<string, InfoPartidaMulti*> ManejadorUsuario::getInfoJugadores(DtFechaHora f, set<string> mails){
-	set<string>::iterator it = mails.begin();
-	map<string, InfoPartidaMulti*> m;
-	while(it != mails.end()){	
-		m[*it] = new InfoPartidaMulti(f, jugadores[*it]);
-		++it;
-	}
-	return m;
-}
-
-//FinalizarPartida
-set<DtPartida*> ManejadorUsuario::listaPartidasIniciadas(string mail){
-	return jugadores[mail]->partidasIniciadasSinFinalizar();
-}
-
-void ManejadorUsuario::finPartida(string mail, DtFechaHora f, float id){
-	jugadores[mail]->finPartida(id, f);
-}
-
 bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     bool res=false;
     if (!jugadores.empty()){

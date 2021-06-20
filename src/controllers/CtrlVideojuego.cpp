@@ -55,7 +55,7 @@ DtVideojuego* CtrlVideojuego::mostrarVideojuego(){
   for (auto itcat = cats.begin(); itcat != cats.end(); ++itcat) {
     tempcats.insert((*itcat)->getDtCategoria());
   }
-  return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, tempcats);
+  return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, tempcats, 0);
 }
 
 void CtrlVideojuego::cancela_publicarVideojuego(){

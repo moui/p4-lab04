@@ -37,54 +37,39 @@ class Jugador : public Usuario
   private:
     string nickname;
     string descripcion;
-    map<int,Partida*> inicio;
+    map<float,Partida*> inicio;
+    set<Suscripcion*> suscripto;
+    set<Jugador*> sigue;
 
   public:
     // Constructor y destructor
     Jugador(string email, string contrasena, string nickname, string descripcion);
 
-    map<float, InfoPartidaMulti*> unido;
-
-    set<Suscripcion*> suscripto;
-
-    set<Jugador*> sigue;
-
     ~Jugador();
-    void finPartida(float id, DtFechaHora f);
-    set<DtPartida*> partidasIniciadasSinFinalizar();
-    void iniciadaP(Partida* p);
-    bool estaSuscritoA(string NombreVJ);
-    set<DtPartidaIndividual*> partidasIndividualesFinalizadas();
-    map<string, DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
+
+    void abstracta() {}
 
     // Getters
     string getNickname();
     string getDescripcion();
-    map<int, Partida*> getInicioPartidas();
-    map<float, InfoPartidaMulti*> getPartidasMultijugador();
-    set<DtJugador*> getSeguidos;
-    set<DtSuscripcion*> getSusAdquiridas;
-
-    Suscripcion* getSuscripcion(string nomVJ);
-    DtSuscripcion* getDatosSuscripcion(string nomVJ);
-    void CancelarSuscripcion(string nomVJ);
-    void AltaSuscripcion(DtSuscripcion* dtSus);
-
+    map<float, Partida*> getInicioPartidas();
 
     // Setters
     void setNickname(string nickname);
     void setDescripcion(string descripcion);
-    void setInicioPartidas(map<int,Partida*> inicio);
+    void setInicioPartidas(map<float, Partida*> inicio);
 
-    void setPartidaMultijugador(InfoPartidaMulti partidasMultijugador);
     void seguir(Jugador* j);
 
-    void mostrarUsuario();
+    // Caso de uso Suscribirse a videojuego
+    Suscripcion* getSuscripcion(string nomVJ);
+    DtSuscripcion* getDatosSuscripcion(string nomVJ);
+    void CancelarSuscripcion(string nomVJ);
+    void AltaSuscripcion(DtSuscripcion* dtSus);
+    map<string, DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
 
-    //ABANDONA PARTIDA MULTIJUGADOR
-  
+    //ABANDONA PARTIDA MJ
     set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
 
 };
-
 #endif

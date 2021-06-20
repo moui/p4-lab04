@@ -34,20 +34,10 @@ class ManejadorUsuario {
 
         // Getters y Setters
 
-
         void agregarDesarrollador(string clave, Desarrollador* des);
         void agregarJugador(string clave, Jugador* jug);
         bool existeJugador(string nickname);
         void borrarUsuario(string clave);
-        //IniciarPartida
-    	set<string> listaJugadoresSus(string NomVJ);
-	set<DtPartidaIndividual*> partidasIndividualesFinalizadas(string nickname);
-	void iniciadaP(string clave, Partida* p);
-	map<string, InfoPartidaMulti*> getInfoJugadores(DtFechaHora f, set<string> mails);
-	
-	//FinalizarPartida
-	set<DtPartida*> listaPartidasIniciadas(string mail);
-	void finPartida(string mail, DtFechaHora f, float id);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);

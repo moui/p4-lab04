@@ -752,8 +752,8 @@ int main()
                                 if (continua == "Y")
                                 {
                                     // Lista partidas individuales ya finalizadas.
-                                    // por orden crronologico. Mostrar ID, Fecha y Duracion
-
+                                    // por orden cronologico. Mostrar ID, Fecha y Duracion
+                                    cout << endl << "PARTIDAS INDIVIDUALES FINALIZADAS" << endl;
                                     // Ingresar ID de partida a continuar.
                                     
                                     // Alta partida.
@@ -1120,6 +1120,17 @@ int main()
             IUsr->CancelarOperacion();
             delete usr;
 
+            //cargar puntajes
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            IVid->asignarPuntajeVideojuego("KingdomRush", TipoPuntaje::cuatro);
+            IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
+            delete usr;
+
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            IVid->asignarPuntajeVideojuego("Minecraft", TipoPuntaje::tres);
+            IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
+            delete usr;
+            
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
         }
