@@ -6,20 +6,20 @@
 class DtPartida
 {
     protected:
-        float identificador;
+        int identificador;
         float duracion;
         DtFechaHora* fecha;
         string nomVJ;
 
     public:
         // Constructor y destructor
-        DtPartida(float id, float duracion, DtFechaHora* fecha, string n);
+        DtPartida(int id, float duracion, DtFechaHora* fecha, string n);
         virtual ~DtPartida();
 
         virtual void abstracta() = 0; // Funcion virtual pura => DtPartida es abstracta
         // Getters
         string getNombreVJ();
-        float getId();
+        int getId();
         float getDuracion();
         DtFechaHora* getFecha();
 };
