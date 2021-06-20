@@ -869,7 +869,7 @@ int main()
                         {
                             // FINALIZAR PARTIDA
                             int partidaI;
-                            cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            cout << Constantes::PresentacionFinalizarPartida;
                             try 
                             {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
@@ -883,7 +883,7 @@ int main()
                                 cerr << "Error: " << err.what() << '\n';
                                 cout << Constantes::Separador;
                             }
-                            cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
+                            cout << Constantes::PresentacionFinalizarPartida_Fin;
                             break;
                             ;
 
@@ -1135,10 +1135,24 @@ int main()
             delete usr;
             
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
-            DtPartidaIndividual* datosPartida = new DtPartidaIndividual(1, 0, new DtFechaHora(02, 06, 2021, 9, 0), new DtFechaHora(02, 06, 2021, 10, 0),  "KingdomRush", NULL);
+            DtPartidaIndividual* datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(02, 06, 2021, 9, 0), NULL,  "KingdomRush", NULL);
             IPar->altaPartida(datosPartida);
-            IPar->finalizarPartida(datosPartida->getFechaFin(), 1);
+            IPar->finalizarPartida(new DtFechaHora(02, 06, 2021, 10, 0), 1);
             delete usr;
+            delete datosPartida;
+
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(03, 06, 2021, 15, 0), new DtFechaHora(03, 06, 2021, 16, 0),  "KingdomRush", new int(1));
+            IPar->altaPartida(datosPartida);
+            IPar->finalizarPartida(datosPartida->getFechaFin(), 3);
+            delete usr;
+            delete datosPartida;
+
+            usr = IUsr->iniciarSesion("ari@mail.com", "123");
+            datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(12, 06, 2021, 20, 0), NULL,  "Minecraft", NULL);
+            IPar->altaPartida(datosPartida);
+            delete usr;
+            delete datosPartida;
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;

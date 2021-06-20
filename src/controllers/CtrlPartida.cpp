@@ -91,7 +91,7 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 		if (datosPartidaInd->getContinuacion() != NULL)
 		{
 			// CONTINUA PARTIDA ANTERIOR
-			int id = manejadorPartida->getTotalPartidasInd();
+			int id = manejadorPartida->generarIdPartidaInd();
 			Videojuego* videojuego = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
 			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
 			PartidaIndividual* continua = manejadorPartida->getPI(*datosPartidaInd->getContinuacion());
@@ -103,7 +103,7 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 		else
 		{
 			// NO CONTINUA PARTIDA ANTERIOR
-			int id = manejadorPartida->getTotalPartidasInd();
+			int id = manejadorPartida->generarIdPartidaInd();
 			Videojuego* videojuego = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
 			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
 			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, NULL);
