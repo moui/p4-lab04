@@ -613,7 +613,7 @@ int main()
                              case (TipoEstado::activa):
                              {
                                  char cancela;
-                                 cout << "Desea cancelar su sucripcion temporal a: " << nomVJ << "Y/n? \n";
+                                 cout << "Desea cancelar su sucripcion temporal a: " << nomVJ << " Y/n? \n";
                                  cin >> cancela;
                                  switch(cancela)
                                  {
@@ -632,6 +632,7 @@ int main()
                                  default:
                                     break;
                                  }
+                              break;    
                              }
                              case (TipoEstado::cancelada):
                              case (TipoEstado::expirada):
@@ -644,6 +645,38 @@ int main()
                              try
                              {
                                  IUsr->SuscribirseVideojuego(pago, validez, nomVJ);
+                                 char confirma;
+                                 cout << "Desea confirmar el (A)lta suscripcion o (C)ancelar alta? ";
+                                 cin >> confirma;
+                                 switch(confirma)
+                                 {
+                                     case 'A':
+                                     {
+                                        try
+                                        {
+                                            IUsr->AltaSuscripcion();
+                                            cout << Constantes::PresentacionSuscribirse_Fin;
+                                            IUsr->CancelarOperacion();
+                                        }
+                                        catch (const std::invalid_argument &err)
+                                        {
+                                        cerr << "Error: " << err.what() << '\n';
+                                        }
+                                        break;   
+                                     }
+                                     case 'C':
+                                     {
+                                        try
+                                        {
+                                            IUsr->CancelarOperacion();
+                                        }
+                                        catch (const std::invalid_argument &err)
+                                        {
+                                        cerr << "Error: " << err.what() << '\n';
+                                        }
+                                        break;   
+                                     }
+                             }
                              }
                              catch (const std::invalid_argument &err)
                              {
@@ -654,38 +687,6 @@ int main()
                              default:
                                 break;
                              }   
-                             char confirma;
-                             cout << "Desea confirmar el (A)lta suscripcion o (C)ancelar alta? ";
-                             cin >> confirma;
-                             switch(confirma)
-                             {
-                                 case 'A':
-                                 {
-                                    try
-                                    {
-                                        IUsr->AltaSuscripcion();
-                                        cout << Constantes::PresentacionSuscribirse_Fin;
-                                        IUsr->CancelarOperacion();
-                                    }
-                                    catch (const std::invalid_argument &err)
-                                    {
-                                    cerr << "Error: " << err.what() << '\n';
-                                    }
-                                    break;   
-                                 }
-                                 case 'C':
-                                 {
-                                    try
-                                    {
-                                        IUsr->CancelarOperacion();
-                                    }
-                                    catch (const std::invalid_argument &err)
-                                    {
-                                    cerr << "Error: " << err.what() << '\n';
-                                    }
-                                    break;   
-                                 }
-                             }
                              
                             }
                             catch (const std::invalid_argument &err)

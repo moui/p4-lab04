@@ -107,7 +107,7 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
     void CtrlUsuario::CancelarOperacion()
     {
-        Dcatalogo.clear();
+        //Dcatalogo.clear();
         delete datosSuscripcion;
     }
 
