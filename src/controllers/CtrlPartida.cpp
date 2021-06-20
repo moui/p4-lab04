@@ -37,7 +37,23 @@ ManejadorPartida* CtrlPartida::getManejadorPatida()
 set<DtPartidaIndividual*> partidasIndFinalizadas()
 {
 	set<DtPartidaIndividual*> partidas;
-	return partidas;
+	// Get usuario loggeado
+	Usuario* usuario =  CtrlUsuario::getInstancia()->getSesionActiva();
+	if (dynamic_cast<Jugador*>(usuario) == NULL)
+		throw invalid_argument("Usuario loggeado debe ser jugador.");
+	Jugador* jugador = dynamic_cast<Jugador*>(usuario);
+	// Iterar en partidas iniciadas por jugador
+	map<float, Partida*> partidasJugador = jugador->getInicioPartidas();
+	
+	if (partidasJugador.empty())
+		return partidas;
+	else
+	{
+		for (auto it = partidas.begin(); it != partidas.end(); ++it)
+		{
+			
+		}
+	}
 }
 
 
