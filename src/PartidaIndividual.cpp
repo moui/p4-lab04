@@ -33,3 +33,8 @@ float PartidaIndividual::darTotalHorasParticipantes()
 {
     return getDuracion();
 }
+ DtPartidaIndividual* PartidaIndividual::getDatos()
+ {
+     DtPartidaIndividual* datos=NULL;
+     return datos;
+ }

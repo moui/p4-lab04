@@ -73,5 +73,9 @@ class Jugador : public Usuario
     void ConfirmarAbandonarPartida(int partidaMJ);
 
     void removerSuscripcion(string);
+
+    //FINALIZAR PARTIDA
+
+    set<DtPartida*> listaPartidasIniciadasSinFinalizar();
 };
 #endif

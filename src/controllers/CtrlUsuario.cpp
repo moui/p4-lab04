@@ -348,5 +348,12 @@ void CtrlUsuario::removerSuscripciones(string nombrevj){
 set<DtPartida*> CtrlUsuario::listaPartidasIniciadasSinFinalizar()
 {
     set<DtPartida*> res;
+    Usuario* user= CtrlUsuario::getSesionActiva();
+    Jugador * jugador={dynamic_cast<Jugador*>(user)};
+    res = jugador->listaPartidasIniciadasSinFinalizar();
+    if(res.empty())
+    {
+        throw invalid_argument("CtrlUsuario no recibio datos de jugador. ");
+    }
     return res;
 }

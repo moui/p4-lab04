@@ -77,3 +77,5 @@ void Partida::setVideojuego(Videojuego *videojuego)
 {
   this->tiene = videojuego;
 }
+
+
