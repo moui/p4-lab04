@@ -26,6 +26,7 @@
 #include "helpers/FechaSistema.h"
 #include "controllers/CtrlUsuario.h"
 #include "controllers/CtrlVideojuego.h"
+#include "controllers/CtrlPartida.h"
 
 using namespace std;
 
@@ -66,6 +67,9 @@ class Jugador : public Usuario
     void CancelarSuscripcion(string nomVJ);
     void AltaSuscripcion(DtSuscripcion* dtSus);
     map<string, DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
-};
 
+    //ABANDONA PARTIDA MJ
+    set<DtPartidaMultijugador*> Jugador::listarPartidasMultijugadorUnidas()
+
+};
 #endif

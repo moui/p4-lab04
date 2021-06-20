@@ -51,4 +51,19 @@ void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador*
 	partidasM.insert( pair <float,PartidaMultijugador*>(id,pm) );
 }
 
+set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
+{
+	set<DtPartidaMultijugador*> res;	
+ /*
+	for ((*itPM))=partidasM.begin(); (*itPM))!=partidas.end(); (*itPM))++)
+	{
+		if ( ((((*itPM))->second)->getParticipan()).find(mailJugador) !=  (auto it=(((*itPM))->second)->getParticipan()).end()) )
+		{
+			res.insert( new DtPartidaMultijugador((*itPM))->first, (*itPM))->second->getDuracion(), (*itPM))->second->getFecha(),
+			(*itPM))->second->getVideojuego()->getNombreVJ(), (*itPM))->second->getTransmitidaEnVivo(). (*itPM))->second->get()   ) )
+		}
+	}*/
+	return res;
+}
+ 
 

@@ -298,3 +298,15 @@ set<DtVideojuego*> CtrlUsuario::listarVideoJuegosDesarrollador(){
     Desarrollador* des = dynamic_cast<Desarrollador*>(CtrlUsuario::getSesionActiva());
     return des->getVJPub();
 }
+
+//ABANDONAR PARTIDA
+
+set<DtPartidaMultijugador*> CtrlUsuario::listarPartidasMultijugadorUnidas()
+{
+    set<DtPartidaMultijugador*> res;
+    Usuario* user= CtrlUsuario::getSesionActiva();
+    Jugador * jugador={dynamic_cast<Jugador*>(user)};
+    res = jugador->listarPartidasMultijugadorUnidas();
+    return res;
+}
+

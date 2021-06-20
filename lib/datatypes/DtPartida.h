@@ -9,6 +9,7 @@ class DtPartida
         float identificador;
         float duracion;
         DtFechaHora fecha;
+        string nomVJ;
 
     public:
         // Constructor y destructor
@@ -17,6 +18,7 @@ class DtPartida
 
         virtual void abstracta() = 0; // Funcion virtual pura => DtPartida es abstracta
         // Getters
+        string getNombreVJ();
         float getId();
         float getDuracion();
         DtFechaHora getFecha();

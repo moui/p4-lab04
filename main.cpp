@@ -877,34 +877,13 @@ int main()
                         }
                         case 4:
                         {
-                            // ABANDONAR PARTIDA MULTIJUGADOR
-			    
-                              /*set<DtPartida*> pa = IPar->listaPartidasIniciadas();
-			      cout << "PARTIDAS ACTIVAS: " << end1 << end1;
-                              for (set<DtPartida*>::iterator itpa=pa.begin(); itsa!=pa.end(); itpa++){
-                                   if(dynami_cast<DtPartidaIndividual*>(*itpa) != NULL){
-				   	DtPartidaIndividual* pia = dynami_cast<DtPartidaIndividual*>(*itpa);
-				   	cout << *pia << end1;
-				   } else {
-				   	DtPartdaMultijugador* pia = dynami_cast<DtPartidaMultijugador*>(*itpa);
-				   	cout << *pia << end1;
-				   }
-                              };
-			      cout << Constantes::Separador;
-			      char conffin;
-			      cout << "Desea (C)ancelar la Operacion o C(o)ntinuarla?" << end1;
-			      cin >> conffin;
-			      switch(connfin){
-			        case'C'{
-				  IPar->cancelarFinalizarPartida();
-				}
-				case'o'{
-				  float idf;
-				  cout << "Seleccione el Id de la Partida a Finalizar:" << end1;
-				  cin >> idf;
-				  IPar->finalizarPartida(fechaSistema, idf);
-				}
-			      }*/
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listarPartidasMultijugadorUnidas();
+                            break;
+                        }
+                        case 5:
+                        {
+                            // FINALIZAR PARTIDA
                             break;
                         }
                         case 6:
@@ -1141,6 +1120,17 @@ int main()
             IUsr->CancelarOperacion();
             delete usr;
 
+            //cargar puntajes
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            IVid->asignarPuntajeVideojuego("KingdomRush", TipoPuntaje::cuatro);
+            IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
+            delete usr;
+
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            IVid->asignarPuntajeVideojuego("Minecraft", TipoPuntaje::tres);
+            IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
+            delete usr;
+            
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
         }

@@ -7,6 +7,7 @@
 #include "../datatypes/DtEstadistica.h"
 #include "../datatypes/DtVideojuego.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
+#include "../datatypes/DtPartidaMultijugador.h"
 #include "../datatypes/TipoEstado.h"
 
 using namespace std;
@@ -44,6 +45,10 @@ class IUsuario
 
         virtual set<string> listarVideojuegosPublicados() = 0;
         virtual set<DtEstadistica*> ConsultarEstadisticas(string nomVJ)=0;
+
+        //ABANDONAR PARTIDA MULTIJUGADOR
+
+        virtual set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas()=0;
 
 
         //eliminar

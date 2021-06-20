@@ -145,4 +145,21 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
         dtSus->getCosto(), dtSus->getTipoPago(), dtSus->getPeriodo(), false));
 }
 
-// END: OPERACIONES SUSCRIBIRSE A VJ
+
+  //ABANDONA PARTIDA MJ
+  set<DtPartidaMultijugador*> Jugador::listarPartidasMultijugadorUnidas()
+  {
+    set<DtPartidaMultijugador*> res;
+    CtrlPartida* ctrlpartida;
+    ctrlpartida = CtrlPartida::getCtrlPartida();
+    CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+    Usuario* user= ctrlUsuario->getSesionActiva();
+    Jugador * jugador={dynamic_cast<Jugador*>(user)};
+
+    res= ctrlpartida->listarPartidasMultijugadorUnidas(jugador->getMail());
+
+    return res;
+
+  }
+

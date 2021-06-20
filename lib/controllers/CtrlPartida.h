@@ -3,6 +3,7 @@
 
 #include "../interfaces/IPartida.h"
 #include "../datatypes/DtPartidaIndividual.h"
+#include "../datatypes/DtPartidaMultijugador.h"
 #include "../datatypes/DtPartida.h"
 #include "../PartidaIndividual.h"
 #include "../PartidaMultijugador.h"
@@ -19,6 +20,9 @@ using namespace std;
 
 class CtrlUsuario;
 class CtrlVideojuego;
+class PartidaIndividual;
+class PartidaMultijugador;
+class ManejadorPartida;
 
 class CtrlPartida : public IPartida
 {
@@ -60,12 +64,16 @@ class CtrlPartida : public IPartida
         void confirmarIniciarPartida(DtFechaHora inicio);
         set<DtPartidaIndividual*> listaPartidasIndTer();
         void ENVivo(bool EnVivo);
-        void cancelarIniciarPartida();
+        //void cancelarIniciarPartida();
         set<DtPartida*> listaPartidasIniciadas();
         void finalizarPartida(DtFechaHora f, float id);
         void cancelarFinalizarPartida();
 
         */
+
+        //ABANDONAR PARTIDA MULTIJUGADOR
+
+        set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
 
 };
 

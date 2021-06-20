@@ -167,6 +167,6 @@ void ManejadorVideojuego::asignarPuntajeVideojuegoJ(string nombrevj, string nick
     if (!videojuegos.empty()){
         itvj = videojuegos.find(nombrevj);
         itvj->second->setPuntajeVJ(nickname, puntaje);
-        videojuegos.erase(itvj);
+        itvj->second->calcularPromedio();
     }
 }

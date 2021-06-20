@@ -62,7 +62,6 @@ set<string> listaJugSuscriptos(){
     a = ctrlUsuario->listaJugadoresSus(j->getNickname());
     return a;
 }
-
 void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
 	CtrlVideojuego* ctrlvideojuego;
         ctrlvideojuego = CtrlVideojuego::getCtrlVideojuego();
@@ -85,6 +84,7 @@ void CtrlPartida::confirmarIniciarPartida(DtFechaHora inicio){
 	}
 	cantP = cantP + 1;	
 }
+
 
 set<DtPartidaIndividual*> listaPartidasIndTer(){
     set<DtPartidaIndividual*> a;
@@ -116,5 +116,14 @@ void CtrlPartida::finalizarPartida(DtFechaHora f, float id){
 }
 void cancelarFinalizarPartida(){
 
+}*/
+
+
+	// ABANDONAR PARTIDA MULTIJUGADOR
+
+
+set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas(string mailJugador)
+{
+	set<DtPartidaMultijugador*> res = manejadorPartida->listarPartidasMultijugadorUnidas(mailJugador);
+	return res;
 }
-*/

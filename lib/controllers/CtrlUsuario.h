@@ -6,6 +6,7 @@
 #include "../Desarrollador.h"
 #include "../manejadores/ManejadorUsuario.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
+#include "../datatypes/DtPartidaMultijugador.h"
 #include "../datatypes/DtDescripcionSuscripcion.h"
 #include "../datatypes/DtSuscripcion.h"
 #include "../datatypes/DtEstadistica.h"
@@ -83,7 +84,7 @@ class CtrlUsuario : public IUsuario
         void confirmaAltaDesarrollador();
         void confirmaAltaJugador();
         void cancelaAlta();
-        
+
         set<DtVideojuego*> listarVideoJuegosDesarrollador();
 };
 

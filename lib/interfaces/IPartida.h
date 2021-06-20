@@ -5,6 +5,7 @@
 #include <set>
 
 #include "../datatypes/DtPartidaIndividual.h"
+#include "../datatypes/DtPartidaMultijugador.h"
 #include "../datatypes/DtPartida.h"
 
 using namespace std;
@@ -15,7 +16,7 @@ class IPartida //aca
         IPartida();
         virtual ~IPartida();
 
-        virtual void cancelarIniciarPartida() = 0;
+        //virtual void cancelarIniciarPartida() = 0;
 
        /* virtual void iniciarPartida();
         virtual void abandonarPartidaMultijugador();
@@ -33,6 +34,9 @@ class IPartida //aca
         virtual set<DtPartida> listaPartidasIniciadas(string nickname);
         virtual void finalizarPartida(float id);
         virtual void cancelarFinalizarPartida(); */
+
+        //Abandonar Partida
+
 };
 
 #endif

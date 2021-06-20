@@ -10,13 +10,16 @@
 
 using namespace std;
  
+class PartidaMultijugador;
+class PartidaIndividual;
+
 class ManejadorPartida {
 	private:
 		// Singleton
         static ManejadorPartida* instancia;
         // Constructor
        	ManejadorPartida();
-       	// Members
+       	// Member 
 		map<float, PartidaIndividual*> partidasI;
 		map<float, PartidaIndividual*>::iterator itPI;
 
@@ -34,6 +37,11 @@ class ManejadorPartida {
 		PartidaMultijugador* getPM(float id);
 		void AgregarPartidaIndividual(float id, PartidaIndividual* pi);
 		void AgregarPartidaMultijugador(float id, PartidaMultijugador* pm);
+
+
+		//ABANDONAR PARTIDA MJ
+
+		set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
 
 };
 
