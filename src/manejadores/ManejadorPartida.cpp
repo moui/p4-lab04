@@ -54,15 +54,21 @@ void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador*
 set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
 {
 	set<DtPartidaMultijugador*> res;	
- /*
-	for ((*itPM))=partidasM.begin(); (*itPM))!=partidas.end(); (*itPM))++)
+ 
+	for (itPM=partidasM.begin(); itPM!=partidasM.end(); itPM++)
 	{
-		if ( ((((*itPM))->second)->getParticipan()).find(mailJugador) !=  (auto it=(((*itPM))->second)->getParticipan()).end()) )
+		auto it=itPM->second->getParticipan().find(mailJugador);
+		if ( it != itPM->second->getParticipan().end())
 		{
-			res.insert( new DtPartidaMultijugador((*itPM))->first, (*itPM))->second->getDuracion(), (*itPM))->second->getFecha(),
-			(*itPM))->second->getVideojuego()->getNombreVJ(), (*itPM))->second->getTransmitidaEnVivo(). (*itPM))->second->get()   ) )
+			set<string> nicknameUnidos;
+			for ( auto itUnidos = (itPM)->second->getParticipan().begin(); itUnidos!= (itPM)->second->getParticipan().end(); itUnidos++)
+			{
+				nicknameUnidos.insert((itUnidos)->second->getParticipa()->getNickname());
+			}
+			res.insert( new DtPartidaMultijugador((itPM)->first, (itPM)->second->getDuracion(), (itPM)->second->getFecha(),
+			(itPM)->second->getVideojuego()->getNombreVJ(), (itPM)->second->getTransmitidaEnVivo(), nicknameUnidos, nicknameUnidos.size()) );
 		}
-	}*/
+	}
 	return res;
 }
  

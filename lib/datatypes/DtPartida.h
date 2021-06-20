@@ -13,7 +13,7 @@ class DtPartida
 
     public:
         // Constructor y destructor
-        DtPartida(float id, float duracion, DtFechaHora fecha);
+        DtPartida(float id, float duracion, DtFechaHora fecha, string n);
         virtual ~DtPartida();
 
         virtual void abstracta() = 0; // Funcion virtual pura => DtPartida es abstracta
