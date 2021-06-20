@@ -19,8 +19,7 @@ class Videojuego
   private:
     string nombre, descripcion;
 
-    float costo1, costo3, costo12, costoV;
-
+    float costo1, costo3, costo12, costoV, ppromedio;
 
     set<string> suscritos;
 
@@ -51,6 +50,8 @@ class Videojuego
 
     DtVideojuego* getDatatype();
 
+    float getPromedio();
+
     //setters
 
     void setNombreVJ(string);
@@ -62,6 +63,8 @@ class Videojuego
     void setCosto3(float c3);
     void setCosto12(float c12);
     void setCostoV(float cV);
+
+    void calcularPromedio();
 
     void setCategoriasVJ(set<Categoria*> catvj); 
 
