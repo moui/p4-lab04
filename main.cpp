@@ -421,6 +421,7 @@ int main()
                         }
                         case 3:
                         {
+                            string vjelim;
                             set<DtVideojuego*> setvjdes = IUsr->listarVideoJuegosDesarrollador();
                             set<DtVideojuego*>::iterator itvid;
                             cout << "VIDEOJUESO PUBLICADOS: " << endl << endl;
@@ -429,6 +430,9 @@ int main()
                             for (itvid = setvjdes.begin(); itvid != setvjdes.end(); ++itvid){
                                 cout << *(*itvid) << endl;
                             }
+                            cout << "Ingrese nombre de videojuego a eliminar: ";
+                            cin >> vjelim;
+                            IVid->videojuegoAEliminar(vjelim);
                             break;
                         }
                         case 4:

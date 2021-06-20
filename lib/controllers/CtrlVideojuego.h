@@ -22,7 +22,7 @@ class CtrlVideojuego : public IVideojuego
         CtrlVideojuego();
 
         //memoria
-        string nombre, descripcion;
+        string nombre, descripcion, vjelim;
         float costo1, costo3, costo12, costoV;        
         TipoCat tipo;
         set<Categoria*> cats;
@@ -34,12 +34,10 @@ class CtrlVideojuego : public IVideojuego
         static CtrlVideojuego * getCtrlVideojuego();
 
         void videojuegoAEliminar(string nombre);
-        void cancelarEliminarVideoJuego();
-        void confirmarEliminarVideoJuego();
-
+        void cancelar_eliminarVideoJuego();
+        void confirmar_eliminarVideoJuego();
 
         DtVideojuego* verInfoVideojuego(string nombre); 
-
 
         //suscribirse a Videojuego (caso de uso en CtrlUsuario), devuelve copia del catalogo
         map<string, DtVideojuegoSuscripcion*> ObtenerCatalogo(); 
