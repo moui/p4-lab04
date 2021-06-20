@@ -51,6 +51,8 @@ void ManejadorPartida::AgregarPartidaMultijugador(int id, PartidaMultijugador* p
 	partidasM.insert( pair <int,PartidaMultijugador*>(id,pm) );
 }
 
+//abandonar partida mj
+
 set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
 {
 	set<DtPartidaMultijugador*> res;	
@@ -71,5 +73,13 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 	}
 	return res;
 }
+
+ void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
+ {
+	 itPM=partidasM.find(partidaMJ);
+	 auto itInfoPartida = (itPM->second->getParticipan()).find(mail);
+	 DtFechaHora* fechaSistema = FechaSistema::getInstancia()->getFecha();
+	 itInfoPartida->second->setAbandonaEn(fechaSistema);
+ }
  
 

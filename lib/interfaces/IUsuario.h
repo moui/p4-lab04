@@ -49,6 +49,7 @@ class IUsuario
         //ABANDONAR PARTIDA MULTIJUGADOR
 
         virtual set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas()=0;
+        virtual void ConfirmarAbandonarPartida(int partidaMJ)=0;
 
 
         //eliminar

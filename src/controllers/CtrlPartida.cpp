@@ -151,3 +151,8 @@ set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas(string
 	set<DtPartidaMultijugador*> res = manejadorPartida->listarPartidasMultijugadorUnidas(mailJugador);
 	return res;
 }
+
+ void CtrlPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
+ {
+	 manejadorPartida->ConfirmarAbandonarPartida(mail,partidaMJ);
+ }

@@ -74,7 +74,7 @@ class CtrlPartida : public IPartida
         //ABANDONAR PARTIDA MULTIJUGADOR
 
         set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
-
+        void ConfirmarAbandonarPartida(string mail, int partidaMJ);
 };
 
 #endif
