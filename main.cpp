@@ -681,6 +681,7 @@ int main()
                             DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
                             cout << "INFORMACION VIDEOJUEGO" << endl << endl
                                  << *(infoVideojuego) << Constantes::Separador;
+                            delete infoVideojuego;
                             break;
                         }
                         case 0:
