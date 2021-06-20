@@ -521,13 +521,13 @@ int main()
                              set<DtVideojuegoSuscripcion*> sna = IUsr->listarVideojuegoSuscripcionesNoActivas();
                              cout << "SUSCRIPCIONES ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
-                                 cout<< **itsa;
+                                 cout<< *(*itsa);
                              };
                              cout << Constantes::Separador;
 
                              cout << "SUSCRIPCIONES NO ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsna=sna.begin(); itsna!=sna.end(); itsna++){
-                                 cout<< **itsna;
+                                 cout<< *(*itsna);
                              };
                              cout << Constantes::Separador;
                              string nomVJ;                            
