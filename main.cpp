@@ -422,6 +422,7 @@ int main()
                         case 3:
                         {
                             string vjelim;
+                            char conf;
                             set<DtVideojuego*> setvjdes = IUsr->listarVideoJuegosDesarrollador();
                             set<DtVideojuego*>::iterator itvid;
                             cout << "VIDEOJUESO PUBLICADOS: " << endl << endl;
@@ -433,6 +434,22 @@ int main()
                             cout << "Ingrese nombre de videojuego a eliminar: ";
                             cin >> vjelim;
                             IVid->videojuegoAEliminar(vjelim);
+                            cout << "Desea confirmar (E)liminar o (C)ancelar? ";
+                            cin >> conf;
+                            switch (conf)
+                            {
+                            case 'E':
+                                IVid->confirmar_eliminarVideoJuego();
+                                cout << "Videojuego eliminado." << endl << Constantes::Separador;
+                                break;
+                            case 'C':
+                                IVid->cancelar_eliminarVideoJuego();
+                                cout << "Eliminar cancelado." << endl << Constantes::Separador;
+                                break;
+                            default:
+                                cout << "Ingreso una opcion invalida. Intente nuevamente. \n";
+                                break;
+                            }
                             break;
                         }
                         case 4:
