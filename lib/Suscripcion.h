@@ -1,47 +1,47 @@
 #ifndef SUSCRIPCION
 #define SUSCRIPCION
 
-#include "DescripcionSuscripcion.h"
 #include "datatypes/TipoEstado.h"
 #include "datatypes/TipoPago.h"
+#include "datatypes/DtFechaHora.h"
+#include "datatypes/TipoPeriodo.h"
+#include "helpers/FechaSistema.h"
 #include <string>
 #include <map>
-//#include "Jugador.h"
 
-class DescripcionSuscripcion;
-//class Jugador;
 
 using namespace std;
 
-
 class Suscripcion{
-  private:
-    string nombreVJ;
-    DtFechaHora* fecha;
-    float costo;
-    TipoPago pago;
-    TipoEstado estado;
-    bool vitalicia;
-  public:
-    Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v);
-    ~Suscripcion();
+    
+    private:
+        string nombreVJ;
+        DtFechaHora* fecha;
+        float costo;
+        TipoPago pago;
+        TipoPeriodo periodo;
+        bool cancelada;
 
-//Getters
-  string getnombreVJ();
-  DtFechaHora* getFecha();
-  float getCosto();
-  TipoPago getTipoPago();
-  TipoEstado getEstado();
-  bool getVitalicia();
+    public:
+        Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago pago, TipoPeriodo periodo, bool cancelada);
+        ~Suscripcion();
 
-//Setters
-void setNombreVJ(string n);
-void setFecha(DtFechaHora* f);
-void setCosto(float c);
-void setTipoPago(TipoPago p);
-void setTipoEstado(TipoEstado e);
-void setVitalicia(bool v);
+        //Getters
+        string getnombreVJ();
+        DtFechaHora* getFecha();
+        float getCosto();
+        bool getCanceleda();
+        TipoPago getTipoPago();
+        TipoPeriodo getPeriodo();
+        TipoEstado getEstado(); // Se calcula a partir de los demas atributos
 
+        //Setters
+        void setNombreVJ(string n);
+        void setFecha(DtFechaHora* f);
+        void setCosto(float c);
+        void setTipoPago(TipoPago p);
+        void setPeriodo(TipoPeriodo periodo);
+        void setCancelada(bool cancelada);
 };
 
 #endif

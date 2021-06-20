@@ -44,8 +44,6 @@ class Videojuego
 
     set<Categoria*> getCategoriasVJ(); 
 
-    DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p);
-
     DtVideojuego* getDatatype();
 
     //setters

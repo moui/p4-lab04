@@ -12,6 +12,12 @@ Jugador::Jugador(string email, string contrasena, string nickname, string descri
 Jugador::~Jugador()
 {
   // Determinar como se va a destruir el map<int, Partida>
+  for (auto it = suscripto.begin(); it != suscripto.end(); ++it)
+  {
+    if (*it != NULL)
+      delete *it;
+  }
+  
 }
 
 // Getters
@@ -138,10 +144,10 @@ DtSuscripcion* Jugador::getDatosSuscripcion(string nomVJ){
     float c = s->getCosto();
     TipoPago tp = s->getTipoPago();
     TipoEstado te=s->getEstado();
-    bool v = s->getVitalicia();
+    TipoPeriodo pe = s->getPeriodo();
     //(n,f,c,tp,te,v) datos
 
-    res = new DtSuscripcion(n,f,c,tp,te,v);
+    res = new DtSuscripcion(n,f,c,tp,te,pe);
   }
   return res;
 }
@@ -162,9 +168,8 @@ void Jugador::CancelarSuscripcion(string nomVJ) //se repite codigo para no recor
       throw invalid_argument( "No existe suscripcion. " );
     }
     else {
-      res->setTipoEstado(TipoEstado::cancelada);
+      res->setCancelada(true);
     }
-
 }
 
 set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
@@ -187,9 +192,27 @@ set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
 
 //Suscribirse a videojuego
 
-set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas(map<string, DtVideojuegoSuscripcion*> Dcatalogo)
+map<string, DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas()
 {
-  set<DtVideojuegoSuscripcion*> res;
+    CtrlVideojuego* ctrlVideojuego = CtrlVideojuego::getCtrlVideojuego();
+
+    map<string, DtVideojuegoSuscripcion*> suscripcionesActivas;
+
+    for (auto it = suscripto.begin(); it != suscripto.end(); ++it)
+    {
+        Suscripcion* suscripcion = *it;
+        if (suscripcion->getEstado() == TipoEstado::activa)
+        {
+            // Agregar descripcion suscripcion al set
+            string nombreVideojuego = suscripcion->getnombreVJ();
+            suscripcionesActivas.insert(pair<string, DtVideojuegoSuscripcion*>(
+                nombreVideojuego, ctrlVideojuego->getDataSuscripciones(nombreVideojuego))
+                );
+        }
+    }
+    
+    return suscripcionesActivas;
+  /*set<DtVideojuegoSuscripcion*> res;
   set<Suscripcion*>::iterator it;
   if(!suscripto.empty())
   {
@@ -206,23 +229,15 @@ set<DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas(map<
       }
     }
   } 
-  return res;
+  return res; */
 }
 
 
 
-void Jugador::AltaSuscripcion(DtDescripcionSuscripcion* dtDS, TipoPago p)
+void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
 {
-  string nomVJ;
-  DtFechaHora* f = new DtFechaHora(); //arreglar esto
-  float c=dtDS->getCosto();
-  TipoEstado e= TipoEstado::activa;
-  bool v;
-  (dtDS->getPeriodo()==TipoPeriodo::Vitalicia) ? v=true : v=false;
-
-  suscripto.insert(new Suscripcion(nomVJ, f, c, p, e, v));
-
+    suscripto.insert(new Suscripcion(dtSus->getnombreVJ(), dtSus->getFecha(), 
+        dtSus->getCosto(), dtSus->getTipoPago(), dtSus->getPeriodo(), false));
 }
-
 
 void Jugador::mostrarUsuario(){ cout << "jug"; }

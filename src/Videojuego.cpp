@@ -12,25 +12,6 @@ Videojuego::Videojuego(string nnombre, string ndescripcion, float costomensual, 
 
 //getters
 
-DtDescripcionSuscripcion* Videojuego::getDatosDescripcionSuscripcion(TipoPeriodo p)
-{
-    DtDescripcionSuscripcion* res;
-    float cost;
-    switch (p)
-    {
-        case TipoPeriodo::Mensual : cost=this->costo1; break;
-        case TipoPeriodo::Trimestral : cost=this->costo3; break;
-        case TipoPeriodo::Anual : cost=this->costo12; break;
-        case TipoPeriodo::Vitalicia : cost=this->costoV; break;
-        default: throw invalid_argument("Periodo no valido \n");
-    }
-
-    string nomVJ = this->nombre;
-    res = new DtDescripcionSuscripcion(nomVJ, cost, p);
-    return res;
-   
-}
-
 string Videojuego::getNombreVJ(){
     return this->nombre;
     }

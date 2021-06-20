@@ -1,66 +1,116 @@
 #include "../lib/Suscripcion.h"
 // falta agregar el tiposuscripcion y ponerselo para saber que tipo de suscripcion es para siempre.
 
-Suscripcion::Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v)
+Suscripcion::Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago pago, TipoPeriodo periodo, bool cancelada)
 {
   this->nombreVJ = nomVJ;
   this->fecha = f;
   this->costo = costo;
-  this->pago = p;
-  this->estado = e;
-  this->vitalicia = v;
-  return;
+  this->pago = pago;
+  this->periodo = periodo;
+  this->cancelada = cancelada;
 }
 
 Suscripcion::~Suscripcion()
 {
+    if (fecha != NULL)
+        delete fecha;
 }
 
-    //getters
+//Getters
+string Suscripcion::getnombreVJ()
+{
+    return this->nombreVJ;
+}
 
-    string Suscripcion::getnombreVJ(){
-      return this->nombreVJ;
-    }
+DtFechaHora* Suscripcion::getFecha()
+{
+    return this->fecha;
+}
 
-    DtFechaHora* Suscripcion::getFecha(){
-      return this->fecha;
-    }
+float Suscripcion::getCosto()
+{
+    return this->costo;
+}
 
-    float Suscripcion::getCosto(){
-      return this->costo;
-    }
+TipoPago Suscripcion::getTipoPago()
+{
+    return this->pago;
+}
 
-    TipoPago Suscripcion::getTipoPago(){
-      return this->pago;
-    }
+TipoEstado Suscripcion::getEstado()
+{
+    if (periodo == TipoPeriodo::Vitalicia)
+        return TipoEstado::activa;
 
-    TipoEstado Suscripcion::getEstado(){
-      return this->estado;
+    if (cancelada == true)
+        return TipoEstado::cancelada;
+    
+    DtFechaHora* fechaSistema = FechaSistema::getInstancia()->getFecha();
+    float meses = DtFechaHora::Meses(fechaSistema, this->fecha);
+    
+    switch (this->periodo)
+    {
+        case TipoPeriodo::Mensual:
+            if (meses > 1)
+                return TipoEstado::expirada;
+            else
+                return TipoEstado::activa;
 
-    }
-    bool Suscripcion::getVitalicia(){
-      return this->vitalicia;
-    }
-    //Setters
-    void Suscripcion::setNombreVJ(string n){
-      this->nombreVJ=n;
-    }
+        case TipoPeriodo::Trimestral:
+            if (meses > 3)
+                return TipoEstado::expirada;
+            else
+                return TipoEstado::activa;
 
-    void Suscripcion::setFecha(DtFechaHora* f){
-      this->fecha=f;
-    }
+        case TipoPeriodo::Anual:
+            if (meses > 12)
+                return TipoEstado::expirada;
+            else
+                return TipoEstado::activa;
 
-    void Suscripcion::setCosto(float c){
-      this->costo=c;
+        default:
+            throw 0;
     }
+}
 
-    void Suscripcion::setTipoPago(TipoPago p){
-      this->pago=p;
-    }
+TipoPeriodo Suscripcion::getPeriodo()
+{
+    return this->periodo;
+}
 
-    void Suscripcion::setTipoEstado(TipoEstado e){
-      this->estado=e;
-    }
-    void Suscripcion::setVitalicia(bool v){
-      this->vitalicia=v;
-    }
+bool Suscripcion::getCanceleda()
+{
+    return this->cancelada;
+}
+
+//Setters
+void Suscripcion::setNombreVJ(string n)
+{
+    this->nombreVJ=n;
+}
+
+void Suscripcion::setFecha(DtFechaHora* f)
+{
+    this->fecha=f;
+}
+
+void Suscripcion::setCosto(float c)
+{
+    this->costo=c;
+}
+
+void Suscripcion::setTipoPago(TipoPago p)
+{
+    this->pago=p;
+}
+
+void Suscripcion::setPeriodo(TipoPeriodo periodo)
+{
+    this->periodo = periodo;
+}
+
+void Suscripcion::setCancelada(bool cancelada)
+{
+    this->cancelada = cancelada;
+}

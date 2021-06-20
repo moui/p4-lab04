@@ -25,6 +25,7 @@
 #include "datatypes/DtFechaHora.h"
 #include "helpers/FechaSistema.h"
 #include "controllers/CtrlUsuario.h"
+#include "controllers/CtrlVideojuego.h"
 
 using namespace std;
 
@@ -53,8 +54,7 @@ class Jugador : public Usuario
     void iniciadaP(Partida* p);
     bool estaSuscritoA(string NombreVJ);
     set<DtPartidaIndividual*> partidasIndividualesFinalizadas();
-    set<DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas(map<string, DtVideojuegoSuscripcion*> Dcatalogo);
-
+    map<string, DtVideojuegoSuscripcion*> listarVideojuegoSuscripcionesActivas();
 
     // Getters
     string getNickname();
@@ -67,7 +67,7 @@ class Jugador : public Usuario
     Suscripcion* getSuscripcion(string nomVJ);
     DtSuscripcion* getDatosSuscripcion(string nomVJ);
     void CancelarSuscripcion(string nomVJ);
-    void AltaSuscripcion(DtDescripcionSuscripcion* dtDS, TipoPago p);
+    void AltaSuscripcion(DtSuscripcion* dtSus);
 
 
     // Setters

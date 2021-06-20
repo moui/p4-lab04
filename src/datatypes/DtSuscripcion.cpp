@@ -3,14 +3,13 @@
 
 
 
-DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v){
+DtSuscripcion::DtSuscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, TipoPeriodo periodo){
   this->nombreVJ = nomVJ;
   this->fecha = f;
   this->costo = costo;
   this->pago = p;
   this->estado = e;
-  this->vitalicia=v;
-
+  this->periodo=periodo;
   return;
 }
 DtSuscripcion::~DtSuscripcion()
@@ -37,6 +36,6 @@ TipoPago DtSuscripcion::getTipoPago(){
 TipoEstado DtSuscripcion::getEstado(){
   return this->estado;
 }
-bool DtSuscripcion::getVitalicia(){
-  return this->vitalicia;
+TipoPeriodo DtSuscripcion::getPeriodo(){
+  return this->periodo;
 }

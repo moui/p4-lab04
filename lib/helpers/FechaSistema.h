@@ -6,10 +6,13 @@
 class FechaSistema
 {
     private:
+        static FechaSistema* instancia;
+        FechaSistema();
+
         DtFechaHora* fecha;
 
     public:
-        FechaSistema();
+        static FechaSistema* getInstancia();
         ~FechaSistema();
 
         // Getters y setters

@@ -26,7 +26,7 @@ static DtFechaHora *ValidarFechaSistema();
 
 int main()
 {
-    FechaSistema *fechaSistema = new FechaSistema();
+    FechaSistema *fechaSistema = FechaSistema::getInstancia();
     IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
     IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego();
     IPartida *IPar = Fabrica::getInstancia()->getIPartida();
@@ -550,18 +550,21 @@ int main()
                              cout << "SUSCRIPCIONES ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
                                  cout<< *(*itsa);
+                                 delete *itsa;
                              };
                              cout << Constantes::Separador;
 
                              cout << "SUSCRIPCIONES NO ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsna=sna.begin(); itsna!=sna.end(); itsna++){
                                  cout<< *(*itsna);
+                                 delete *itsna;
                              };
                              cout << Constantes::Separador;
                              string nomVJ;                            
                              cout << "Seleccione un Videojuego para suscribirse: \n";
                              cin >> nomVJ;
-                             TipoEstado estado=IUsr->JuegoSuscribirse(nomVJ);
+                             TipoEstado estado=IUsr->JuegoSuscribirse(nomVJ);                           
+
                              switch(estado)
                              {
                              case (TipoEstado::activa):
@@ -647,6 +650,7 @@ int main()
                             cerr << "Error: " << err.what() << '\n';
                             }
                             break;
+                            
                         }
                         case 2:
                         {

@@ -90,17 +90,25 @@ map<string, DtVideojuegoSuscripcion*> CtrlVideojuego::ObtenerCatalogo(){
   return res;
 }
 
-DtDescripcionSuscripcion* CtrlVideojuego::getDatosDescripcionSuscripcion(TipoPeriodo p, string nomVJ)
+int CtrlVideojuego::getCostoSuscripcion(TipoPeriodo p, string nomVJ)
 {
-  DtDescripcionSuscripcion* res=NULL;
-  Videojuego* v=manejadorVideojuego->buscarVideojuego(nomVJ);
-  res=v->getDatosDescripcionSuscripcion(p);
-  if(res==NULL)
-  {
-    throw invalid_argument("No se encontraron datos en el videojuego. ");
-  }
-  return res;
-  
+	Videojuego* videojuego = manejadorVideojuego->buscarVideojuego(nomVJ);
+    if (videojuego == NULL)
+		throw invalid_argument("No existe videojuego " + nomVJ);
+	
+	switch (p)
+	{
+		case TipoPeriodo::Mensual:
+			return videojuego->getCosto1();
+		case TipoPeriodo::Trimestral:
+			return videojuego->getCosto3();
+		case TipoPeriodo::Anual:
+			return videojuego->getCosto12();
+		case TipoPeriodo::Vitalicia:
+			return videojuego->getCostoV();
+		default:
+			throw invalid_argument("");
+	}
 }
 
 void CtrlVideojuego::agregarSuscrito(string nomVJ, string nomJ)
@@ -108,7 +116,36 @@ void CtrlVideojuego::agregarSuscrito(string nomVJ, string nomJ)
   manejadorVideojuego->agregarSuscrito(nomVJ, nomJ);
 }
 
+DtVideojuegoSuscripcion* CtrlVideojuego::getDataSuscripciones(string nombreVideojuego)
+{
+    Videojuego* vj = manejadorVideojuego->buscarVideojuego(nombreVideojuego);
+    if (vj == NULL)
+		throw invalid_argument("No existe videojuego " + nombreVideojuego);
+    
 
+    return new DtVideojuegoSuscripcion(nombreVideojuego, vj->getCosto1(), vj->getCosto3(), vj->getCosto12(), vj->getCostoV());
+}
+
+set<DtVideojuegoSuscripcion*> CtrlVideojuego::getComplemento(map<string, DtVideojuegoSuscripcion*> map)
+{
+    set<DtVideojuegoSuscripcion*> res;
+
+    auto catalogo = ObtenerCatalogo();
+    for (auto it = catalogo.begin(); it != catalogo.end(); ++it)
+    {
+        DtVideojuegoSuscripcion* infoSusc = it->second;
+        string nombre = infoSusc->getNombreVideojuego();
+        if ( map.empty() || ( map.find(nombre) == map.end() ) )
+        {
+            auto _infoSusc = new DtVideojuegoSuscripcion(nombre, infoSusc->getCosto1(), 
+                infoSusc->getCosto3(), infoSusc->getCosto12(), infoSusc->getCostoV());
+            res.insert(_infoSusc);
+        }
+        delete infoSusc;
+    }
+    
+    return res;
+}
 
 //categorias
 

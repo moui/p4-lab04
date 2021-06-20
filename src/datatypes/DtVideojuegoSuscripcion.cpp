@@ -2,7 +2,7 @@
 
 DtVideojuegoSuscripcion::DtVideojuegoSuscripcion(string n, float c1, float c3, float c12, float cV)
 {
-this->nomVJ+n;    
+this->nomVJ=n;    
 this->costo1=c1;
 this->costo3=c3;
 this->costo12=c12;

@@ -4,6 +4,7 @@
 #include <string>
 #include "TipoPago.h"
 #include "TipoEstado.h"
+#include "TipoPeriodo.h"
 #include "DtFechaHora.h"
 
 using namespace std;
@@ -16,9 +17,9 @@ class DtSuscripcion{
     float costo;
     TipoPago pago;
     TipoEstado estado;
-    bool vitalicia;
+    TipoPeriodo periodo;
   public:
-    DtSuscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v);
+    DtSuscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, TipoPeriodo periodo);
     ~DtSuscripcion();
 
 //Getters
@@ -27,7 +28,7 @@ class DtSuscripcion{
   float getCosto();
   TipoPago getTipoPago();
   TipoEstado getEstado();
-  bool getVitalicia();
+  TipoPeriodo getPeriodo();
   };
 
 #endif

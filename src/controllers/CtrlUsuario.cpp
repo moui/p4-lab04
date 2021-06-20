@@ -93,25 +93,22 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
     {
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
-        if(datosDescripcionSuscripcion==NULL)
+        if(datosSuscripcion==NULL)
         {
             throw invalid_argument("no se guardaron los datos en el sistema. ");
         }
-        jugador->AltaSuscripcion(datosDescripcionSuscripcion, pagoSuscripcion);
+        jugador->AltaSuscripcion(datosSuscripcion);
         CtrlVideojuego* ctrlvidejuego;
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
-        string nomVJ = datosDescripcionSuscripcion->getNombre();
+        string nomVJ = datosSuscripcion->getnombreVJ();
         string nomJ=jugador->getMail();
         ctrlvidejuego->agregarSuscrito(nomVJ, nomJ);
-
-
     }
 
     void CtrlUsuario::CancelarOperacion()
     {
         Dcatalogo.clear();
-        delete datosDescripcionSuscripcion;
-        //delete pagoSuscripcion;
+        delete datosSuscripcion;
     }
 
     void CtrlUsuario::CancelarSuscripcion(string nomVJ){
@@ -144,14 +141,11 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         CtrlVideojuego* ctrlvidejuego;
         ctrlvidejuego = CtrlVideojuego::getCtrlVideojuego();
 
-        DtDescripcionSuscripcion* ds=NULL;
-        ds= ctrlvidejuego->getDatosDescripcionSuscripcion(periodo, nomVJ);
-        this->datosDescripcionSuscripcion=ds;
-        this->pagoSuscripcion= pago;
-
-
+        int costo = ctrlvidejuego->getCostoSuscripcion(periodo, nomVJ);
+        
+        this->datosSuscripcion = new DtSuscripcion(nomVJ, new DtFechaHora(FechaSistema::getInstancia()->getFecha()),
+            costo, pago, TipoEstado::activa, periodo);
     }
-
 
     TipoEstado CtrlUsuario::JuegoSuscribirse(string nomVJ){
         TipoEstado res= TipoEstado::expirada;
@@ -162,7 +156,7 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         Suscripcion* s= jugador->getSuscripcion(nomVJ);
         if (s!=NULL)
         {
-            if (s->getVitalicia()) {
+            if (s->getPeriodo() == TipoPeriodo::Vitalicia) {
                 throw invalid_argument( "No se puede cancelar suscripcion Vitalicia. " );
             }
             
@@ -187,18 +181,34 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
         set<DtVideojuegoSuscripcion*> res;
         Usuario* user= CtrlUsuario::getSesionActiva();
         Jugador * jugador={dynamic_cast<Jugador*>(user)};
-        res=jugador->listarVideojuegoSuscripcionesActivas(Dcatalogo);
+
+        auto map = jugador->listarVideojuegoSuscripcionesActivas();
+        for (auto it = map.begin(); it != map.end(); ++it)
+        {
+            res.insert(it->second);
+        }
+
         return res;
     }
 
-    set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesNoActivas(){
-        set<DtVideojuegoSuscripcion*> res;
-        map<string, DtVideojuegoSuscripcion*>::iterator itDcatalogo;
-        for(itDcatalogo=Dcatalogo.begin(); itDcatalogo!=Dcatalogo.end(); itDcatalogo++){
-            res.insert(itDcatalogo->second);
-            Dcatalogo.erase(itDcatalogo);
+    set<DtVideojuegoSuscripcion*> CtrlUsuario::listarVideojuegoSuscripcionesNoActivas()
+    {
+        set<DtVideojuegoSuscripcion*> suscripcionesNoActivas;
+
+        CtrlVideojuego* ctrlVideojuego = CtrlVideojuego::getCtrlVideojuego();
+
+        Jugador * jugador = dynamic_cast<Jugador*>(getSesionActiva());
+        auto map = jugador->listarVideojuegoSuscripcionesActivas();
+        
+        suscripcionesNoActivas = ctrlVideojuego->getComplemento(map);
+        
+        // Borrar mem del map
+        for (auto it = map.begin(); it != map.end(); ++it)
+        {
+            delete it->second;
         }
-        return res;
+        
+        return suscripcionesNoActivas;
        
     }
 

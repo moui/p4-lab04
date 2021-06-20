@@ -38,7 +38,7 @@ class CtrlUsuario : public IUsuario
         string mail, contrasena, nickname, empresa, descripcion;
 
         map<string, DtVideojuegoSuscripcion*> Dcatalogo;
-        DtDescripcionSuscripcion* datosDescripcionSuscripcion;
+        DtSuscripcion* datosSuscripcion;
         TipoPago pagoSuscripcion;
 
     public:
