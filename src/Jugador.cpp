@@ -158,7 +158,10 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
     Jugador * jugador={dynamic_cast<Jugador*>(user)};
 
     res= ctrlpartida->listarPartidasMultijugadorUnidas(jugador->getMail());
-
+    if (res.empty())
+    {
+      throw invalid_argument("No se obtuvieron datos de partidas del controlador. ");
+    }
     return res;
 
   }
