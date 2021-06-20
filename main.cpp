@@ -678,7 +678,7 @@ int main()
                             cout << "Ingrese el nombre del videojuego: ";
                             cin.ignore();
                             getline(cin, nombre);
-                            DtVideojuego* infoVideojuego = IVid->verInfoVideojuego();
+                            DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
                             cout << "INFORMACION VIDEOJUEGO" << endl << endl
                                  << *(infoVideojuego) << Constantes::Separador;
                             break;
