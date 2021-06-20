@@ -3,13 +3,12 @@
 
 #include <iostream>
 
-enum class TipoPeriodo
-    {
+enum class TipoPeriodo{
 
-    mensual = 0,
-    trimestral = 1,
-    anual = 2,
-    vitalicia= 3,
-    };
+    Mensual = 0,
+    Trimestral = 1,
+    Anual = 2,
+    Vitalicia= 3,
+};
 
 #endif

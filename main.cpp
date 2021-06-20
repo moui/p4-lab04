@@ -434,7 +434,7 @@ int main()
                             cout << "Ingrese nombre de videojuego a eliminar: ";
                             cin >> vjelim;
                             IVid->videojuegoAEliminar(vjelim);
-                            cout << "Desea confirmar (E)liminar o (C)ancelar? ";
+                            cout << "Desea (E)liminar o (C)ancelar? ";
                             cin >> conf;
                             switch (conf)
                             {

@@ -1,4 +1,5 @@
 #include "../lib/Suscripcion.h"
+// falta agregar el tiposuscripcion y ponerselo para saber que tipo de suscripcion es para siempre.
 
 Suscripcion::Suscripcion(string nomVJ, DtFechaHora* f, float costo, TipoPago p, TipoEstado e, bool v)
 {

@@ -54,7 +54,10 @@ void ManejadorVideojuego::agregarCategoria(string clave, Categoria* cat){
 //deleters (?
 
 void ManejadorVideojuego::borrarVideojuego(string clave){
-    videojuegos.erase(itvj=videojuegos.find(clave));
+    itvj = videojuegos.find(clave);
+    videojuegos.erase(itvj);
+    Videojuego* vj = itvj->second;
+    delete vj;
 }
 
 
