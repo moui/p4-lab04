@@ -163,6 +163,19 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
 
   }
 
+  void Jugador::ConfirmarAbandonarPartida(int partidaMJ)
+  {
+    CtrlPartida* ctrlpartida;
+    ctrlpartida = CtrlPartida::getCtrlPartida();
+    CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+    Usuario* user= ctrlUsuario->getSesionActiva();
+    Jugador * jugador={dynamic_cast<Jugador*>(user)};
+
+    ctrlpartida->ConfirmarAbandonarPartida(jugador->getMail(), partidaMJ);
+
+  }
+
 void Jugador::removerSuscripcion(string nombrevj){
   for (auto it = suscripto.begin(); it != suscripto.end(); ++it){ 
     if ( (*it)->getnombreVJ() == nombrevj ){

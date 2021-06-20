@@ -877,12 +877,22 @@ int main()
                         }
                         case 4: //ABANDONAR PARTIDA MULTIJUGADOR
                         {
-                            string partidaMJ;
+                            int partidaMJ;
                             cout << Constantes::PresentacionAbandonarPartidaMultijugador;
                             set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listarPartidasMultijugadorUnidas();
                             cout << "Por favor, ingrese el identificador de la partida que desea abandonar:  \n";
                             cin >> partidaMJ;
-                            
+                            try 
+                            {
+                            IUsr->ConfirmarAbandonarPartida(partidaMJ);
+
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
                             break;
                         }
                         case 5:
