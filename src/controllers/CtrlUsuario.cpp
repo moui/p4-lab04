@@ -324,6 +324,10 @@ set<DtPartidaMultijugador*> CtrlUsuario::listarPartidasMultijugadorUnidas()
     Usuario* user= CtrlUsuario::getSesionActiva();
     Jugador * jugador={dynamic_cast<Jugador*>(user)};
     res = jugador->listarPartidasMultijugadorUnidas();
+    if (res.empty())
+    {
+        throw invalid_argument("El controlador no encontro partidas. ");
+    }
     return res;
 }
 
@@ -337,4 +341,12 @@ void CtrlUsuario::ConfirmarAbandonarPartida(int partidaMJ)
 
 void CtrlUsuario::removerSuscripciones(string nombrevj){
     manejadorUsuario->removerSuscripciones(nombrevj);
+}
+
+//FINALIZAR PARTIDA
+
+set<DtPartida*> CtrlUsuario::listaPartidasIniciadasSinFinalizar()
+{
+    set<DtPartida*> res;
+    return res;
 }

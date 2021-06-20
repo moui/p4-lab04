@@ -92,6 +92,11 @@ class CtrlUsuario : public IUsuario
         void ConfirmarAbandonarPartida(int partidaMJ);
 
         void removerSuscripciones(string nombrevj);
+
+        //FINALIZAR PARTIDA
+
+        set<DtPartida*> listaPartidasIniciadasSinFinalizar();
+
 };
 
 #endif
