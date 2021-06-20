@@ -49,8 +49,14 @@ set<DtPartidaIndividual*> partidasIndFinalizadas()
 		return partidas;
 	else
 	{
-		for (auto it = partidas.begin(); it != partidas.end(); ++it)
+		for (auto it = partidasJugador.begin(); it != partidasJugador.end(); ++it)
 		{
+			if ( dynamic_cast<PartidaIndividual*>(it->second) == NULL )
+				continue;
+			
+			// Agregar data 'partidaInd' a 'partidas'
+			auto partidaInd = dynamic_cast<PartidaIndividual*>(it->second);
+			string nombreVid = partidaInd->getVideojuego()->getNombreVJ();
 			
 		}
 	}
