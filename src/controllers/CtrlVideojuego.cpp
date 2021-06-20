@@ -36,8 +36,8 @@ void CtrlVideojuego::confirmar_eliminarVideoJuego(){
   ctrlUsuario = CtrlUsuario::getInstancia();
   Desarrollador* d = dynamic_cast<Desarrollador*> (ctrlUsuario->getSesionActiva());
   d->quitarVJ(manejadorVideojuego->buscarVideojuego(vjelim));
-  manejadorVideojuego->borrarVideojuego(vjelim);
   ctrlUsuario->removerSuscripciones(vjelim);
+  manejadorVideojuego->borrarVideojuego(vjelim);
 }
 
  // publicar videojuego
