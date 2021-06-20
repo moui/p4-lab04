@@ -3,7 +3,13 @@
 
 // Constructor y destructor
 DtPartidaIndividual::DtPartidaIndividual(int identificador,float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin, string n, int* continuacion)
-    : DtPartida::DtPartida(identificador, duracion, fecha, fecha_fin, n)
+    : DtPartida::DtPartida(identificador, fecha, n)
+{
+    this->continuacion = continuacion;
+}
+
+DtPartidaIndividual::DtPartidaIndividual(int identificador, DtFechaHora* fecha, string n, int* continuacion)
+    : DtPartida::DtPartida(identificador, fecha, n)
 {
     this->continuacion = continuacion;
 }
