@@ -14,7 +14,7 @@ class DtPartidaIndividual : public DtPartida
 
     public:
         // Contructor y destructor
-        DtPartidaIndividual(float identificador,float duracion, DtFechaHora* fecha, string n, bool continuacion);
+        DtPartidaIndividual(int identificador,float duracion, DtFechaHora* fecha, string n, bool continuacion);
         ~DtPartidaIndividual();
         // Declaracion de funcion pura de DtPartida
         void abstracta(); 

@@ -1,7 +1,7 @@
 #include "../lib/Partida.h"
 
 // Constructor y destructor
-Partida::Partida(float id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego)
+Partida::Partida(int id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego)
 {
   this->identificador = id;
   this->fecha = fecha;
@@ -16,7 +16,7 @@ Partida::~Partida()
 }
 
 // Getters
-float Partida::getId()
+int Partida::getId()
 {
   return this->identificador;
 }
@@ -42,7 +42,7 @@ Videojuego* Partida::getVideojuego()
 }
 
 // Setters
-void Partida::setId(float id)
+void Partida::setId(int id)
 {
   this->identificador = id;
 }

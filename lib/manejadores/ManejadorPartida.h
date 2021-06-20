@@ -22,11 +22,11 @@ class ManejadorPartida {
         // Constructor
        	ManejadorPartida();
        	// Member 
-		map<float, PartidaIndividual*> partidasI;
-		map<float, PartidaIndividual*>::iterator itPI;
+		map<int, PartidaIndividual*> partidasI;
+		map<int, PartidaIndividual*>::iterator itPI;
 
-		map<float, PartidaMultijugador*> partidasM;
-		map<float, PartidaMultijugador*>::iterator itPM;
+		map<int, PartidaMultijugador*> partidasM;
+		map<int, PartidaMultijugador*>::iterator itPM;
 	public:
 		// GetInstance
         static ManejadorPartida* getInstancia();
@@ -35,10 +35,10 @@ class ManejadorPartida {
         ~ManejadorPartida();
 
 		//Getters y Setters
-		PartidaIndividual* getPI(float id);
-		PartidaMultijugador* getPM(float id);
-		void AgregarPartidaIndividual(float id, PartidaIndividual* pi);
-		void AgregarPartidaMultijugador(float id, PartidaMultijugador* pm);
+		PartidaIndividual* getPI(int id);
+		PartidaMultijugador* getPM(int id);
+		void AgregarPartidaIndividual(int id, PartidaIndividual* pi);
+		void AgregarPartidaMultijugador(int id, PartidaMultijugador* pm);
 
 
 		//ABANDONAR PARTIDA MJ

@@ -2,7 +2,7 @@
 #include "../../lib/datatypes/DtFechaHora.h"
 
 // Constructor.
-DtPartidaMultijugador::DtPartidaMultijugador(float id, float duracion, DtFechaHora* fecha, string n,
+DtPartidaMultijugador::DtPartidaMultijugador(int id, float duracion, DtFechaHora* fecha, string n,
     bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos): DtPartida::DtPartida(id, duracion, fecha, nomVJ)
 {
     transmitidaEnVivo = enVivo;
@@ -39,7 +39,7 @@ int DtPartidaMultijugador::getCantidadJugadoresUnidos()
 std::ostream& operator<<(std::ostream& os, const DtPartidaMultijugador& dtPartidaMulti)
 {
     os << "Tipo partida: Multijugador" << endl;
-    os << "ID partida: " << static_cast<float>(dtPartidaMulti.identificador) << endl;
+    os << "ID partida: " << static_cast<int>(dtPartidaMulti.identificador) << endl;
     os << "Fecha partida: " << dtPartidaMulti.fecha << endl;
     os << "Duracion partida: " << static_cast<int>(dtPartidaMulti.duracion) << " hs" << endl;
     if (dtPartidaMulti.transmitidaEnVivo)

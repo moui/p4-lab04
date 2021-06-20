@@ -17,7 +17,7 @@ class DtPartidaMultijugador : public DtPartida
 
     public:
         // Constructor
-        DtPartidaMultijugador(float id, float duracion, DtFechaHora* fecha, string n,
+        DtPartidaMultijugador(int id, float duracion, DtFechaHora* fecha, string n,
             bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos);
         // Destructor
         ~DtPartidaMultijugador();
