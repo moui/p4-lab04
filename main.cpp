@@ -29,7 +29,7 @@ int main()
     FechaSistema *fechaSistema = FechaSistema::getInstancia();
     IUsuario *IUsr = Fabrica::getInstancia()->getIUsuario();
     IVideojuego *IVid = Fabrica::getInstancia()->getIVideojuego();
-    //IPartida *IPar = Fabrica::getInstancia()->getIPartida();
+    IPartida *IPar = Fabrica::getInstancia()->getIPartida();
 
     string mail, contrasena;
     int operacion = 1;
@@ -739,7 +739,9 @@ int main()
                                 cout << "Nombre videojuego: " << infoVideojuego->getNombreVideojuego() << endl << endl;
                             }
 
-                            string tipoPartida, continua;
+                            string tipoPartida, continua, nombreVideojuego;
+                            cout << "Seleccione videojuego indicando su nombre" << endl;
+                            cin >> nombreVideojuego;
                             cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
                             cin >> tipoPartida;
 
@@ -754,15 +756,16 @@ int main()
                                     // Lista partidas individuales ya finalizadas.
                                     // por orden cronologico. Mostrar ID, Fecha y Duracion
                                     cout << endl << "PARTIDAS INDIVIDUALES FINALIZADAS" << endl;
+                                    auto partidasInd = IPar->partidasIndFinalizadas(nombreVideojuego);
+                                    for (auto it = partidasInd.begin(); it != partidasInd.end(); ++it)
+                                    {
+                                        DtPartidaIndividual* dataPartida = *it;
+                                        cout << *dataPartida;
+                                        delete dataPartida;
+                                    }
                                     // Ingresar ID de partida a continuar.
-                                    
+                                    cin >> continua;
                                     // Alta partida.
-
-
-
-
-
-
 
 
                                 }

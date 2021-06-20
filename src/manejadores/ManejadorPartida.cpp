@@ -51,6 +51,16 @@ void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador*
 	partidasM.insert( pair <float,PartidaMultijugador*>(id,pm) );
 }
 
+int ManejadorPartida::getTotalPartidasMulti()
+{
+	return static_cast<int>(partidasM.size());
+}
+
+int ManejadorPartida::getTotalPartidasInd()
+{
+	return static_cast<int>(partidasI.size());
+}
+
 set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
 {
 	set<DtPartidaMultijugador*> res;	

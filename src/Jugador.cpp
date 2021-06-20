@@ -166,7 +166,7 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
 void Jugador::removerSuscripcion(string nombrevj){
   for (auto it = suscripto.begin(); it != suscripto.end(); ++it){ 
     if ( (*it)->getnombreVJ() == nombrevj ){
-      suscripto.erase(*it);
+      suscripto.erase(it);
       delete *it;
     }
   }
