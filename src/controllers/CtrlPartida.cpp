@@ -54,6 +54,8 @@ set<DtPartidaIndividual*> partidasIndFinalizadas()
 			
 		}
 	}
+
+	return partidas;
 }
 
 
