@@ -309,3 +309,6 @@ set<DtPartidaMultijugador*> CtrlUsuario::listarPartidasMultijugadorUnidas()
     return res;
 }
 
+void CtrlUsuario::removerSuscripciones(string nombrevj){
+    manejadorUsuario->removerSuscripciones(nombrevj);
+}

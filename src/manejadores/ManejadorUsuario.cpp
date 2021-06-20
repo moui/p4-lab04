@@ -98,3 +98,13 @@ bool ManejadorUsuario::autenticarJugador(string mail, string contrasena){
     }
     return res;
 }
+
+void ManejadorUsuario::removerSuscripciones(string nombrevj){
+    if ( !jugadores.empty() ){
+        itj = jugadores.begin();
+        while ( itj != jugadores.end() ) {
+            itj->second->removerSuscripcion(nombrevj);           
+            itj++;
+        }
+    }
+}

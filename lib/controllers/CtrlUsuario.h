@@ -87,6 +87,8 @@ class CtrlUsuario : public IUsuario
 
         set<DtVideojuego*> listarVideoJuegosDesarrollador();
         set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
+
+        void removerSuscripciones(string nombrevj);
 };
 
 #endif

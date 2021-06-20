@@ -46,6 +46,8 @@ class ManejadorUsuario {
 
         bool autenticarJugador(string mail, string contrasena);
         bool autenticarDesarollador(string mail, string contrasena);
+
+        void removerSuscripciones(string);
 };
 
 #endif
