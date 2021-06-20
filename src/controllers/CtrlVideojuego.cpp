@@ -198,3 +198,10 @@ set<DtCategoria*> CtrlVideojuego::listarCategoriasOtros(){
 map<string, string> CtrlVideojuego::listarNombresVideojuego(){
   return manejadorVideojuego->listarNombresVideojuego();
 }
+
+void CtrlVideojuego::asignarPuntajeVideojuego(string nombrevj, TipoPuntaje puntaje){
+  CtrlUsuario* ctrlUsuario;
+  ctrlUsuario = CtrlUsuario::getInstancia();
+  Jugador* j = dynamic_cast<Jugador*> (ctrlUsuario->getSesionActiva());
+  manejadorVideojuego->asignarPuntajeVideojuegoJ(nombrevj, j->getNickname(), puntaje);
+}

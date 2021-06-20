@@ -94,3 +94,11 @@ int Videojuego::getSuscritos()
  {
      return suscritos.size();
  }
+
+map<string, TipoPuntaje> Videojuego::getPuntajesVJ(){
+    return this->puntajesjugadores;
+}
+
+void Videojuego::setPuntajeVJ(string nombrejugador, TipoPuntaje puntaje){
+    puntajesjugadores.insert( pair<string, TipoPuntaje>(nombrejugador, puntaje) );
+}

@@ -64,6 +64,8 @@ class ManejadorVideojuego {
         set<DtCategoria*> listarCategoriasOtros();
 
         map<string, string> listarNombresVideojuego();
+
+        void asignarPuntajeVideojuegoJ(string, string, TipoPuntaje);
 };
 
 #endif

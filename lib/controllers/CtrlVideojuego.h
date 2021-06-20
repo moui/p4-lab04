@@ -68,6 +68,8 @@ class CtrlVideojuego : public IVideojuego
 	    Videojuego* getVJ(string nomVJ);
 
         map<string, string> listarNombresVideojuego();
+
+        void asignarPuntajeVideojuego(string nombre, TipoPuntaje puntaje);
 };
 
 #endif
