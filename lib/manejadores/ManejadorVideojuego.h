@@ -57,7 +57,6 @@ class ManejadorVideojuego {
         void agregarSuscrito(string nomVJ, string nomJ);
 
         //IniciarPartida
-	      void setPartida(Partida* p);
 
         set<DtCategoria*> listarCategorias();
         set<DtCategoria*> listarCategoriasGenero();

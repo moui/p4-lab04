@@ -123,13 +123,21 @@ void CtrlVideojuego::cancela_agregarCategoria(){
 
 //IniciarPartida
 void CtrlVideojuego::iniciadaP(Partida* p){
-	manejadorVideojuego->setPartida(p);
+	
 }
 
 Videojuego* CtrlVideojuego::getVJ(string nomVJ){
 	return manejadorVideojuego->buscarVideojuego(nomVJ);
 }
 
+DtVideojuego* CtrlVideojuego::verInfoVideojuego(string nombre)
+{
+  Videojuego* videojuego = getVJ(nombre);
+  if (videojuego == NULL)
+    throw invalid_argument("Videojuego no existe en el catalogo.");
+  else   
+    return videojuego->getDatatype();
+}
 
 set<DtCategoria*> CtrlVideojuego::listarCategoriasGenero(){
   return manejadorVideojuego->listarCategoriasGenero();

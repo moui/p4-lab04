@@ -37,10 +37,6 @@ string Videojuego::getNombreVJ(){
     return this->nombre;
     }
 
-Partida ** Videojuego::getTienePartida(){
-    return this->tiene;
-}
-
 float Videojuego::getCosto1(){
     return this->costo1;
 }
@@ -64,18 +60,6 @@ void Videojuego::setNombreVJ(string nombreVJ){
     this->nombre=nombreVJ;
 }
 
-void Videojuego::setTienePartida(Partida ** p){
-    this->tiene=p;
-}
-
-void Videojuego::setPartida(Partida* p){
-    int curr = 0;
-    while (this->tiene[curr] != NULL){
-            curr++;
-    }
-    this->tiene[curr] = p;
-}
-
 void Videojuego::setCosto1(float c1){
     this->costo1=c1;
 }
@@ -93,12 +77,23 @@ void Videojuego::setCategoriasVJ(set<Categoria*> cats){
     this->categoriasvj = cats;
 }
 
+// getDatatype
+DtVideojuego* Videojuego::getDatatype()
+{
+    set<DtCategoria*> dtCategorias;
+    
+    for (itcatvj = categoriasvj.begin(); itcatvj != categoriasvj.end(); ++itcatvj)
+    {
+        Categoria* cat = *itcatvj;
+        dtCategorias.insert(cat->getDtCategoria());
+    }
 
-Videojuego::~Videojuego(){
-    int curr = 0;
-    while (this->tiene[curr] != NULL)
-        delete this->tiene[curr++];
-    delete[] this->tiene;
+    return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias);
+}
+
+
+Videojuego::~Videojuego()
+{
 };
 
 void Videojuego::agregarDescripcionSuscripcion(DescripcionSuscripcion* ds){

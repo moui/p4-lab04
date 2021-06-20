@@ -268,6 +268,8 @@ int main()
                         case 2:
                         {
                             // PUBLICAR VIDEOJUEGO
+                            cin.clear();
+
                             string nombrevj, desvj, catgen, nombrecat;
                             char conf;
                             float c1, c3, c12, cv;
@@ -275,9 +277,11 @@ int main()
                             cout << Constantes::PresentacionPublicarVideojuego_Inicio;
                             // Ingresa datos basicos del videojuego
                             cout << "Ingrese nombre del videojuego: ";
-                            cin >> nombrevj;
+                            cin.ignore();
+                            getline(cin, nombrevj);
                             cout << "Ingrese descripcion del videojuego: ";
-                            cin >> desvj;
+                            cin.ignore();
+                            getline(cin, desvj);
                             cout << "Ingrese costo de suscripcion mensual: ";
                             cin >> c1;
                             cout << "Ingrese costo de suscripcion trimestral: ";
@@ -288,7 +292,7 @@ int main()
                             cin >> cv;
                             IVid->ingresarDatosVideojuego(nombrevj, desvj, c1, c3, c12, cv);
                             // Seleccionar categoria genero. Al menos 1
-                            cout << "Catalogo de categorías de genero: " << endl;
+                            cout << "CATALOGO CATEGORIAS GENERO: " << endl << endl;
                             set<DtCategoria*> setCatGen = IVid->listarCategoriasGenero();
                             set<DtCategoria*>::iterator itCat;
                             if (setCatGen.empty())
@@ -297,18 +301,12 @@ int main()
                                 cout << *(*itCat) << endl;
                             }
                             cout << "Ingrese los nombres de las categorias que desea (TIPO GENERO). Ingrese al menos una." << endl;
+                            cin.ignore();
                             totCat = 0;
                             while (true) 
                             {
                                 cout << "Ingrese nombre o 'cont' para continuar: ";
-                                cin >> nombrecat;
-                                if (cin.fail())
-                                {
-                                    cin.clear();
-                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lectura. Intente nuevamente.";
-                                    continue;
-                                }
+                                getline(cin, nombrecat);
                                 if (nombrecat == "cont" && totCat > 0)    
                                     break;
                                 try 
@@ -324,6 +322,7 @@ int main()
                             }
                             // Seleccionar categoria plataforma. Al menos 1
                             set<DtCategoria*> setCatPlat = IVid->listarCategoriasPlataforma();
+                            cout << "CATALOGO CATEGORIAS PLATAFORMA: " << endl << endl;
                             if (setCatPlat.empty())
                                 cout << "No existen categorias en el catalogo." << endl << endl;
                             for (itCat = setCatPlat.begin(); itCat != setCatPlat.end(); ++itCat) {
@@ -334,14 +333,7 @@ int main()
                             while (true) 
                             {
                                 cout << "Ingrese nombre o 'cont' para continuar: ";
-                                cin >> nombrecat;
-                                if (!cin.good())
-                                {
-                                    cin.clear();
-                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lectura. Intente nuevamente.";
-                                    continue;
-                                }
+                                getline(cin, nombrecat);
                                 if (nombrecat == "cont" && totCat > 0)    
                                     break;
                                 try 
@@ -357,6 +349,7 @@ int main()
                             }
                             // Seleccionar categoria otros. Sin minimo.
                             set<DtCategoria*> setCatOtros = IVid->listarCategoriasOtros();
+                            cout << "CATALOGO CATEGORIAS OTROS: " << endl << endl;
                             if (setCatOtros.empty())
                                 cout << "No existen categorias en el catalogo." << endl << endl;
                             for (itCat = setCatOtros.begin(); itCat != setCatOtros.end(); ++itCat) 
@@ -367,14 +360,7 @@ int main()
                             while (true) 
                             {
                                 cout << "Ingrese nombre o 'cont' para continuar: ";
-                                cin >> nombrecat;
-                                if (!cin.good())
-                                {
-                                    cin.clear();
-                                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                    cout << "Error de lectura. Intente nuevamente.";
-                                    continue;
-                                }
+                                getline(cin, nombrecat);
                                 if (nombrecat == "cont")
                                     break;
                                 try 
@@ -390,7 +376,7 @@ int main()
                             }
                             // Mostrar info videojuego.
                             DtVideojuego* infoVideojuego = IVid->mostrarVideojuego(); 
-                            cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR: \n"
+                            cout << Constantes::Separador << endl << "VIDEOJUEGO A PUBLICAR" << endl << endl
                                  << *infoVideojuego << endl;
 
                             //alta o cancela
@@ -535,13 +521,13 @@ int main()
                              set<DtVideojuegoSuscripcion*> sna = IUsr->listarVideojuegoSuscripcionesNoActivas();
                              cout << "SUSCRIPCIONES ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
-                                 cout<< *itsa;
+                                 cout<< *(*itsa);
                              };
                              cout << Constantes::Separador;
 
                              cout << "SUSCRIPCIONES NO ACTIVAS: \n";
                              for (set<DtVideojuegoSuscripcion*>::iterator itsna=sna.begin(); itsna!=sna.end(); itsna++){
-                                 cout<< *itsna;
+                                 cout<< *(*itsna);
                              };
                              cout << Constantes::Separador;
                              string nomVJ;                            
@@ -688,6 +674,22 @@ int main()
                         case 6:
                         {
                             // VER INFORMACION DE VIDEOJUEGO
+                            string nombre;
+                            cout << "Ingrese el nombre del videojuego: ";
+                            cin.ignore();
+                            getline(cin, nombre);
+                            try 
+                            {
+                                DtVideojuego* infoVideojuego = IVid->verInfoVideojuego(nombre);
+                                cout << "INFORMACION VIDEOJUEGO" << endl << endl
+                                     << *(infoVideojuego) << Constantes::Separador;
+                                delete infoVideojuego;
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
                             break;
                         }
                         case 0:
@@ -808,15 +810,18 @@ int main()
             IVid->confirma_agregarCategoria();
 
             //carga videojuegos
-            IUsr->iniciarSesion("ironhide@mail.com", "123");
+            DtUsuario* usr; 
+
+            usr = IUsr->iniciarSesion("ironhide@mail.com", "123");
             IVid->ingresarDatosVideojuego("KingdomRush", "Ta tremendo", 1, 2, 7, 14);
             IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
             IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
             IVid->seleccionarCategoria("Estrategia", TipoCat::Genero);
             IVid->seleccionarCategoria("E", TipoCat::Otro);
             IVid->confirma_publicarVideojuego();
+            delete usr;
 
-            IUsr->iniciarSesion("epic@mail.com", "123");
+            usr = IUsr->iniciarSesion("epic@mail.com", "123");
             IVid->ingresarDatosVideojuego("Fortnite", "El del baile", 3, 8, 30, 60);
             IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
             IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
@@ -824,22 +829,25 @@ int main()
             IVid->seleccionarCategoria("Supervivencia", TipoCat::Genero);
             IVid->seleccionarCategoria("Teen", TipoCat::Otro);
             IVid->confirma_publicarVideojuego();
+            delete usr;
 
-            IUsr->iniciarSesion("mojang@mail.com", "123");
+            usr = IUsr->iniciarSesion("mojang@mail.com", "123");
             IVid->ingresarDatosVideojuego("Minecraft", "En este hicieron la FIng", 2, 5, 20, 40);
             IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
             IVid->seleccionarCategoria("Supervivencia", TipoCat::Genero);
             IVid->seleccionarCategoria("Teen", TipoCat::Otro);
             IVid->confirma_publicarVideojuego();
+            delete usr;
 
-            IUsr->iniciarSesion("ea@mail.com", "123");
+            usr = IUsr->iniciarSesion("ea@mail.com", "123");
             IVid->ingresarDatosVideojuego("FIFA 21", "Fubolito", 3, 8, 28, 50);
             IVid->seleccionarCategoria("PC", TipoCat::Plataforma);
             IVid->seleccionarCategoria("PS4", TipoCat::Plataforma);
             IVid->seleccionarCategoria("Xbox One", TipoCat::Plataforma);
             IVid->seleccionarCategoria("Deporte", TipoCat::Genero);
             IVid->seleccionarCategoria("E", TipoCat::Otro);
-            IVid->confirma_publicarVideojuego();            
+            IVid->confirma_publicarVideojuego();
+            delete usr;            
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
