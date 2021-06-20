@@ -36,7 +36,7 @@ class IVideojuego
         virtual void videojuegoAEliminar(string nombre) = 0;
         virtual void cancelar_eliminarVideoJuego() = 0;
         virtual void confirmar_eliminarVideoJuego() = 0;
-        virtual set<string> listarNombresVideojuego() = 0;
+        virtual map<string, string> listarNombresVideojuego() = 0;
 
        /* virtual set<string>listarVideoJuegosDesarrollador()=0;
 

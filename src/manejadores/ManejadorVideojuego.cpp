@@ -153,11 +153,11 @@ set<DtCategoria*> ManejadorVideojuego::listarCategoriasOtros(){
     return ret;
 }
 
-set<string> ManejadorVideojuego::listarNombresVideojuego(){
-    set<string> ret;
+map<string, string> ManejadorVideojuego::listarNombresVideojuego(){
+    map<string, string> ret;
     if(!videojuegos.empty()){
         for(auto itvj = videojuegos.begin(); itvj != videojuegos.end(); ++itvj){
-		    ret.insert(itvj->second->getNombreVJ());
+		    ret.insert(pair<string, string>(itvj->second->getNombreVJ(), itvj->second->getDescripcionVJ()));
 	    }
     }
     return ret;

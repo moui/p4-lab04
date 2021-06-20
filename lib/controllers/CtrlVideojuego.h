@@ -67,7 +67,7 @@ class CtrlVideojuego : public IVideojuego
 	    void iniciadaP(Partida* p);
 	    Videojuego* getVJ(string nomVJ);
 
-        set<string> listarNombresVideojuego();
+        map<string, string> listarNombresVideojuego();
 };
 
 #endif
