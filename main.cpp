@@ -733,17 +733,17 @@ int main()
                            /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();
-			                  cout << "SUSCRIPCIONES ACTIVAS: \n";
+			                  cout << "SUSCRIPCIONES ACTIVAS: " << end1 << end1;
                               for (set<DtVideojuegoSuscripcion*>::iterator itsa=sa.begin(); itsa!=sa.end(); itsa++){
-                                   cout<< *itsa;
+                                   cout<< *itsa << end1;
                               };
 			                  cout << Constantes::Separador;
                               string nomVJ;                            
-                              cout << "Seleccione un Videojuego al que jugar: \n";
+                              cout << "Seleccione un Videojuego al que jugar: " << end1;
                               cin >> nomVJ;
 			      IPar->crearPartida(nomVJ);
 			      char tipo;
-			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: \n";
+			      cout << "Quiere iniciar una partida (I)ndividual o (M)ultijugador: " << end1;
 			      cin >> tipo;
 			      switch(tipo) 
 			      {
@@ -751,19 +751,19 @@ int main()
 				 {
 				     try{
 				        char cont;
-                                        cout << "Desea continuar una partida previa Y/n? \n";
+                                        cout << "Desea continuar una partida previa Y/n? " << end1;
 				        cin >> cont;
 				        switch(cont) 
 					{
 					  case'Y'
 					  {
 					    set<DtPartidaIndividual*> indter = IPar->listaPartidasIndTer();
-					    cout << "Partidas Individuales Previas: \n";
+					    cout << "Partidas Individuales Previas: " << end1;
                               		    for (set<DtPartidaIndividual*>::iterator itit=indter.begin(); itit!=indter.end(); itit++){
-                                   	    cout<< *itit;
+                                   	    cout<< *itit << end1;
                               		  };
 					  float acont;
-					  cout << "Ingrese la Id de la Partida a Continuar: \n";
+					  cout << "Ingrese la Id de la Partida a Continuar: " << end1;
 					  cin >> acont;
 					  IPar->partidaAContinuar(acont);
 					}
@@ -774,23 +774,23 @@ int main()
 				 case'M'
 				 {
 				   set<string> js = IPar->listaJugSus();
-				   cout << "Jugadores Que Pueden Unirse: \n";
+				   cout << "Jugadores Que Pueden Unirse: " << end1;
                               	   for (set<string>::iterator itjs=js.begin(); itjs!=js.end(); itjs++){
-                                   	cout << *itjs;
+                                   	cout << *itjs << end1;
                               	   };
 				   set<string> jugUn;
-				   cout << "Eligue los Jugadores Que se Uniran A la Parida: \n";
+				   cout << "Eligue los Jugadores Que se Uniran A la Parida: " << end1;
 				   char set = Y;
 				   while (set == Y){
 					string jug;
 					cin >> jug;
 					jugUn.insert(jug);
-					cout << "Quiere Ingresar Otro Jugador Y/n? \n";
+					cout << "Quiere Ingresar Otro Jugador Y/n? " << end1;
 					cin >> set;
 				   } 
 				   IPar->listaJugUnidos(jugUn);
 				   char vivo;
-				   cout << "La Partida Sera en Vivo Y/n? \n";
+				   cout << "La Partida Sera en Vivo Y/n?" << end1;
 				   cin >> vivo;
 				   switch(vivo){
 					case'Y'{
@@ -803,7 +803,7 @@ int main()
 				 }
 			       }
 			       char conf;
-			       cout << "Confirmar Iniciar Partida Y/n? \n";
+			       cout << "Confirmar Iniciar Partida Y/n?" << end1;
 			       switch{
 			         case'Y'{
 				 	IPar->confirmarIniciarPartida(fechaSistema);
@@ -818,11 +818,33 @@ int main()
                         case 4:
                         {
                             // ABANDONAR PARTIDA MULTIJUGADOR
-                            break;
-                        }
-                        case 5:
-                        {
-                            // FINALIZAR PARTIDA
+			    
+                              /*set<DtPartida*> pa = IPar->listaPartidasIniciadas();
+			      cout << "PARTIDAS ACTIVAS: " << end1 << end1;
+                              for (set<DtPartida*>::iterator itpa=pa.begin(); itsa!=pa.end(); itpa++){
+                                   if(dynami_cast<DtPartidaIndividual*>(*itpa) != NULL){
+				   	DtPartidaIndividual* pia = dynami_cast<DtPartidaIndividual*>(*itpa);
+				   	cout << *pia << end1;
+				   } else {
+				   	DtPartdaMultijugador* pia = dynami_cast<DtPartidaMultijugador*>(*itpa);
+				   	cout << *pia << end1;
+				   }
+                              };
+			      cout << Constantes::Separador;
+			      char conffin;
+			      cout << "Desea (C)ancelar la Operacion o C(o)ntinuarla?" << end1;
+			      cin >> conffin;
+			      switch(connfin){
+			        case'C'{
+				  IPar->cancelarFinalizarPartida();
+				}
+				case'o'{
+				  float idf;
+				  cout << "Seleccione el Id de la Partida a Finalizar:" << end1;
+				  cin >> idf;
+				  IPar->finalizarPartida(fechaSistema, idf);
+				}
+			      }*/
                             break;
                         }
                         case 6:
