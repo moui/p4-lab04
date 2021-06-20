@@ -421,7 +421,7 @@ int main()
                         }
                         case 3:
                         {
-                            // ELIMINAR VIDEOJUEGO
+                            IUsr->listarVideojuegosPublicados();
                             break;
                         }
                         case 4:
