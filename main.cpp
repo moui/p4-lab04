@@ -817,7 +817,8 @@ int main()
                         }
                         case 4:
                         {
-                            // ABANDONAR PARTIDA MULTIJUGADOR
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listarPartidasMultijugadorUnidas();
                             break;
                         }
                         case 5:

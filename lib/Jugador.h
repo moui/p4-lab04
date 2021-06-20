@@ -26,6 +26,7 @@
 #include "helpers/FechaSistema.h"
 #include "controllers/CtrlUsuario.h"
 #include "controllers/CtrlVideojuego.h"
+#include "controllers/CtrlPartida.h"
 
 using namespace std;
 
@@ -42,7 +43,7 @@ class Jugador : public Usuario
     // Constructor y destructor
     Jugador(string email, string contrasena, string nickname, string descripcion);
 
-    map<float, InfoPartidaMulti*> unen;
+    map<float, InfoPartidaMulti*> unido;
 
     set<Suscripcion*> suscripto;
 
@@ -79,6 +80,11 @@ class Jugador : public Usuario
     void seguir(Jugador* j);
 
     void mostrarUsuario();
+
+    //ABANDONA PARTIDA MULTIJUGADOR
+  
+    set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
+
 };
 
 #endif

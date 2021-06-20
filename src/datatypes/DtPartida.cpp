@@ -13,6 +13,12 @@ DtPartida::~DtPartida()
 }
 
 // Getters
+
+string DtPartida::getNombreVJ()
+{
+  return this->nomVJ;
+}
+
 float DtPartida::getId()
 {
   return identificador;

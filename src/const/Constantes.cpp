@@ -62,6 +62,20 @@ const string Constantes::PresentacionSuscribirse =
     "                                                                          \n"
     "--------------------------------------------------------------------------\n"
     ;
+
+
+ const string Constantes::PresentacionAbandonarPartidaMultijugador =
+    "                                                                          \n"
+    "                        ABANDONAR PARTIDA MULTIJUGADOR                    \n"
+    "                                                                          \n"
+    ;
+
+ const string Constantes::PresentacionAbandonarPartidaMultijugador_Fin =
+    "                                                                          \n"
+    "                        PARTIDA MULTIJUGADOR ABANDONADA                   \n"
+    "                                                                          \n"
+    "--------------------------------------------------------------------------\n"  
+    ;  
 const string Constantes::PresentacionSeleccionarEstadisticas =
     "                                                                          \n"
     "                        SELECCIONAR ESTADISTICAS                          \n"

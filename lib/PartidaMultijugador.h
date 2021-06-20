@@ -36,7 +36,7 @@ class PartidaMultijugador : public Partida
 
         // Operaciones
         float darTotalHorasParticipantes();
-	void setHoraAbandono(DtFechaHora f, string clave);
-	void forzarAbandono(DtFechaHora f);        
+	    void setHoraAbandono(DtFechaHora f, string clave);
+	    void forzarAbandono(DtFechaHora f);        
 };
 #endif

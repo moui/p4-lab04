@@ -6,6 +6,7 @@
 #include "../Desarrollador.h"
 #include "../manejadores/ManejadorUsuario.h"
 #include "../datatypes/DtVideojuegoSuscripcion.h"
+#include "../datatypes/DtPartidaMultijugador.h"
 #include "../datatypes/DtDescripcionSuscripcion.h"
 #include "../datatypes/DtSuscripcion.h"
 #include "../datatypes/DtEstadistica.h"
@@ -96,6 +97,12 @@ class CtrlUsuario : public IUsuario
 	void finPartida(DtFechaHora f, float id);
 
     set<DtVideojuego*> listarVideoJuegosDesarrollador();
+
+
+    //ABANDONDAR PARTIDA MULTIUGADOR
+
+    set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
+
 };
 
 #endif

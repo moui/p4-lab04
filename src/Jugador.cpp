@@ -212,24 +212,7 @@ map<string, DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActi
     }
     
     return suscripcionesActivas;
-  /*set<DtVideojuegoSuscripcion*> res;
-  set<Suscripcion*>::iterator it;
-  if(!suscripto.empty())
-  {
-  for(it=suscripto.begin(); it!=suscripto.end(); it++){
-      Suscripcion *s;
-      s=*it;
-      string idVJ=s->getnombreVJ();
-      if (s->getEstado()==TipoEstado::activa){
 
-          map<string, DtVideojuegoSuscripcion*>::iterator itDcatalogo=Dcatalogo.find(idVJ);
-          res.insert(itDcatalogo->second);
-          Dcatalogo.erase(idVJ);
-
-      }
-    }
-  } 
-  return res; */
 }
 
 
@@ -241,3 +224,22 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
 }
 
 void Jugador::mostrarUsuario(){ cout << "jug"; }
+
+
+  //ABANDONA PARTIDA MJ
+  set<DtPartidaMultijugador*> Jugador::listarPartidasMultijugadorUnidas()
+  {
+    set<DtPartidaMultijugador*> res;
+    CtrlPartida* ctrlpartida;
+    ctrlpartida = CtrlPartida::getCtrlPartida();
+    CtrlUsuario* ctrlUsuario;
+    ctrlUsuario = CtrlUsuario::getInstancia();
+    Usuario* user= ctrlUsuario->getSesionActiva();
+    Jugador * jugador={dynamic_cast<Jugador*>(user)};
+
+    res= ctrlpartida->listarPartidasMultijugadorUnidas(jugador->getMail());
+
+    return res;
+
+  }
+

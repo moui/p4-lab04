@@ -24,20 +24,35 @@ ManejadorPartida::~ManejadorPartida(){
 }
 
 //Getters y Setters
-PartidaIndividual ManejadorPartida::getPI(float id){ 
+PartidaIndividual* ManejadorPartida::getPI(float id){ 
 	return (partidasI.find(id)->second);
 }
 
-PartidaMultijugador ManejadorPartida::getPM(float id){
+PartidaMultijugador* ManejadorPartida::getPM(float id){
 	return (partidasM.find(id)->second);
 }
 
-void ManejadorPartida::AgregarPartidaIndividual(float id, PartidaIndividual pi){
-	partidasI.insert( pair <float, PartidaIndividual>(id,pi) );
+void ManejadorPartida::AgregarPartidaIndividual(float id, PartidaIndividual* pi){
+	partidasI.insert( pair <float, PartidaIndividual*>(id,pi) );
 }
 
-void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador pm){
-	partidasM.insert( pair <float,PartidaMultijugador>(id,pm) );
+void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador* pm){
+	partidasM.insert( pair <float,PartidaMultijugador*>(id,pm) );
 }
 
+set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
+{
+	set<DtPartidaMultijugador*> res;	
+ /*
+	for ((*itPM))=partidasM.begin(); (*itPM))!=partidas.end(); (*itPM))++)
+	{
+		if ( ((((*itPM))->second)->getParticipan()).find(mailJugador) !=  (auto it=(((*itPM))->second)->getParticipan()).end()) )
+		{
+			res.insert( new DtPartidaMultijugador((*itPM))->first, (*itPM))->second->getDuracion(), (*itPM))->second->getFecha(),
+			(*itPM))->second->getVideojuego()->getNombreVJ(), (*itPM))->second->getTransmitidaEnVivo(). (*itPM))->second->get()   ) )
+		}
+	}*/
+	return res;
+}
+ 
 
