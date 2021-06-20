@@ -1,6 +1,6 @@
 #include "../../lib/datatypes/DtPartida.h"
 
-DtPartida::DtPartida(float id, float duracion, DtFechaHora* fecha, string n)
+DtPartida::DtPartida(int id, float duracion, DtFechaHora* fecha, string n)
 {
   this->identificador = id;
   this->fecha = fecha;
@@ -20,7 +20,7 @@ string DtPartida::getNombreVJ()
   return this->nomVJ;
 }
 
-float DtPartida::getId()
+int DtPartida::getId()
 {
   return identificador;
 }

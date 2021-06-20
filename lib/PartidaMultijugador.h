@@ -19,7 +19,7 @@ class PartidaMultijugador : public Partida
 
     public:
         // Constructores y destructores
-        PartidaMultijugador(float id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego,
+        PartidaMultijugador(int id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego,
             bool enVivo, map<string, InfoPartidaMulti*> mapInfoPM);
 
 
