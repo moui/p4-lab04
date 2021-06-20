@@ -102,3 +102,36 @@ map<string, TipoPuntaje> Videojuego::getPuntajesVJ(){
 void Videojuego::setPuntajeVJ(string nombrejugador, TipoPuntaje puntaje){
     puntajesjugadores.insert( pair<string, TipoPuntaje>(nombrejugador, puntaje) );
 }
+
+void Videojuego::calcularPromedio(){
+    float cant = puntajesjugadores.size();
+    float sum = 0;
+    for (itpj = puntajesjugadores.begin(); itpj != puntajesjugadores.end(); ++itpj)
+    {
+        switch (itpj->second)
+        {
+        case TipoPuntaje::uno:
+            sum = sum++;
+            break;
+        case TipoPuntaje::dos:
+            sum = sum + 2;
+            break;
+        case TipoPuntaje::tres:
+            sum = sum + 3;
+            break;
+        case TipoPuntaje::cuatro:
+            sum = sum + 4;
+            break;
+        case TipoPuntaje::cinco:
+            sum = sum + 5;
+            break;
+        default:
+            break;
+        }
+    }
+    this->ppromedio = sum / cant;
+}
+
+float Videojuego::getPromedio(){
+    return ppromedio;
+}
