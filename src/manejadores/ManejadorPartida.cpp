@@ -24,20 +24,20 @@ ManejadorPartida::~ManejadorPartida(){
 }
 
 //Getters y Setters
-PartidaIndividual ManejadorPartida::getPI(float id){ 
+PartidaIndividual* ManejadorPartida::getPI(float id){ 
 	return (partidasI.find(id)->second);
 }
 
-PartidaMultijugador ManejadorPartida::getPM(float id){
+PartidaMultijugador* ManejadorPartida::getPM(float id){
 	return (partidasM.find(id)->second);
 }
 
-void ManejadorPartida::AgregarPartidaIndividual(float id, PartidaIndividual pi){
-	partidasI.insert( pair <float, PartidaIndividual>(id,pi) );
+void ManejadorPartida::AgregarPartidaIndividual(float id, PartidaIndividual* pi){
+	partidasI.insert( pair <float, PartidaIndividual*>(id,pi) );
 }
 
-void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador pm){
-	partidasM.insert( pair <float,PartidaMultijugador>(id,pm) );
+void ManejadorPartida::AgregarPartidaMultijugador(float id, PartidaMultijugador* pm){
+	partidasM.insert( pair <float,PartidaMultijugador*>(id,pm) );
 }
 
 
