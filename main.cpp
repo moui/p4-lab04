@@ -725,7 +725,7 @@ int main()
                             for (auto it = videojuegos.begin(); it != videojuegos.end(); ++it)
                             {
                                 DtVideojuegoSuscripcion* infoVideojuego = *it;
-                                cout << *(infoVideojuego) << endl;
+                                cout << "Nombre videojuego: " << infoVideojuego->getNombreVideojuego() << endl << endl;
                             }
                             
 
