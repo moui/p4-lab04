@@ -752,8 +752,8 @@ int main()
                                 if (continua == "Y")
                                 {
                                     // Lista partidas individuales ya finalizadas.
-                                    // por orden crronologico. Mostrar ID, Fecha y Duracion
-
+                                    // por orden cronologico. Mostrar ID, Fecha y Duracion
+                                    cout << endl << "PARTIDAS INDIVIDUALES FINALIZADAS" << endl;
                                     // Ingresar ID de partida a continuar.
                                     
                                     // Alta partida.

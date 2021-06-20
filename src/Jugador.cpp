@@ -1,23 +1,21 @@
 #include "../lib/Jugador.h"
 
 // Constructor y destructor
-
 Jugador::Jugador(string email, string contrasena, string nickname, string descripcion): Usuario(email, contrasena)
 {
-  this->nickname = nickname;
-  this->descripcion = descripcion;
-  return;
+    this->nickname = nickname;
+    this->descripcion = descripcion;
+    return;
 }
 
 Jugador::~Jugador()
 {
-  // Determinar como se va a destruir el map<int, Partida>
-  for (auto it = suscripto.begin(); it != suscripto.end(); ++it)
-  {
-    if (*it != NULL)
-      delete *it;
-  }
-  suscripto.clear();
+    // Determinar como se va a destruir el map<float, Partida>
+    for (auto it = suscripto.begin(); it != suscripto.end(); ++it)
+    { 
+        if (*it != NULL)
+            delete *it;
+    }
 }
 
 // Getters
@@ -31,7 +29,7 @@ string Jugador::getDescripcion()
   return this->descripcion;
 }
 
-map<int, Partida*> Jugador::getInicioPartidas()
+map<float, Partida*> Jugador::getInicioPartidas()
 {
   return this->inicio;
 }
@@ -47,150 +45,77 @@ void Jugador::setDescripcion(string descripcion)
   this->descripcion = descripcion;
 }
 
-void Jugador::setInicioPartidas(map<int,Partida*> inicio)
+void Jugador::setInicioPartidas(map<float,Partida*> inicio)
 {
   this->inicio = inicio;
 }
 
-void Jugador::finPartida(float id, DtFechaHora f){
-   this->inicio[id]->setFinalizada(true);
-   PartidaMultijugador* p = dynamic_cast<PartidaMultijugador*>(this->inicio[id]);
-   if(p != NULL){
-     p->forzarAbandono(f);
-   }
-}
-
-void Jugador::seguir(Jugador* j){
+void Jugador::seguir(Jugador* j)
+{
   /* sigue->insert(j); */
 }
 
-set<DtPartida*> Jugador::partidasIniciadasSinFinalizar()
+// BEGIN: OPERACIONES SUSCRIBIRSE A VJ
+
+Suscripcion* Jugador::getSuscripcion(string nomVJ)
 {
-   map<int, Partida*>::iterator i = this->inicio.begin();
-   set<DtPartida*> isf;
-   while(i != this->inicio.end()){
-      if(!i->second->getFinalizada()){	
-        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
-	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
-	 float* f = new float (pi->getContinuada()->getId());
-         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
-         DtPartida* p2 = dynamic_cast<DtPartida*>(p);
-         isf.insert(p2);
-        } else {
-	PartidaMultijugador* pm = dynamic_cast<PartidaMultijugador*>(i->second);
-        map<string, InfoPartidaMulti*> part = pm->getParticipan();
-        map<string, InfoPartidaMulti*>::iterator it = part.begin();
-        set<string> s;
-        while (it != part.end()){
-          s.insert(it->second->getParticipa()->getNickname());
-          ++it;
-        }
-        DtPartidaMultijugador* p = new DtPartidaMultijugador(pm->getId(), pm->getDuracion(), pm->getFecha(), pm->getTransmitidaEnVivo(), s, s.size());
-	DtPartida* p2 = dynamic_cast<DtPartida*>(p);
-        isf.insert(p2);
-        }
-      }
-      ++i;
-   }
-   return isf; 
+    set<Suscripcion*>::iterator it = suscripto.begin();
+    Suscripcion* res = NULL;
+    while (it != suscripto.end()) 
+    {
+        Suscripcion* s= *it;
+	    if (s->getnombreVJ() == nomVJ)
+        {
+		    res = s;
+            break;
+	    }
+	++it;
+    }
+    return res;
 }
 
-void Jugador::iniciadaP(Partida* p){
-   this->inicio[p->getId()] = p; 
-}
-
-bool Jugador::estaSuscritoA(std::string NombreVJ)
+DtSuscripcion* Jugador::getDatosSuscripcion(string nomVJ)
 {
-  bool b = false;
-  set<Suscripcion*>::iterator it = suscripto.begin();
-  Suscripcion* s = NULL;
-  while (!b && (it != suscripto.end())) {
-	s = *it;
-	if (s->getnombreVJ() == NombreVJ){
-		b = true;
-	}
-	++it;
-  }
-  s->~Suscripcion();
-  return b;
-}
+    DtSuscripcion* res = NULL;
+    Suscripcion* s = this->getSuscripcion(nomVJ);
 
-Suscripcion* Jugador::getSuscripcion(string nomVJ){
-  set<Suscripcion*>::iterator it = suscripto.begin();
-  Suscripcion* res = NULL;
-  while (it != suscripto.end()) {
-    Suscripcion* s= *it;
-	  if (s->getnombreVJ() == nomVJ){
-		  res=s;
-      break;
-	}
-	++it;
-  }
-  return res;
-}
+    if (s != NULL)
+    {
+        // Datos
+        string n = s->getnombreVJ();
+        DtFechaHora* f= s->getFecha();
+        float c = s->getCosto();
+        TipoPago tp = s->getTipoPago();
+        TipoEstado te = s->getEstado();
+        TipoPeriodo pe = s->getPeriodo();
 
-DtSuscripcion* Jugador::getDatosSuscripcion(string nomVJ){
-  DtSuscripcion* res=NULL;
-  CtrlUsuario* ctrlusuario = CtrlUsuario::getInstancia();
-  Usuario* user= ctrlusuario->getSesionActiva();
-  Jugador * jugador={dynamic_cast<Jugador*>(user)};
-  Suscripcion* s= jugador->getSuscripcion(nomVJ);
-
-  s = jugador->getSuscripcion(nomVJ);
-  if (s!=NULL){
-    //datos
-    string n = s->getnombreVJ();
-    DtFechaHora* f=s->getFecha();
-    float c = s->getCosto();
-    TipoPago tp = s->getTipoPago();
-    TipoEstado te=s->getEstado();
-    TipoPeriodo pe = s->getPeriodo();
-    //(n,f,c,tp,te,v) datos
-
-    res = new DtSuscripcion(n,f,c,tp,te,pe);
-  }
-  return res;
+        res = new DtSuscripcion(n, f, c, tp, te, pe);
+    }
+    return res;
 }
 
 void Jugador::CancelarSuscripcion(string nomVJ) //se repite codigo para no recorrer dos veces la coleccion
 {
     set<Suscripcion*>::iterator it = suscripto.begin();
     Suscripcion* res = NULL;
-     while (it != suscripto.end()) {
-      Suscripcion* s= *it;
+    while (it != suscripto.end()) 
+    {
+        Suscripcion* s= *it;
 	    if (s->getnombreVJ() == nomVJ){
 		    res=s;
         break;
 	    }
 	    ++it;
     }
-    if (res==NULL){ //Para identificar si se llama incorrectamente la funcion
+    if (res == NULL)
+    { //Para identificar si se llama incorrectamente la funcion
       throw invalid_argument( "No existe suscripcion. " );
     }
-    else {
+    else 
+    {
       res->setCancelada(true);
     }
 }
-
-set<DtPartidaIndividual*> Jugador::partidasIndividualesFinalizadas()
-{
-   map<int, Partida*>::iterator i = this->inicio.begin();
-   set<DtPartidaIndividual*> isf;
-   while(i != this->inicio.end()){
-      if(i->second->getFinalizada()){	
-        if(dynamic_cast<PartidaIndividual*>(i->second) != NULL){
-	 PartidaIndividual* pi = dynamic_cast<PartidaIndividual*>(i->second);
-	 float* f = new float (pi->getContinuada()->getId());
-         DtPartidaIndividual* p = new DtPartidaIndividual(pi->getId(), pi->getDuracion(), pi->getFecha(), f);
-	 isf.insert(p);
-	}
-      }
-    ++i;
-    }
-    return isf;
-}
-
-//Suscribirse a videojuego
 
 map<string, DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActivas()
 {
@@ -212,27 +137,7 @@ map<string, DtVideojuegoSuscripcion*> Jugador::listarVideojuegoSuscripcionesActi
     }
     
     return suscripcionesActivas;
-  /*set<DtVideojuegoSuscripcion*> res;
-  set<Suscripcion*>::iterator it;
-  if(!suscripto.empty())
-  {
-  for(it=suscripto.begin(); it!=suscripto.end(); it++){
-      Suscripcion *s;
-      s=*it;
-      string idVJ=s->getnombreVJ();
-      if (s->getEstado()==TipoEstado::activa){
-
-          map<string, DtVideojuegoSuscripcion*>::iterator itDcatalogo=Dcatalogo.find(idVJ);
-          res.insert(itDcatalogo->second);
-          Dcatalogo.erase(idVJ);
-
-      }
-    }
-  } 
-  return res; */
 }
-
-
 
 void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
 {
@@ -240,4 +145,4 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
         dtSus->getCosto(), dtSus->getTipoPago(), dtSus->getPeriodo(), false));
 }
 
-void Jugador::mostrarUsuario(){ cout << "jug"; }
+// END: OPERACIONES SUSCRIBIRSE A VJ

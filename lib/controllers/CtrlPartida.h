@@ -26,14 +26,14 @@ class CtrlPartida : public IPartida
         static CtrlPartida * instancia;
         CtrlPartida();
 	
-	ManejadorPartida* manejadorPartida;
+	    ManejadorPartida* manejadorPartida;
 	
-	//Memoria
+	    //Memoria
         /*
-	string nomVJ;
-	float f;
-	bool* enVivo;
-	set<string> mails;
+	    string nomVJ;
+	    float f;
+	    bool* enVivo;
+	    set<string> mails;
         */
 
     public:
@@ -41,9 +41,16 @@ class CtrlPartida : public IPartida
 
         static CtrlPartida* getCtrlPartida();
 
-	ManejadorPartida* getManejadorPatida();
+	    ManejadorPartida* getManejadorPatida();
 
         void cancelarIniciarPartida() {} // Implementacion IPartida
+
+        // Devuelve set<DtPartidaInd*> con las partidas individuales
+            // finalizadas del jugador que inicio sesion.
+        set<DtPartidaIndividual*> partidasIndFinalizadas(); 
+
+
+
 
         /*
         void crearPartida(string nombreVJ);

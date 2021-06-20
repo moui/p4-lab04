@@ -32,6 +32,15 @@ ManejadorPartida* CtrlPartida::getManejadorPatida()
 	return manejadorPartida;
 }
 
+
+
+set<DtPartidaIndividual*> partidasIndFinalizadas()
+{
+	set<DtPartidaIndividual*> partidas;
+	return partidas;
+}
+
+
 /*
 
 void CtrlPartida::crearPartida(string nombreVJ){
