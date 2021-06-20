@@ -21,13 +21,6 @@ CtrlVideojuego * CtrlVideojuego::getCtrlVideojuego(){
     return instancia;
 }
 
-
-
-set<string> listarVideoJuegosDesarrollador(){
-  set<string> a;
-  return a;
-}
-
 void CtrlVideojuego::videojuegoAEliminar(string nombre){
 
 }

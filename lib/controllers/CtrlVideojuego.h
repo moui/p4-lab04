@@ -33,7 +33,6 @@ class CtrlVideojuego : public IVideojuego
 
         static CtrlVideojuego * getCtrlVideojuego();
 
-        set<string>listarVideoJuegosDesarrollador();
         void videojuegoAEliminar(string nombre);
         void cancelarEliminarVideoJuego();
         void confirmarEliminarVideoJuego();

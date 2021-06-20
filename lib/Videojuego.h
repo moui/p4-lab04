@@ -4,6 +4,7 @@
 #include "Partida.h"
 #include "datatypes/TipoPuntaje.h"
 #include "datatypes/DtDescripcionSuscripcion.h"
+#include "datatypes/DtVideojuego.h"
 #include "DescripcionSuscripcion.h"
 #include "Categoria.h"
 #include <string>
@@ -49,6 +50,7 @@ class Videojuego
 
     DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p);
 
+    DtVideojuego* getDtVideojuego();
 
     //setters
 
