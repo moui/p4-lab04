@@ -39,7 +39,7 @@ class CtrlVideojuego : public IVideojuego
         void confirmarEliminarVideoJuego();
 
 
-        DtVideojuego verInfoVideojuego(string nombre); 
+        DtVideojuego* verInfoVideojuego(string nombre); 
 
 
         //suscribirse a Videojuego (caso de uso en CtrlUsuario), devuelve copia del catalogo

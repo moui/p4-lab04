@@ -4,6 +4,7 @@
 #include "Partida.h"
 #include "datatypes/TipoPuntaje.h"
 #include "datatypes/DtDescripcionSuscripcion.h"
+#include "datatypes/DtVideojuego.h"
 #include "DescripcionSuscripcion.h"
 #include "Categoria.h"
 #include <string>
@@ -27,6 +28,7 @@ class Videojuego
 
     set<Categoria*> categoriasvj;
     set<Categoria*>::iterator itcatvj;
+    
   public:
     //Videojuego(string, Partida **);
     Videojuego(string , string , float , float , float , float, set<Categoria*>);
@@ -46,6 +48,7 @@ class Videojuego
 
     DtDescripcionSuscripcion* getDatosDescripcionSuscripcion(TipoPeriodo p);
 
+    DtVideojuego* getDatatype();
 
     //setters
 

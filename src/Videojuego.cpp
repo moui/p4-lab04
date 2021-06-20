@@ -77,6 +77,20 @@ void Videojuego::setCategoriasVJ(set<Categoria*> cats){
     this->categoriasvj = cats;
 }
 
+// getDatatype
+DtVideojuego* Videojuego::getDatatype()
+{
+    set<DtCategoria*> dtCategorias;
+    
+    for (itcatvj = categoriasvj.begin(); itcatvj != categoriasvj.end(); ++itcatvj)
+    {
+        Categoria* cat = *itcatvj;
+        dtCategorias.insert(cat->getDtCategoria());
+    }
+
+    return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias);
+}
+
 
 Videojuego::~Videojuego()
 {
