@@ -9,20 +9,20 @@ class Jugador;
 class InfoPartidaMulti
 {
     private:
-        DtFechaHora abandonaEn;
+        DtFechaHora* abandonaEn;
         Jugador* participa;
 
     public:
         // Constructor y destructor
-        InfoPartidaMulti(DtFechaHora fecha, Jugador* jugador);
+        InfoPartidaMulti(DtFechaHora* fecha, Jugador* jugador);
         ~InfoPartidaMulti();
 
         // Getters
-        DtFechaHora getAbandonaEn();
+        DtFechaHora* getAbandonaEn();
         Jugador* getParticipa();
 
         // Setters
-        void setAbandonaEn(DtFechaHora fecha);
+        void setAbandonaEn(DtFechaHora* fecha);
         void setParticipa(Jugador* jugador);
 };
 

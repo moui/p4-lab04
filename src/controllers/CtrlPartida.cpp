@@ -114,7 +114,25 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 	else
 	{
 		// ALTA PARTIDA MULTIJUGADOR
-
+		auto datosPartidaMulti = dynamic_cast<DtPartidaMultijugador*>(datosPartida);
+		
+		set<string> nicknames = datosPartidaMulti->getNicknameJugadoresUnidos();
+		map<string, InfoPartidaMulti*> unidos;
+		for (auto it = nicknames.begin(); it != nicknames.end(); ++it)
+		{
+			string nickname = *it;
+			Jugador* jugador = CtrlUsuario::getInstancia()->buscarJugador(nickname);
+			InfoPartidaMulti* info = new InfoPartidaMulti(NULL, jugador);
+			unidos.insert( pair<string, InfoPartidaMulti*>(jugador->getMail(), info) );
+		}
+		int id = manejadorPartida->generarIdPartidaMulti();
+		Videojuego* videojuego = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaMulti->getNombreVJ());
+		DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaMulti->getFecha());
+		PartidaMultijugador* partida = new PartidaMultijugador(id, 0, false, fechaInicio, NULL, videojuego, 
+			datosPartidaMulti->getTransmitidaEnVivo(), unidos);
+		// Actualizar colecciones;
+		jugador->agregarPartida(id, partida);
+		manejadorPartida->AgregarPartidaMultijugador(id, partida);
 	}
 }
 
