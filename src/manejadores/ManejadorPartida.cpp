@@ -113,13 +113,16 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 		this->getPM(id)->setFechaFin(fecha_fin);
 		this->getPM(id)->setFinalizada(true);
 		this->getPM(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPM(id)->getFecha()));
-		this->getPM(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadasMulti());
+		this->getPM(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadasMulti(id));
 	}
 	else{
 		throw invalid_argument("No hay partida con ese ID en el sistema. ");
 	}
 }
 
-float ManejadorPartida::calculaTotalHorasJugadasMulti(){
-	return 10;
+float ManejadorPartida::calculaTotalHorasJugadasMulti(int id){
+	float ret;
+	map<string, InfoPartidaMulti*> participantes = this->getPM(id)->getParticipan();
+
+	return ret;
 }
