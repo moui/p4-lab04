@@ -41,19 +41,19 @@ float PartidaMultijugador::darTotalHorasParticipantes()
 }
 
 
-void PartidaMultijugador::setHoraAbandono(DtFechaHora f, string clave){
+void PartidaMultijugador::setHoraAbandono(DtFechaHora* f, string clave){
 	participan[clave]->setAbandonaEn(f);
 }
 
-void PartidaMultijugador::forzarAbandono(DtFechaHora f){
+void PartidaMultijugador::forzarAbandono(DtFechaHora* f){
 	map<string, InfoPartidaMulti*>::iterator it = participan.begin();
 	while(it != participan.end()){
-		if(it->second->getAbandonaEn().getHora() == this->getFecha()->getHora()) {
+		if(it->second->getAbandonaEn()->getHora() == this->getFecha()->getHora()) {
 			it->second->getAbandonaEn();
 		}
 		++it;
 	}
-	this->setDuracion(this->getFecha()->getHora() - f.getHora());
+	this->setDuracion(this->getFecha()->getHora() - f->getHora());
 }
 
    DtPartidaMultijugador* PartidaMultijugador::getDatos()

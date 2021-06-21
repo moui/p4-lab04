@@ -119,4 +119,5 @@ Jugador* ManejadorUsuario::buscarJugadorPorNickname(string nickname)
             return itj->second;
         itj++;
     }
+    throw invalid_argument("No existe jugador " + nickname);
 }
