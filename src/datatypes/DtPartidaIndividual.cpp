@@ -35,10 +35,10 @@ ostream& operator<<(ostream& os, const DtPartidaIndividual& dtPartidaInd)
   os << "Tipo partida: Individual" << endl;
   os << "ID partida: " << static_cast<int>(dtPartidaInd.identificador) << endl;
   os << "Fecha inicio partida: " << *(dtPartidaInd.fecha);
-  os << "Fecha fin partida: " << *(dtPartidaInd.fecha_fin);
- // if ( dtPartidaInd.fecha_fin != NULL){
+  if ( dtPartidaInd.fecha_fin != NULL){
+    os << "Fecha fin partida: " << *(dtPartidaInd.fecha_fin);
     os << "Duracion: " << dtPartidaInd.getDuracion() << endl;  
- // }
+  }
   if (dtPartidaInd.continuacion != NULL)
     os << "Es continuacion de partidas anteriores " << endl;
   else
