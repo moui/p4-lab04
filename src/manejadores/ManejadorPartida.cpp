@@ -114,12 +114,12 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 	if ( partidasI.find(id) != partidasI.end() ){
 		this->getPI(id)->setFechaFin(fecha_fin);
 		this->getPI(id)->setFinalizada(true);
-		this->getPI(id)->setDuracion(this->getPI(id)->getFecha() - this->getPI(id)->getFechaFin());
+		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, getPI(id)->getFecha()));
 	}
 	else if ( partidasM.find(id) != partidasM.end() ){
 		this->getPM(id)->setFechaFin(fecha_fin);
 		this->getPI(id)->setFinalizada(true);
-		this->getPI(id)->setDuracion(this->getPI(id)->getFecha() - this->getPI(id)->getFechaFin());
+		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, getPM(id)->getFecha()));
 	}
 	else{
 		throw invalid_argument("No hay partida con ese ID en el sistema. ");

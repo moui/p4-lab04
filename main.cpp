@@ -530,7 +530,8 @@ int main()
                                     cout << "||" << (*i) << "|| \n";
                                 }
                                 cout << "Por favor, seleccione el juego para consultar estadisticas. \n";
-                                cin >> nomVJ;
+                                cin.ignore();
+                                getline(cin, nomVJ);
                                 set<DtEstadistica*> stats= IUsr->ConsultarEstadisticas(nomVJ);
                             }
                             catch (const std::invalid_argument &err)
@@ -801,6 +802,7 @@ int main()
                                     idContinuacion = -1;
                                     while (!pertenece(partidasInd, idContinuacion))
                                     {
+                                        cout << "Ingrese ID de partida a continuar :";
                                         cin >> idContinuacion;
                                         if (cin.fail())
                                         {
@@ -1261,5 +1263,6 @@ static bool pertenece(set<DtPartidaIndividual*> set, int id)
             return true;  
         }
     }
+    cout << "ID invalido" << endl;
     return false;
 }
