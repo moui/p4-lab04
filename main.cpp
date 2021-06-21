@@ -27,7 +27,7 @@ static DtFechaHora *ValidarFechaSistema();
 // Retorna true solo si 'id' ocurre en set
 static bool pertenece(set<DtPartidaIndividual*> set, int id);
 
-static bool pertenece(set<string> set, string nick);
+/*static bool pertenece(set<string> set, string nick);*/
 
 int main()
 {
@@ -1294,7 +1294,7 @@ static bool pertenece(set<DtPartidaIndividual*> set, int id)
     return false;
 }
 
-static bool pertenece(set<string> set, string nick)
+/*static bool pertenece(set<string> set, string nick)
 {
     if (nick == "")
         return false;
@@ -1308,4 +1308,4 @@ static bool pertenece(set<string> set, string nick)
     }
     cout << "Nickname invalido" << endl;
     return false;
-}
+}*/

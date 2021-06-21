@@ -126,11 +126,14 @@ set<string> ManejadorUsuario::listarJugadoresSuscripcionActivaVJ(string videojue
     set<string> res;
     if (jugadores.empty())
         throw invalid_argument("No existen jugadores en el sistema");
+    itj = jugadores.begin();
     while ( itj != jugadores.end() )
     {
-        if ( itj->second->getSuscripcion(videojuego)->getnombreVJ() == videojuego && itj->second->getSuscripcion(videojuego)->getEstado() == TipoEstado::activa )
-            if (itj->second->getNickname() != activo)
-                res.insert(itj->second->getNickname());
+        if (itj->second->getSuscripcion(videojuego) != NULL){
+            if ( itj->second->getSuscripcion(videojuego)->getnombreVJ() == videojuego && itj->second->getSuscripcion(videojuego)->getEstado() == TipoEstado::activa )
+                if (itj->second->getNickname() != activo)
+                    res.insert(itj->second->getNickname());
+        }
         itj++;
     }
     return res;
