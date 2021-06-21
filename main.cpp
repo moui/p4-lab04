@@ -907,11 +907,12 @@ int main()
                         {
                             int partidaMJ;
                             cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            try 
+                            {
                             set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listarPartidasMultijugadorUnidas();
                             cout << "Por favor, ingrese el identificador de la partida que desea abandonar:  \n";
                             cin >> partidaMJ;
-                            try 
-                            {
+
                             IUsr->ConfirmarAbandonarPartida(partidaMJ);
 
                             }
