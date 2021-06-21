@@ -71,7 +71,7 @@ void PartidaMultijugador::forzarAbandono(DtFechaHora* f){
 	  {
 		  nicknameUnidos.insert(it->second->getParticipa()->getNickname());
 	  }
-	  res= new DtPartidaMultijugador(id, f, nomVJ, vivo, nicknameUnidos);
+	  res = new DtPartidaMultijugador(id, f, nomVJ, vivo, nicknameUnidos);
 	  if(res==NULL)
 	  {
 		throw invalid_argument("No hay datos de partida, partidamultijugador.cpp. ");

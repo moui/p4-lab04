@@ -929,7 +929,10 @@ int main()
                                 cout << "No existen partidas iniciadas." << endl << endl;
                             else {
                                 for (itvid = partidasIniciadas.begin(); itvid != partidasIniciadas.end(); ++itvid){
-                                    cout << *(*itvid) << endl;
+                                    if (dynamic_cast<DtPartidaIndividual*>(*itvid) != NULL)
+                                        cout << *(dynamic_cast<DtPartidaIndividual*> (*itvid)) << endl;
+                                    if (dynamic_cast<DtPartidaMultijugador*>(*itvid) != NULL)
+                                        cout << *(dynamic_cast<DtPartidaMultijugador*> (*itvid)) << endl;
                                     delete *itvid;
                                 }
                                 cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
