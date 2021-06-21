@@ -12,9 +12,7 @@ const string Constantes::MenuPrincipal =
     "--------------------------------------------------------------------------\n"
     "           1           |                   ALTA USUARIO                   \n"
     "           2           |                  INICIAR SESION                  \n"
-    "           3           |             MOSTRAR FECHA DEL SISTEMA            \n"
-    "           4           |            MODIFICAR FECHA DEL SISTEMA           \n"
-    "           5           |               CARGAR DATOS DE PRUEBA             \n"
+    "           3           |               CARGAR DATOS DE PRUEBA             \n"
     "           0           |                      SALIR                       \n"
     "--------------------------------------------------------------------------\n";
 
@@ -149,6 +147,7 @@ const string Constantes::MenuDesarrollador =
     "           4           |              SELECCIONAR ESTADISTICAS            \n"
     "           5           |               CONSULTAR ESTADISTICAS             \n"
     "           6           |           VER INFORMACION DE VIDEOJUEGO          \n"
+    "           7           |            MODIFICAR FECHA DEL SISTEMA           \n"
     "           0           |                      SALIR                       \n"
     "--------------------------------------------------------------------------\n";
 
@@ -166,6 +165,7 @@ const string Constantes::MenuJugador =
     "           4           |          ABANDONAR PARTIDA MULTIJUGADOR          \n"
     "           5           |                FINALIZAR PARTIDA                 \n"
     "           6           |           VER INFORMACION DE VIDEOJUEGO          \n"
+    "           7           |            MODIFICAR FECHA DEL SISTEMA           \n"
     "           0           |                      SALIR                       \n"
     "--------------------------------------------------------------------------\n";
 

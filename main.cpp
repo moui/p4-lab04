@@ -571,6 +571,21 @@ int main()
                             }
                             break;
                         }
+                        case 7:
+                        {
+                            // MODIFICAR FECHA DEL SISTEMA
+                            cout << Constantes::PresentacionFechaActual << *(fechaSistema->getFecha()) << Constantes::Separador;
+                            cout << Constantes::PresentacionModificarFecha_Inicio;
+                            DtFechaHora *nuevaFecha = ValidarFechaSistema();
+                            while (nuevaFecha == NULL)
+                            {
+                                cout << Constantes::MsjeErrorIngresoFecha;
+                                nuevaFecha = ValidarFechaSistema();
+                            }
+                            fechaSistema->setFecha(nuevaFecha);
+                            cout << Constantes::PresentacionModificarFecha_Fin;
+                            break;
+                        }
                         case 0:
                         {
                             // SALIR
@@ -936,6 +951,21 @@ int main()
                             }
                             break;
                         }
+                        case 7:
+                        {
+                            // MODIFICAR FECHA DEL SISTEMA
+                            cout << Constantes::PresentacionFechaActual << *(fechaSistema->getFecha()) << Constantes::Separador;
+                            cout << Constantes::PresentacionModificarFecha_Inicio;
+                            DtFechaHora *nuevaFecha = ValidarFechaSistema();
+                            while (nuevaFecha == NULL)
+                            {
+                                cout << Constantes::MsjeErrorIngresoFecha;
+                                nuevaFecha = ValidarFechaSistema();
+                            }
+                            fechaSistema->setFecha(nuevaFecha);
+                            cout << Constantes::PresentacionModificarFecha_Fin;
+                            break;
+                        }
                         case 0:
                         {
                             // SALIR
@@ -957,24 +987,6 @@ int main()
             break;
         }
         case 3:
-            // MOSTRAR FECHA DEL SISTEMA
-            cout << Constantes::PresentacionFechaActual << *(fechaSistema->getFecha()) << Constantes::Separador;
-            break;
-        case 4:
-        {
-            // MODIFICAR FECHA DEL SISTEMA
-            cout << Constantes::PresentacionModificarFecha_Inicio;
-            DtFechaHora *nuevaFecha = ValidarFechaSistema();
-            while (nuevaFecha == NULL)
-            {
-                cout << Constantes::MsjeErrorIngresoFecha;
-                nuevaFecha = ValidarFechaSistema();
-            }
-            fechaSistema->setFecha(nuevaFecha);
-            cout << Constantes::PresentacionModificarFecha_Fin;
-            break;
-        }
-        case 5:
         {   // CARGAR DATOS DE PRUEBA
 
             //cargar desarrolladores
@@ -1172,7 +1184,11 @@ int main()
             delete usr;
             delete datosPartida; 
 
-            cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
+            d = new DtFechaHora(21, 06, 2021, 18, 0);
+            fechaSistema->setFecha(d);
+
+            cout << "Cargados datos de prueba.\n";
+            cout << Constantes::PresentacionFechaActual << *fechaSistema->getFecha() << Constantes::Separador;         
             break;
         }
         case 0:
