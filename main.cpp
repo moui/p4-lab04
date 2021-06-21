@@ -1258,17 +1258,15 @@ int main()
             delete usr;
             delete datosPartidaM;
 
-            /*//abandonar partida multijugador
+            //abandonar partida multijugador
             usr = IUsr->iniciarSesion("ari@mail.com", "123");
             d = new DtFechaHora(05, 06, 2021, 18, 0);
             fechaSistema->setFecha(d);
-            IUsr->ConfirmarAbandonarPartida(2);
+            IPar->ConfirmarAbandonarPartida(2);
             d = new DtFechaHora(06, 06, 2021, 17, 30);
             fechaSistema->setFecha(d);
-            IUsr->ConfirmarAbandonarPartida(4);
-            delete usr;*/
-
-
+            IPar->ConfirmarAbandonarPartida(4);
+            delete usr;
 
             d = new DtFechaHora(21, 06, 2021, 18, 0);
             fechaSistema->setFecha(d);
