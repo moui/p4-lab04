@@ -64,7 +64,12 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 			if ( !partidaInd->getFinalizada() || nombreVid != nombreVideojuego )
 				continue;
 			// Agregar data 'partidaInd' a 'partidas'	
-			bool continuacion = partidaInd->getContinuada() == NULL ? false : true;
+			int* continuacion;
+			if (partidaInd->getContinuada() == NULL)
+				continuacion = NULL;
+			else
+				continuacion = new int(partidaInd->getContinuada()->getId());
+				
 			partidas.insert(new DtPartidaIndividual(partidaInd->getId(), partidaInd->getDuracion(),
 				partidaInd->getFecha(), NULL, nombreVid, continuacion)
 				);

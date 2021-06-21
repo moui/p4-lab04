@@ -739,6 +739,8 @@ int main()
                             }
 
                             string tipoPartida, continua, nombreVideojuego, confirma;
+                            int idContinuacion;
+
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
@@ -779,13 +781,22 @@ int main()
                                         delete dataPartida;
                                     }
                                     // Ingresar ID de partida a continuar.
-                                    cin >> continua;
+                                    cin >> idContinuacion;
+                                    if (cin.fail())
+                                    {
+                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                        cin.clear();
+                                        cout << "Parametro invalido." << endl;
+                                        break;
+                                    }
+                                    DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, new int(idContinuacion));
                                     // Alta partida.
                                 }
                                 else if (continua == "N")
                                 {
                                     DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
-                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, false);
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, NULL);
                                 }
                                 else 
                                 {
