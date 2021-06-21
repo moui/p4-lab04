@@ -110,8 +110,14 @@ void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
 	 itInfoPartida->second->setAbandonaEn(fechaSistema);
 }
  
-void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fina, int id){
-	itPI = partidasI.find(id);
-	itPM = partidasM.find(id);
-
+void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
+	if ( partidasI.find(id) != partidasI.end() ){
+		this->getPI(id)->setFechaFin(fecha_fin);
+	}
+	else if ( partidasM.find(id) != partidasM.end() ){
+		this->getPM(id)->setFechaFin(fecha_fin);
+	}
+	else{
+		throw invalid_argument("No hay partida con ese ID en el sistema. ");
+	}
 }
