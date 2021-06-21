@@ -108,3 +108,15 @@ void ManejadorUsuario::removerSuscripciones(string nombrevj){
         }
     }
 }
+
+Jugador* ManejadorUsuario::buscarJugadorPorNickname(string nickname)
+{
+    if (jugadores.empty())
+        throw invalid_argument("No existen jugadores");
+    while ( itj != jugadores.end())
+    {
+        if ( itj->second->getNickname() == nickname )
+            return itj->second;
+        itj++;
+    }
+}

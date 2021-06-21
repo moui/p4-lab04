@@ -97,6 +97,8 @@ class CtrlUsuario : public IUsuario
 
         set<DtPartida*> listaPartidasIniciadasSinFinalizar();
 
+        // Buscar jugador por nickname
+        Jugador* buscarJugador(string nickname);
 };
 
 #endif

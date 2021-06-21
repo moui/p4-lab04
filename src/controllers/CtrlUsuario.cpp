@@ -360,3 +360,10 @@ set<DtPartida*> CtrlUsuario::listaPartidasIniciadasSinFinalizar()
     }
     return res;
 }
+
+
+// Buscar email
+Jugador* CtrlUsuario::buscarJugador(string nickname)
+{
+    return manejadorUsuario->buscarJugadorPorNickname(nickname);
+}

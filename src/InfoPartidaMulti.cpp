@@ -1,7 +1,7 @@
 #include "../lib/InfoPartidaMulti.h"
 
 // Constructor y destructor
-InfoPartidaMulti::InfoPartidaMulti(DtFechaHora fecha, Jugador* jugador)
+InfoPartidaMulti::InfoPartidaMulti(DtFechaHora* fecha, Jugador* jugador)
 {
     this->abandonaEn = fecha;
     this->participa = jugador;
@@ -12,7 +12,7 @@ InfoPartidaMulti::~InfoPartidaMulti()
 }
 
 // Getters
-DtFechaHora InfoPartidaMulti::getAbandonaEn()
+DtFechaHora* InfoPartidaMulti::getAbandonaEn()
 {
     return this->abandonaEn;
 }
@@ -23,7 +23,7 @@ Jugador* InfoPartidaMulti::getParticipa()
 }
 
 // Setters
-void InfoPartidaMulti::setAbandonaEn(DtFechaHora fecha)
+void InfoPartidaMulti::setAbandonaEn(DtFechaHora* fecha)
 {
     this->abandonaEn = fecha;
 }

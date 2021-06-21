@@ -33,5 +33,7 @@ void TotalHorasJuego::setValor(float v)
 
 DtEstadistica* TotalHorasJuego::calcular(Videojuego* v){
     DtEstadistica* res=NULL;
+    float thj = v->getTotalHorasJugadas();
+    res = new DtEstadistica("Total Horas Jugadas: ", thj);
     return res;
 }

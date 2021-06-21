@@ -756,7 +756,8 @@ int main()
                             int idContinuacion;
                             // Pedir nombre videojuego
                             cout << "Seleccione videojuego indicando su nombre" << endl;
-                            cin >> nombreVideojuego;
+                            cin.ignore();
+                            getline(cin, nombreVideojuego);
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
                             try
                             {

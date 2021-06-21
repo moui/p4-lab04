@@ -38,6 +38,7 @@ class ManejadorUsuario {
         void agregarJugador(string clave, Jugador* jug);
         bool existeJugador(string nickname);
         void borrarUsuario(string clave);
+        Jugador* buscarJugadorPorNickname(string nickname);
 
         Jugador* buscarJugador(string clave);
         Desarrollador* buscarDesarrollador(string clave);
@@ -48,6 +49,7 @@ class ManejadorUsuario {
         bool autenticarDesarollador(string mail, string contrasena);
 
         void removerSuscripciones(string);
+
 };
 
 #endif
