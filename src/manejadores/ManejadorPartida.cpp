@@ -112,7 +112,8 @@ void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
  
 void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 	if ( partidasI.find(id) != partidasI.end() ){
-		this->getPI(id)->setFechaFin(fecha_fin);
+		getPI(id)->setFechaFin(fecha_fin);
+		getPI(id)->setFinalizada(true);
 	}
 	else if ( partidasM.find(id) != partidasM.end() ){
 		this->getPM(id)->setFechaFin(fecha_fin);

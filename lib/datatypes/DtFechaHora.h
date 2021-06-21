@@ -33,6 +33,8 @@ class DtFechaHora
         friend std::ostream& operator<<(std::ostream& os, const DtFechaHora& dtFecha);
 
         static float Meses(DtFechaHora* fechaFin, DtFechaHora* fechaInicio);
+
+        static float Dias(DtFechaHora* fechaFin, DtFechaHora* fechaInicio);
 };
 
 #endif

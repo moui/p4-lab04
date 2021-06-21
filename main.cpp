@@ -876,7 +876,7 @@ int main()
                             cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
                             cin >> partidaI;
 
-                            IPar->finalizarPartida(fechaSistema->getFecha(), partidaI);
+                            IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
 
                             }
                             catch (const std::invalid_argument &err)

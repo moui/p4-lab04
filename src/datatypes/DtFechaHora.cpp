@@ -109,3 +109,35 @@ float DtFechaHora::Meses(DtFechaHora* fechaFin, DtFechaHora* fechaInicio)
     else
         throw invalid_argument("Error al calcular meses");
 }
+
+float DtFechaHora::Dias(DtFechaHora* fechaFin, DtFechaHora* fechaInicio)
+{
+    tm fechaFin_tm, fechaInicio_tm;
+
+    fechaFin_tm.tm_year = fechaFin->getAno() - 1900;
+    fechaFin_tm.tm_mon = fechaFin->getMes() - 1;
+    fechaFin_tm.tm_mday = fechaFin->getDia();
+    fechaFin_tm.tm_hour = fechaFin->getHora();
+    fechaFin_tm.tm_min = fechaFin->getMinuto();
+    fechaFin_tm.tm_sec = 0;
+    fechaFin_tm.tm_isdst = -1;
+
+    fechaInicio_tm.tm_year = fechaInicio->getAno()- 1900;
+    fechaInicio_tm.tm_mon = fechaInicio->getMes() - 1;
+    fechaInicio_tm.tm_mday = fechaInicio->getDia();
+    fechaInicio_tm.tm_hour = fechaInicio->getHora();
+    fechaInicio_tm.tm_min = fechaInicio->getMinuto();
+    fechaInicio_tm.tm_sec = 0;
+    fechaInicio_tm.tm_isdst = -1;
+
+    time_t fechaFin__time_t = mktime(&fechaFin_tm);
+    time_t fechaInicio__time_t = mktime(&fechaInicio_tm);
+
+    if (fechaFin__time_t != (time_t)(-1) && fechaInicio__time_t != (time_t)(-1))
+    {
+        double dias = difftime(fechaFin__time_t, fechaInicio__time_t) / (60*60*24);
+        return (float)dias;
+    }
+    else
+        throw invalid_argument("Error al calcular meses");
+}
