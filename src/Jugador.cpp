@@ -29,7 +29,7 @@ string Jugador::getDescripcion()
   return this->descripcion;
 }
 
-map<float, Partida*> Jugador::getInicioPartidas()
+map<int, Partida*> Jugador::getInicioPartidas()
 {
   return this->inicio;
 }
@@ -45,7 +45,7 @@ void Jugador::setDescripcion(string descripcion)
   this->descripcion = descripcion;
 }
 
-void Jugador::setInicioPartidas(map<float,Partida*> inicio)
+void Jugador::setInicioPartidas(map<int,Partida*> inicio)
 {
   this->inicio = inicio;
 }
