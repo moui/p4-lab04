@@ -10,7 +10,13 @@ PartidaMultijugador::PartidaMultijugador(int id, float duracion, bool finalizada
 
 PartidaMultijugador::~PartidaMultijugador()
 {
-	
+	if (!participan.empty())
+	{
+		for (auto it = participan.begin(); it != participan.end(); ++it)
+		{
+			delete it->second;
+		}
+	}
 };
 
 // Getters

@@ -14,6 +14,7 @@ DtPartidaMultijugador::DtPartidaMultijugador(int id, DtFechaHora* fecha, string 
 {
     transmitidaEnVivo = enVivo;
     nicknameJugadoresUnidos = jugadoresUnidos;
+    cantidadJugadoresUnidos = 0;
 }
 
 // Destructor
