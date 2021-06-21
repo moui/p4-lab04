@@ -535,6 +535,11 @@ int main()
                                 cin.ignore();
                                 getline(cin, nomVJ);
                                 set<DtEstadistica*> stats= IUsr->ConsultarEstadisticas(nomVJ);
+                                auto it = stats.begin();
+                                for(it=stats.begin(); it!=stats.end(); it++)
+                                {
+                                    cout << *(*it) << "prueba "<< "\n";
+                                }
                             }
                             catch (const std::invalid_argument &err)
                              {
@@ -1253,8 +1258,7 @@ int main()
             delete usr;
             delete datosPartidaM;
 
-            //abandonar partida multijugador
-            /*
+            /*//abandonar partida multijugador
             usr = IUsr->iniciarSesion("ari@mail.com", "123");
             d = new DtFechaHora(05, 06, 2021, 18, 0);
             fechaSistema->setFecha(d);
