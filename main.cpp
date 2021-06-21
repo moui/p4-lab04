@@ -1146,9 +1146,9 @@ int main()
             delete datosPartida;
 
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
-            datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(03, 06, 2021, 15, 0), new DtFechaHora(03, 06, 2021, 16, 0),  "KingdomRush", new int(1));
+            datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(03, 06, 2021, 15, 0), NULL,  "KingdomRush", new int(1));
             IPar->altaPartida(datosPartida);
-            IPar->finalizarPartida(datosPartida->getFechaFin(), 3);
+            IPar->finalizarPartida(new DtFechaHora(03, 06, 2021, 16, 0), 3);
             delete usr;
             delete datosPartida;
 
