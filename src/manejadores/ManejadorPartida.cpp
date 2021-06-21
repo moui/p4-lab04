@@ -112,7 +112,7 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 	else if ( partidasM.find(id) != partidasM.end() ){
 		this->getPM(id)->setFechaFin(fecha_fin);
 		this->getPM(id)->setFinalizada(true);
-		this->getPM(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPM(id)->getFecha()));
+		this->getPM(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPM(id)->getFecha()) * 24);
 		this->getPM(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadasMulti(id));
 	}
 	else{
@@ -121,6 +121,7 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 }
 
 float ManejadorPartida::calculaTotalHorasJugadasMulti(int id){
+	float temp = 0;
 	float ret = 0;
 	if(this->getPM(id)->getFinalizada())
 		ret = ret + this->getPM(id)->getDuracion();
@@ -128,8 +129,11 @@ float ManejadorPartida::calculaTotalHorasJugadasMulti(int id){
 	map<string, InfoPartidaMulti*>::iterator itpar;
 	for (itpar = participantes.begin(); itpar != participantes.end(); itpar++)
 	{
-		if (itpar->second->getAbandonaEn() != NULL ) 
-			ret = ret + ((DtFechaHora::Dias(new DtFechaHora(itpar->second->getAbandonaEn()), this->getPM(id)->getFecha())) * 24);
+		if (itpar->second->getAbandonaEn() != NULL ) {
+			temp = DtFechaHora::Dias(new DtFechaHora(itpar->second->getAbandonaEn()), this->getPM(id)->getFecha());
+			temp = temp*24;
+			ret = ret + temp;
+		}
 	 	}
 	return ret;
 }
