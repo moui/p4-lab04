@@ -45,9 +45,9 @@ void Jugador::setDescripcion(string descripcion)
   this->descripcion = descripcion;
 }
 
-void Jugador::setInicioPartidas(map<int,Partida*> inicio)
+void Jugador::agregarPartida(int id, Partida* partida)
 {
-  this->inicio = inicio;
+  inicio.insert(pair<int, Partida*>(id, partida));
 }
 
 void Jugador::seguir(Jugador* j)

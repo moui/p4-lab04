@@ -57,7 +57,7 @@ class Jugador : public Usuario
     // Setters
     void setNickname(string nickname);
     void setDescripcion(string descripcion);
-    void setInicioPartidas(map<int, Partida*> inicio);
+    void agregarPartida(int id, Partida* partida);
 
     void seguir(Jugador* j);
 

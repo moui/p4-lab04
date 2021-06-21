@@ -96,8 +96,7 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 			PartidaIndividual* continua = manejadorPartida->getPI(*datosPartidaInd->getContinuacion());
 			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, continua);
 			// Actualizar colecciones
-			partidasJugador.insert(pair<int, Partida*>(id, partida));
-			jugador->setInicioPartidas(partidasJugador);
+			jugador->agregarPartida(id, partida);
 			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 		else
@@ -108,8 +107,7 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
 			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, NULL);
 			// Actualizar colecciones
-			partidasJugador.insert(pair<int, Partida*>(id, partida));
-			jugador->setInicioPartidas(partidasJugador);
+			jugador->agregarPartida(id, partida);
 			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 	}
