@@ -813,11 +813,16 @@ int main()
                             cout << "Confirma alta partida? (Y/N) " << endl;
                             cin >> confirma;
                             if (confirma == "Y")
+                            {
                                 IPar->altaPartida(datosPartida);
+                                cout << "Alta partida exitosa" << endl;
+                            }
+
+                                
 
                             // Limpiar memoria
                             delete datosPartida;
-
+                            cout << Constantes::Separador;
                            /*try 
                             {
                               set<DtVideojuegoSuscripcion*> sa = IUsr->listarVideojuegoSuscripcionesActivas();

@@ -14,14 +14,24 @@ ManejadorPartida* ManejadorPartida::getInstancia()
 }
 
 // Constructor
-ManejadorPartida::ManejadorPartida(){}
+ManejadorPartida::ManejadorPartida() {}
 
 // Destructor
 ManejadorPartida::~ManejadorPartida()
 {
-	partidasI.clear();
-	partidasM.clear();
-	delete instancia;
+	for (itPI = partidasI.begin(); itPI != partidasI.end(); ++itPI)
+    {
+        if (itPI->second != NULL)
+            delete itPI->second;
+    }
+    partidasI.clear();
+
+	for (itPM = partidasM.begin(); itPM != partidasM.end(); ++itPI)
+    {
+        if (itPM->second != NULL)
+            delete itPM->second;
+    }
+    partidasM.clear();
 }
 
 //Getters y Setters
@@ -53,11 +63,17 @@ void ManejadorPartida::AgregarPartidaMultijugador(int id, PartidaMultijugador* p
 
 int ManejadorPartida::getTotalPartidasMulti()
 {
+	if (partidasM.empty())
+		return 0;
+
 	return static_cast<int>(partidasM.size());
 }
 
 int ManejadorPartida::getTotalPartidasInd()
 {
+	if (partidasI.empty())
+		return 0;
+
 	return static_cast<int>(partidasI.size());
 }
 

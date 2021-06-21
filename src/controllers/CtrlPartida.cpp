@@ -7,13 +7,13 @@ CtrlPartida* CtrlPartida::instancia = NULL;
 // CONSTRUCTOR
 CtrlPartida::CtrlPartida()
 {
-
+	manejadorPartida = ManejadorPartida::getInstancia();
 }
 
 // DESTRUCTOR
 CtrlPartida::~CtrlPartida()
 {
-
+	delete manejadorPartida;
 }
 
 // getInstance()
