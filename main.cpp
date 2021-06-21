@@ -786,7 +786,7 @@ int main()
                                 else if (continua == "N")
                                 {
                                     DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
-                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, nombreVideojuego, false);
+                                    datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, false);
                                 }
                                 else 
                                 {

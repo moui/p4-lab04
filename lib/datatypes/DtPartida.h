@@ -9,11 +9,12 @@ class DtPartida
         int identificador;
         float duracion;
         DtFechaHora* fecha;
+        DtFechaHora* fecha_fin;
         string nomVJ;
 
     public:
         // Constructor y destructor
-        DtPartida(int id, float duracion, DtFechaHora* fecha, string n);
+        DtPartida(int id, float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin, string n);
         virtual ~DtPartida();
 
         virtual void abstracta() = 0; // Funcion virtual pura => DtPartida es abstracta
@@ -22,6 +23,7 @@ class DtPartida
         int getId();
         float getDuracion();
         DtFechaHora* getFecha();
+        DtFechaHora* getFechaFin();
 };
 
 #endif

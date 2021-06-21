@@ -54,7 +54,7 @@ class CtrlPartida : public IPartida
         set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego); 
 
         void altaPartida(DtPartida* datosPartida);
-
+        void finalizarPartida(DtFechaHora f, int id);
 
         /*
         void crearPartida(string nombreVJ);
@@ -66,7 +66,7 @@ class CtrlPartida : public IPartida
         void ENVivo(bool EnVivo);
         //void cancelarIniciarPartida();
         set<DtPartida*> listaPartidasIniciadas();
-        void finalizarPartida(DtFechaHora f, float id);
+        
         void cancelarFinalizarPartida();
 
         */

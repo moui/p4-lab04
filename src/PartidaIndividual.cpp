@@ -1,8 +1,8 @@
 #include "../lib/PartidaIndividual.h"
 
 // Constructor y destructor 
-PartidaIndividual::PartidaIndividual(int id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego, PartidaIndividual* continuacion)
-    : Partida(id, duracion, finalizada, fecha, videojuego)
+PartidaIndividual::PartidaIndividual(int id, float duracion, bool finalizada, DtFechaHora* fecha, DtFechaHora* fecha_fin, Videojuego* videojuego, PartidaIndividual* continuacion)
+    : Partida(id, duracion, finalizada, fecha, fecha_fin, videojuego)
 {
     this->continuacion = continuacion;
 }
