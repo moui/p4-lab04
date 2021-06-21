@@ -538,7 +538,7 @@ int main()
                                 auto it = stats.begin();
                                 for(it=stats.begin(); it!=stats.end(); it++)
                                 {
-                                    cout << *(*it) << "prueba "<< "\n";
+                                    cout << *(*it) << "\n";
                                 }
                             }
                             catch (const std::invalid_argument &err)
