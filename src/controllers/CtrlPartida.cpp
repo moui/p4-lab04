@@ -82,7 +82,6 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 void CtrlPartida::altaPartida(DtPartida* datosPartida)
 {
 	Jugador* jugador = dynamic_cast<Jugador*>(CtrlUsuario::getInstancia()->getSesionActiva());
-	map<int, Partida*> partidasJugador = jugador->getInicioPartidas();
 	// Determinar tipo partida
 	if ( dynamic_cast<DtPartidaIndividual*>(datosPartida) != NULL )
 	{
@@ -97,7 +96,7 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 			PartidaIndividual* continua = manejadorPartida->getPI(*datosPartidaInd->getContinuacion());
 			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, continua);
 			// Actualizar colecciones
-			partidasJugador.insert(pair<int, Partida*>(id, partida));
+			jugador->getInicioPartidas().insert(pair<int, Partida*>(id, partida));
 			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 		else
@@ -108,7 +107,7 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
 			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, NULL);
 			// Actualizar colecciones
-			partidasJugador.insert(pair<int, Partida*>(id, partida));
+			jugador->getInicioPartidas().insert(pair<int, Partida*>(id, partida));
 			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 	}
