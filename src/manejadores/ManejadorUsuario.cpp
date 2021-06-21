@@ -122,14 +122,15 @@ Jugador* ManejadorUsuario::buscarJugadorPorNickname(string nickname)
     throw invalid_argument("No existe jugador " + nickname);
 }
 
-set<string> ManejadorUsuario::listarJugadoresSuscripcionActivaVJ(string videojuego){
+set<string> ManejadorUsuario::listarJugadoresSuscripcionActivaVJ(string videojuego, string activo){
     set<string> res;
     if (jugadores.empty())
         throw invalid_argument("No existen jugadores en el sistema");
     while ( itj != jugadores.end() )
     {
         if ( itj->second->getSuscripcion(videojuego)->getnombreVJ() == videojuego && itj->second->getSuscripcion(videojuego)->getEstado() == TipoEstado::activa )
-            res.insert(itj->second->getNickname());
+            if (itj->second->getNickname() != activo)
+                res.insert(itj->second->getNickname());
         itj++;
     }
     return res;

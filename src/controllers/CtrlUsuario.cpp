@@ -370,8 +370,10 @@ Jugador* CtrlUsuario::buscarJugador(string nickname)
 
 set<string> CtrlUsuario::listarJugadoresSuscripcionActivaVJ(string videojuego)
 {
+    Usuario* user= CtrlUsuario::getSesionActiva();
+    Jugador * jugador={dynamic_cast<Jugador*>(user)};
     set<string> res;
-    res = manejadorUsuario->listarJugadoresSuscripcionActivaVJ(videojuego);
+    res = manejadorUsuario->listarJugadoresSuscripcionActivaVJ(videojuego, jugador->getNickname());
     if (res.empty())
     {
         throw invalid_argument("El controlador no encontro usuarios con suscripciones activas para el videojuego seleccionado. ");
