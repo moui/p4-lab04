@@ -53,6 +53,14 @@ void PartidaMultijugador::setHoraAbandono(DtFechaHora* f, string clave){
 	info->setAbandonaEn(f);
 }
 
+void PartidaMultijugador::abandonarTodos(DtFechaHora* f)
+{
+	for (auto it = participan.begin(); it != participan.end(); ++it)
+	{
+		it->second->setAbandonaEn(f);
+	}
+}
+
 void PartidaMultijugador::forzarAbandono(DtFechaHora* f){
 	map<string, InfoPartidaMulti*>::iterator it = participan.begin();
 	while(it != participan.end()){
