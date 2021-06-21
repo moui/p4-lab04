@@ -18,7 +18,6 @@ ManejadorVideojuego::~ManejadorVideojuego(){
             delete itc->second;
     }
     categorias.clear();
-    //descSuscripcion.clear();
 }
 //getters
 Videojuego* ManejadorVideojuego::buscarVideojuego(string clave){
@@ -28,10 +27,6 @@ Videojuego* ManejadorVideojuego::buscarVideojuego(string clave){
         return videojuegos.find(clave)->second;
 }
 
-/*DescripcionSuscripcion* ManejadorVideojuego::buscarDescripcionSuscripcion(string clave){
-    return (descSuscripcion.find(clave)->second);
-}
-*/
 Categoria* ManejadorVideojuego::buscarCategoria(string clave){
     if (categorias.find(clave) == categorias.end())
         return NULL;
@@ -44,15 +39,11 @@ void ManejadorVideojuego::agregarVideojuego(string clave, Videojuego* vid){
     videojuegos.insert( pair <string, Videojuego*>(clave, vid));
 }
 
-/*void ManejadorVideojuego::agregarDescripcionSuscripcion(string clave, DescripcionSuscripcion* ds){
-    descSuscripcion.insert( pair <string, DescripcionSuscripcion*>(clave, ds));
-}*/
-
 void ManejadorVideojuego::agregarCategoria(string clave, Categoria* cat){
     categorias.insert( pair <string, Categoria*>(clave, cat));
 }
 
-//deleters (?
+//deleters 
 
 void ManejadorVideojuego::borrarVideojuego(string clave){
     if (!videojuegos.empty()){
@@ -62,12 +53,6 @@ void ManejadorVideojuego::borrarVideojuego(string clave){
         delete vj;
     }
 }
-    
-
-
-/*void ManejadorVideojuego::borrarDescripcionSuscripcion(string clave){
-    descSuscripcion.erase(itds=descSuscripcion.find(clave));
-}*/
 
 void ManejadorVideojuego::borrarCategoria(string clave){
     categorias.erase(itc=categorias.find(clave));
@@ -111,6 +96,9 @@ set<DtCategoria*> ManejadorVideojuego::listarCategorias(){
 		    ret.insert(itc->second->getDtCategoria());
 	    }
     }
+    else {
+        throw invalid_argument( "Catalogo de Categorias vacio. ");
+    }
     return ret;
 }
 
@@ -123,6 +111,9 @@ set<DtCategoria*> ManejadorVideojuego::listarCategoriasGenero(){
             }
 		    
 	    }
+    }
+    else {
+        throw invalid_argument( "Catalogo de Categorias vacio. ");
     }
     return ret;
 }
@@ -137,6 +128,9 @@ set<DtCategoria*> ManejadorVideojuego::listarCategoriasPlataforma(){
 		    
 	    }
     }
+    else {
+        throw invalid_argument( "Catalogo de Categorias vacio. ");
+    }
     return ret;
 }
 
@@ -150,6 +144,9 @@ set<DtCategoria*> ManejadorVideojuego::listarCategoriasOtros(){
 		    
 	    }
     }
+    else {
+        throw invalid_argument( "Catalogo de Categorias vacio. ");
+    }
     return ret;
 }
 
@@ -160,6 +157,9 @@ map<string, string> ManejadorVideojuego::listarNombresVideojuego(){
 		    ret.insert(pair<string, string>(itvj->second->getNombreVJ(), itvj->second->getDescripcionVJ()));
 	    }
     }
+    else {
+        throw invalid_argument( "Catalogo de Videojuegos vacio. ");
+    }
     return ret;
 }
 
@@ -168,5 +168,8 @@ void ManejadorVideojuego::asignarPuntajeVideojuegoJ(string nombrevj, string nick
         itvj = videojuegos.find(nombrevj);
         itvj->second->setPuntajeVJ(nickname, puntaje);
         itvj->second->calcularPromedio();
+    }
+    else {
+        throw invalid_argument( "Catalogo de Videojuegos vacio. ");
     }
 }
