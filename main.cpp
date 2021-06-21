@@ -91,9 +91,11 @@ int main()
                 while (reintentar)
                 {
                     cout << "Ingrese nickname: ";
-                    cin >> nickname;
+                    cin.ignore();
+                    getline(cin, nickname);
                     cout << "Ingrese descripcion: ";
-                    cin >> descripcion;
+                    cin.ignore();
+                    getline(cin, descripcion);
                     try
                     {
                         IUsr->ingresaDatosJugador(nickname, descripcion);
