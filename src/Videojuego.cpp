@@ -8,6 +8,7 @@ Videojuego::Videojuego(string nnombre, string ndescripcion, float costomensual, 
  this->costo12 = costoanual;
  this->costoV = costovitalicia;
  this->categoriasvj = ncats;
+ this->tothorasjuego = 0;
 }
 
 //getters
@@ -74,7 +75,6 @@ DtVideojuego* Videojuego::getDatatype()
         Categoria* cat = *itcatvj;
         dtCategorias.insert(cat->getDtCategoria());
     }
-    calcularTotalHorasJugadas();
     return new DtVideojuego(nombre, descripcion, costo1, costo3, costo12, costoV, dtCategorias, ppromedio, tothorasjuego);
 }
 
@@ -140,6 +140,6 @@ float Videojuego::getTotalHorasJugadas(){
     return this->tothorasjuego;
 }
 
-void Videojuego::calcularTotalHorasJugadas(){
-    this->tothorasjuego = 10;
+void Videojuego::setTotalHorasJugadas(float tot){
+    this->tothorasjuego = tot;
 }

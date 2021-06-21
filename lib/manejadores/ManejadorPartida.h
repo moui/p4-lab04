@@ -47,6 +47,7 @@ class ManejadorPartida {
 		set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
 
 		void finalizarPartida(DtFechaHora*, int);
+		float calculaTotalHorasJugadas();
 
 };
 

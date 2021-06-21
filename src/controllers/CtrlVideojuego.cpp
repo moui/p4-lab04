@@ -205,3 +205,4 @@ void CtrlVideojuego::asignarPuntajeVideojuego(string nombrevj, TipoPuntaje punta
   Jugador* j = dynamic_cast<Jugador*> (ctrlUsuario->getSesionActiva());
   manejadorVideojuego->asignarPuntajeVideojuegoJ(nombrevj, j->getNickname(), puntaje);
 }
+

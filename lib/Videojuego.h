@@ -64,7 +64,7 @@ class Videojuego
     void setCostoV(float cV);
 
     void calcularPromedio();
-    void calcularTotalHorasJugadas();
+    void setTotalHorasJugadas(float);
 
     void setCategoriasVJ(set<Categoria*> catvj); 
 

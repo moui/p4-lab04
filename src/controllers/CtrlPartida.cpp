@@ -229,14 +229,15 @@ set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas(string
 	 manejadorPartida->ConfirmarAbandonarPartida(mail,partidaMJ);
  }
 
-    set<DtPartida*> CtrlPartida::listaPartidasIniciadasSinFinalizar()
+set<DtPartida*> CtrlPartida::listaPartidasIniciadasSinFinalizar()
+{
+	set<DtPartida*> res;
+	CtrlUsuario* ctrlusuario = CtrlUsuario::getInstancia();
+	res = ctrlusuario->listaPartidasIniciadasSinFinalizar();
+	if (res.empty())
 	{
-		set<DtPartida*> res;
-		CtrlUsuario* ctrlusuario = CtrlUsuario::getInstancia();
-		res = ctrlusuario->listaPartidasIniciadasSinFinalizar();
-		if (res.empty())
-		{
-			throw invalid_argument("No se obtuvieron datos del controlador usuario. ");
-		}
-		return res;
+		throw invalid_argument("No se obtuvieron datos del controlador usuario. ");
 	}
+	return res;
+}
+
