@@ -80,7 +80,10 @@ int ManejadorPartida::getTotalPartidasInd()
 set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
 {
 	set<DtPartidaMultijugador*> res;	
- 
+	if(partidasM.empty())
+	{
+		throw invalid_argument("No hay partidas Multijugador en el sistema. ");
+	} else {
 	for (itPM=partidasM.begin(); itPM!=partidasM.end(); itPM++)
 	{
 		auto it=itPM->second->getParticipan().find(mailJugador);
@@ -94,6 +97,7 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 			res.insert( new DtPartidaMultijugador((itPM)->first, (itPM)->second->getDuracion(), (itPM)->second->getFecha(),
 			(itPM)->second->getVideojuego()->getNombreVJ(), (itPM)->second->getTransmitidaEnVivo(), nicknameUnidos, nicknameUnidos.size()) );
 		}
+	 }
 	}
 	return res;
 }
