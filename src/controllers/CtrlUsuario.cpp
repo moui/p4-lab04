@@ -367,3 +367,14 @@ Jugador* CtrlUsuario::buscarJugador(string nickname)
 {
     return manejadorUsuario->buscarJugadorPorNickname(nickname);
 }
+
+set<string> CtrlUsuario::listarJugadoresSuscripcionActivaVJ(string videojuego)
+{
+    set<string> res;
+    res = manejadorUsuario->listarJugadoresSuscripcionActivaVJ(videojuego);
+    if (res.empty())
+    {
+        throw invalid_argument("El controlador no encontro usuarios con suscripciones activas para el videojuego seleccionado. ");
+    }
+    return res;
+}

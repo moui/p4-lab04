@@ -57,6 +57,8 @@ class IUsuario
 
         //eliminar
         virtual set<DtVideojuego*> listarVideoJuegosDesarrollador() = 0;
+
+        virtual set<string> listarJugadoresSuscripcionActivaVJ(string videojuego) = 0;
 };
 
 #endif

@@ -115,19 +115,19 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 		this->getPI(id)->setFechaFin(fecha_fin);
 		this->getPI(id)->setFinalizada(true);
 		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPI(id)->getFecha()));
-		this->getPI(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadas());
+		this->getPI(id)->getVideojuego()->setTotalHorasJugadas(this->getPI(id)->getDuracion());
 	}
 	else if ( partidasM.find(id) != partidasM.end() ){
 		this->getPM(id)->setFechaFin(fecha_fin);
 		this->getPI(id)->setFinalizada(true);
 		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPM(id)->getFecha()));
-		this->getPI(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadas());
+		this->getPI(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadasMulti());
 	}
 	else{
 		throw invalid_argument("No hay partida con ese ID en el sistema. ");
 	}
 }
 
-float ManejadorPartida::calculaTotalHorasJugadas(){
+float ManejadorPartida::calculaTotalHorasJugadasMulti(){
 	return 10;
 }

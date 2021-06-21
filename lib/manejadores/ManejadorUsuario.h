@@ -50,6 +50,8 @@ class ManejadorUsuario {
 
         void removerSuscripciones(string);
 
+        set<string> listarJugadoresSuscripcionActivaVJ(string);
+
 };
 
 #endif

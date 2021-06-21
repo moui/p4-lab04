@@ -99,6 +99,8 @@ class CtrlUsuario : public IUsuario
 
         // Buscar jugador por nickname
         Jugador* buscarJugador(string nickname);
+
+        set<string> listarJugadoresSuscripcionActivaVJ(string videojuego);
 };
 
 #endif

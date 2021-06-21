@@ -767,7 +767,7 @@ int main()
                                 delete infoVideojuego;
                             }
                             // Declaraciones
-                            string tipoPartida, continua, nombreVideojuego, confirma;
+                            string tipoPartida, continua, nombreVideojuego, confirma, transmite;
                             int idContinuacion;
                             // Pedir nombre videojuego
                             cout << "Seleccione videojuego indicando su nombre" << endl;
@@ -849,9 +849,13 @@ int main()
                             else if (tipoPartida == "M")
                             {
                                 // INICIAR PARTIDA MULTIJUGADOR
-
-
-
+                                cout << "Desea transmitir la partida en vivo? (Y/N): " << endl;
+                                cin >> transmite;
+                                cout << "Jugadores con suscripciones activas: " << endl;
+                                set<string> jugsus = IUsr->listarJugadoresSuscripcionActivaVJ(nombreVideojuego);
+                                for (auto it = jugsus.begin(); it != jugsus.end(); ++it){
+                                    cout << *it << endl;
+                                }
                             }
                             else
                             {
@@ -1182,7 +1186,7 @@ int main()
             datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(12, 06, 2021, 20, 0), NULL,  "Minecraft", NULL);
             IPar->altaPartida(datosPartida);
             delete usr;
-            delete datosPartida; 
+            delete datosPartida;
 
             d = new DtFechaHora(21, 06, 2021, 18, 0);
             fechaSistema->setFecha(d);

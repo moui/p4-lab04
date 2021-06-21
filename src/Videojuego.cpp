@@ -141,5 +141,5 @@ float Videojuego::getTotalHorasJugadas(){
 }
 
 void Videojuego::setTotalHorasJugadas(float tot){
-    this->tothorasjuego = tot;
+    this->tothorasjuego = this->tothorasjuego + tot;
 }
