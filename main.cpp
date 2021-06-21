@@ -869,7 +869,7 @@ int main()
                         {
                             // FINALIZAR PARTIDA
                             int partidaI;
-                            cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            cout << Constantes::PresentacionFinalizarPartida;
                             try 
                             {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
@@ -883,7 +883,7 @@ int main()
                                 cerr << "Error: " << err.what() << '\n';
                                 cout << Constantes::Separador;
                             }
-                            cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
+                            cout << Constantes::PresentacionFinalizarPartida_Fin;
                             break;
                             ;
 
