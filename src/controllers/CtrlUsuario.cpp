@@ -167,6 +167,9 @@ DtUsuario* CtrlUsuario::iniciarSesion(string mail, string contrasena){
 
     TipoEstado CtrlUsuario::getEstadoSuscripcion(string nombreVideojuego)
     {
+        if (CtrlVideojuego::getCtrlVideojuego()->getVJ(nombreVideojuego) == NULL)
+            throw invalid_argument("Videojuego " + nombreVideojuego + " no existe en el catalogo.");
+
         Usuario* user= CtrlUsuario::getSesionActiva();
         if (dynamic_cast<Jugador*>(user) == NULL)
             throw invalid_argument("Usuario loggeado debe ser jugador");
