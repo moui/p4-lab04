@@ -57,7 +57,8 @@ void PartidaMultijugador::abandonarTodos(DtFechaHora* f)
 {
 	for (auto it = participan.begin(); it != participan.end(); ++it)
 	{
-		it->second->setAbandonaEn(f);
+		if (it->second->getAbandonaEn() == NULL)
+			it->second->setAbandonaEn(new DtFechaHora(f));
 	}
 }
 
@@ -80,7 +81,11 @@ bool PartidaMultijugador::participa(string email)
 	if (participan.find(email) == participan.end())
 		return false;
 	
-	return true;
+	InfoPartidaMulti* info = participan.find(email)->second;
+	if (info->getAbandonaEn() == NULL)
+		return true;
+	else
+		return false;
 }
 
    DtPartidaMultijugador* PartidaMultijugador::getDatos()

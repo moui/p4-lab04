@@ -950,7 +950,9 @@ int main()
                                 cin >> partidaI;
                                 try 
                                 {
-                                    IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
+                                    DtFechaHora* fecha = new DtFechaHora(fechaSistema->getFecha());
+                                    IPar->finalizarPartida(fecha, partidaI);
+                                    delete fecha;
                                 }
                                 catch (const std::invalid_argument &err)
                                 {

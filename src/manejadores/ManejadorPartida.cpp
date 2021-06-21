@@ -88,7 +88,9 @@ set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(s
 		for (itPM=partidasM.begin(); itPM!=partidasM.end(); itPM++)
 		{
 			if (itPM->second->participa(mailJugador) && !itPM->second->getFinalizada())
+			{
 				res.insert(itPM->second->getDatos());
+			}	
 	 	}
 	}
 	return res;
@@ -110,7 +112,7 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 	else if ( partidasM.find(id) != partidasM.end() ){
 		this->getPM(id)->setFechaFin(new DtFechaHora(fecha_fin));
 		this->getPM(id)->setFinalizada(true);
-		this->getPM(id)->abandonarTodos(new DtFechaHora(fecha_fin));
+		this->getPM(id)->abandonarTodos(fecha_fin);
 		this->getPM(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPM(id)->getFecha()) * 24);
 		this->getPM(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadasMulti(id));
 	}
