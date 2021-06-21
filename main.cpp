@@ -53,7 +53,8 @@ int main()
             cout << "Ingrese mail: ";
             cin >> mail;
             cout << "Ingrese contrasena: ";
-            cin >> contrasena;
+            cin.ignore();
+            getline(cin, contrasena);
             try
             {
                 IUsr->ingresaDatosUsuario(mail, contrasena);
@@ -202,7 +203,8 @@ int main()
             cout << "Ingrese mail: ";
             cin >> mail;
             cout << "Ingrese contrasena: ";
-            cin >> contrasena;
+            cin.ignore();
+            getline(cin, contrasena);
             try
             {
                 DtUsuario *usuario = IUsr->iniciarSesion(mail, contrasena);
