@@ -27,7 +27,7 @@ static DtFechaHora *ValidarFechaSistema();
 // Retorna true solo si 'id' ocurre en set
 static bool pertenece(set<DtPartidaIndividual*> set, int id);
 
-/*static bool pertenece(set<string> set, string nick);*/
+static bool pertenece(set<string> set, string nick);
 
 int main()
 {
@@ -769,7 +769,8 @@ int main()
                                 delete infoVideojuego;
                             }
                             // Declaraciones
-                            string tipoPartida, continua, nombreVideojuego, confirma, transmite;
+                            string tipoPartida, continua, nombreVideojuego, confirma, transmite, unido;
+                            set<string> unidos;
                             int idContinuacion;
                             // Pedir nombre videojuego
                             cout << "Seleccione videojuego indicando su nombre" << endl;
@@ -858,6 +859,20 @@ int main()
                                 for (auto it = jugsus.begin(); it != jugsus.end(); ++it){
                                     cout << *it << endl;
                                 }
+                                unido = "";
+                                while (unido != "cont")
+                                {
+                                    cout << "Ingrese nickname jugador o 'cont' para continuar " << endl;
+                                    cin >> unido;
+                                    if (pertenece(jugsus, unido))
+                                        unidos.insert(unido);
+                                }
+                                if (unidos.empty())
+                                {
+                                    cout << "Parametro invalido." << endl << Constantes::Separador;
+                                    break;
+                                }
+                                cout << "llegue";
                             }
                             else
                             {
@@ -1294,9 +1309,9 @@ static bool pertenece(set<DtPartidaIndividual*> set, int id)
     return false;
 }
 
-/*static bool pertenece(set<string> set, string nick)
+static bool pertenece(set<string> set, string nick)
 {
-    if (nick == "")
+    if (nick == "cont")
         return false;
     for (auto it = set.begin(); it != set.end(); ++it)
     {
@@ -1308,4 +1323,4 @@ static bool pertenece(set<DtPartidaIndividual*> set, int id)
     }
     cout << "Nickname invalido" << endl;
     return false;
-}*/
+}
