@@ -217,9 +217,10 @@ void cancelarFinalizarPartida(){
 
 
 // ABANDONAR PARTIDA MULTIJUGADOR
-set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas(string mailJugador)
+set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas()
 {
-	set<DtPartidaMultijugador*> res = manejadorPartida->listarPartidasMultijugadorUnidas(mailJugador);
+	string email = CtrlUsuario::getInstancia()->getSesionActiva()->getMail();
+	set<DtPartidaMultijugador*> res = manejadorPartida->listarPartidasMultijugadorUnidas(email);
 	return res;
 }
 

@@ -324,13 +324,14 @@ set<DtVideojuego*> CtrlUsuario::listarVideoJuegosDesarrollador(){
 set<DtPartidaMultijugador*> CtrlUsuario::listarPartidasMultijugadorUnidas()
 {
     set<DtPartidaMultijugador*> res;
+    /*
     Usuario* user= CtrlUsuario::getSesionActiva();
     Jugador * jugador={dynamic_cast<Jugador*>(user)};
     res = jugador->listarPartidasMultijugadorUnidas();
     if (res.empty())
     {
         throw invalid_argument("El controlador no encontro partidas. ");
-    }
+    } */
     return res;
 }
 

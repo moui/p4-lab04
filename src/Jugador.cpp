@@ -147,6 +147,7 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
 
 
   //ABANDONA PARTIDA MJ
+  /*
   set<DtPartidaMultijugador*> Jugador::listarPartidasMultijugadorUnidas()
   {
     set<DtPartidaMultijugador*> res;
@@ -157,14 +158,14 @@ void Jugador::AltaSuscripcion(DtSuscripcion* dtSus)
     Usuario* user= ctrlUsuario->getSesionActiva();
     Jugador * jugador={dynamic_cast<Jugador*>(user)};
 
-    res= ctrlpartida->listarPartidasMultijugadorUnidas(jugador->getMail());
+    res= ctrlpartida->listarPartidasMultijugadorUnidas();
     if (res.empty())
     {
       throw invalid_argument("No se obtuvieron datos de partidas del controlador. ");
     }
     return res;
 
-  }
+  } */
 
   void Jugador::ConfirmarAbandonarPartida(int partidaMJ)
   {

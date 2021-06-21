@@ -44,6 +44,8 @@ class IPartida //aca
 
         virtual set<DtPartida*> listaPartidasIniciadasSinFinalizar()=0;
 
+        virtual set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas() = 0;
+
 };
 
 #endif
