@@ -106,7 +106,7 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 	if ( partidasI.find(id) != partidasI.end() ){
 		this->getPI(id)->setFechaFin(fecha_fin);
 		this->getPI(id)->setFinalizada(true);
-		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPI(id)->getFecha()) / 24);
+		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPI(id)->getFecha()) * 24);
 		this->getPI(id)->getVideojuego()->setTotalHorasJugadas(this->getPI(id)->getDuracion());
 	}
 	else if ( partidasM.find(id) != partidasM.end() ){

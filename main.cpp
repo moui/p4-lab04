@@ -535,6 +535,11 @@ int main()
                                 cin.ignore();
                                 getline(cin, nomVJ);
                                 set<DtEstadistica*> stats= IUsr->ConsultarEstadisticas(nomVJ);
+                                auto it = stats.begin();
+                                for(it=stats.begin(); it!=stats.end(); it++)
+                                {
+                                    cout << *(*it) << "\n";
+                                }
                             }
                             catch (const std::invalid_argument &err)
                              {
