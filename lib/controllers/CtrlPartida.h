@@ -52,6 +52,8 @@ class CtrlPartida : public IPartida
         // Devuelve set<DtPartidaInd*> con las partidas individuales
             // finalizadas del jugador que inicio sesion.
         set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego); 
+        
+        
 
         void altaPartida(DtPartida* datosPartida);
         void finalizarPartida(DtFechaHora f, int id);
