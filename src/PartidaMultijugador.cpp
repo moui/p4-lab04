@@ -63,6 +63,17 @@ void PartidaMultijugador::forzarAbandono(DtFechaHora* f){
 	this->setDuracion(this->getFecha()->getHora() - f->getHora());
 }
 
+bool PartidaMultijugador::participa(string email)
+{
+	if (participan.empty())
+		return false;
+	
+	if (participan.find(email) == participan.end())
+		return false;
+	
+	return true;
+}
+
    DtPartidaMultijugador* PartidaMultijugador::getDatos()
   {   
       DtPartidaMultijugador* res=NULL;
