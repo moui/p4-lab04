@@ -53,7 +53,8 @@ int main()
             cout << "Ingrese mail: ";
             cin >> mail;
             cout << "Ingrese contrasena: ";
-            cin >> contrasena;
+            cin.ignore();
+            getline(cin, contrasena);
             try
             {
                 IUsr->ingresaDatosUsuario(mail, contrasena);
@@ -202,7 +203,8 @@ int main()
             cout << "Ingrese mail: ";
             cin >> mail;
             cout << "Ingrese contrasena: ";
-            cin >> contrasena;
+            cin.ignore();
+            getline(cin, contrasena);
             try
             {
                 DtUsuario *usuario = IUsr->iniciarSesion(mail, contrasena);
@@ -608,7 +610,8 @@ int main()
                              cout << Constantes::Separador;
                              string nomVJ;                            
                              cout << "Seleccione un Videojuego para suscribirse: \n";
-                             cin >> nomVJ;
+                             cin.ignore();
+                             getline(cin, nomVJ);
                              TipoEstado estado=IUsr->JuegoSuscribirse(nomVJ);                           
 
                              switch(estado)
@@ -883,7 +886,6 @@ int main()
                                 cerr << "Error: " << err.what() << '\n';
                                 cout << Constantes::Separador;
                             }
-                            cout << Constantes::PresentacionFinalizarPartida_Fin;
                             break;
                             ;
 

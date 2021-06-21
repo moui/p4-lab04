@@ -82,7 +82,6 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 void CtrlPartida::altaPartida(DtPartida* datosPartida)
 {
 	Jugador* jugador = dynamic_cast<Jugador*>(CtrlUsuario::getInstancia()->getSesionActiva());
-	map<int, Partida*> partidasJugador = jugador->getInicioPartidas();
 	// Determinar tipo partida
 	if ( dynamic_cast<DtPartidaIndividual*>(datosPartida) != NULL )
 	{
