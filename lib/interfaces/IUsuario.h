@@ -52,6 +52,8 @@ class IUsuario
         virtual set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas()=0;
         virtual void ConfirmarAbandonarPartida(int partidaMJ)=0;
 
+        
+
 
         //eliminar
         virtual set<DtVideojuego*> listarVideoJuegosDesarrollador() = 0;

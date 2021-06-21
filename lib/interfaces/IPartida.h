@@ -39,7 +39,9 @@ class IPartida //aca
         virtual void finalizarPartida(float id);
         virtual void cancelarFinalizarPartida(); */
 
-        //Abandonar Partida
+        //FINALIZAR PARTIDA
+
+        virtual set<DtPartida*> listaPartidasIniciadasSinFinalizar()=0;
 
 };
 

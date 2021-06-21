@@ -850,6 +850,8 @@ int main()
                         case 5:
                         {
                             // FINALIZAR PARTIDA
+                            set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
+                            
                             break;
                         }
                         case 6:
