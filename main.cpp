@@ -71,7 +71,8 @@ int main()
             case 'D':
             {
                 cout << "Ingrese empresa: ";
-                cin >> empresa;
+                cin.ignore();
+                getline(cin, empresa);
                 //alta desarrollador
                 try
                 {
