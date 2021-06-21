@@ -37,7 +37,7 @@ class Jugador : public Usuario
   private:
     string nickname;
     string descripcion;
-    map<float,Partida*> inicio;
+    map<int,Partida*> inicio;
     set<Suscripcion*> suscripto;
     set<Jugador*> sigue;
 
@@ -52,12 +52,12 @@ class Jugador : public Usuario
     // Getters
     string getNickname();
     string getDescripcion();
-    map<float, Partida*> getInicioPartidas();
+    map<int, Partida*> getInicioPartidas();
 
     // Setters
     void setNickname(string nickname);
     void setDescripcion(string descripcion);
-    void setInicioPartidas(map<float, Partida*> inicio);
+    void setInicioPartidas(map<int, Partida*> inicio);
 
     void seguir(Jugador* j);
 

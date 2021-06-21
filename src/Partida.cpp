@@ -14,6 +14,11 @@ Partida::Partida(int id, float duracion, bool finalizada, DtFechaHora* fecha, Dt
 
 Partida::~Partida()
 {
+  if (fecha != NULL)
+    delete fecha;
+  
+  if (fecha_fin != NULL)
+    delete fecha_fin; 
 }
 
 // Getters

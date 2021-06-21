@@ -854,7 +854,7 @@ int main()
                             cout << Constantes::PresentacionAbandonarPartidaMultijugador;
                             try 
                             {
-                            set<DtPartidaMultijugador*> datosPartidaMulti = IUsr->listaPartidasIniciadasSinFinalizar();
+                            set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
                             cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
                             cin >> partidaI;
 
@@ -868,6 +868,8 @@ int main()
                             }
                             cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
                             break;
+                            ;
+
                             break;
                         }
                         case 6:

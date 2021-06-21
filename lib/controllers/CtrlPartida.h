@@ -52,6 +52,8 @@ class CtrlPartida : public IPartida
         // Devuelve set<DtPartidaInd*> con las partidas individuales
             // finalizadas del jugador que inicio sesion.
         set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego); 
+        
+        
 
         void altaPartida(DtPartida* datosPartida);
         void finalizarPartida(DtFechaHora* fin, int id);
@@ -65,8 +67,7 @@ class CtrlPartida : public IPartida
         set<DtPartidaIndividual*> listaPartidasIndTer();
         void ENVivo(bool EnVivo);
         //void cancelarIniciarPartida();
-        set<DtPartida*> listaPartidasIniciadas();
-        
+        void finalizarPartida(DtFechaHora f, float id);
         void cancelarFinalizarPartida();
 
         */
@@ -75,6 +76,10 @@ class CtrlPartida : public IPartida
 
         set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
         void ConfirmarAbandonarPartida(string mail, int partidaMJ);
+
+        //FINALIZAR PARTIDA
+
+        set<DtPartida*> listaPartidasIniciadasSinFinalizar();
 };
 
 #endif
