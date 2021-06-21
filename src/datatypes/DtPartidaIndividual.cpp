@@ -3,7 +3,7 @@
 
 // Constructor y destructor
 DtPartidaIndividual::DtPartidaIndividual(int identificador,float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin, string n, int* continuacion)
-    : DtPartida::DtPartida(identificador, fecha, n)
+    : DtPartida::DtPartida(identificador, duracion, fecha, fecha_fin, n)
 {
     this->continuacion = continuacion;
 }
@@ -34,10 +34,11 @@ ostream& operator<<(ostream& os, const DtPartidaIndividual& dtPartidaInd)
 {
   os << "Tipo partida: Individual" << endl;
   os << "ID partida: " << static_cast<int>(dtPartidaInd.identificador) << endl;
-  os << "Fecha inicio partida: " << *(dtPartidaInd.fecha) << endl;
-  if ( dtPartidaInd.fecha_fin != NULL){
+  os << "Fecha inicio partida: " << *(dtPartidaInd.fecha);
+  os << "Fecha fin partida: " << *(dtPartidaInd.fecha_fin);
+ // if ( dtPartidaInd.fecha_fin != NULL){
     os << "Duracion: " << dtPartidaInd.getDuracion() << endl;  
-  }
+ // }
   if (dtPartidaInd.continuacion != NULL)
     os << "Es continuacion de partidas anteriores " << endl;
   else

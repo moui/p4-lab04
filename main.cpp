@@ -796,8 +796,9 @@ int main()
                                     cout << endl << "PARTIDAS INDIVIDUALES FINALIZADAS" << endl;
                                     for (auto it = partidasInd.begin(); it != partidasInd.end(); ++it)
                                     {
-                                        DtPartidaIndividual* dataPartida = *it;
-                                        cout << *dataPartida;
+                                        cout << *(*it);
+                                        //DtPartidaIndividual* dataPartida = *it;
+                                        //cout << *dataPartida;
                                     }
                                     // Ingresar ID de partida a continuar.
                                     idContinuacion = -1;
@@ -1150,7 +1151,7 @@ int main()
             IVid->asignarPuntajeVideojuego("Minecraft", TipoPuntaje::tres);
             IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
             delete usr;
-            /*
+            
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             DtPartidaIndividual* datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(02, 06, 2021, 9, 0), NULL,  "KingdomRush", NULL);
             IPar->altaPartida(datosPartida);
@@ -1169,7 +1170,7 @@ int main()
             datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(12, 06, 2021, 20, 0), NULL,  "Minecraft", NULL);
             IPar->altaPartida(datosPartida);
             delete usr;
-            delete datosPartida; */
+            delete datosPartida; 
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
             break;
