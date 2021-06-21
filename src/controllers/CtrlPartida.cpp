@@ -182,8 +182,7 @@ set<DtPartida*> CtrlPartida::listaPartidasIniciadas(){
 }*/
 
 void CtrlPartida::finalizarPartida(DtFechaHora* fin, int id){
-	Partida* par = manejadorPartida->getPI(id);
-	par->setFechaFin(fin);
+	manejadorPartida->finalizarPartida(fin, id);
 	//calcular duracion y setearla tambien
 }
 

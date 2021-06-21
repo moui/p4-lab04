@@ -110,4 +110,8 @@ void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
 	 itInfoPartida->second->setAbandonaEn(fechaSistema);
 }
  
+void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fina, int id){
+	itPI = partidasI.find(id);
+	itPM = partidasM.find(id);
 
+}

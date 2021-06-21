@@ -46,6 +46,8 @@ class ManejadorPartida {
 		void ConfirmarAbandonarPartida(string mail, int partidaMJ);
 		set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas(string mailJugador);
 
+		void finalizarPartida(DtFechaHora*, int);
+
 };
 
 #endif
