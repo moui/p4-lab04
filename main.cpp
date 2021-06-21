@@ -1135,9 +1135,9 @@ int main()
             delete usr;
             
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
-            DtPartidaIndividual* datosPartida = new DtPartidaIndividual(1, 0, new DtFechaHora(02, 06, 2021, 9, 0), new DtFechaHora(02, 06, 2021, 10, 0),  "KingdomRush", NULL);
+            DtPartidaIndividual* datosPartida = new DtPartidaIndividual(1, 0, new DtFechaHora(02, 06, 2021, 9, 0), NULL,  "KingdomRush", NULL);
             IPar->altaPartida(datosPartida);
-            IPar->finalizarPartida(datosPartida->getFechaFin(), 1);
+            IPar->finalizarPartida(new DtFechaHora(02, 06, 2021, 10, 0), 1);
             delete usr;
 
             cout << "Cargados datos de prueba.\n" << Constantes::Separador;         
