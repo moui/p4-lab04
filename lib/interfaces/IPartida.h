@@ -19,6 +19,7 @@ class IPartida //aca
         virtual set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego) = 0;
 
         virtual void altaPartida(DtPartida* partida) = 0;
+        virtual void finalizarPartida(DtFechaHora*, int) = 0;
         
         //virtual void cancelarIniciarPartida() = 0;
 
@@ -36,7 +37,7 @@ class IPartida //aca
         virtual void enVivo(bool enVivo);
         virtual void cancelarIniciarPartida();
         virtual set<DtPartida> listaPartidasIniciadas(string nickname);
-        virtual void finalizarPartida(float id);
+        
         virtual void cancelarFinalizarPartida(); */
 
         //FINALIZAR PARTIDA

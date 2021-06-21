@@ -75,6 +75,19 @@ const string Constantes::PresentacionSuscribirse =
     "                        PARTIDA MULTIJUGADOR ABANDONADA                   \n"
     "                                                                          \n"
     "--------------------------------------------------------------------------\n"  
+    ; 
+
+ const string Constantes::PresentacionFinalizarPartida =
+    "                                                                          \n"
+    "                        FINALIZAR PARTIDA INDIVIDUAL                      \n"
+    "                                                                          \n"
+    ;
+
+ const string Constantes::PresentacionFinalizarPartida_Fin =
+    "                                                                          \n"
+    "                        PARTIDA INDIVIDUAL FINALIZADA                     \n"
+    "                                                                          \n"
+    "--------------------------------------------------------------------------\n"  
     ;  
 const string Constantes::PresentacionSeleccionarEstadisticas =
     "                                                                          \n"

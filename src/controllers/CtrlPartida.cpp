@@ -174,13 +174,13 @@ set<DtPartida*> CtrlPartida::listaPartidasIniciadas(){
     return a;
 }
 
-}
-
-void CtrlPartida::finalizarPartida(DtFechaHora f, int id){
-	CtrlUsuario* ctrlUsuario;
-    ctrlUsuario = CtrlUsuario::getInstancia();
-	ctrlUsuario->finPartida(f, id);
 }*/
+
+void CtrlPartida::finalizarPartida(DtFechaHora* fin, int id){
+	Partida* par = manejadorPartida->getPI(id);
+	par->setFechaFin(fin);
+	//calcular duracion y setearla tambien
+}
 
 void cancelarFinalizarPartida(){
 

@@ -850,8 +850,26 @@ int main()
                         case 5:
                         {
                             // FINALIZAR PARTIDA
+                            int partidaI;
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador;
+                            try 
+                            {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
-                            
+                            cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
+                            cin >> partidaI;
+
+                            IPar->finalizarPartida(fechaSistema->getFecha(), partidaI);
+
+                            }
+                            catch (const std::invalid_argument &err)
+                            {
+                                cerr << "Error: " << err.what() << '\n';
+                                cout << Constantes::Separador;
+                            }
+                            cout << Constantes::PresentacionAbandonarPartidaMultijugador_Fin;
+                            break;
+                            ;
+
                             break;
                         }
                         case 6:
