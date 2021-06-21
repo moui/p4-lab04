@@ -855,6 +855,7 @@ int main()
                                 cout << "Desea transmitir la partida en vivo? (Y/N): " << endl;
                                 cin >> transmite;
                                 cout << "Jugadores con suscripciones activas: " << endl;
+                                bool enVivo = transmite == "Y" ? true : false; 
                                 set<string> jugsus = IUsr->listarJugadoresSuscripcionActivaVJ(nombreVideojuego);
                                 for (auto it = jugsus.begin(); it != jugsus.end(); ++it){
                                     cout << *it << endl;
@@ -872,7 +873,8 @@ int main()
                                     cout << "Parametro invalido." << endl << Constantes::Separador;
                                     break;
                                 }
-                                cout << "llegue";
+                                DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
+                                datosPartida = new DtPartidaMultijugador(0, 0, fechaInicio, NULL, nombreVideojuego, enVivo, unidos, 0);
                             }
                             else
                             {
