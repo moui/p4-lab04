@@ -240,9 +240,11 @@ int main()
                                 cout << *(*itcat) << endl;
                             }
                             cout << "Ingrese el nombre de la nueva categoria: ";
-                            cin >> nombrecat;
+                            cin.ignore();
+                            getline(cin, nombrecat);
                             cout << "Ingrese la descripcion de la nueva categoria: ";
-                            cin >> descricat;
+                            cin.ignore();
+                            getline(cin, descricat);
                             cout << "Ingrese el tipo de la nueva categoria (0)Plataforma, (1)Genero, (2)Otro: ";
                             cin >> tipoca;
                             IVid->agregarCategoria(nombrecat, descricat, tipoca);
