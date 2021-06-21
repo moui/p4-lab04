@@ -903,6 +903,14 @@ int main()
                             try 
                             {
                             set<DtPartidaMultijugador*> datosPartidaMulti = IPar->listarPartidasMultijugadorUnidas();
+                            int c = 0;
+                            for (auto it = datosPartidaMulti.begin(); it != datosPartidaMulti.end(); ++it)
+                            {
+                                DtPartidaMultijugador* data = *it;
+                                cout << *data;
+                                delete data;
+                                cout << c++;
+                            }
                             cout << "Por favor, ingrese el identificador de la partida que desea abandonar:  \n";
                             cin >> partidaMJ;
 
