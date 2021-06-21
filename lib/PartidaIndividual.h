@@ -2,6 +2,7 @@
 #define PARTIDAINDIVIDUAL
 
 #include "Partida.h"
+#include "Videojuego.h"
 #include <set>
 #include "datatypes/DtPartidaIndividual.h"
 

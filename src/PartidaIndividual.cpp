@@ -35,6 +35,17 @@ float PartidaIndividual::darTotalHorasParticipantes()
 }
  DtPartidaIndividual* PartidaIndividual::getDatos()
  {
-     DtPartidaIndividual* datos=NULL;
-     return datos;
+     DtPartidaIndividual* res=NULL;
+
+      int id=this->getId();
+      DtFechaHora* f=this->getFecha();
+      string nomVJ=this->getVideojuego()->getNombreVJ();
+      int* continua= new int [this->getContinuada()->getId()];
+
+	  res= new DtPartidaIndividual(id, f, nomVJ, continua);
+	  if(res!=NULL)
+	  {
+		throw invalid_argument("No hay datos de partida, partidaIndividual.CPP ");
+	  }
+	  return res;
  }
