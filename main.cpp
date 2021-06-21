@@ -883,7 +883,6 @@ int main()
                                 cerr << "Error: " << err.what() << '\n';
                                 cout << Constantes::Separador;
                             }
-                            cout << Constantes::PresentacionFinalizarPartida_Fin;
                             break;
                             ;
 
