@@ -742,8 +742,6 @@ int main()
                             string tipoPartida, continua, nombreVideojuego, confirma;
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
-                            cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
-                            cin >> tipoPartida;
 
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
                             try
@@ -758,6 +756,9 @@ int main()
                                 cout << Constantes::Separador;
                                 break;
                             }
+
+                            cout << "Desea iniciar partida (I)ndividual o (M)ultijugador? " << endl;
+                            cin >> tipoPartida;
 
                             DtPartida* datosPartida;
 
