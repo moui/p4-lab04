@@ -46,7 +46,7 @@ std::ostream& operator<<(std::ostream& os, const DtPartidaMultijugador& dtPartid
 {
     os << "Tipo partida: Multijugador" << endl;
     os << "ID partida: " << static_cast<int>(dtPartidaMulti.identificador) << endl;
-    os << "Fecha partida: " << dtPartidaMulti.fecha << endl;
+    os << "Fecha partida: " << *dtPartidaMulti.fecha << endl;
     os << "Duracion partida: " << static_cast<int>(dtPartidaMulti.duracion) << " hs" << endl;
     if (dtPartidaMulti.transmitidaEnVivo)
         os << "Transmitida en vivo: Si" << endl;
