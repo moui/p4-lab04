@@ -49,7 +49,8 @@ float PartidaMultijugador::darTotalHorasParticipantes()
 
 
 void PartidaMultijugador::setHoraAbandono(DtFechaHora* f, string clave){
-	participan[clave]->setAbandonaEn(f);
+	InfoPartidaMulti* info = participan.find(clave)->second;
+	info->setAbandonaEn(f);
 }
 
 void PartidaMultijugador::forzarAbandono(DtFechaHora* f){

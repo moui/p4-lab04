@@ -903,18 +903,16 @@ int main()
                             try 
                             {
                             set<DtPartidaMultijugador*> datosPartidaMulti = IPar->listarPartidasMultijugadorUnidas();
-                            int c = 0;
                             for (auto it = datosPartidaMulti.begin(); it != datosPartidaMulti.end(); ++it)
                             {
                                 DtPartidaMultijugador* data = *it;
                                 cout << *data;
                                 delete data;
-                                cout << c++;
                             }
                             cout << "Por favor, ingrese el identificador de la partida que desea abandonar:  \n";
                             cin >> partidaMJ;
 
-                            IUsr->ConfirmarAbandonarPartida(partidaMJ);
+                            IPar->ConfirmarAbandonarPartida(partidaMJ);
 
                             }
                             catch (const std::invalid_argument &err)
@@ -1230,7 +1228,7 @@ int main()
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             unidos.insert("ari");
             unidos.insert("ibai");
-            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(05, 06, 2021, 17, 0), NULL,  "Fortnite", true, unidos, 2);
+            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(05, 06, 2021, 17, 0), NULL,  "Fortnite", false, unidos, 0);
             IPar->altaPartida(datosPartidaM);
             IPar->finalizarPartida(new DtFechaHora(05, 06, 2021, 19, 0), 2);
             unidos.clear();
@@ -1240,7 +1238,7 @@ int main()
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             unidos.insert("ari");
             unidos.insert("ibai");
-            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(06, 06, 2021, 17, 0), NULL,  "Fortnite", true, unidos, 2);
+            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(06, 06, 2021, 17, 0), NULL,  "Fortnite", false, unidos, 0);
             IPar->altaPartida(datosPartidaM);
             IPar->finalizarPartida(new DtFechaHora(06, 06, 2021, 19, 0), 4);
             unidos.clear();
@@ -1249,13 +1247,14 @@ int main()
 
             usr = IUsr->iniciarSesion("ari@mail.com", "123");
             unidos.insert("ibai");
-            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(12, 06, 2021, 20, 0), NULL,  "Minecraft", false, unidos, 1);
+            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(12, 06, 2021, 20, 0), NULL,  "Minecraft", false, unidos, 0);
             IPar->altaPartida(datosPartidaM);
             unidos.clear();
             delete usr;
             delete datosPartidaM;
 
             //abandonar partida multijugador
+            /*
             usr = IUsr->iniciarSesion("ari@mail.com", "123");
             d = new DtFechaHora(05, 06, 2021, 18, 0);
             fechaSistema->setFecha(d);
@@ -1263,7 +1262,7 @@ int main()
             d = new DtFechaHora(06, 06, 2021, 17, 30);
             fechaSistema->setFecha(d);
             IUsr->ConfirmarAbandonarPartida(4);
-            delete usr;
+            delete usr;*/
 
 
 

@@ -89,7 +89,6 @@ class CtrlUsuario : public IUsuario
 
         //ABANDONAR PARTIDA MJ
         set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
-        void ConfirmarAbandonarPartida(int partidaMJ);
 
         void removerSuscripciones(string nombrevj);
 

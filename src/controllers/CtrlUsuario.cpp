@@ -335,14 +335,6 @@ set<DtPartidaMultijugador*> CtrlUsuario::listarPartidasMultijugadorUnidas()
     return res;
 }
 
-void CtrlUsuario::ConfirmarAbandonarPartida(int partidaMJ)
-{
-    Usuario* user= CtrlUsuario::getSesionActiva();
-    Jugador * jugador={dynamic_cast<Jugador*>(user)};
-    jugador->ConfirmarAbandonarPartida(partidaMJ);
-    
-}
-
 void CtrlUsuario::removerSuscripciones(string nombrevj){
     manejadorUsuario->removerSuscripciones(nombrevj);
 }

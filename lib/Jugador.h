@@ -70,7 +70,6 @@ class Jugador : public Usuario
 
     //ABANDONA PARTIDA MJ
     set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas();
-    void ConfirmarAbandonarPartida(int partidaMJ);
 
     void removerSuscripcion(string);
 

@@ -152,8 +152,9 @@ set<DtPartidaMultijugador*> CtrlPartida::listarPartidasMultijugadorUnidas()
 	return res;
 }
 
- void CtrlPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
+ void CtrlPartida::ConfirmarAbandonarPartida(int partidaMJ)
  {
+	 string mail = CtrlUsuario::getInstancia()->getSesionActiva()->getMail();
 	 manejadorPartida->ConfirmarAbandonarPartida(mail,partidaMJ);
  }
 

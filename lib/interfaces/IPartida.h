@@ -46,6 +46,8 @@ class IPartida //aca
 
         virtual set<DtPartidaMultijugador*> listarPartidasMultijugadorUnidas() = 0;
 
+        virtual void ConfirmarAbandonarPartida(int id) = 0;
+
 };
 
 #endif
