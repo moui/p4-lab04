@@ -43,7 +43,7 @@ int main()
     {
         cout << "Ingrese codigo de operacion: ";
         cin >> operacion;
-
+        cin.clear();
         switch (operacion)
         {
         case 1:
@@ -609,6 +609,7 @@ int main()
                     {
                         cout << Constantes::IngresarOperacion;
                         cin >> subOperacion;
+                        cin.clear();
                         switch (subOperacion)
                         {
                         case 1:
@@ -979,6 +980,7 @@ int main()
                             // MODIFICAR FECHA DEL SISTEMA
                             cout << Constantes::PresentacionFechaActual << *(fechaSistema->getFecha()) << Constantes::Separador;
                             cout << Constantes::PresentacionModificarFecha_Inicio;
+                            cout << "Fecha actual: " << fechaSistema->getFecha() << endl;
                             DtFechaHora *nuevaFecha = ValidarFechaSistema();
                             while (nuevaFecha == NULL)
                             {

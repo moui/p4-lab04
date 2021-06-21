@@ -10,6 +10,7 @@ PartidaMultijugador::PartidaMultijugador(int id, float duracion, bool finalizada
 
 PartidaMultijugador::~PartidaMultijugador()
 {
+	
 };
 
 // Getters
@@ -61,7 +62,7 @@ void PartidaMultijugador::forzarAbandono(DtFechaHora* f){
       DtPartidaMultijugador* res=NULL;
 
       int id=this->getId();
-      DtFechaHora* f=this->getFecha();
+      DtFechaHora* f=new DtFechaHora(this->getFecha());
       string nomVJ=this->getVideojuego()->getNombreVJ();
 	  bool vivo=this->getTransmitidaEnVivo();
 
