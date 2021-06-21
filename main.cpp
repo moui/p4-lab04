@@ -879,22 +879,27 @@ int main()
                             // FINALIZAR PARTIDA
                             int partidaI;
                             cout << Constantes::PresentacionFinalizarPartida;
-                            try 
-                            {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
-                            cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
-                            cin >> partidaI;                 
-                            IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
-
+                            set<DtPartida*>::iterator itvid;
+                            cout << " Partidas iniciadas sin finalizar: " << endl << endl;
+                            if (partidasIniciadas.empty())
+                                cout << "No existen partidas iniciadas." << endl << endl;
+                            else {
+                                for (itvid = partidasIniciadas.begin(); itvid != partidasIniciadas.end(); ++itvid){
+                                    cout << (*itvid) << endl;
+                                }
+                                cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
+                                cin >> partidaI;
+                                try 
+                                {
+                                    IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
+                                }
+                                catch (const std::invalid_argument &err)
+                                {
+                                    cerr << "Error: " << err.what() << '\n';
+                                    cout << Constantes::Separador;
+                                }
                             }
-                            catch (const std::invalid_argument &err)
-                            {
-                                cerr << "Error: " << err.what() << '\n';
-                                cout << Constantes::Separador;
-                            }
-                            break;
-                            ;
-
                             break;
                         }
                         case 6:
