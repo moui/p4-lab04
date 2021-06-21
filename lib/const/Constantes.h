@@ -35,6 +35,9 @@ class Constantes
         static const string PresentacionAbandonarPartidaMultijugador;
         static const string PresentacionAbandonarPartidaMultijugador_Fin;
 
+        static const string PresentacionFinalizarPartida;
+        static const string PresentacionFinalizarPartida_Fin;
+
         static const string PresentacionSeleccionarEstadisticas;
         static const string PresentacionSeleccionarEstadisticas_Fin;        
         
