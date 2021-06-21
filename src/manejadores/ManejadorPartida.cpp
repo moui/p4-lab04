@@ -64,9 +64,9 @@ void ManejadorPartida::AgregarPartidaMultijugador(int id, PartidaMultijugador* p
 int ManejadorPartida::generarIdPartidaMulti()
 {
 	if (partidasM.empty())
-		return 0;
+		return 2;
 
-	return 2 + static_cast<int>(partidasM.size());
+	return 2*static_cast<int>(partidasM.size());
 }
 
 int ManejadorPartida::generarIdPartidaInd()
@@ -74,7 +74,7 @@ int ManejadorPartida::generarIdPartidaInd()
 	if (partidasI.empty())
 		return 1;
 
-	return 2 + static_cast<int>(partidasI.size()) + 1;
+	return 2*static_cast<int>(partidasI.size()) + 1;
 }
 
 set<DtPartidaMultijugador*> ManejadorPartida::listarPartidasMultijugadorUnidas(string mailJugador)
