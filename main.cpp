@@ -797,6 +797,7 @@ int main()
                                     idContinuacion = -1;
                                     while (!pertenece(partidasInd, idContinuacion))
                                     {
+                                        cout << "Ingrese ID de partida a continuar :";
                                         cin >> idContinuacion;
                                         if (cin.fail())
                                         {
@@ -1252,5 +1253,6 @@ static bool pertenece(set<DtPartidaIndividual*> set, int id)
             return true;  
         }
     }
+    cout << "ID invalido" << endl;
     return false;
 }
