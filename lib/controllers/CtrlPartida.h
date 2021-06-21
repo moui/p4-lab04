@@ -54,7 +54,7 @@ class CtrlPartida : public IPartida
         set<DtPartidaIndividual*> partidasIndFinalizadas(string nombreVideojuego); 
 
         void altaPartida(DtPartida* datosPartida);
-        void finalizarPartida(DtFechaHora f, int id);
+        void finalizarPartida(DtFechaHora* fin, int id);
 
         /*
         void crearPartida(string nombreVJ);
