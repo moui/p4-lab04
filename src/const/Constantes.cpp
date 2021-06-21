@@ -77,14 +77,11 @@ const string Constantes::PresentacionSuscribirse =
 
  const string Constantes::PresentacionFinalizarPartida =
     "                                                                          \n"
-    "                        FINALIZAR PARTIDA INDIVIDUAL                      \n"
+    "                             FINALIZAR PARTIDA                            \n"
     "                                                                          \n"
     ;
 
  const string Constantes::PresentacionFinalizarPartida_Fin =
-    "                                                                          \n"
-    "                        PARTIDA INDIVIDUAL FINALIZADA                     \n"
-    "                                                                          \n"
     "--------------------------------------------------------------------------\n"  
     ;  
 const string Constantes::PresentacionSeleccionarEstadisticas =

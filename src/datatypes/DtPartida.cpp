@@ -57,10 +57,12 @@ DtFechaHora* DtPartida::getFechaFin()
 }
 
 ostream& operator<<(ostream& os, const DtPartida& dtPartida)
+//falta agregar un casteo dinamico para ver que tipo de dt partida es y imprimir segun corresponda
 {
   os << "Tipo partida: Individual" << endl;
   os << "ID partida: " << static_cast<int>(dtPartida.identificador) << endl;
   os << "Fecha inicio partida: " << *(dtPartida.fecha) << endl;
   os << "Videojuego: " << dtPartida.nomVJ << endl;
   return os;
+  //
 }
