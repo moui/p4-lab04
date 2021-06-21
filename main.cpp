@@ -874,8 +874,7 @@ int main()
                             {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
                             cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
-                            cin >> partidaI;
-                            
+                            cin >> partidaI;                 
                             IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
 
                             }
