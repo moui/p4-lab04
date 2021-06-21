@@ -32,7 +32,6 @@ ManejadorPartida* CtrlPartida::getManejadorPatida()
 	return manejadorPartida;
 }
 
-
 // INICIAR PARTIDA
 
 set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideojuego)
