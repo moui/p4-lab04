@@ -1192,6 +1192,7 @@ int main()
             IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
             delete usr;
             
+            //cargar partidas individuales
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             DtPartidaIndividual* datosPartida = new DtPartidaIndividual(0, 0, new DtFechaHora(02, 06, 2021, 9, 0), NULL,  "KingdomRush", NULL);
             IPar->altaPartida(datosPartida);
@@ -1211,6 +1212,39 @@ int main()
             IPar->altaPartida(datosPartida);
             delete usr;
             delete datosPartida;
+
+            //cargar partidas multijugador
+
+            set<string> unidos;
+            DtPartidaMultijugador* datosPartidaM;
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            unidos.insert("ari");
+            unidos.insert("ibai");
+            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(05, 06, 2021, 17, 0), NULL,  "Fortnite", true, unidos, 2);
+            IPar->altaPartida(datosPartidaM);
+            IPar->finalizarPartida(new DtFechaHora(05, 06, 2021, 19, 0), 0);
+            unidos.clear();
+            delete usr;
+            delete datosPartidaM;
+
+
+            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            unidos.insert("ari");
+            unidos.insert("ibai");
+            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(06, 06, 2021, 17, 0), NULL,  "Fortnite", true, unidos, 2);
+            IPar->altaPartida(datosPartidaM);
+            IPar->finalizarPartida(new DtFechaHora(06, 06, 2021, 19, 0), 2);
+            unidos.clear();
+            delete usr;
+            delete datosPartidaM;
+
+            usr = IUsr->iniciarSesion("ari@mail.com", "123");
+            unidos.insert("ibai");
+            datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(12, 06, 2021, 20, 0), NULL,  "Minecraft", false, unidos, 1);
+            IPar->altaPartida(datosPartidaM);
+            unidos.clear();
+            delete usr;
+            delete datosPartidaM;
 
             d = new DtFechaHora(21, 06, 2021, 18, 0);
             fechaSistema->setFecha(d);
