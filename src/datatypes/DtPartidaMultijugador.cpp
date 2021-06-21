@@ -9,6 +9,12 @@ DtPartidaMultijugador::DtPartidaMultijugador(int id, float duracion, DtFechaHora
     nicknameJugadoresUnidos = jugadoresUnidos;
     cantidadJugadoresUnidos = cantidadUnidos;
 }
+DtPartidaMultijugador::DtPartidaMultijugador(int id, DtFechaHora* fecha, string n,
+    bool enVivo, set<string> jugadoresUnidos): DtPartida::DtPartida(id, fecha, n)
+{
+    transmitidaEnVivo = enVivo;
+    nicknameJugadoresUnidos = jugadoresUnidos;
+}
 
 // Destructor
 DtPartidaMultijugador::~DtPartidaMultijugador()

@@ -191,3 +191,30 @@ void Jugador::removerSuscripcion(string nombrevj){
     }
   }
 }
+
+//FINALIZAR PARTIDA
+
+  set<DtPartida*> Jugador::listaPartidasIniciadasSinFinalizar()
+  {
+    set<DtPartida*> res;
+    if(inicio.empty())
+    {
+      throw invalid_argument("No hay partidas iniciadas. ");
+    } else 
+    {
+      auto it=inicio.begin();
+      for (it=inicio.begin(); it!=inicio.end(); it++)
+      {
+        if(!(it->second->getFinalizada()))
+        {
+        DtPartida* datospartida= it->second->getDatos();
+        res.insert(datospartida);
+        }
+      } 
+    }
+    if (res.empty())
+    {
+      throw invalid_argument("Las partidas no devolvieron datos. ");
+    }
+    return res;
+  }

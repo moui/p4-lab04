@@ -3,6 +3,7 @@
 
 #include "Partida.h"
 #include <set>
+#include "datatypes/DtPartidaIndividual.h"
 
 class PartidaIndividual : public Partida
 {
@@ -22,6 +23,8 @@ class PartidaIndividual : public Partida
 
     // Setters
     void setContinuacion(PartidaIndividual* partida);
+
+    DtPartidaIndividual* getDatos();
 
 
 

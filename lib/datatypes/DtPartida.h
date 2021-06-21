@@ -15,6 +15,7 @@ class DtPartida
     public:
         // Constructor y destructor
         DtPartida(int id, float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin, string n);
+        DtPartida(int id, DtFechaHora* fecha, string n);
         virtual ~DtPartida();
 
         virtual void abstracta() = 0; // Funcion virtual pura => DtPartida es abstracta

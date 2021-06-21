@@ -9,6 +9,13 @@ DtPartida::DtPartida(int id, float duracion, DtFechaHora* fecha, DtFechaHora* fe
   this->nomVJ=n;
   return;
 }
+DtPartida::DtPartida(int id, DtFechaHora* fecha, string n)
+{
+  this->identificador = id;
+  this->fecha = fecha;
+  this->nomVJ=n;
+  return;
+}
 
 DtPartida::~DtPartida()
 {

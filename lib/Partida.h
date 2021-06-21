@@ -2,6 +2,7 @@
 #define PARTIDA
 
 #include "datatypes/DtFechaHora.h"
+#include "datatypes/DtPartida.h"
 #include <set>
 
 class Jugador;
@@ -40,6 +41,8 @@ class Partida
     DtFechaHora* getFecha();
     DtFechaHora* getFechaFin();
     Videojuego* getVideojuego();   
+
+    virtual DtPartida* getDatos()=0;
 };
 
 #endif
