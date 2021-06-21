@@ -26,7 +26,7 @@ ManejadorPartida::~ManejadorPartida()
     }
     partidasI.clear();
 
-	for (itPM = partidasM.begin(); itPM != partidasM.end(); ++itPI)
+	for (itPM = partidasM.begin(); itPM != partidasM.end(); ++itPM)
     {
         if (itPM->second != NULL)
             delete itPM->second;
