@@ -608,7 +608,8 @@ int main()
                              cout << Constantes::Separador;
                              string nomVJ;                            
                              cout << "Seleccione un Videojuego para suscribirse: \n";
-                             cin >> nomVJ;
+                             cin.ignore();
+                             getline(cin, nomVJ);
                              TipoEstado estado=IUsr->JuegoSuscribirse(nomVJ);                           
 
                              switch(estado)
