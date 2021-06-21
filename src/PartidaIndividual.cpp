@@ -40,10 +40,10 @@ float PartidaIndividual::darTotalHorasParticipantes()
       int id=this->getId();
       DtFechaHora* f=this->getFecha();
       string nomVJ=this->getVideojuego()->getNombreVJ();
-      int* continua= new int [this->getContinuada()->getId()];
+      int* continua = new int(id);
 
 	  res= new DtPartidaIndividual(id, f, nomVJ, continua);
-	  if(res!=NULL)
+	  if(res==NULL)
 	  {
 		throw invalid_argument("No hay datos de partida, partidaIndividual.CPP ");
 	  }
