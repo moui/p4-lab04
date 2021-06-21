@@ -22,9 +22,11 @@ class DtPartida
         // Getters
         string getNombreVJ();
         int getId();
-        float getDuracion();
+        float getDuracion() const;
         DtFechaHora* getFecha();
         DtFechaHora* getFechaFin();
+
+        friend  ostream& operator<<(ostream& os, const DtPartida& dtPartida);
 };
 
 #endif

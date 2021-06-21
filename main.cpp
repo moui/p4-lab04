@@ -889,7 +889,7 @@ int main()
                                 cout << "No existen partidas iniciadas." << endl << endl;
                             else {
                                 for (itvid = partidasIniciadas.begin(); itvid != partidasIniciadas.end(); ++itvid){
-                                    cout << (*itvid) << endl;
+                                    cout << *(*itvid) << endl;
                                 }
                                 cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
                                 cin >> partidaI;
