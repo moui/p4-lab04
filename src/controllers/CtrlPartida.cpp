@@ -71,7 +71,7 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 				continuacion = new int(partidaInd->getContinuada()->getId());
 
 			partidas.insert(new DtPartidaIndividual(partidaInd->getId(), partidaInd->getDuracion(),
-				partidaInd->getFecha(), partidaInd->getFechaFin(), nombreVid, continuacion)
+				new DtFechaHora(partidaInd->getFecha()), new DtFechaHora(partidaInd->getFechaFin()), nombreVid, continuacion)
 				);
 		}
 	}

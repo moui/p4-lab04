@@ -38,10 +38,16 @@ float PartidaIndividual::darTotalHorasParticipantes()
       DtPartidaIndividual* res=NULL;
 
       int id=this->getId();
-      DtFechaHora* f=this->getFecha();
+      DtFechaHora* f= new DtFechaHora(this->getFecha());
       string nomVJ=this->getVideojuego()->getNombreVJ();
-      int* continua = new int(id);
-      DtFechaHora* f_fin = this->getFechaFin();
+      int* continua = NULL;
+      if (this->getContinuada() != NULL)
+        continua = new int(this->getContinuada()->getId());
+      DtFechaHora* f_fin;
+      if (this->getFechaFin() == NULL)
+        f_fin = NULL;
+      else
+        f_fin = new DtFechaHora(this->getFechaFin());
 
 	  res = new DtPartidaIndividual(id, 0, f, f_fin, nomVJ, continua);
 	  if(res==NULL)

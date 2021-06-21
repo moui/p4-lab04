@@ -14,6 +14,8 @@ DtPartida::DtPartida(int id, DtFechaHora* fecha, string n)
   this->identificador = id;
   this->fecha = fecha;
   this->nomVJ=n;
+  fecha_fin = NULL;
+  duracion = 0;
   return;
 }
 
@@ -21,6 +23,9 @@ DtPartida::~DtPartida()
 {
   if (fecha != NULL)
     delete fecha;
+
+  if (fecha_fin != NULL)
+    delete fecha_fin;
 }
 
 // Getters
