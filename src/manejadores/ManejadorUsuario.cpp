@@ -113,6 +113,7 @@ Jugador* ManejadorUsuario::buscarJugadorPorNickname(string nickname)
 {
     if (jugadores.empty())
         throw invalid_argument("No existen jugadores");
+    itj = jugadores.begin();
     while ( itj != jugadores.end())
     {
         if ( itj->second->getNickname() == nickname )
