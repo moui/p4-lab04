@@ -444,7 +444,8 @@ int main()
                                 cout << *(*itvid) << endl;
                             }
                             cout << "Ingrese nombre de videojuego a eliminar: ";
-                            cin >> vjelim;
+                            cin.ignore();
+                            getline(cin, vjelim);
                             IVid->videojuegoAEliminar(vjelim);
                             cout << "Desea (E)liminar o (C)ancelar? ";
                             cin >> conf;
