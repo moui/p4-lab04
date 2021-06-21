@@ -71,7 +71,8 @@ int main()
             case 'D':
             {
                 cout << "Ingrese empresa: ";
-                cin >> empresa;
+                cin.ignore();
+                getline(cin, empresa);
                 //alta desarrollador
                 try
                 {
@@ -239,9 +240,11 @@ int main()
                                 cout << *(*itcat) << endl;
                             }
                             cout << "Ingrese el nombre de la nueva categoria: ";
-                            cin >> nombrecat;
+                            cin.ignore();
+                            getline(cin, nombrecat);
                             cout << "Ingrese la descripcion de la nueva categoria: ";
-                            cin >> descricat;
+                            cin.ignore();
+                            getline(cin, descricat);
                             cout << "Ingrese el tipo de la nueva categoria (0)Plataforma, (1)Genero, (2)Otro: ";
                             cin >> tipoca;
                             IVid->agregarCategoria(nombrecat, descricat, tipoca);
@@ -441,7 +444,8 @@ int main()
                                 cout << *(*itvid) << endl;
                             }
                             cout << "Ingrese nombre de videojuego a eliminar: ";
-                            cin >> vjelim;
+                            cin.ignore();
+                            getline(cin, vjelim);
                             IVid->videojuegoAEliminar(vjelim);
                             cout << "Desea (E)liminar o (C)ancelar? ";
                             cin >> conf;
