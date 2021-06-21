@@ -121,8 +121,15 @@ void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 }
 
 float ManejadorPartida::calculaTotalHorasJugadasMulti(int id){
-	float ret;
+	float ret = 0;
+	if(this->getPM(id)->getFinalizada())
+		ret = ret + this->getPM(id)->getDuracion();
 	map<string, InfoPartidaMulti*> participantes = this->getPM(id)->getParticipan();
-
+	map<string, InfoPartidaMulti*>::iterator itpar;
+	for (itpar = participantes.begin(); itpar != participantes.end(); itpar++)
+	{
+		if (itpar->second->getAbandonaEn() != NULL ) 
+			ret = ret + ((DtFechaHora::Dias(new DtFechaHora(itpar->second->getAbandonaEn()), this->getPM(id)->getFecha())) * 24);
+	 	}
 	return ret;
 }
