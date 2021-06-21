@@ -14,10 +14,11 @@ class Partida
     float duracion;
     bool finalizada;
     DtFechaHora* fecha;
+    DtFechaHora* fecha_fin;
     Videojuego* tiene;
 
   public:
-    Partida(int id, float duracion, bool finalizada, DtFechaHora* fecha, Videojuego* videojuego);
+    Partida(int id, float duracion, bool finalizada, DtFechaHora* fecha, DtFechaHora* fecha_fin, Videojuego* videojuego);
 
     virtual ~Partida();
     virtual float darTotalHorasParticipantes() = 0; // Partida es una clase abstracta
@@ -27,6 +28,7 @@ class Partida
     void setDuracion(float duracion);
     void setFinalizada(bool finalizada);
     void setFecha(DtFechaHora* fecha);
+    void setFechaFin(DtFechaHora* fecha_fin);
     void setVideojuego(Videojuego* videojuego);
     void cambiarEstado();
 
@@ -36,8 +38,8 @@ class Partida
     float getDuracion();
     bool getFinalizada();
     DtFechaHora* getFecha();
-    Videojuego* getVideojuego();
-    
+    DtFechaHora* getFechaFin();
+    Videojuego* getVideojuego();   
 };
 
 #endif
