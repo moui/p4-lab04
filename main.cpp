@@ -1109,6 +1109,8 @@ int main()
             IVid->confirma_publicarVideojuego();
             delete usr;
 
+            //carga suscripciones 
+            
             DtFechaHora* d = new DtFechaHora(01, 06, 2021, 9, 0);
             fechaSistema->setFecha(d);
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
@@ -1163,7 +1165,7 @@ int main()
             IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
             delete usr;
 
-            usr = IUsr->iniciarSesion("gamer@mail.com", "123");
+            usr = IUsr->iniciarSesion("ari@mail.com", "123");
             IVid->asignarPuntajeVideojuego("Minecraft", TipoPuntaje::tres);
             IVid->asignarPuntajeVideojuego("Fortnite", TipoPuntaje::cinco);
             delete usr;
