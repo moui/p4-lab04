@@ -1224,18 +1224,17 @@ int main()
             unidos.insert("ibai");
             datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(05, 06, 2021, 17, 0), NULL,  "Fortnite", true, unidos, 2);
             IPar->altaPartida(datosPartidaM);
-            IPar->finalizarPartida(new DtFechaHora(05, 06, 2021, 19, 0), 0);
+            IPar->finalizarPartida(new DtFechaHora(05, 06, 2021, 19, 0), 2);
             unidos.clear();
             delete usr;
             delete datosPartidaM;
-
 
             usr = IUsr->iniciarSesion("gamer@mail.com", "123");
             unidos.insert("ari");
             unidos.insert("ibai");
             datosPartidaM = new DtPartidaMultijugador(0, 0, new DtFechaHora(06, 06, 2021, 17, 0), NULL,  "Fortnite", true, unidos, 2);
             IPar->altaPartida(datosPartidaM);
-            IPar->finalizarPartida(new DtFechaHora(06, 06, 2021, 19, 0), 2);
+            IPar->finalizarPartida(new DtFechaHora(06, 06, 2021, 19, 0), 4);
             unidos.clear();
             delete usr;
             delete datosPartidaM;

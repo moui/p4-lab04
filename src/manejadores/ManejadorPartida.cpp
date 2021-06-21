@@ -66,7 +66,7 @@ int ManejadorPartida::generarIdPartidaMulti()
 	if (partidasM.empty())
 		return 2;
 
-	return 2*static_cast<int>(partidasM.size());
+	return 4*static_cast<int>(partidasM.size());
 }
 
 int ManejadorPartida::generarIdPartidaInd()
