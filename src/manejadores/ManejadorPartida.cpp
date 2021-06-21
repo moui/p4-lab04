@@ -102,14 +102,15 @@ void ManejadorPartida::ConfirmarAbandonarPartida(string mail, int partidaMJ)
  
 void ManejadorPartida::finalizarPartida(DtFechaHora* fecha_fin, int id){
 	if ( partidasI.find(id) != partidasI.end() ){
-		this->getPI(id)->setFechaFin(fecha_fin);
+		this->getPI(id)->setFechaFin(new DtFechaHora(fecha_fin));
 		this->getPI(id)->setFinalizada(true);
 		this->getPI(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPI(id)->getFecha()) * 24);
 		this->getPI(id)->getVideojuego()->setTotalHorasJugadas(this->getPI(id)->getDuracion());
 	}
 	else if ( partidasM.find(id) != partidasM.end() ){
-		this->getPM(id)->setFechaFin(fecha_fin);
+		this->getPM(id)->setFechaFin(new DtFechaHora(fecha_fin));
 		this->getPM(id)->setFinalizada(true);
+		this->getPM(id)->abandonarTodos(new DtFechaHora(fecha_fin));
 		this->getPM(id)->setDuracion(DtFechaHora::Dias(fecha_fin, this->getPM(id)->getFecha()) * 24);
 		this->getPM(id)->getVideojuego()->setTotalHorasJugadas(calculaTotalHorasJugadasMulti(id));
 	}
