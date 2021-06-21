@@ -530,7 +530,8 @@ int main()
                                     cout << "||" << (*i) << "|| \n";
                                 }
                                 cout << "Por favor, seleccione el juego para consultar estadisticas. \n";
-                                cin >> nomVJ;
+                                cin.ignore();
+                                getline(cin, nomVJ);
                                 set<DtEstadistica*> stats= IUsr->ConsultarEstadisticas(nomVJ);
                             }
                             catch (const std::invalid_argument &err)
@@ -755,7 +756,8 @@ int main()
                             int idContinuacion;
                             // Pedir nombre videojuego
                             cout << "Seleccione videojuego indicando su nombre" << endl;
-                            cin >> nombreVideojuego;
+                            cin.ignore();
+                            getline(cin, nombreVideojuego);
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
                             try
                             {
@@ -880,22 +882,27 @@ int main()
                             // FINALIZAR PARTIDA
                             int partidaI;
                             cout << Constantes::PresentacionFinalizarPartida;
-                            try 
-                            {
                             set<DtPartida*> partidasIniciadas= IPar->listaPartidasIniciadasSinFinalizar();
-                            cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
-                            cin >> partidaI;                 
-                            IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
-
+                            set<DtPartida*>::iterator itvid;
+                            cout << " Partidas iniciadas sin finalizar: " << endl << endl;
+                            if (partidasIniciadas.empty())
+                                cout << "No existen partidas iniciadas." << endl << endl;
+                            else {
+                                for (itvid = partidasIniciadas.begin(); itvid != partidasIniciadas.end(); ++itvid){
+                                    cout << (*itvid) << endl;
+                                }
+                                cout << "Por favor, ingrese el identificador de la partida que desea finalizar:  \n";
+                                cin >> partidaI;
+                                try 
+                                {
+                                    IPar->finalizarPartida(new DtFechaHora(fechaSistema->getFecha()), partidaI);
+                                }
+                                catch (const std::invalid_argument &err)
+                                {
+                                    cerr << "Error: " << err.what() << '\n';
+                                    cout << Constantes::Separador;
+                                }
                             }
-                            catch (const std::invalid_argument &err)
-                            {
-                                cerr << "Error: " << err.what() << '\n';
-                                cout << Constantes::Separador;
-                            }
-                            break;
-                            ;
-
                             break;
                         }
                         case 6:
