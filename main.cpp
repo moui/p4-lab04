@@ -727,7 +727,6 @@ int main()
                         }
                         case 3:
                         {
-                            
                             // INICIAR PARTIDA
                             cout << Constantes::PresentacionIniciarPartida;
                               // Listar videojuegos con suscripciones activas.
@@ -742,7 +741,6 @@ int main()
                             string tipoPartida, continua, nombreVideojuego, confirma;
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
-
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
                             try
                             {
@@ -818,9 +816,6 @@ int main()
                                 IPar->altaPartida(datosPartida);
                                 cout << "Alta partida exitosa" << endl;
                             }
-
-                                
-
                             // Limpiar memoria
                             delete datosPartida;
                             cout << Constantes::Separador;
