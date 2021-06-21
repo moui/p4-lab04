@@ -24,6 +24,9 @@ using namespace std;
 // Recibe y parsea string a DtFechaHora. Si el formato ingresado es invalido devuelve NULL.
 static DtFechaHora *ValidarFechaSistema();
 
+// Retorna true solo si 'id' ocurre en set
+static bool pertenece(set<DtPartidaIndividual*> set, int id);
+
 int main()
 {
     FechaSistema *fechaSistema = FechaSistema::getInstancia();
@@ -736,11 +739,12 @@ int main()
                             {
                                 DtVideojuegoSuscripcion* infoVideojuego = *it;
                                 cout << "Nombre videojuego: " << infoVideojuego->getNombreVideojuego() << endl << endl;
+                                delete infoVideojuego;
                             }
-
+                            // Declaraciones
                             string tipoPartida, continua, nombreVideojuego, confirma;
                             int idContinuacion;
-
+                            // Pedir nombre videojuego
                             cout << "Seleccione videojuego indicando su nombre" << endl;
                             cin >> nombreVideojuego;
                             // Checkear que tenga suscripcion activa para el videojuego ingresado
@@ -772,26 +776,36 @@ int main()
                                 {
                                     // Lista partidas individuales ya finalizadas.
                                     // por orden cronologico. Mostrar ID, Fecha y Duracion
-                                    cout << endl << "PARTIDAS INDIVIDUALES FINALIZADAS" << endl;
                                     auto partidasInd = IPar->partidasIndFinalizadas(nombreVideojuego);
+                                    if (partidasInd.empty())
+                                    {
+                                        cout << "No existen partidas a continuar." << endl << Constantes::Separador;
+                                        break;
+                                    }
+                                    cout << endl << "PARTIDAS INDIVIDUALES FINALIZADAS" << endl;
                                     for (auto it = partidasInd.begin(); it != partidasInd.end(); ++it)
                                     {
                                         DtPartidaIndividual* dataPartida = *it;
                                         cout << *dataPartida;
-                                        delete dataPartida;
                                     }
                                     // Ingresar ID de partida a continuar.
-                                    cin >> idContinuacion;
-                                    if (cin.fail())
+                                    idContinuacion = -1;
+                                    while (!pertenece(partidasInd, idContinuacion))
                                     {
-                                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                                        cin.clear();
-                                        cout << "Parametro invalido." << endl;
-                                        break;
+                                        cin >> idContinuacion;
+                                        if (cin.fail())
+                                        {
+                                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                            cin.clear();
+                                            idContinuacion = -1;
+                                        }   
                                     }
+                                    // Liberar memoria datatypes
+                                    for (auto it = partidasInd.begin(); it != partidasInd.end(); ++it)
+                                        delete *it;
+
                                     DtFechaHora* fechaInicio = new DtFechaHora(FechaSistema::getInstancia()->getFecha());
                                     datosPartida = new DtPartidaIndividual(0, 0, fechaInicio, NULL,  nombreVideojuego, new int(idContinuacion));
-                                    // Alta partida.
                                 }
                                 else if (continua == "N")
                                 {
@@ -800,7 +814,7 @@ int main()
                                 }
                                 else 
                                 {
-                                    cout << "Parametro invalido." << endl;
+                                    cout << "Parametro invalido." << endl << Constantes::Separador;
                                     break;
                                 }
                             }
@@ -814,11 +828,9 @@ int main()
                             else
                             {
                                 // Invalid read.
-                                cout << "Parametro invalido." << endl;
+                                cout << "Parametro invalido." << endl << Constantes::Separador;
                                 break;
-
                             }
-
                             // CONFIRMAR ALTA
                             cout << "Confirma alta partida? (Y/N) " << endl;
                             cin >> confirma;
@@ -1209,4 +1221,19 @@ static DtFechaHora *ValidarFechaSistema()
     }
 
     return new DtFechaHora(DD, MM, AAAA, HH, mm);
+}
+
+static bool pertenece(set<DtPartidaIndividual*> set, int id)
+{
+    if (id == -1)
+        return false;
+    for (auto it = set.begin(); it != set.end(); ++it)
+    {
+        DtPartidaIndividual* partida = *it;
+        if (partida->getId() == id)
+        {
+            return true;  
+        }
+    }
+    return false;
 }

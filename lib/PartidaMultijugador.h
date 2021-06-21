@@ -3,8 +3,11 @@
 
 #include "Partida.h"
 #include "InfoPartidaMulti.h"
+#include "Jugador.h"
+#include "datatypes/DtPartidaMultijugador.h"
 
 #include <string>
+#include <iostream>
 #include <map>
 
 using namespace std;
@@ -38,5 +41,10 @@ class PartidaMultijugador : public Partida
         float darTotalHorasParticipantes();
 	    void setHoraAbandono(DtFechaHora f, string clave);
 	    void forzarAbandono(DtFechaHora f);        
+
+        //FINALIZAR PARTIDA
+
+    DtPartidaMultijugador* getDatos();
+  
 };
 #endif

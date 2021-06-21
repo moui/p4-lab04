@@ -19,6 +19,7 @@ class DtPartidaMultijugador : public DtPartida
         // Constructor
         DtPartidaMultijugador(int id, float duracion, DtFechaHora* fecha, DtFechaHora* fecha_fin, string n,
             bool enVivo, set<string> jugadoresUnidos, int cantidadUnidos);
+            DtPartidaMultijugador(int id, DtFechaHora* fecha, string n, bool vivo, set<string> jugadotesUnidos);
         // Destructor
         ~DtPartidaMultijugador();
         // Funcion pura de DtPartida

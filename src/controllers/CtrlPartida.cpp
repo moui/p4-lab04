@@ -69,7 +69,7 @@ set<DtPartidaIndividual*> CtrlPartida::partidasIndFinalizadas(string nombreVideo
 				continuacion = NULL;
 			else
 				continuacion = new int(partidaInd->getContinuada()->getId());
-				
+
 			partidas.insert(new DtPartidaIndividual(partidaInd->getId(), partidaInd->getDuracion(),
 				partidaInd->getFecha(), NULL, nombreVid, continuacion)
 				);
@@ -88,17 +88,25 @@ void CtrlPartida::altaPartida(DtPartida* datosPartida)
 	{
 		// ALTA PARTIDA INDIVIDUAL
 		auto datosPartidaInd = dynamic_cast<DtPartidaIndividual*>(datosPartida);
-		if (datosPartidaInd->getContinuacion())
+		if (datosPartidaInd->getContinuacion() != NULL)
 		{
 			// CONTINUA PARTIDA ANTERIOR
+			int id = manejadorPartida->getTotalPartidasInd();
+			Videojuego* videojuego = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
+			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
+			PartidaIndividual* continua = manejadorPartida->getPI(*datosPartidaInd->getContinuacion());
+			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, continua);
+			// Actualizar colecciones
+			partidasJugador.insert(pair<int, Partida*>(id, partida));
+			manejadorPartida->AgregarPartidaIndividual(id, partida);
 		}
 		else
 		{
 			// NO CONTINUA PARTIDA ANTERIOR
 			int id = manejadorPartida->getTotalPartidasInd();
-			Videojuego* videojueo = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
+			Videojuego* videojuego = CtrlVideojuego::getCtrlVideojuego()->getVJ(datosPartidaInd->getNombreVJ());
 			DtFechaHora* fechaInicio = new DtFechaHora(datosPartidaInd->getFecha());
-			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojueo, NULL);
+			PartidaIndividual* partida = new PartidaIndividual(id, 0, false, fechaInicio, NULL, videojuego, NULL);
 			// Actualizar colecciones
 			partidasJugador.insert(pair<int, Partida*>(id, partida));
 			manejadorPartida->AgregarPartidaIndividual(id, partida);
