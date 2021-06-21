@@ -530,7 +530,8 @@ int main()
                                     cout << "||" << (*i) << "|| \n";
                                 }
                                 cout << "Por favor, seleccione el juego para consultar estadisticas. \n";
-                                cin >> nomVJ;
+                                cin.ignore();
+                                getline(cin, nomVJ);
                                 set<DtEstadistica*> stats= IUsr->ConsultarEstadisticas(nomVJ);
                             }
                             catch (const std::invalid_argument &err)
